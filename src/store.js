@@ -3,19 +3,19 @@ import * as R from 'ramda'
 const ExampleClasses = [
   {
     title: 'Aula 1 - Primeira Aula',
-    thumb: '/img/foto1.jpg',
+    image: '/img/temp-1.jpg',
     embed_url: 'https://youtu.be/bXs_c3WOnl4',
     text: 'Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.'
   },
   {
     title: 'Aula 2 - Segunda Aula',
-    thumb: '/img/foto2.jpg',
+    image: '/img/temp-2.jpg',
     embed_url: 'https://youtu.be/bXs_c3WOnl4',
     text: 'Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.'
   },
   {
     title: 'Aula 3 - Terceira Aula',
-    thumb: '/img/foto3.jpg',
+    image: '/img/temp-3.jpg',
     embed_url: 'https://youtu.be/bXs_c3WOnl4',
     text: 'Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.'
   }
@@ -26,41 +26,61 @@ const ExampleModules = [
   {
     id: 'viola',
     title: 'Viola',
+    image: '/img/temp-7.jpg',
     text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
     classes: R.clone(ExampleClasses) 
   },
   {
     id: 'violino',
     title: 'Violino',
+    image: '/img/temp-8.jpg',
     text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
     classes: R.clone(ExampleClasses) 
   },
   {
     id: 'violoncelo',
     title: 'Violoncelo',
+    image: '/img/temp-9.jpg',
     text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
     classes: R.clone(ExampleClasses) 
   },
   {
     id: 'clarinete',
     title: 'Clarinete',
+    image: '/img/temp-10.jpg',
+    text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
+    classes: R.clone(ExampleClasses) 
+  },
+  {
+    id: 'fagote',
+    title: 'Fagote',
+    image: '/img/temp-11.jpg',
     text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
     classes: R.clone(ExampleClasses) 
   },
 ]
 
 export default {
+  landing: {
+    slides: [
+      '/img/temp-1.jpg',
+      '/img/temp-2.jpg',
+      '/img/temp-3.jpg'
+    ]
+  },
   cursos: [
     {
       id: 'pedagogiadascordas',
       title: 'Pedagogia das Cordas',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur maximus massa. Suspendisse egestas eleifend purus, eget faucibus magna vulputate vel. Aenean ligula lorem, imperdiet ac turpis id, aliquam vestibulum velit. Donec nec efficitur tortor. Aenean lacinia ornare dui non tempor. Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
+      color: '#8bc73b',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur maximus massa. Suspendisse egestas eleifend purus, eget faucibus magna vulputate vel. ',
       modules: R.clone(ExampleModules)
     },
     {
       id: 'projetoespiral',
       title: 'Projeto Espiral',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur maximus massa. Suspendisse egestas eleifend purus, eget faucibus magna vulputate vel. Aenean ligula lorem, imperdiet ac turpis id, aliquam vestibulum velit. Donec nec efficitur tortor. Aenean lacinia ornare dui non tempor. Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
+      color: '#3568fb',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce consectetur maximus massa. Suspendisse egestas eleifend purus, eget faucibus magna vulputate vel. Aenean ligula lorem, imperdiet ac turpis id, aliquam vestibulum velit. Donec nec efficitur tortor. Aenean lacinia ornare dui non tempor. ',
       modules: R.clone(ExampleModules)
     }
   ],

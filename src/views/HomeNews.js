@@ -4,7 +4,10 @@ import store from '../store'
 function HomeNews() {
   return (
     <section className="home-news full-section">
-      news section
+      <div className="cols">
+        <div className="col agenda">agenda</div>
+        <div className="col noticias">noticias</div>
+      </div>
     </section>
   );
 }

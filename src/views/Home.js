@@ -12,9 +12,9 @@ function Home() {
       <HomeLanding />
       <HomeNews />
       {store.cursos.map((data,i) =>{
-        return <HomeCurso data={data} />
+        return <HomeCurso id={data.id} key={`home-curso-${data.id}`} data={data} />
       })}
-      <HomeOrquestras />
+      <HomeOrquestras id="eorquestras" />
       <Footer />
     </div>
   );

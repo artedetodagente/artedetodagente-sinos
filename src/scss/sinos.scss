@@ -2,10 +2,160 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-html, body, #root, .Home, .full-section {
+/* VARS */
+
+$red: #d4423b;
+$green: #8bc73b;
+$blue: #3568fb;
+$yellow: #ffa92e;
+
+/* UTIL */
+
+.bg-r { color: #fff; background-color: $red; }
+.bg-g { color: #fff; background-color: $green; }
+.bg-b { color: #fff; background-color: $blue; }
+.bg-y { color: #fff; background-color: $yellow; }
+
+/* BASE */
+
+html, body, #root, .Home {
   height: 100%;
+}
+
+body {
+  background-color: $red;
+  color: #333;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .full-section {
   overflow: hidden;
+  min-height: 80vh;
+  height: 1px;
+  @screen md {
+    @apply h-full;
+  }
+}
+
+
+/* HOME LANDING */
+
+@import "cover-slideshow";
+
+.home-landing {
+  .content {
+    @apply ml-20 mt-20;
+    position: relative;
+    z-index: 1;
+    width: 240px;
+    .logo {
+      @apply p-5 bg-white mb-4;
+    }
+    .menu {
+      @apply p-5;
+      li {
+        list-style-type: none;
+        margin: 0 0 0.25em;
+        padding: 0;
+        text-transform: uppercase;
+        a {
+          &:hover {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* HOME NEWS */
+
+.home-news {
+  @apply pt-32;
+  .cols {
+    @apply flex flex-col h-full pt-10;
+    @screen md {
+      @apply flex-row;
+    }
+    .col {
+      @apply h-full;
+      @screen md {
+        @apply w-1/2;
+      }
+      &.agenda {
+        @apply bg-white;
+      }
+    }
+  }
+}
+
+
+/* HOME CURSOS */
+
+.home-curso {
+
+  position: relative;
+
+  .curso-swiper {
+    @apply mt-16;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  .swiper-container, .swiper-wrapper, .swiper-slide {
+    height: 100%;
+  }
+  .curso-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+  .curso-info {
+    @apply ml-20 mt-8;
+    position: relative;
+    z-index: 1;
+
+    .header {
+      @apply flex mb-2;
+      .title {
+        @apply bg-black px-2 text-4xl;
+        color: #fff;
+        text-transform: uppercase;
+        width: 360px;
+      }
+      .dropdown {
+        @apply bg-white px-2 text-4xl;
+        text-transform: uppercase;
+      }
+    }
+
+    .content {
+      @apply flex mb-2 items-start;
+      .text, .counter {
+        @apply bg-white px-4 py-2 mr-2;
+      }
+      .text {
+        width: 360px;
+      }
+    }
+
+    .acessar {
+      @apply px-4 py-2;
+      @extend .bg-r;
+      width: 300px;
+      text-align: right;
+    }
+  }
+}
+
+
+/* FOOTER */
+
+.footer {
+  @apply p-5;
+  background-color: #cfcfcf;
 }
