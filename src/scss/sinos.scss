@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html, body, #root, .Home, .full-section {
+  height: 100%;
+}
+
+.full-section {
+  overflow: hidden;
+}
