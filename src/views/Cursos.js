@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import * as R from 'ramda'
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   useParams,
@@ -19,10 +18,7 @@ function Cursos() {
   const {id} = useParams()
   const programa = R.find(R.propEq('id', id), store.cursos)
 
-  let { path, url } = useRouteMatch()
-
-  // <YouThumb link="true" />
-  // <YouThumb url="https://www.youtube.com/watch?v=ZAllPgaXD6U" />
+  let { path } = useRouteMatch()
 
   return (
     <PageDefault title={programa.title}>
