@@ -1,4 +1,5 @@
 import React from 'react'
+import { HashLink as Link } from 'react-router-hash-link'
 
 function Footer(props) {
 
@@ -20,16 +21,36 @@ function Footer(props) {
         <div className="spacer md:flex-grow"></div>
         <div className="footer-col">
           <h3>Institucional</h3>
+          <nav>
+            <li><Link to="/">Link 1</Link></li>
+            <li><Link to="/">Link 2</Link></li>
+            <li><Link to="/">Link 3</Link></li>
+          </nav>
         </div>
         <div className="footer-col">
           <h3>Acesso</h3>
+          <nav>
+            <li><Link to="/">Link 1</Link></li>
+            <li><Link to="/">Link 2</Link></li>
+            <li><Link to="/">Link 3</Link></li>
+          </nav>
         </div>
         <div className="footer-col">
           <h3>Contatos</h3>
+          <nav>
+            <li><Link to="/">Link 1</Link></li>
+            <li><Link to="/">Link 2</Link></li>
+            <li><Link to="/">Link 3</Link></li>
+          </nav>
         </div>
       </div>
       <div className="footer-2">
-        second footer
+        <div className="col copyright">
+          © 2020 Copyright Sinos - todos os direitos reservados
+        </div>
+        <div className="col marcas">
+          <img src="/img/sinos-marcas.png" alt="" />
+        </div>
       </div>
     </footer>
   );
