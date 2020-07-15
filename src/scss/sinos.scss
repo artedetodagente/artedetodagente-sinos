@@ -78,6 +78,23 @@ strong {
   }
 }
 
+.menu-dropdown {
+  .menu-toggle {
+    @apply px-2 py-1;
+    background-color: $red;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .menu-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s;
+    &.is-open {
+      max-height: 100vh;
+    }
+  }
+}
+
 /* HOME LANDING */
 
 @import "slideshow";
@@ -295,26 +312,36 @@ strong {
   @apply flex flex-col mt-16;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
   background-size: cover;
+
+  .mobile-menu {
+    @apply mt-8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
   
-  .site-menu-1 {
+  .desktop-menu {
     display: none;
   }
 
   @screen md {
     @apply flex-row;
-    .site-menu-1 {
+    .mobile-menu {
+      display: none;
+    }
+    .desktop-menu {
       display: block;
     }
   }
 
   .header {
-    @apply flex flex-col mx-8 -mt-8;
-    
+    @apply flex flex-col ml-16 -mt-8;
+    position: sticky;
+      top: 2em;
     min-width: 240px;
     @screen md {
-      @apply ml-20 -mt-8 mb-8 mr-0;
-      position: sticky;
-      top: 2em;
+      @apply ml-20 mx-8 -mt-8 mb-8 mr-0;
     }
     .title {
       @apply px-2 mb-2 text-4xl bg-black text-white;
@@ -323,10 +350,10 @@ strong {
   }
 
   .content-viewport {
-    @apply flex justify-end;
+    @apply flex justify-center w-full;
     
     .content {
-      @apply p-5 m-8 bg-white;
+      @apply p-5 m-8 bg-white w-full;
       min-height: 80vh;
       @screen md {
         @apply p-16 m-10 mt-8;
