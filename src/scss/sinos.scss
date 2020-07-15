@@ -115,35 +115,31 @@ body {
     background-size: cover;
   }
   .curso-info {
-    @apply ml-20 mt-8;
+    @apply flex ml-20 mt-8;
     position: relative;
     z-index: 1;
 
-    .header {
-      @apply flex mb-2;
+    .col-1 {
+      width: 360px;
       .title {
-        @apply bg-black px-2 text-4xl;
+        @apply bg-black px-2 mb-2 text-4xl;
         color: #fff;
         text-transform: uppercase;
-        width: 360px;
-      }
-    }
-
-    .content {
-      @apply flex mb-2 items-start;
-      .text, .counter {
-        @apply bg-white px-4 py-2 mr-2;
       }
       .text {
-        width: 360px;
+        @apply bg-white px-4 py-2 mb-2 mr-2;
+      }
+      .acessar {
+        @apply px-4 py-2 mr-2;
+        @extend .bg-r;
+        text-align: right;
       }
     }
 
-    .acessar {
-      @apply px-4 py-2;
-      @extend .bg-r;
-      width: 360px;
-      text-align: right;
+    .col-2 {
+      .counter {
+        @apply bg-white px-4 py-2;
+      }
     }
   }
 }
@@ -155,7 +151,13 @@ body {
   cursor: pointer;
 
   .selected {
-    @apply bg-white px-2 text-4xl;
+    @apply bg-white px-2 text-4xl flex;
+    .droptitle {
+      @apply flex-grow;
+    }
+    .dropicon {
+      @apply ml-2 self-center;
+    }
   }
 
   .options-viewport {
@@ -163,10 +165,8 @@ body {
   }
 
   .options {
-    @apply bg-white px-2 text-4xl;
-    position: absolute;
-    top: 0;
-    left: 0;
+    @apply bg-white pl-2 pr-4 mb-2 text-4xl;
+    
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s;

@@ -50,10 +50,20 @@ function HomeCurso(props) {
 
       <div className="curso-info">
 
-        <div className="header">
+        <div className="col col-1">
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
+          <div className="text">{data.text}</div>
+          <div className="acessar">
+            <Link to={`/cursos/${data.id}/${current.id}`}>Acessar</Link>
+          </div>
+        </div>
+
+        <div className="col col-2">
           <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
-            <div className="selected" onClick={dropToggle}>{current.title}</div>
+            <div className="selected" onClick={dropToggle}>
+              <div className="droptitle">{current.title}</div>
+              <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20"/></div>
+            </div>
             <div className="options-viewport">
               <div className="options">
               {data.modules.map((m,i)=>{
@@ -62,15 +72,7 @@ function HomeCurso(props) {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="content">
-          <div className="text">{data.text}</div>
           <div className="counter">{data.modules.length} módulos</div>
-        </div>
-
-        <div className="acessar">
-          <Link to={`/cursos/${data.id}/${current.id}`}>Acessar</Link>
         </div>
 
       </div>
