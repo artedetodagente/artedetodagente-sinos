@@ -11,7 +11,7 @@ function HomeLanding() {
     return <div
             key={`lading-slide-${i}`}
             className="cover-slideshow-image"
-            style={{backgroundImage: `url(${src})`}}
+            style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${src})`}}
           >
           </div>
   })

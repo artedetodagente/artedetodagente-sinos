@@ -3,9 +3,10 @@ import * as R from 'ramda'
 export default {
   landing: {
     slides: [
-      '/img/temp-1.jpg',
-      '/img/temp-2.jpg',
-      '/img/temp-3.jpg'
+      '/img/temp-11.jpg',
+      '/img/galeria/orquestra-1.jpg',
+      '/img/temp-9.jpg',
+      '/img/galeria/orquestra-2.jpg'
     ]
   },
   cursos: [
@@ -84,7 +85,7 @@ export default {
         {
           id: 'oboe',
           title: 'Oboé',
-          image: '/img/temp-6.jpg',
+          image: '/img/galeria/oboe-1.jpg',
           text: 'Aulas com Moisés Pena e Ravi Shankar.',
           classes: [
             {
@@ -119,7 +120,7 @@ export default {
         {
           id: 'violoncelo',
           title: 'Violoncelo',
-          image: '/img/temp-6.jpg',
+          image: '/img/temp-7.jpg',
           text: 'Aulas com Dora Utermohl e Hugo Pilger.',
           classes: [
             {
@@ -142,7 +143,7 @@ export default {
         {
           id: 'em-breve',
           title: 'Em breve',
-          image: '/img/temp-6.jpg',
+          image: '/img/galeria/regencia-1.jpg',
           text: 'Aguarde as próximas atualizações.',
           classes: []
         }
@@ -207,6 +208,7 @@ export default {
       `
     },
     eorquestras: {
+      image: '/img/temp-1.jpg',
       text: "Aqui jovens músicos de orquestras de projetos sociais de todo o Brasil se reunem com instrumentistas profissionais, numa grande celebração da música sinfônica brasileira. As apresentações, que conjugam as participações isoladas de cada músico, são registradas em vídeos, com execuções de peças orquestrais de compositores brasileiros, em formações de orquestras sinfônicas, de cordas e de sopros."
     }
   },

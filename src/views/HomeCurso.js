@@ -46,7 +46,7 @@ function HomeCurso(props) {
           {modules.map((m,i)=>{
             return (
               <SwiperSlide key={`${data.id}-slide-${i}`}>
-                <div className="curso-slide" style={{backgroundImage: `url(${m.image})`}}/>
+                <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${m.image})`}}/>
               </SwiperSlide>
             )
           })}
