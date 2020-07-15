@@ -221,7 +221,8 @@ strong {
 
     .col-2 {
       .desc {
-        @apply bg-white px-4 py-2 w-9/12;
+        @apply bg-white px-4 py-2;
+        width: 240px;
       }
     }
   }
