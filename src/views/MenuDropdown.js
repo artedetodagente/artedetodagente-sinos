@@ -9,7 +9,9 @@ function MenuDropdown(props) {
 
   return (
     <div className="menu-dropdown">
-      <div className="menu-toggle" onClick={() => setOpen(!open)}><img src="/img/icons/menu.svg" width="48" alt="menu" /></div>
+      <div className="menu-toggle" onClick={() => setOpen(!open)}>
+        <img src="/img/icons/menu.svg" style={{width:"48px", height: "45px"}} alt="menu" />
+      </div>
       <div className={`menu-content ${open ? 'is-open' : '' }`}>
         <div onClick={() => setOpen(false)}  class="site-menu-1 bg-r">
           <Menu home={home}/>
