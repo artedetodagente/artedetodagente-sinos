@@ -60,7 +60,7 @@ function HomeCurso(props) {
         <div className="col col-1">
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
           <div className="text">{data.text}</div>
-          <div className="acessar">
+          <div className="acessar" style={{display: hasnav}}>
             <Link to={`/cursos/${data.id}/${current.id}`}>Acessar &raquo;</Link>
           </div>
         </div>
