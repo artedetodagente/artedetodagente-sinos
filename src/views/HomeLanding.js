@@ -23,7 +23,7 @@ function HomeLanding() {
       </div>
       <div className="content">
         <div className="logo"></div>
-        <div className="menu bg-r">
+        <div className="site-menu-1 bg-r">
           <Menu />
         </div>
       </div>

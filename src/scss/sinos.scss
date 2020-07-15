@@ -26,12 +26,19 @@ body {
   background-color: $red;
   color: #333;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+strong {
+  font-weight: 500;
+}
+
+/* COMMON */
+
 .full-section {
+  position: relative;
   overflow: hidden;
   min-height: 80vh;
   height: 1px;
@@ -40,10 +47,40 @@ body {
   }
 }
 
+.center-out {
+  @apply flex justify-center items-center h-full;
+  .center-in {}
+}
+
+.section-header {
+  @apply flex flex-col ml-20 mt-8 absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  .title {
+    @apply px-2 mb-2 text-4xl bg-black text-white;
+    text-transform: uppercase;
+  }
+}
+
+.site-menu-1 {
+  @apply p-5;
+  li {
+    list-style-type: none;
+    margin: 0 0 0.25em;
+    padding: 0;
+    text-transform: uppercase;
+    a {
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
 
 /* HOME LANDING */
 
-@import "cover-slideshow";
+@import "slideshow";
 
 .home-landing {
   .content {
@@ -54,29 +91,14 @@ body {
     .logo {
       @apply p-5 bg-white mb-4;
     }
-    .menu {
-      @apply p-5;
-      li {
-        list-style-type: none;
-        margin: 0 0 0.25em;
-        padding: 0;
-        text-transform: uppercase;
-        a {
-          &:hover {
-            color: #000;
-          }
-        }
-      }
-    }
   }
 }
 
 /* HOME NEWS */
 
 .home-news {
-  @apply pt-32;
   .cols {
-    @apply flex flex-col h-full pt-10;
+    @apply flex flex-col h-full pt-16;
     @screen md {
       @apply flex-row;
     }
@@ -87,6 +109,39 @@ body {
       }
       &.agenda {
         @apply bg-white;
+      }
+      &.noticias {
+        
+        @apply p-10;
+
+        background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50%;
+        background-size: cover;
+
+        @screen md{
+          @apply p-0 pl-40;
+        }
+
+        .noticia {
+          color: white;
+          .content {
+            @apply p-4 mb-2;
+            background-color: rgba(0,0,0,.5);
+            h3 {
+              @apply text-xl mb-1 uppercase;
+            }
+            p {
+              @apply text-sm;
+            }
+          }
+          .leiamais {
+            @apply p-2;
+            background-color: $red;
+            &:hover {
+              background-color: white;
+              color: $red;
+            }
+          }
+        }
       }
     }
   }
@@ -217,6 +272,48 @@ body {
   }
 }
 
+
+/* HOME ORQUESTRAS */
+
+
+.home-orquestras {
+  @apply pt-16;
+  .center-out {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    color: #fff;
+  }
+  .center-in {
+    @apply w-1/2;
+  }
+}
+
+/* SINGLE PAGE */
+
+.single-page {
+
+  position: relative;
+
+  .section-header {
+    position: relative;
+    @screen md { 
+      position: fixed;
+    }
+  }
+
+  .content-viewport {
+    @apply flex mt-16 justify-end;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
+    background-size: cover;
+    .content {
+      @apply p-5 m-5 bg-white;
+      min-height: 80vh;
+      @screen md {
+        @apply p-16 mr-10 w-3/5;
+      }
+    }
+  }
+}
 
 /* FOOTER */
 

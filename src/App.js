@@ -6,14 +6,14 @@ import {
 } from "react-router-dom"
 import Home from './views/Home'
 import Cursos from './views/Cursos'
-import Temp from './views/Temp'
+import Page from './views/Page'
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/o-projeto">
-          <Temp />
+        <Route path="/:id">
+          <Page />
         </Route>
         <Route path="/cursos/:id">
           <Cursos />
