@@ -54,26 +54,36 @@ strong {
 
 .full-section {
   position: relative;
-  overflow: hidden;
   min-height: 80vh;
-  height: 1px;
+  overflow: hidden;
+  height: auto;
+
   @screen md {
+    
+    min-height: 80vh;
+    height: 1px;
     @apply h-full;
   }
 }
 
 .center-out {
-  @apply flex justify-center items-center h-full;
+  @apply flex  ;
+  @screen md {
+    @apply justify-center items-center h-full;
+  }
   .center-in {}
 }
 
 .section-header {
-  @apply flex flex-col ml-20 mt-8 absolute;
+  @apply flex flex-col m-8 absolute;
   z-index: 1;
   top: 0;
   left: 0;
+  @screen md {
+    @apply ml-20;
+  }
   .title {
-    @apply px-2 mb-2 text-4xl bg-black text-white;
+    @apply p-2 mb-2 text-4xl bg-black text-white leading-none;
     text-transform: uppercase;
   }
 }
@@ -117,10 +127,13 @@ strong {
 .home-landing {
   background-color: black;
   .content {
-    @apply ml-20 mt-20;
+    @apply m-8;
     position: relative;
     z-index: 1;
     width: 240px;
+    @screen md{
+      @apply ml-20 mt-20;
+    }
     .logo {
       @apply px-4 py-3 bg-white mb-4;
     }
@@ -195,13 +208,17 @@ strong {
     z-index: 0;
 
     .swiper-nav {
-      @apply bg-black p-2 uppercase;
+      @apply bg-black p-2 uppercase text-sm;
       color: #fff;
       position: absolute;
       top: 70%;
-      width: 200px;
+      width: 120px;
       z-index: 1;
       cursor: pointer;
+      @screen md {
+        @apply text-base;
+        width: 200px;
+      }
       &.prev {
         left: 0;
         text-align: right;
@@ -224,38 +241,56 @@ strong {
     background-size: cover;
   }
   .curso-info {
-    @apply flex ml-20 mt-8;
+    @apply flex flex-col ml-8 mt-8;
     position: relative;
     z-index: 1;
 
+    @screen md {
+      @apply ml-20 flex-row;
+    }
+
+    .col {
+      max-width: 90%;
+    }
+
     .col-1 {
       width: 360px;
+    }
+
+    .col {
       .title {
-        @apply bg-black px-2 mb-2 text-4xl;
+        @apply bg-black p-2 mb-2 text-2xl leading-none;
         color: #fff;
         text-transform: uppercase;
+        @screen md {
+          @apply text-4xl;
+        }
       }
       .text {
-        @apply bg-white px-4 py-2 mb-2 mr-2;
+        @apply bg-white px-4 py-2 mb-2 mr-2 hidden;
+        @screen md {
+          @apply block;
+        }
+      }
+      .desc {
+        @apply bg-white px-4 py-2 mb-2 text-sm;
+        width: 240px;
+        @screen md {
+          @apply text-base;
+        }
       }
       .acessar {
-        
         a {
           @apply px-4 py-2 mr-2 block;
           @extend .bg-r;
           text-align: right;
+          width: 240px;
           &:hover {
             background-color: white;
             color: $red;
+            
           }
         }
-      }
-    }
-
-    .col-2 {
-      .desc {
-        @apply bg-white px-4 py-2;
-        width: 240px;
       }
     }
   }
@@ -268,12 +303,15 @@ strong {
   cursor: pointer;
 
   .selected {
-    @apply bg-white px-2 text-4xl flex;
+    @apply bg-white p-2 text-2xl flex leading-none;
     .droptitle {
       @apply flex-grow;
     }
     .dropicon {
       @apply ml-3 mr-2 self-center;
+    }
+    @screen md {
+      @apply text-4xl;
     }
   }
 
@@ -282,10 +320,13 @@ strong {
   }
 
   .options {
-    @apply mb-2 text-4xl;
+    @apply mb-2 text-2xl;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s;
+    @screen md {
+      @apply text-4xl;
+    }
     li {
       @apply bg-white m-0 pl-2 pr-4;
       list-style-type: none;
@@ -317,7 +358,10 @@ strong {
     color: #fff;
   }
   .center-in {
-    @apply w-1/2;
+    @apply p-8;
+    @screen md{
+      @apply w-1/2;
+    }
   }
 }
 
@@ -445,7 +489,6 @@ strong {
     }
     .footer-col {
       @apply text-sm m-4;
-      min-width: 100px;
   
       @screen md {
         @apply ml-10;
@@ -454,6 +497,13 @@ strong {
       h3 {
         @apply mb-2 uppercase;
         font-weight: 500;
+      }
+      nav {
+        li {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
       }
       &.social {
         a {
