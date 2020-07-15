@@ -59,17 +59,16 @@ strong {
   height: auto;
 
   @screen md {
-    
-    min-height: 80vh;
     height: 1px;
     @apply h-full;
   }
 }
 
 .center-out {
-  @apply flex  ;
+  @apply flex justify-center items-center;
+  min-height: 80vh;
   @screen md {
-    @apply justify-center items-center h-full;
+    @apply  h-full;
   }
   .center-in {}
 }
