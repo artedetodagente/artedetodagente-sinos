@@ -8,13 +8,13 @@ function Footer(props) {
       <div className="footer-1">
         <div className="footer-col social">
           <h3>Social</h3>
-          <a href="https://instagram.com/sinos" rel="noopener noreferrer" target="_blank" title="Instagram">
+          <a href="https://instagram.com/sinos.art" rel="noopener noreferrer" target="_blank" title="Instagram">
             <img width="20" src="/img/icons/instagram.svg" alt="Instagram" />
           </a>
-          <a href="https://facebook.com/sinos" rel="noopener noreferrer" target="_blank" title="Facebook">
+          <a href="https://facebook.com/SNOS.art" rel="noopener noreferrer" target="_blank" title="Facebook">
             <img width="20" src="/img/icons/facebook.svg" alt="Facebook" />
           </a>
-          <a href="https://youtube.com/sinos" rel="noopener noreferrer" target="_blank" title="Youtube">
+          <a href="https://www.youtube.com/artedetodagente" rel="noopener noreferrer" target="_blank" title="Youtube">
             <img width="20" src="/img/icons/youtube.svg" alt="Youtube" />
           </a>
         </div>
@@ -22,25 +22,17 @@ function Footer(props) {
         <div className="footer-col">
           <h3>Institucional</h3>
           <nav>
-            <li><Link to="/">Link 1</Link></li>
-            <li><Link to="/">Link 2</Link></li>
-            <li><Link to="/">Link 3</Link></li>
+            <li><Link to="/projeto">Projeto</Link></li>
+            <li><Link to="/parceiros">Parceiros</Link></li>
           </nav>
         </div>
         <div className="footer-col">
-          <h3>Acesso</h3>
+          <h3>Linhas de Ação</h3>
           <nav>
-            <li><Link to="/">Link 1</Link></li>
-            <li><Link to="/">Link 2</Link></li>
-            <li><Link to="/">Link 3</Link></li>
-          </nav>
-        </div>
-        <div className="footer-col">
-          <h3>Contatos</h3>
-          <nav>
-            <li><Link to="/">Link 1</Link></li>
-            <li><Link to="/">Link 2</Link></li>
-            <li><Link to="/">Link 3</Link></li>
+            <li><Link smooth to="/#pedagogiadascordas">Pedagogia das Cordas</Link></li>
+            <li><Link smooth to="/#projetoespiral">Projeto Espiral</Link></li>
+            <li><Link smooth to="/#academiaderegencia">Academia de Regência</Link></li>
+            <li><Link smooth to="/#eorquestras">E-Orquestras</Link></li>
           </nav>
         </div>
       </div>

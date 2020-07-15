@@ -1,26 +1,5 @@
 import * as R from 'ramda'
 
-const ExampleClasses = [
-  {
-    title: 'Aula 1 - Primeira Aula',
-    image: '/img/temp-1.jpg',
-    embed_url: 'https://youtu.be/bXs_c3WOnl4',
-    text: 'Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.'
-  },
-  {
-    title: 'Aula 2 - Segunda Aula',
-    image: '/img/temp-2.jpg',
-    embed_url: 'https://youtu.be/bXs_c3WOnl4',
-    text: 'Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.'
-  },
-  {
-    title: 'Aula 3 - Terceira Aula',
-    image: '/img/temp-3.jpg',
-    embed_url: 'https://youtu.be/bXs_c3WOnl4',
-    text: 'Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.'
-  }
-]
-
 export default {
   landing: {
     slides: [
@@ -38,39 +17,60 @@ export default {
       fulltext: 'O Curso de Capacitação Pedagógica para o Ensino dos Instrumentos de Cordas é direcionado para professores e monitores de projetos sociais de todo o país. Ele é composto por 16 módulos de vídeo oficinas, a cargo de uma equipe de 16 professores e que abordam temas como postura, afinação e musicalidade, aplicadas à prática de violino, viola, violoncelo e contrabaixo.',
       modules: [
         {
-          id: 'ensino-coletivo',
-          title: 'Ensino Coletivo',
-          image: '/img/temp-6.jpg',
-          text: 'Aulas com Mauricio Carneiro, Carlos Alberto Vieira, Susan Hagar, Fabio dos Santos e Ademar Rocha.',
-          classes: R.clone(ExampleClasses) 
-        },
-        {
           id: 'postura-de-arco',
           title: 'Postura de Arco',
           image: '/img/temp-10.jpg',
           text: 'Aulas com Carla Rincon (violino e viola), Ronildo Alves (Violoncelo) e Voila Marques (Contrabaixo).',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=cdZgeJ53xKk",
+              download: []
+            }
+          ]
         },
         {
           id: 'postura-no-instrumento',
           title: 'Postura no Instrumento',
           image: '/img/temp-7.jpg',
           text: 'Aulas com Simone dos Santos (Violino e Viola) e Rodrigo Fávaro (Contrabaixo).',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=n8j7ubkXy2s",
+              download: []
+            }
+          ]
         },
         {
           id: 'sonoridade',
           title: 'Sonoridade',
           image: '/img/temp-8.jpg',
           text: 'Aulas com Alexandre Razera (Viola) e Jed Barahal (Violoncelo).',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=-JPaHlzXwdw",
+              download: []
+            }
+          ]
         },
         {
           id: 'musicalidade',
           title: 'Musicalidade',
           image: '/img/temp-2.jpg',
           text: 'Aulas com Gabriela Queiroz.',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=Qmqd6RxJ0QQ",
+              download: []
+            }
+          ]
         }
       ]
     },
@@ -86,28 +86,49 @@ export default {
           title: 'Oboé',
           image: '/img/temp-6.jpg',
           text: 'Aulas com Moisés Pena e Ravi Shankar.',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "História e desenvolvimento do oboé",
+              youtube: "https://www.youtube.com/watch?v=wa8j-0Vmpak",
+              download: []
+            }
+          ]
         },
         {
           id: 'requinta',
           title: 'Requinta',
           image: '/img/temp-6.jpg',
           text: 'Aulas com Márcio Costa.',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=b8m20L13WxQ",
+              download: []
+            }
+          ]
         },
-        {
-          id: 'viola',
-          title: 'Viola',
-          image: '/img/temp-6.jpg',
-          text: 'Aulas com Daniel Prazeres e Marco Catto.',
-          classes: R.clone(ExampleClasses) 
-        },
+        // {
+        //   id: 'viola',
+        //   title: 'Viola',
+        //   image: '/img/temp-6.jpg',
+        //   text: 'Aulas com Daniel Prazeres e Marco Catto.',
+        //   classes: R.clone(ExampleClasses) 
+        // },
         {
           id: 'violoncelo',
           title: 'Violoncelo',
           image: '/img/temp-6.jpg',
           text: 'Aulas com Dora Utermohl e Hugo Pilger.',
-          classes: R.clone(ExampleClasses) 
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Conhecendo o violoncelo",
+              youtube: "https://www.youtube.com/watch?v=ORZhBiI16zU",
+              download: []
+            }
+          ]
         }
       ]
     },
@@ -130,7 +151,7 @@ export default {
   ],
   pages: {
     "404": {
-      title: "404",
+      title: "Oooops...",
       text: "Página não encontrada ou em construção",
       fulltext: "Página não encontrada ou em construção"
     },
@@ -171,6 +192,19 @@ export default {
       Principal fomentadora, promotora e incentivadora governamental de atividades artísticas no país, a Funarte agrega, na parceria com a UFRJ, conhecimento e capacidade técnica para a execução do projeto Sinos. Uma das principais e mais respeitadas instituições de ensino superior do país, a Universidade – com sua Escola de Música – tem em seu quadro, docentes especializados, não somente em métodos e didática específicos, direcionados a alunos, como também na capacitação de professores e regentes; e no estímulo do desenvolvimento pedagógico e artístico das formações orquestrais, por meio de oficinas, palestras e preparação de material didático. 
       
       As parcerias com a UFRJ integram uma série de ações da Funarte, como parte do Programa Funarte de Toda Gente.`
+    },
+    parceiros: {
+      title: "Parceiros",
+      text: "",
+      fulltext:`
+      <strong>QUER SER NOSSO PARCEIRO?</strong>
+
+      Que tal ter sua marca fazendo parte do SINOS - Sistema Nacional de Orquestras Sociais do Brasil?
+
+      Entre em contato pelo email: marketing@musica.ufrj.br e saiba como.
+
+      <img src="/img/sinos-parceiros.png" alt="" />
+      `
     },
     eorquestras: {
       text: "Aqui jovens músicos de orquestras de projetos sociais de todo o Brasil se reunem com instrumentistas profissionais, numa grande celebração da música sinfônica brasileira. As apresentações, que conjugam as participações isoladas de cada músico, são registradas em vídeos, com execuções de peças orquestrais de compositores brasileiros, em formações de orquestras sinfônicas, de cordas e de sopros."

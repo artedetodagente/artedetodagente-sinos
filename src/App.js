@@ -7,18 +7,20 @@ import {
 import Home from './views/Home'
 import Cursos from './views/Cursos'
 import Page from './views/Page'
+import ScrollToTop from './util/ScrollToTop'
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Switch>
-        <Route path="/cursos/:id/:modulo">
+        <Route path="/cursos/:id">
           <Cursos />
         </Route>
-        <Route path="/:id">
+        <Route exact path="/:id">
           <Page />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>
