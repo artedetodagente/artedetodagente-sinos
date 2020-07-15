@@ -185,7 +185,7 @@ body {
       @apply flex-grow;
     }
     .dropicon {
-      @apply mx-2 self-center;
+      @apply ml-3 mr-2 self-center;
     }
   }
 
@@ -194,15 +194,16 @@ body {
   }
 
   .options {
-    @apply bg-white pl-2 pr-4 mb-2 text-4xl;
-    
+    @apply mb-2 text-4xl;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s;
     li {
+      @apply bg-white m-0 pl-2 pr-4;
       list-style-type: none;
-      margin: 0;
-      padding: 0;
+      &:hover {
+        background-color: #eee;
+      }
     }
   }
 

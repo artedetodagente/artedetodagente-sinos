@@ -67,7 +67,7 @@ function HomeCurso(props) {
         <div className="col col-2">
           <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
             <div className="selected" onClick={dropToggle}>
-              <div className="droptitle">{current.title}</div>
+              <div className="droptitle">{dropIsDown ? 'Selecione' : current.title}</div>
               <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20"/></div>
             </div>
             <div className="options-viewport">
