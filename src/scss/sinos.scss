@@ -105,6 +105,27 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
+
+    .swiper-nav {
+      @apply bg-black p-2;
+      color: #fff;
+      position: absolute;
+      top: 70%;
+      width: 200px;
+      z-index: 1;
+      cursor: pointer;
+      &.prev {
+        left: 0;
+        text-align: right;
+      }
+      &.next {
+        right: 0;
+      }
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
   }
   .swiper-container, .swiper-wrapper, .swiper-slide {
     height: 100%;
@@ -130,15 +151,23 @@ body {
         @apply bg-white px-4 py-2 mb-2 mr-2;
       }
       .acessar {
-        @apply px-4 py-2 mr-2;
-        @extend .bg-r;
-        text-align: right;
+        
+        a {
+          @apply px-4 py-2 mr-2 block;
+          @extend .bg-r;
+          text-align: right;
+          &:hover {
+            background-color: white;
+            color: $red;
+          }
+        }
       }
     }
 
     .col-2 {
       .counter {
         @apply bg-white px-4 py-2;
+        display: inline-block;
       }
     }
   }
@@ -156,7 +185,7 @@ body {
       @apply flex-grow;
     }
     .dropicon {
-      @apply ml-2 self-center;
+      @apply mx-2 self-center;
     }
   }
 

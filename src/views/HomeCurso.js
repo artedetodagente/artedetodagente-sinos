@@ -6,12 +6,16 @@ import { set } from 'ramda'
 function HomeCurso(props) {
 
   const {data} = props
+  const {modules} = data
 
   const [dropIsDown,setDrop] = useState(false)
   const [selected,setSelected] = useState(0)
   const [slideTo, setSlideTo] = useState(null)
 
-  const current = data.modules[selected]
+  const len = modules.length
+  const current = modules[selected]
+  const next = (selected + 1) % len
+  const prev = (selected - 1 + len) % len
 
   // swiper events
   const onSlide = (e) => setSelected(e.realIndex)
@@ -38,7 +42,7 @@ function HomeCurso(props) {
           onSlideChange={onSlide}
           onSwiper={bindSwiper}
         >
-          {data.modules.map((m,i)=>{
+          {modules.map((m,i)=>{
             return (
               <SwiperSlide key={`${data.id}-slide-${i}`}>
                 <div className="curso-slide" style={{backgroundImage: `url(${m.image})`}}/>
@@ -46,6 +50,8 @@ function HomeCurso(props) {
             )
           })}
         </Swiper>
+        <div className="swiper-nav prev" onClick={dropSelect(prev)}>&laquo; {modules[prev].title}</div>
+        <div className="swiper-nav next" onClick={dropSelect(next)}>{modules[next].title} &raquo;</div>
       </div>
 
       <div className="curso-info">
@@ -54,7 +60,7 @@ function HomeCurso(props) {
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
           <div className="text">{data.text}</div>
           <div className="acessar">
-            <Link to={`/cursos/${data.id}/${current.id}`}>Acessar</Link>
+            <Link to={`/cursos/${data.id}/${current.id}`}>Acessar &raquo;</Link>
           </div>
         </div>
 
@@ -66,13 +72,13 @@ function HomeCurso(props) {
             </div>
             <div className="options-viewport">
               <div className="options">
-              {data.modules.map((m,i)=>{
+              {modules.map((m,i)=>{
                 return <li key={`${data.id}-drop-${i}`} onClick={dropSelect(i)}>{m.title}</li>
               })}
               </div>
             </div>
           </div>
-          <div className="counter">{data.modules.length} módulos</div>
+          <div className="counter">{len} módulos</div>
         </div>
 
       </div>
