@@ -1,5 +1,4 @@
 import React from 'react'
-import store from '../store'
 import { HashLink as Link } from 'react-router-hash-link'
 
 function Menu(props) {

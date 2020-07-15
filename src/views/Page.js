@@ -1,40 +1,23 @@
 import React from 'react'
 import {useParams} from "react-router-dom"
 import parse from 'html-react-parser'
-import * as R from 'ramda'
 
 import store from '../store'
-import Menu from './Menu'
-import Footer from './Footer'
+import PageDefault from './PageDefault'
 
 
-function Temp(props) {
+function Page(props) {
 
   const {id} = useParams()
   const {pages} = store
 
-  const content = pages[id] || {title: "404", text: "página não encontrada", fulltext: "página não encontrada"}
+  const content = pages[id] || pages[404]
 
   return (
-    <>
-      <section id={props.id} className="single-page">
-        <div>
-          <div className="header">
-            <div className="title">{content.title}</div>
-            <div className="site-menu-1 bg-r">
-              <Menu home={true} />
-            </div>
-          </div>
-        </div>
-        <div className="content-viewport">
-          <div className="content">
-            {parse(content.fulltext.split("\n").join("<br/>"))}
-          </div>
-        </div>
-      </section>
-      <Footer />
-    </>
+    <PageDefault title={content.title}>
+      {parse(content.fulltext.split("\n").join("<br/>"))}
+    </PageDefault>
   );
 }
 
-export default Temp;
+export default Page;

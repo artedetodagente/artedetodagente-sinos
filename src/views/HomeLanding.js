@@ -22,7 +22,7 @@ function HomeLanding() {
         {slides}
       </div>
       <div className="content">
-        <div className="logo"><img src="/img/logo-sinos.svg" /></div>
+        <div className="logo"><img src="/img/sinos-logo.svg" alt="SINOS" /></div>
         <div className="site-menu-1 bg-r">
           <Menu />
         </div>

@@ -21,45 +21,6 @@ const ExampleClasses = [
   }
 ]
 
-
-const ExampleModules = [
-  {
-    id: 'viola',
-    title: 'Viola',
-    image: '/img/temp-7.jpg',
-    text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
-    classes: R.clone(ExampleClasses) 
-  },
-  {
-    id: 'violino',
-    title: 'Violino',
-    image: '/img/temp-8.jpg',
-    text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
-    classes: R.clone(ExampleClasses) 
-  },
-  {
-    id: 'violoncelo',
-    title: 'Violoncelo',
-    image: '/img/temp-9.jpg',
-    text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
-    classes: R.clone(ExampleClasses) 
-  },
-  {
-    id: 'clarinete',
-    title: 'Clarinete',
-    image: '/img/temp-10.jpg',
-    text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
-    classes: R.clone(ExampleClasses) 
-  },
-  {
-    id: 'fagote',
-    title: 'Fagote',
-    image: '/img/temp-11.jpg',
-    text: 'Nullam sit amet libero metus. Cras bibendum lacinia ante ut tincidunt. Integer non ex volutpat, placerat est eu, ornare leo. Quisque tempor suscipit semper. Mauris pharetra accumsan turpis eget rutrum. Curabitur maximus tristique tortor, in auctor orci dapibus sed.',
-    classes: R.clone(ExampleClasses) 
-  },
-]
-
 export default {
   landing: {
     slides: [
@@ -168,6 +129,11 @@ export default {
     }
   ],
   pages: {
+    "404": {
+      title: "404",
+      text: "Página não encontrada ou em construção",
+      fulltext: "Página não encontrada ou em construção"
+    },
     projeto: {
       title: "O Projeto",
       text: "Sinos",

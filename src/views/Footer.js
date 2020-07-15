@@ -1,5 +1,4 @@
 import React from 'react'
-import store from '../store'
 
 function Footer(props) {
 
@@ -8,13 +7,13 @@ function Footer(props) {
       <div className="footer-1">
         <div className="footer-col social">
           <h3>Social</h3>
-          <a href="https://instagram.com/sinos" target="_blank" title="Instagram">
+          <a href="https://instagram.com/sinos" rel="noopener noreferrer" target="_blank" title="Instagram">
             <img width="20" src="/img/icons/instagram.svg" alt="Instagram" />
           </a>
-          <a href="https://facebook.com/sinos" target="_blank" title="Facebook">
+          <a href="https://facebook.com/sinos" rel="noopener noreferrer" target="_blank" title="Facebook">
             <img width="20" src="/img/icons/facebook.svg" alt="Facebook" />
           </a>
-          <a href="https://youtube.com/sinos" target="_blank" title="Youtube">
+          <a href="https://youtube.com/sinos" rel="noopener noreferrer" target="_blank" title="Youtube">
             <img width="20" src="/img/icons/youtube.svg" alt="Youtube" />
           </a>
         </div>

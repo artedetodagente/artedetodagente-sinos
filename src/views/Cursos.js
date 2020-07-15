@@ -1,17 +1,18 @@
 import React from 'react'
-import store from '../store'
 import {useParams} from "react-router-dom"
-import Menu from './Menu'
+
+import PageDefault from './PageDefault'
+import YouThumb from './YouThumb'
 
 function Cursos() {
 
   const {id} = useParams()
 
   return (
-    <div className="page-cursos">
-      <h1>Curso: {id}</h1>
-      <Menu home={true} />
-    </div>
+    <PageDefault title={id}>
+      <YouThumb link="true" />
+      <YouThumb url="https://www.youtube.com/watch?v=ZAllPgaXD6U" />
+    </PageDefault>
   );
 }
 

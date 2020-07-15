@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
-import { set } from 'ramda'
 
 function HomeCurso(props) {
 
@@ -68,7 +67,7 @@ function HomeCurso(props) {
           <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
             <div className="selected" onClick={dropToggle}>
               <div className="droptitle">{dropIsDown ? 'Selecione' : current.title}</div>
-              <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20"/></div>
+              <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20" alt="" /></div>
             </div>
             <div className="options-viewport">
               <div className="options">

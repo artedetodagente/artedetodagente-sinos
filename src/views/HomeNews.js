@@ -15,7 +15,7 @@ function HomeNews() {
       <div className="cols">
         <div className="col agenda center-out">
           <div className="center-in">
-            agenda
+            Em breve
           </div>
         </div>
         <div className="col noticias center-out">
