@@ -89,7 +89,7 @@ strong {
     z-index: 1;
     width: 240px;
     .logo {
-      @apply p-5 bg-white mb-4;
+      @apply px-4 py-3 bg-white mb-4;
     }
   }
 }
@@ -292,24 +292,44 @@ strong {
 
 .single-page {
 
-  position: relative;
+  @apply flex flex-col mt-16;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
+  background-size: cover;
+  
+  .site-menu-1 {
+    display: none;
+  }
 
-  .section-header {
-    position: relative;
-    @screen md { 
-      position: fixed;
+  @screen md {
+    @apply flex-row;
+    .site-menu-1 {
+      display: block;
+    }
+  }
+
+  .header {
+    @apply flex flex-col mx-8 -mt-8;
+    
+    min-width: 240px;
+    @screen md {
+      @apply ml-20 -mt-8 mb-8 mr-0;
+      position: sticky;
+      top: 2em;
+    }
+    .title {
+      @apply px-2 mb-2 text-4xl bg-black text-white;
+      text-transform: uppercase;
     }
   }
 
   .content-viewport {
-    @apply flex mt-16 justify-end;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
-    background-size: cover;
+    @apply flex justify-end;
+    
     .content {
-      @apply p-5 m-5 bg-white;
+      @apply p-5 m-8 bg-white;
       min-height: 80vh;
       @screen md {
-        @apply p-16 mr-10 w-3/5;
+        @apply p-16 m-10 mt-8;
       }
     }
   }

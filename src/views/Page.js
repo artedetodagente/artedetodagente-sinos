@@ -18,10 +18,12 @@ function Temp(props) {
   return (
     <>
       <section id={props.id} className="single-page">
-        <div className="section-header">
-          <div className="title">{content.title}</div>
-          <div className="site-menu-1 bg-r">
-            <Menu home={true} />
+        <div>
+          <div className="header">
+            <div className="title">{content.title}</div>
+            <div className="site-menu-1 bg-r">
+              <Menu home={true} />
+            </div>
           </div>
         </div>
         <div className="content-viewport">
