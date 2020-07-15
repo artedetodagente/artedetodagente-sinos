@@ -179,7 +179,7 @@ strong {
     z-index: 0;
 
     .swiper-nav {
-      @apply bg-black p-2;
+      @apply bg-black p-2 uppercase;
       color: #fff;
       position: absolute;
       top: 70%;

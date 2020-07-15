@@ -30,6 +30,8 @@ function HomeCurso(props) {
     slideTo(i)
   }
 
+  const hasnav = len > 1 ? 'block' : 'none';
+
   return (
 
     <section id={data.id} className="home-curso full-section">
@@ -49,8 +51,8 @@ function HomeCurso(props) {
             )
           })}
         </Swiper>
-        <div className="swiper-nav prev" onClick={dropSelect(prev)}>&laquo; {modules[prev].title}</div>
-        <div className="swiper-nav next" onClick={dropSelect(next)}>{modules[next].title} &raquo;</div>
+        <div className="swiper-nav prev" style={{display: hasnav}} onClick={dropSelect(prev)}>&laquo; {modules[prev].title}</div>
+        <div className="swiper-nav next" style={{display: hasnav}} onClick={dropSelect(next)}>{modules[next].title} &raquo;</div>
       </div>
 
       <div className="curso-info">
