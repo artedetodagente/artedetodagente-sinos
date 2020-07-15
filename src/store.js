@@ -75,7 +75,43 @@ export default {
       color: '#8bc73b',
       text: 'O Curso de Capacitação Pedagógica para o Ensino dos Instrumentos de Cordas é direcionado para professores e monitores de projetos sociais de todo o país. Ele é composto por 16 módulos de vídeo oficinas, a cargo de uma equipe de 16 professores e que abordam temas como postura, afinação e musicalidade, aplicadas à prática de violino, viola, violoncelo e contrabaixo.',
       fulltext: 'O Curso de Capacitação Pedagógica para o Ensino dos Instrumentos de Cordas é direcionado para professores e monitores de projetos sociais de todo o país. Ele é composto por 16 módulos de vídeo oficinas, a cargo de uma equipe de 16 professores e que abordam temas como postura, afinação e musicalidade, aplicadas à prática de violino, viola, violoncelo e contrabaixo.',
-      modules: R.clone(ExampleModules)
+      modules: [
+        {
+          id: 'ensino-coletivo',
+          title: 'Ensino Coletivo',
+          image: '/img/temp-6.jpg',
+          text: 'Aulas com Mauricio Carneiro, Carlos Alberto Vieira, Susan Hagar, Fabio dos Santos e Ademar Rocha.',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'postura-de-arco',
+          title: 'Postura de Arco',
+          image: '/img/temp-10.jpg',
+          text: 'Aulas com Carla Rincon (violino e viola), Ronildo Alves (Violoncelo) e Voila Marques (Contrabaixo).',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'postura-no-instrumento',
+          title: 'Postura no Instrumento',
+          image: '/img/temp-7.jpg',
+          text: 'Aulas com Simone dos Santos (Violino e Viola) e Rodrigo Fávaro (Contrabaixo).',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'sonoridade',
+          title: 'Sonoridade',
+          image: '/img/temp-8.jpg',
+          text: 'Aulas com Alexandre Razera (Viola) e Jed Barahal (Violoncelo).',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'musicalidade',
+          title: 'Musicalidade',
+          image: '/img/temp-2.jpg',
+          text: 'Aulas com Gabriela Queiroz.',
+          classes: R.clone(ExampleClasses) 
+        }
+      ]
     },
     {
       id: 'projetoespiral',
@@ -83,7 +119,36 @@ export default {
       color: '#3568fb',
       text: 'Aqui estão reunidos cursos de capacitação para alunos de orquestras e bandas de projetos sociais de todo o Brasil. Estão incluídos, ainda, temas como música de câmara, teoria musical, história da música e reparo e manutenção de instrumentos de sopro e de cordas.',
       fulltext: 'Aqui estão reunidos cursos de capacitação para alunos de orquestras e bandas de projetos sociais de todo o Brasil. Ao todo, 40 professores distribuem-se entre 22 cursos livres, compostos, cada um, por 20 vídeos, com duração de oito a dez minutos, destinados a diversos instrumentos dos grupos de cordas, metais, madeiras e percussão. Estão incluídos, ainda, temas como música de câmara, teoria musical, história da música e reparo e manutenção de instrumentos de sopro e de cordas.',
-      modules: R.clone(ExampleModules)
+      modules: [
+        {
+          id: 'oboe',
+          title: 'Oboé',
+          image: '/img/temp-6.jpg',
+          text: 'Aulas com Moisés Pena e Ravi Shankar.',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'requinta',
+          title: 'Requinta',
+          image: '/img/temp-6.jpg',
+          text: 'Aulas com Márcio Costa.',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'viola',
+          title: 'Viola',
+          image: '/img/temp-6.jpg',
+          text: 'Aulas com Daniel Prazeres e Marco Catto.',
+          classes: R.clone(ExampleClasses) 
+        },
+        {
+          id: 'violoncelo',
+          title: 'Violoncelo',
+          image: '/img/temp-6.jpg',
+          text: 'Aulas com Dora Utermohl e Hugo Pilger.',
+          classes: R.clone(ExampleClasses) 
+        }
+      ]
     },
     {
       id: 'academiaderegencia',
@@ -91,7 +156,15 @@ export default {
       color: '#ffa92e',
       text: 'A Academia é dirigida a jovens regentes das orquestras de projetos sociais, com a disponibilização de conteúdo didático e professores. O conteúdo inclui vídeo oficinas sobre temas introdutórios da regência, a partir de obras inéditas, encomendadas a compositores de todo o país.',
       fulltext: 'A Academia é dirigida a jovens regentes das orquestras de projetos sociais, com a disponibilização de conteúdo didático e professores. O conteúdo inclui vídeo oficinas sobre temas introdutórios da regência, a partir de obras inéditas, encomendadas a compositores de todo o país. Ao todo, são 24 vídeos, de seis professores diferentes e 30 compositores envolvidos com o projeto.',
-      modules: R.clone(ExampleModules)
+      modules: [
+        {
+          id: 'em-breve',
+          title: 'Em breve',
+          image: '/img/temp-6.jpg',
+          text: 'Aguarde as próximas atualizações.',
+          classes: []
+        }
+      ]
     }
   ],
   pages: {

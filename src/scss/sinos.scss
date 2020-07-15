@@ -220,9 +220,8 @@ strong {
     }
 
     .col-2 {
-      .counter {
-        @apply bg-white px-4 py-2;
-        display: inline-block;
+      .desc {
+        @apply bg-white px-4 py-2 w-9/12;
       }
     }
   }

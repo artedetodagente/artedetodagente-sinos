@@ -78,7 +78,7 @@ function HomeCurso(props) {
               </div>
             </div>
           </div>
-          <div className="counter">{len} módulos</div>
+          <div className="desc">{current.text}</div>
         </div>
 
       </div>
