@@ -1,0 +1,10 @@
+:root {
+  --red: #d4423b;
+  --green: #8bc73b;
+  --blue: #3568fb;
+  --yellow: #ffa92e;
+  .bg-r { color: #fff; background-color: var(--red); }
+  .bg-g { color: #fff; background-color: var(--green); }
+  .bg-b { color: #fff; background-color: var(--blue); }
+  .bg-y { color: #fff; background-color: var(--yellow); }
+}

@@ -1,0 +1,17 @@
+/* HOME LANDING */
+
+.home-landing {
+  background-color: black;
+  .content {
+    @apply m-8;
+    position: relative;
+    z-index: 1;
+    width: 240px;
+    @screen md{
+      @apply ml-20 mt-20;
+    }
+    .logo {
+      @apply px-4 py-3 bg-white mb-4;
+    }
+  }
+}

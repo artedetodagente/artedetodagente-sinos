@@ -1,0 +1,113 @@
+/* SINGLE PAGE */
+
+@import "_variables";
+
+.single-page {
+
+  @apply flex flex-col mt-16;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
+  background-size: cover;
+
+  .mobile-menu {
+    @apply mt-8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+
+  @screen md {
+    @apply flex-row;
+    .mobile-menu {
+      display: none;
+    }
+    .desktop-menu {
+      display: block;
+    }
+  }
+
+  .header {
+    @apply flex flex-col ml-16 -mt-8;
+    position: sticky;
+    top: 2em;
+    min-width: 240px;
+    @screen md {
+      @apply ml-20 mx-8 -mt-8 mb-8 mr-0;
+    }
+    .title {
+      @apply px-2 py-1 mb-2 text-4xl bg-black text-white leading-tight;
+      text-transform: uppercase;
+    }
+  }
+
+  .content-viewport {
+    @apply flex justify-center w-full;
+    
+    .content {
+      @apply p-5 m-8 bg-white w-full;
+      min-height: 80vh;
+      @screen md {
+        @apply p-16 m-10 mt-8;
+      }
+    }
+  }
+}
+
+.curso-view {
+  .title-1 {
+    @apply text-2xl mb-2;
+  }
+  p {
+    @apply mb-2;
+  }
+  a {
+    color: var(--red);
+    &:hover {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+  .curso-select {
+    @apply px-2 py-1 mr-1 mb-1 uppercase inline-block leading-tight;
+    background-color: var(--red);
+    color: #fff;
+    &:hover {
+      background-color: black;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  .aulas-panel {
+    @apply flex flex-col-reverse;
+
+    @screen md {
+      @apply flex-row;
+    }
+
+    .aulas-select {
+      @apply  mr-5 flex;
+
+      @screen md {
+        @apply flex-col w-2/12;
+      }
+
+      .aula {
+        @apply m-2 w-20;
+        @screen md {
+          @apply w-auto;
+        }
+        cursor: pointer;
+      }
+    }
+    .aulas-view {
+      @apply mb-10;
+      @screen md {
+        @apply w-10/12
+      }
+    }
+  }
+}

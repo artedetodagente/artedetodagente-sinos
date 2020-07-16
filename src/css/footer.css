@@ -1,0 +1,56 @@
+/* FOOTER */
+
+.footer {
+
+  .footer-1{
+    @apply p-8 flex flex-col items-center text-center;
+    background-color: #cfcfcf;
+    @screen md {
+      @apply flex-row text-left items-start pr-20;
+    }
+    .footer-col {
+      @apply text-sm m-4;
+  
+      @screen md {
+        @apply ml-10;
+      }
+  
+      h3 {
+        @apply mb-2 uppercase;
+        font-weight: 500;
+      }
+      nav {
+        li {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      &.social {
+        a {
+          @apply mr-1;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .footer-2{
+    @apply flex flex-col-reverse p-8 justify-center items-center text-sm;
+    background-color: #000;
+    color: #fff;
+    .col {
+      @apply my-4;
+    }
+    @screen md {
+      @apply flex-row;
+      .col.copyright {
+        @apply w-4/12;
+      }
+      .col.marcas {
+        @apply w-8/12;
+      }
+    }
+  }
+
+}

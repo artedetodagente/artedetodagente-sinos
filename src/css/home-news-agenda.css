@@ -1,0 +1,54 @@
+/* HOME NEWS */
+
+@import "_variables";
+
+.home-news {
+  .cols {
+    @apply flex flex-col h-full pt-16;
+    @screen md {
+      @apply flex-row;
+    }
+    .col {
+      @apply h-full;
+      @screen md {
+        @apply w-1/2;
+      }
+      &.agenda {
+        @apply bg-white;
+      }
+      &.noticias {
+        
+        @apply p-10;
+
+        background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50%;
+        background-size: cover;
+
+        @screen md{
+          @apply p-0 pl-40;
+        }
+
+        .noticia {
+          color: white;
+          .content {
+            @apply p-4 mb-2;
+            background-color: rgba(0,0,0,.5);
+            h3 {
+              @apply text-xl mb-1 uppercase;
+            }
+            p {
+              @apply text-sm;
+            }
+          }
+          .leiamais {
+            @apply p-2;
+            background-color: var(--red);
+            &:hover {
+              background-color: white;
+              color: var(--red);
+            }
+          }
+        }
+      }
+    }
+  }
+}
