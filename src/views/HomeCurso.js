@@ -77,7 +77,7 @@ function HomeCurso(props) {
             </div>
           </div>
           <div className="desc">{current.text}</div>
-          <div className="acessar" style={{display: hasnav}}>
+          <div className="acessar">
             <Link to={`/cursos/${data.id}/${current.id}`}>Acessar &raquo;</Link>
           </div>
         </div>

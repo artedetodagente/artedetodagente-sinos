@@ -108,13 +108,20 @@ export default {
             }
           ]
         },
-        // {
-        //   id: 'viola',
-        //   title: 'Viola',
-        //   image: '/img/temp-6.jpg',
-        //   text: 'Aulas com Daniel Prazeres e Marco Catto.',
-        //   classes: R.clone(ExampleClasses) 
-        // },
+        {
+          id: 'viola',
+          title: 'Viola',
+          image: '/img/temp-11.jpg',
+          text: 'Aulas com Daniel Prazeres e Marco Catto.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Um breve histórico do desenvolvimento da viola",
+              youtube: "https://www.youtube.com/watch?v=um58t12s_zY",
+              download: []
+            }
+          ]
+        },
         {
           id: 'violoncelo',
           title: 'Violoncelo',
@@ -139,11 +146,19 @@ export default {
       fulltext: 'A Academia é dirigida a jovens regentes das orquestras de projetos sociais, com a disponibilização de conteúdo didático e professores. O conteúdo inclui vídeo oficinas sobre temas introdutórios da regência, a partir de obras inéditas, encomendadas a compositores de todo o país. Ao todo, são 24 vídeos, de seis professores diferentes e 30 compositores envolvidos com o projeto.',
       modules: [
         {
-          id: 'em-breve',
-          title: 'Em breve',
+          id: 'historia-da-regencia',
+          title: 'História da Regência',
           image: '/img/galeria/regencia-1.jpg',
-          text: 'Aguarde as próximas atualizações.',
-          classes: []
+          text: "Aulas com André Cardoso.",
+          fulltext: "O curso de História da Regência aborda como se desenvolveu ao longo dos séculos a atividade de direção de conjuntos vocais e instrumentais e como foi formatada a técnica gestual para a transmissão do conteúdo musical de uma partitura. Em seis videoaulas serão conhecidos os recursos empregados para a direção de grupos musicais em diferentes contextos e épocas.",
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Os primórdios da direção de conjuntos musicais",
+              youtube: "https://www.youtube.com/watch?v=sbVaUm67YCI",
+              download: []
+            }
+          ]
         }
       ]
     }

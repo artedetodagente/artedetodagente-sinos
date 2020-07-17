@@ -54,6 +54,7 @@ function Curso(props) {
   return (
     <>
       <div class="title-1"><Link to={`/cursos/${programa.id}`}>{programa.title}</Link> &raquo; {curso.title}</div>
+      <p>{curso.fulltext}</p>
       <p>{curso.text}</p>
       <p>&nbsp;</p>
       <div className="aulas-panel">
