@@ -24,6 +24,7 @@ strong {
 /* COMMON */
 
 .embed-container {
+  background-color: #999;
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
