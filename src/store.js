@@ -285,7 +285,7 @@ export default {
         title: 'Simone dos Santos',
         text: 'Como escolher a melhor opção da queixeira e espaleira',
         cat: 0
-      },
+      }
     ]
   }
 }
