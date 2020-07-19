@@ -220,6 +220,20 @@ export default {
       <img src="/img/sinos-parceiros.png" alt="" />
       `
     },
+    imprensa: {
+      title: 'Imprensa',
+      text:"",
+      fulltext: `<strong>Contatos</strong>
+
+      Assessoria de imprensa:
+      Projetos UFRJ – Funarte: imprensa@musica.ufrj.br
+      Funarte – Assessoria de Comunicação: ascomfunarte@funarte.gov.br
+      
+      Releases
+      - Funarte de Toda Gente
+      - Sinos 
+      `
+    },
     eorquestras: {
       image: '/img/temp-1.jpg',
       text: "Aqui jovens músicos de orquestras de projetos sociais de todo o Brasil se reunem com instrumentistas profissionais, numa grande celebração da música sinfônica brasileira. As apresentações, que conjugam as participações isoladas de cada músico, são registradas em vídeos, com execuções de peças orquestrais de compositores brasileiros, em formações de orquestras sinfônicas, de cordas e de sopros."
@@ -242,30 +256,34 @@ export default {
     posts: [
       {
         id: 1,
-        date: '2020-07-15',
-        time: '14h',
-        title: 'Aula para instrumentos de corda',
+        date: '2020-07-17',
+        time: '10h',
+        title: 'André Cardoso',
+        text: 'Os primórdios da direção de conjuntos musicais',
         cat: 0
       },
       {
         id: 1,
         date: '2020-07-20',
-        time: '14h',
-        title: 'Aula para instrumentos de sopro',
+        time: '10h',
+        title: 'Ronildo Alves',
+        text: 'Conhecendo os espaços de ensino, materiais para as aulas e objetos para o aprendizado do violoncelo.',
         cat: 1
       },
       {
         id: 1,
-        date: '2020-08-02',
-        time: '14h',
-        title: 'Aula para instrumentos de corda',
+        date: '2020-07-20',
+        time: '10h',
+        title: 'Carla Rincón',
+        text: 'Exercícios de arco sem instrumento e uso do espelho',
         cat: 2
       },
       {
         id: 1,
-        date: '2020-08-30',
-        time: '14h',
-        title: 'Aula para instrumentos de sopro',
+        date: '2020-07-20',
+        time: '10h',
+        title: 'Simone dos Santos',
+        text: 'Como escolher a melhor opção da queixeira e espaleira',
         cat: 0
       },
     ]

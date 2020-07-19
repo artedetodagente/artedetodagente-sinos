@@ -15,6 +15,30 @@
       }
       &.agenda {
         @apply bg-white;
+        .center-in {
+          @apply w-8/12;
+        }
+        .agenda-item {
+          @apply flex mb-2;
+          .agenda-date {
+            @apply px-3 w-3/12 text-center border-r border-gray-400;
+            h3 {
+              @apply text-4xl leading-none;
+            }
+            p {
+              @apply text-xs;
+            }
+          }
+          .agenda-content {
+            @apply px-3 w-9/12;
+            h3 {
+              @apply text-xs mb-1;
+            }
+            p {
+              @apply text-sm leading-none;
+            }
+          }
+        }
       }
       &.noticias {
         
