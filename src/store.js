@@ -103,7 +103,7 @@ export default {
             {
               title: "Aula 1",
               text: "",
-              youtube: "https://www.youtube.com/watch?v=b8m20L13WxQ",
+              youtube: "https://www.youtube.com/watch?v=Cq-bSTA0LHo",
               download: []
             }
           ]
