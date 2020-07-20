@@ -16,8 +16,22 @@ export default {
       fulltext: 'O Curso de Capacitação Pedagógica para o Ensino dos Instrumentos de Cordas é direcionado para professores e monitores de projetos sociais de todo o país. Ele é composto por 16 módulos de vídeo oficinas, a cargo de uma equipe de 16 professores e que abordam temas como postura, afinação e musicalidade, aplicadas à prática de violino, viola, violoncelo e contrabaixo.',
       modules: [
         {
-          id: 'postura-de-arco',
-          title: 'Postura de Arco',
+          id: 'afinacao',
+          title: 'Afinação',
+          image: '/img/temp-11.jpg',
+          text: 'Aulas com Luciana Arraes.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Notas de ressonância",
+              youtube: "https://www.youtube.com/watch?v=P0fVPrcOsq4",
+              download: []
+            }
+          ]
+        },
+        {
+          id: 'postura-do-arco',
+          title: 'Postura do Arco',
           image: '/img/temp-10.jpg',
           text: 'Aulas com Carla Rincón (violino e viola), Ronildo Alves (Violoncelo) e Voila Marques (Contrabaixo).',
           classes: [
@@ -82,21 +96,7 @@ export default {
               download: []
             }
           ]
-        },
-        {
-          id: 'afinacao',
-          title: 'Afinação',
-          image: '/img/temp-11.jpg',
-          text: 'Aulas com Luciana Arraes.',
-          classes: [
-            {
-              title: "Aula 1",
-              text: "Notas de ressonância",
-              youtube: "https://www.youtube.com/watch?v=P0fVPrcOsq4",
-              download: []
-            }
-          ]
-        },
+        }
       ]
     },
     {
