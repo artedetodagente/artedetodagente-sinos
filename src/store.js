@@ -19,12 +19,18 @@ export default {
           id: 'postura-de-arco',
           title: 'Postura de Arco',
           image: '/img/temp-10.jpg',
-          text: 'Aulas com Carla Rincon (violino e viola), Ronildo Alves (Violoncelo) e Voila Marques (Contrabaixo).',
+          text: 'Aulas com Carla Rincón (violino e viola), Ronildo Alves (Violoncelo) e Voila Marques (Contrabaixo).',
           classes: [
             {
               title: "Aula 1",
               text: "",
               youtube: "https://www.youtube.com/watch?v=cdZgeJ53xKk",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Espelho como corretor de postura, braço direito e mão",
+              youtube: "https://www.youtube.com/watch?v=ZCuy0g00EI0",
               download: []
             }
           ]
@@ -54,6 +60,12 @@ export default {
               text: "",
               youtube: "https://www.youtube.com/watch?v=-JPaHlzXwdw",
               download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Definição de boa sonoridade/infinito",
+              youtube: "https://www.youtube.com/watch?v=F3ZQv7ew2Tk",
+              download: []
             }
           ]
         },
@@ -70,7 +82,21 @@ export default {
               download: []
             }
           ]
-        }
+        },
+        {
+          id: 'afinacao',
+          title: 'Afinação',
+          image: '/img/temp-11.jpg',
+          text: 'Aulas com Luciana Arraes.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Notas de ressonância",
+              youtube: "https://www.youtube.com/watch?v=P0fVPrcOsq4",
+              download: []
+            }
+          ]
+        },
       ]
     },
     {
