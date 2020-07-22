@@ -8,7 +8,7 @@ function HomeNews() {
 
   function fdate(d){
     const date = new Date(d)
-    const dateTimeFormat = new Intl.DateTimeFormat('pt-BR', { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' })
+    const dateTimeFormat = new Intl.DateTimeFormat('pt-BR', { year: 'numeric', month: 'long', day: '2-digit', timeZone: 'UTC' })
     const [{ value: day },,{ value: month },,{ value: year }] = dateTimeFormat.formatToParts(date) 
     return {day,month,year}
   }
@@ -38,8 +38,8 @@ function HomeNews() {
             })}
           </div>
         </div>
-        <div className="col noticias center-out">
-          <div className="center-in">
+        <div className="col noticias center-out--off">
+          <div className="center-in--off">
             <article class="noticia">
               <div className="content">
                 <h3>{posts[0].title}</h3>
