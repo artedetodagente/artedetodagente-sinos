@@ -6,6 +6,7 @@ import {
 } from "react-router-dom"
 import Home from './views/Home'
 import PageCursos from './views/PageCursos'
+import PageNoticias from './views/PageNoticias'
 import Page from './views/Page'
 import ScrollToTop from './util/ScrollToTop'
 
@@ -16,6 +17,9 @@ function App() {
       <Switch>
         <Route path="/cursos/:id">
           <PageCursos />
+        </Route>
+        <Route path="/noticias">
+          <PageNoticias />
         </Route>
         <Route exact path="/:id">
           <Page />

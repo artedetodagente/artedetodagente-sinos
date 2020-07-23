@@ -22,7 +22,7 @@ function PageCursos() {
 
   return (
     <PageDefault title={programa.title}>
-      <div class="curso-view">
+      <div class="page-view curso-view">
         <Switch>
 
           <Route exact path={path}>

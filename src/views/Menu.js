@@ -11,7 +11,7 @@ function Menu(props) {
       <li><Link smooth to="/#academiaderegencia">Academia de Regência</Link></li>
       <li><Link smooth to="/#eorquestras">E-Orquestras</Link></li>
       <li><Link smooth to="/publicacoes">Publicações</Link></li>
-      <li><Link smooth to="/#noticias">Notícias</Link></li>
+      <li><Link smooth to="/noticias">Notícias</Link></li>
       <li><Link smooth to="/galeria">Galeria</Link></li>
       <li><Link smooth to="/parceiros">Parceiros</Link></li>
       <li><Link smooth to="/imprensa">Imprensa</Link></li>

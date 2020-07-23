@@ -48,7 +48,7 @@
     @apply flex justify-center w-full;
     
     .content {
-      @apply p-5 m-8 bg-white w-full;
+      @apply p-10 m-8 bg-white w-full;
       min-height: 80vh;
       @screen lg {
         @apply p-16 m-10 mt-8;
@@ -57,7 +57,7 @@
   }
 }
 
-.curso-view {
+.page-view {
   .title-1 {
     @apply text-2xl mb-2;
   }
@@ -71,6 +71,9 @@
       text-decoration: underline;
     }
   }
+}
+
+.curso-view {
   .curso-select {
     @apply px-2 py-1 mr-1 mb-1 uppercase inline-block leading-tight;
     background-color: var(--red);
@@ -110,4 +113,45 @@
       }
     }
   }
+}
+
+.posts-view {
+
+  .posts-feed {
+
+    .post {
+      @apply mb-10;
+    }
+    
+    @screen md {
+      @apply flex flex-wrap -m-4;
+      .post {
+        @apply w-1/2 p-4 m-0;
+      }
+    }
+    
+    @screen lg {
+      .post {
+        @apply w-1/3;
+      }
+    }
+
+    .post-image {
+      @apply mb-2 block;
+    }
+
+    .post-title {
+      @apply mb-2 leading-tight block;
+    }
+
+    .post-text {
+      @apply text-sm;
+    }
+
+    .post-date {
+      @apply text-xs;
+    }
+
+  }
+
 }

@@ -1,17 +1,11 @@
 import React from 'react'
 import store from '../store'
 import { HashLink as Link } from 'react-router-hash-link'
+import {fdate} from '../util'
 
 function HomeNews() {
 
   const {agenda, posts} = store
-
-  function fdate(d){
-    const date = new Date(d)
-    const dateTimeFormat = new Intl.DateTimeFormat('pt-BR', { year: 'numeric', month: 'long', day: '2-digit', timeZone: 'UTC' })
-    const [{ value: day },,{ value: month },,{ value: year }] = dateTimeFormat.formatToParts(date) 
-    return {day,month,year}
-  }
 
   return (
     <section id="noticias" className="home-news full-section">
@@ -45,7 +39,7 @@ function HomeNews() {
                 <h3>{posts[0].title}</h3>
                 <p>{posts[0].text}</p>
               </div>
-              <Link className="leiamais" to="/#noticias">Leia mais</Link>
+              <Link className="leiamais" to={`/noticias/${posts[0].id}`}>Leia mais</Link>
             </article>
           </div>
         </div>

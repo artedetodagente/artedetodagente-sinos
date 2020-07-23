@@ -267,10 +267,47 @@ export default {
   },
   posts: [
     {
-      id: 'news-1',
+      id: 'entrevista-andre-cardoso',
+      date: '2020-07-17',
       title: 'Apoio a quem já está com a mão na massa',
-      text: 'Entrevista com André Cardoso.Nesta breve entrevista, o coordenador do Sinos, violista e professor de regência da Escola de Música da UFRJ André Cardoso fala sobre as origens do projeto e de algumas de suas principais características.',
-      fulltext: ''
+      image: '/img/noticias/entrevista-andre-cardoso.jpg',
+      text: 'Entrevista com André Cardoso. Nesta breve entrevista, o coordenador do Sinos, violista e professor de regência da Escola de Música da UFRJ André Cardoso fala sobre as origens do projeto e de algumas de suas principais características.',
+      fulltext: `
+        <strong>Entrevista com André Cardoso</strong>
+
+        Nesta breve entrevista, o coordenador do Sinos, violista e professor de regência da Escola de Música da UFRJ André Cardoso fala sobre as origens do projeto e de algumas  de suas principais características.
+
+        <strong>Como surgiu o Sistema Nacional de Orquestras Sociais?</strong>
+        Nasceu de uma proposta da Funarte de criar um projeto para apoiar os projetos sociais que utilizam orquestras como meio de educação musical no Brasil. E eles são muitos. Na verdade, essa proposta retoma uma iniciativa pioneira da Funarte, que vem do ano de 1975, chamada Projeto Espiral e que foi criada pelo professor Alberto Jaffé e pelo maestro Marlos Nobre para fazer o ensino coletivo de instrumentos de cordas. E que teve um sucesso muito grande, um efeito muito positivo. Não somente para a área de educação musical, mas também para as orquestras brasileiras, pois formou muitos músicos. Hoje, vários deles estão em orquestras profissionais, alguns, inclusive, atuando internacionalmente. O Espiral foi interrompido na década de 1980 e, desde então não foi retomado. Até que, no final de 2019, recebemos um convite da Funarte para tratarmos desse novo projeto, que é o Sistema Nacional de Orquestras Sociais, o Sinos e foi estabelecida uma parceria entre as duas entidades. Um de nossos principais objetivos principal é levar capacitação para professores desses projetos sociais. 
+
+        <strong>E qual é o perfil desses professores?</strong>
+        Eles são, muitas vezes, alunos mais adiantados, que ensinam aos alunos mais iniciantes. Montamos uma equipe com professores especializados em ensino coletivo, que vão atuar capacitando essas pessoas. Inicialmente, exclusivamente com atividades online. Num segundo momento, quando houver condições para isso, vamos promover pequenos cursos e festivais para atender diretamente aos alunos desses projetos sociais, e vamos ter, também, ações mais voltadas para as próprias orquestras, com o treinamento dos alunos e a participação de maestros convidados.
+
+        <strong>Em fevereiro de 2020, houve uma reunião com representantes de alguns desses projetos. Além da capacitação em si, há outras demandas?</strong>
+        Sim, eles indicaram que tem necessidade de um material pedagógico apropriado. Atento a isso, o Sinos contempla a publicação de material pedagógico. Apostilas estarão disponíveis aqui no site para dar suporte a esses professores. E convidamos compositores para que criarem uma série de obras novas, inéditas, em diferentes níveis, para esses grupos. Isso porque há também a necessidade de um repertório para iniciantes. É muito difícil encontrar partituras de música brasileira voltada para esses alunos dos primeiros níveis. Teremos, portanto, um repertório específico para o projeto, com composições inéditas e novos arranjos para música folclórica para orquestra, de acordo com os diferentes parâmetros de dificuldade. 
+
+        <strong>Como a UFRJ desenvolve o seu expertise e seus métodos para capacitar esses professores e alunos?</strong>
+        O famoso tripé da universidade, que é formado pela pesquisa, o ensino e a extensão, é o que nos dá a base para esse tipo de ação. Todo o conhecimento que é produzido dentro da universidade retorna para a sociedade através dos projetos de extensão. E o Sinos se encaixa nessa característica. Através da parceria com a Funarte, a universidade, por meio de uma atividade de extensão, leva para a sociedade o conhecimento novo, aquilo que de mais relevante está sendo produzido em termos de educação musical. E a vantagem de ele ser um projeto de extensão é que não está restrito ao universo acadêmico, ou seja, podemos ter a colaboração de outros profissionais que não estão dentro da academia, mas que têm um conhecimento, não somente prático, mas por sua própria formação profissional. A Escola de Música da UFRJ é voltada para o ensino superior, mas nós estamos falando de um ensino básico de instrumentos, de educação musical no nível básico. E isso a universidade faz com seus projetos de extensão. Temos, por exemplo, cursos básicos e intermediários que atendem crianças aqui no Rio de Janeiro. Temos toda uma expertise nisso e a aplicamos no desenvolvimento do Sinos.
+
+        <strong>Qual seria, então, a maior inovação do Sinos? </strong>
+        De certa forma, o projeto não cria nada de novo. Não é esse o objetivo. O que a Funarte está fazendo é o que é inerente à sua função, apoiar a cultura, ou seja, dar suporte a uma série de projetos que já existem no Brasil. Mas, independentemente da atuação da Funarte, hoje existe no país uma série de projetos de orquestras em pleno funcionamento. A ideia é dar suporte e capacitação para que esses projetos possam prosseguir o seu trabalho e deem resultados, sem interferências, mas com apoio e incentivo. Afinal, os professores, que estão lá na ponta, trabalhando diretamente com os alunos, são os principais responsáveis por esses resultados.
+      `
+    },
+    {
+      id: 'atividades-2021',
+      date: '2020-07-23',
+      title: 'Atividades para 2021',
+      text: 'Três das linhas de ação do Sinos, que contemplam principalmente ações presenciais, só terão suas atividades iniciadas em 2021.',
+      fulltext: `
+        Três das linhas de ação do Sinos, que contemplam principalmente ações presenciais, só terão suas atividades iniciadas em 2021 – após o fim das restrições impostas pela pandemia de covid-19. Elas envolvem a capacitação intensiva de músicos e a preparação de concertos, parcerias com orquestras e/ou instituições e o apoio a festivais de música.
+
+        A primeira das linhas de ação presencial é o Projeto Orquestra, que inclui oficinas de capacitação intensiva, com uma semana de duração, para jovens instrumentistas. Estes participarão de uma rotina diária, com ensaios gerais e de naipe, além de palestras e “masterclasses” com alguns dos músicos profissionais mais conhecidos do Brasil. A ideia é formar uma “sinfônica-laboratório” e preparar dois concertos. Em cada edição haverá um regente e um solista convidados. Estão previstas ações nas capitais dos estados do Pará, Minas Gerais, Paraíba, Rio Grande do Norte, Rio Grande do Sul, Rio de Janeiro e Bahia; e em Brasília.
+
+        Na segunda dessas linhas de ação, serão firmadas parcerias com o objetivo de compartilhar procedimentos pedagógicos com orquestras jovens, projetos sociais e instituições educativas e culturais, governamentais, ou do terceiro setor. As oficinas de capacitação, em vídeo e eventualmente presenciais, serão disponibilizados de acordo com demandas específicas, assim como o material didático. A ideia é dar apoio para que esses conjuntos possam avançar, tanto tecnicamente, quanto em termos de sua sustentabilidade.
+
+        Já o apoio aos festivais de música terá foco em eventos que sejam reconhecidamente relevantes. Para isso, haverá contratação de professores para oficinas e “masterclasses”, destinadas a alunos de instrumentos e de regência.
+
+      `
     }
   ],
   agenda: {
