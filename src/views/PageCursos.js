@@ -13,7 +13,7 @@ import PageDefault from './PageDefault'
 import YouThumb from './YouThumb'
 import YouEmbed from './YouEmbed'
 
-function Cursos() {
+function PageCursos() {
 
   const {id} = useParams()
   const programa = R.find(R.propEq('id', id), store.cursos)
@@ -91,4 +91,4 @@ function AulaView(props) {
   )
 }
 
-export default Cursos;
+export default PageCursos;
