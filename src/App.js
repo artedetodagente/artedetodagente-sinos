@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom"
 import Home from './views/Home'
-import Cursos from './views/Cursos'
+import PageCursos from './views/PageCursos'
 import Page from './views/Page'
 import ScrollToTop from './util/ScrollToTop'
 
@@ -15,7 +15,7 @@ function App() {
       <ScrollToTop />
       <Switch>
         <Route path="/cursos/:id">
-          <Cursos />
+          <PageCursos />
         </Route>
         <Route exact path="/:id">
           <Page />
