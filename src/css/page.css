@@ -20,7 +20,7 @@
     display: none;
   }
 
-  @screen md {
+  @screen lg {
     @apply flex-row;
     .mobile-menu {
       display: none;
@@ -35,7 +35,7 @@
     position: sticky;
     top: 2em;
     min-width: 240px;
-    @screen md {
+    @screen lg {
       @apply ml-20 mx-8 -mt-8 mb-8 mr-0;
     }
     .title {
@@ -50,7 +50,7 @@
     .content {
       @apply p-5 m-8 bg-white w-full;
       min-height: 80vh;
-      @screen md {
+      @screen lg {
         @apply p-16 m-10 mt-8;
       }
     }
@@ -84,20 +84,20 @@
   .aulas-panel {
     @apply flex flex-col-reverse;
 
-    @screen md {
+    @screen lg {
       @apply flex-row;
     }
 
     .aulas-select {
       @apply  mr-5 flex;
 
-      @screen md {
+      @screen lg {
         @apply flex-col w-2/12;
       }
 
       .aula {
         @apply m-2 w-20;
-        @screen md {
+        @screen lg {
           @apply w-auto;
         }
         cursor: pointer;
@@ -105,7 +105,7 @@
     }
     .aulas-view {
       @apply mb-10;
-      @screen md {
+      @screen lg {
         @apply w-10/12
       }
     }
