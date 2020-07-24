@@ -54,6 +54,7 @@
         }
 
         .noticia {
+          @apply mb-4;
           color: white;
           .content {
             @apply p-4 mb-2;
@@ -62,7 +63,10 @@
               @apply text-xl mb-1 uppercase;
             }
             p {
-              @apply text-base;
+              @apply text-base mb-1;
+            }
+            .post-date {
+              @apply text-xs;
             }
           }
           .leiamais {

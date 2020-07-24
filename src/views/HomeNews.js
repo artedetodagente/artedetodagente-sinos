@@ -1,11 +1,27 @@
-import React from 'react'
-import store from '../store'
+import * as R from 'ramda'
+import React, {useState, useEffect} from 'react'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
+
 import {fdate} from '../util'
+import store from '../store'
 
 function HomeNews() {
 
   const {agenda, posts} = store
+  const latestPosts = R.slice(0, 3, posts)
+
+  const [slideNext, setSlideNext] = useState(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      slideNext()
+    }, 4000);
+    return () => clearInterval(interval)
+  }, [slideNext])
+
+  const bindSwiper = (swiper) => setSlideNext(() => () => swiper.slideNext())
 
   return (
     <section id="noticias" className="home-news full-section">
@@ -34,13 +50,27 @@ function HomeNews() {
         </div>
         <div className="col noticias center-out--off">
           <div className="center-in--off">
-            <article class="noticia">
-              <div className="content">
-                <h3>{posts[0].title}</h3>
-                <p>{posts[0].text}</p>
-              </div>
-              <Link className="leiamais" to={`/noticias/${posts[0].id}`}>Leia mais</Link>
-            </article>
+
+          <Swiper
+            loop={true}
+            onSwiper={bindSwiper}
+          >
+            {latestPosts.map((post,i)=>{
+              const date = fdate(post.date)
+              return(
+                <SwiperSlide key={`${post.id}-slide-${i}`}>
+                  <article className="noticia">
+                    <div className="content">
+                      <h3>{post.title}</h3>
+                      <p>{post.text}</p>
+                      <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
+                    </div>
+                    <Link className="leiamais" to={`/noticias/${post.id}`}>Leia mais</Link>
+                  </article>
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
           </div>
         </div>
       </div>
