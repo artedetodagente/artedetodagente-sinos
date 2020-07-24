@@ -267,6 +267,37 @@ export default {
   },
   posts: [
     {
+      id: 'para-acertar-o-arco',
+      date: '2020-07-24',
+      title: 'Para acertar o arco',
+      image : "/img/noticias/pedagogia-carla-rincon.jpg",
+      text: 'Uma postura correta é fundamental para qualquer músico, tanto para um bom desempenho, quanto para poder tocar sem esforço exagerado. Mas qual é a melhor maneira para ensiná-la aos alunos iniciantes? Em seus vídeos no Curso de Pedagogia das Cordas, Carla Rincón trata especificamente de como passar aos estudantes a postura adequada do arco em violinos e violas.',
+      fulltext: `
+      <strong>O arco da maneira certa</strong>
+
+      A postura correta é fundamental para qualquer músico, tanto para um bom desempenho, quanto para que tocar sem esforço exagerado. No caso específico do violino e da viola, é comum que, depois de se manter por algum tempo o instrumento em uma posição pouco natural, contrariando a ação da  gravidade, haja uma tensão corporal. Tensão esta que, no longo prazo, pode gerar problemas, como dores e lesões. Em seus vídeos, que fazem parte do Curso de Pedagogia das Cordas, a violinista e professora e coordenadora pedagógica do Sinos, Carla Rincón, trata especificamente de como passar aos estudantes a postura correta para o arco desses instrumentos. 
+      
+      Carla Rincón é fundadora, líder artística e primeiro violino do Quarteto Radamés Gnattali. Oriunda do projeto Sistema Nacional de Orquestras Infantis e Juvenis da Venezuela, onde nasceu, Carla foi professora do conservatório Simón Bolivar e construiu uma destacada carreira internacional, como camerista e solista, com apresentações em diversos continentes e em algumas das mais importantes salas de concerto do mundo e participando de gravações importantes – como a das obras integrais para cordas de Radamés Gnattali, Ricardo Tacuchian e Heitor Villa-Lobos. Atualmente ela é a diretora artística e pedagógica da plataforma educativa Brasil de Tuhu e diretora musical e pedagógica do Instituto Zeca Pagodinho, além de fazer parte do corpo docente de grandes festivais, no Brasil e no exterior.
+      
+      A intenção de suas primeiras aulas no Curso de Pedagogia de Cordas é apoiar os professores para que possam ensinar seus alunos a adquirir e manter uma postura saudável, sem tensões desnecessárias, sem comprometer músculos, tendões e articulações, desde o primeiro contato com o instrumento. “Não é possível construir uma boa técnica e uma carreira duradoura sem uma postura adequada”, diz Carla, que tem como colegas nesse segmento do Sinos Ronildo Alves – nos vídeos que tratam do violoncelo – e Voila Marques – no sobre as posturas para o contrabaixo. 
+
+      `
+    },
+    {
+      id: 'madeira-alta',
+      date: '2020-07-24',
+      title: 'Madeira alta',
+      image : "/img/noticias/espiral-oboe-moises-pena.jpg",
+      text: `“Seu nome vem do francês hautbois, que significa ‘madeira alta’, numa referência ao registro e as notas que capaz de produzir”, ensina Moisés Pena, em sua primeira videoaula sobre o oboé no Projeto Espiral, que já está disponível aqui no Sinos. As origens do instrumento – que remontam a antiga Grécia – e suas características são abordados de forma simples, didática e simpática pelo músico e professor paraense, que entremeia suas explicações aos alunos com trechos de obras clássicas.`,
+      fulltext: `
+      “Seu nome vem do francês hautbois, que significa ‘madeira alta’, numa referência ao registro e as notas que capaz de produzir”, ensina o professor Moisés Pena, em sua primeira videoaula sobre o oboé no Projeto Espiral, que já está disponível aqui no Sinos. Ele revela que as origens do instrumento remontam a antiga Grécia e que sua sonoridade costuma ser associada ao oriente – por influência de algumas melodias célebres, compostas por autores ocidentais, mas inspiradas em temas daquela região, e toca um trecho de uma delas como exemplo. 
+
+      De forma simples, didática e simpática, músico e professor paraense – que é integrante da Orquestra Sinfônica do Teatro Nacional Claudio Santoro, de Brasília – fala também sobre a evolução do oboé através da história, e de suas características de construção, formato, materiais e funcionamento, mostrando seus diferentes tipos, nacionalidades, sistemas e tamanhos. 
+      
+      Além de Moisés Pena, o curso de oboé contará também com videoaulas de seu colega Ravi Shankar. De forma alternada, eles tratarão de temas como postura corporal, empunhadura do instrumento, respiração, emissão sonora, embocadura, articulação e fraseologia musical, abordagens de estudo do repertório e manutenção e cuidados básicos com o instrumento, entre outros.
+      `
+    },
+    {
       id: 'entrevista-andre-cardoso',
       date: '2020-07-17',
       title: 'Apoio a quem já está com a mão na massa',
@@ -295,7 +326,7 @@ export default {
     },
     {
       id: 'atividades-2021',
-      date: '2020-07-23',
+      date: '2020-07-17',
       title: 'Atividades para 2021',
       text: 'Três das linhas de ação do Sinos, que contemplam principalmente ações presenciais, só terão suas atividades iniciadas em 2021.',
       fulltext: `

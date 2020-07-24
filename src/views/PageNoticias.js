@@ -67,7 +67,9 @@ function Noticia(props) {
   return (
     <>
       <div class="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {post.title}</div>
+      {post.image ? <img alt={post.title} src={post.image} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
       {parse(post.fulltext.split("\n").join("<br/>"))}
+      <p>&nbsp;</p>
       <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
     </>
   )
