@@ -26,6 +26,12 @@ export default {
               text: "Notas de ressonância",
               youtube: "https://www.youtube.com/watch?v=P0fVPrcOsq4",
               download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Mudança de posição",
+              youtube: "https://www.youtube.com/watch?v=g2yGe_Wnx6o",
+              download: []
             }
           ]
         },
@@ -45,6 +51,12 @@ export default {
               title: "Aula 2",
               text: "Espelho como corretor de postura, braço direito e mão",
               youtube: "https://www.youtube.com/watch?v=ZCuy0g00EI0",
+              download: []
+            },
+            {
+              title: "Aula 3",
+              text: "O início correto da utilização do arco no violino e na viola",
+              youtube: "https://www.youtube.com/watch?v=Ry-SV0Xw3Cg",
               download: []
             }
           ]
@@ -79,6 +91,12 @@ export default {
               title: "Aula 2",
               text: "Definição de boa sonoridade/infinito",
               youtube: "https://www.youtube.com/watch?v=F3ZQv7ew2Tk",
+              download: []
+            },
+            {
+              title: "Aula 3",
+              text: "Exercícios e métodos",
+              youtube: "https://www.youtube.com/watch?v=T7ul-QHx4J8",
               download: []
             }
           ]
