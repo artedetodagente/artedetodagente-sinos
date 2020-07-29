@@ -27,10 +27,11 @@ function PageCursos() {
 
           <Route exact path={path}>
             <div class="title-1">Cursos {programa.title}</div>
-            <p>{programa.fulltext}</p>
             <p>&nbsp;</p>
             <p>Selecione um curso</p>
             {programa.modules.map((curso,i) => <Link className="curso-select" to={`/cursos/${id}/${curso.id}`}>{curso.title}</Link>)}
+            <p>&nbsp;</p>
+            <p>{programa.fulltext}</p>
           </Route>
 
           <Route path={`${path}/:cursoid`}>

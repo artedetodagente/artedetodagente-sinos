@@ -163,6 +163,46 @@ export default {
       fulltext: 'Aqui estão reunidos cursos de capacitação para alunos de orquestras e bandas de projetos sociais de todo o Brasil. Ao todo, 40 professores distribuem-se entre 22 cursos livres, compostos, cada um, por 20 vídeos, com duração de oito a dez minutos, destinados a diversos instrumentos dos grupos de cordas, metais, madeiras e percussão. Estão incluídos, ainda, temas como música de câmara, teoria musical, história da música e reparo e manutenção de instrumentos de sopro e de cordas.',
       modules: [
         {
+          id: 'contrabaixo',
+          title: 'Contrabaixo',
+          image: '/img/temp-7.jpg',
+          text: 'Aulas com Eder Kinappe.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Postura corporal",
+              youtube: "https://www.youtube.com/watch?v=hbaiNNKke9E",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Produção do som",
+              youtube: "https://www.youtube.com/watch?v=FJ2t96SRNMg",
+              download: []
+            }
+          ]
+        },
+        {
+          id: 'flauta',
+          title: 'Flauta',
+          image: '/img/temp-9.jpg',
+          text: 'Aulas com Celso Woltzenlogel.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Respiração (parte 1)",
+              youtube: "https://www.youtube.com/watch?v=R2iVh1d_0tE",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Respiração (parte 2)",
+              youtube: "https://www.youtube.com/watch?v=RqyARI42IP4",
+              download: []
+            }
+          ]
+        },
+        {
           id: 'oboe',
           title: 'Oboé',
           image: '/img/galeria/oboe-1.jpg',
@@ -172,6 +212,24 @@ export default {
               title: "Aula 1",
               text: "História e desenvolvimento do oboé",
               youtube: "https://www.youtube.com/watch?v=wa8j-0Vmpak",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "A importância do uso de ferramentas tecnológicas no estudo do Oboé",
+              youtube: "https://www.youtube.com/watch?v=5JPWGFmjk6E",
+              download: []
+            },
+            {
+              title: "Aula 3",
+              text: "Escolha do instrumento e equipamento",
+              youtube: "https://www.youtube.com/watch?v=c8YcB4ZPBUU",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 1)",
+              youtube: "https://www.youtube.com/watch?v=XECP3DH7cig",
               download: []
             }
           ]
@@ -187,6 +245,12 @@ export default {
               text: "",
               youtube: "https://www.youtube.com/watch?v=Cq-bSTA0LHo",
               download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Manutenção e cuidados básicos",
+              youtube: "https://www.youtube.com/watch?v=U0nsrAcCKrs",
+              download: []
             }
           ]
         },
@@ -201,6 +265,32 @@ export default {
               text: "Um breve histórico do desenvolvimento da viola",
               youtube: "https://www.youtube.com/watch?v=um58t12s_zY",
               download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Postura corporal e formas de sustentação da viola",
+              youtube: "https://www.youtube.com/watch?v=lmQxquyx0C8",
+              download: []
+            },
+            {
+              title: "Aula 3",
+              text: "Fundamentos da emissão sonora no instrumento: sustentação e técnica de arco",
+              youtube: "https://www.youtube.com/watch?v=gUvtSoVGRvE",
+              download: []
+            }
+          ]
+        },
+        {
+          id: 'violino',
+          title: 'Violino',
+          image: '/img/temp-8.jpg',
+          text: 'Aulas com Marco Damm.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Uma breve história do violino",
+              youtube: "https://www.youtube.com/watch?v=Ss271n4JdIk",
+              download: []
             }
           ]
         },
@@ -214,6 +304,26 @@ export default {
               title: "Aula 1",
               text: "Conhecendo o violoncelo",
               youtube: "https://www.youtube.com/watch?v=ORZhBiI16zU",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Postura corporal e posicionamento do violoncelo",
+              youtube: "https://www.youtube.com/watch?v=FOeAoD5hAVg",
+              download: []
+            }
+          ]
+        },
+        {
+          id: 'timpanos',
+          title: 'Tímpanos',
+          image: '/img/galeria/timpanos-1.jpg',
+          text: 'Aulas com Pedro Sá.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "Afinação",
+              youtube: "https://www.youtube.com/watch?v=-C_jfCMjdUg",
               download: []
             }
           ]
@@ -238,6 +348,27 @@ export default {
               title: "Aula 1",
               text: "Os primórdios da direção de conjuntos musicais",
               youtube: "https://www.youtube.com/watch?v=sbVaUm67YCI",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Regente e compositor: o Mestre de Capela",
+              youtube: "https://www.youtube.com/watch?v=IGgnKKVyctU",
+              download: []
+            }
+          ]
+        },
+        {
+          id: 'estudo-da-partitura',
+          title: 'O Estudo da Partitura',
+          image: '/img/galeria/partitura-1.jpg',
+          text: "Aulas com Thiago Santos.",
+          fulltext: "",
+          classes: [
+            {
+              title: "Aula 1",
+              text: "O estudo da partitura é o começo de tudo, inclusive da sua autoridade",
+              youtube: "https://www.youtube.com/watch?v=H8B1GxeBFXw",
               download: []
             }
           ]
