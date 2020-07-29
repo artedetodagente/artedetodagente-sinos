@@ -7,7 +7,12 @@ function YouEmbed(props) {
 
   return (
     <div className="embed-container">
-      <iframe title={vid} src={`https://www.youtube.com/embed/${vid}`} frameBorder="0" allowfullscreen="allowfullscreen"></iframe>
+      <iframe
+        title={vid}
+        src={`https://www.youtube.com/embed/${vid}?autoplay=1`}
+        frameBorder="0"
+        allow="autoplay;fullscreen" 
+      ></iframe>
     </div>
   );
 }
