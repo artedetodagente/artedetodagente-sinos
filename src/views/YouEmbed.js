@@ -7,7 +7,7 @@ function YouEmbed(props) {
 
   return (
     <div class='embed-container'>
-      <iframe title={vid} src={`https://www.youtube.com/embed/${vid}`} frameborder="0" allowfullscreen></iframe>
+      <iframe title={vid} src={`https://www.youtube.com/embed/${vid}`} frameborder="0" allowfullscreen="allowfullscreen"></iframe>
     </div>
   );
 }
