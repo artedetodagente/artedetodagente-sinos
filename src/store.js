@@ -199,6 +199,18 @@ export default {
               text: "Respiração (parte 2)",
               youtube: "https://www.youtube.com/watch?v=RqyARI42IP4",
               download: []
+            },
+            {
+              title: "Aula 3",
+              text: "Princípios básicos da emissão do som",
+              youtube: "https://www.youtube.com/watch?v=S4pmpDgVAfw",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "Emissão do som na flauta",
+              youtube: "https://www.youtube.com/watch?v=Vw7IPbKsSZY",
+              download: []
             }
           ]
         },
@@ -325,6 +337,24 @@ export default {
               text: "Afinação",
               youtube: "https://www.youtube.com/watch?v=-C_jfCMjdUg",
               download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Toque Simples, Introdução",
+              youtube: "https://www.youtube.com/watch?v=86yNilZH5eA",
+              download: []
+            },
+            {
+              title: "Aula 3",
+              text: "Exercícios de Toque Simples",
+              youtube: "https://www.youtube.com/watch?v=JF5EHO39Hao",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "Articulação Legato",
+              youtube: "https://www.youtube.com/watch?v=6KF3jaVSw8Y",
+              download: []
             }
           ]
         }
@@ -369,6 +399,21 @@ export default {
               title: "Aula 1",
               text: "O estudo da partitura é o começo de tudo, inclusive da sua autoridade",
               youtube: "https://www.youtube.com/watch?v=H8B1GxeBFXw",
+              download: []
+            }
+          ]
+        },
+        {
+          id: 'organizacao-e-planejamento',
+          title: 'Organização e Planejamento',
+          image: '/img/galeria/orquestra-2.jpg',
+          text: "Aulas com Tobias Volkmann.",
+          fulltext: "",
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=43VH5Ymyv0w",
               download: []
             }
           ]
