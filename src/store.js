@@ -32,6 +32,12 @@ export default {
               text: "Mudança de posição",
               youtube: "https://www.youtube.com/watch?v=g2yGe_Wnx6o",
               download: []
+            },
+            {
+              title: "Aula 3",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=z32GEUfdjXI",
+              download: []
             }
           ]
         },
@@ -57,6 +63,12 @@ export default {
               title: "Aula 3",
               text: "O início correto da utilização do arco no violino e na viola",
               youtube: "https://www.youtube.com/watch?v=Ry-SV0Xw3Cg",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=ehr7ltQQlXo",
               download: []
             }
           ]
@@ -84,6 +96,12 @@ export default {
               text: "",
               youtube: "https://www.youtube.com/watch?v=w1N7Oc039XM",
               download: []
+            },
+            {
+              title: "Aula 4",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=VytCGUa2sb8",
+              download: []
             }
           ]
         },
@@ -110,6 +128,12 @@ export default {
               text: "Exercícios e métodos",
               youtube: "https://www.youtube.com/watch?v=T7ul-QHx4J8",
               download: []
+            },
+            {
+              title: "Aula 4",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=G-Bg00jquXU",
+              download: []
             }
           ]
         },
@@ -135,6 +159,12 @@ export default {
               title: "Aula 3",
               text: "",
               youtube: "https://www.youtube.com/watch?v=JZngDeBzfJk",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=x3vDH6M92ZA",
               download: []
             }
           ]
