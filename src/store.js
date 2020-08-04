@@ -180,6 +180,12 @@ export default {
               text: "",
               youtube: "https://www.youtube.com/watch?v=-LG_D7UXdTc",
               download: []
+            },
+            {
+              title: "Aula 2",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=7wSwqBssSq8",
+              download: []
             }
           ]
         }
