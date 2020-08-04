@@ -22,6 +22,7 @@ function HomeNews() {
   }, [slideNext])
 
   const bindSwiper = (swiper) => setSlideNext(() => () => swiper.slideNext())
+  const bgcover = (url) => `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${url}) no-repeat 50% 50%`
 
   return (
     <section id="noticias" className="home-news full-section">
@@ -49,8 +50,6 @@ function HomeNews() {
           </div>
         </div>
         <div className="col noticias center-out--off">
-          <div className="center-in--off">
-
           <Swiper
             loop={true}
             onSwiper={bindSwiper}
@@ -59,19 +58,24 @@ function HomeNews() {
               const date = fdate(post.date)
               return(
                 <SwiperSlide key={`${post.id}-slide-${i}`}>
-                  <article className="noticia">
-                    <div className="content">
-                      <h3>{post.title}</h3>
-                      <p>{post.text}</p>
-                      <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
+                  <article
+                    className="noticia"
+                    style={{background: bgcover(post.image) }}
+                  >
+                    <div className="content-wrapper">
+                      <div className="content">
+                        <h3>{post.title}</h3>
+                        <p>{post.text}</p>
+                        <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
+                      </div>
+                      <div><Link className="leiamais" to={`/noticias/${post.id}`}>Leia mais</Link></div>
                     </div>
-                    <Link className="leiamais" to={`/noticias/${post.id}`}>Leia mais</Link>
+                    
                   </article>
                 </SwiperSlide>
               )
             })}
           </Swiper>
-          </div>
         </div>
       </div>
     </section>

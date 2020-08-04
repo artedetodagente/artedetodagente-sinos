@@ -44,18 +44,28 @@
       }
       &.noticias {
         
-        @apply p-10;
+        /* @apply p-10; */
 
-        background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50%;
-        background-size: cover;
+        
 
         @screen md{
           /* @apply p-0 px-10; */
         }
 
+        .swiper-container,
+        .swiper-wrapper,
+        .swiper-slide {
+          @apply h-full;
+        }
+
         .noticia {
-          @apply mb-4;
+          @apply mb-4 p-10 h-full;
+          background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50%;
+          background-size: cover;
           color: white;
+          .content-wrapper {
+            @apply h-full flex flex-col justify-end;
+          }
           .content {
             @apply p-4 mb-2;
             background-color: rgba(0,0,0,.5);
