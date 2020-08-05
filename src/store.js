@@ -215,6 +215,12 @@ export default {
               text: "Produção do som",
               youtube: "https://www.youtube.com/watch?v=FJ2t96SRNMg",
               download: []
+            },
+            {
+              title: "Aula 3",
+              text: "Fundamentos do arco: ponto de contato, peso e velocidade",
+              youtube: "https://www.youtube.com/watch?v=r6It7jywd2I",
+              download: []
             }
           ]
         },
@@ -247,6 +253,24 @@ export default {
               text: "Emissão do som na flauta",
               youtube: "https://www.youtube.com/watch?v=Vw7IPbKsSZY",
               download: []
+            },
+            {
+              title: "Aula 5",
+              text: "Primeiros estudos",
+              youtube: "https://www.youtube.com/watch?v=fRFOvf_sCs4",
+              download: []
+            },
+            {
+              title: "Aula 6",
+              text: "Programação de estudos: articulações e vibrato",
+              youtube: "https://www.youtube.com/watch?v=7LgyUcPI-v8",
+              download: []
+            },
+            {
+              title: "Aula 7",
+              text: "Estudo sobre o ritmo sincopado",
+              youtube: "https://www.youtube.com/watch?v=KcekcV8tElc",
+              download: []
             }
           ]
         },
@@ -278,6 +302,12 @@ export default {
               title: "Aula 4",
               text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 1)",
               youtube: "https://www.youtube.com/watch?v=XECP3DH7cig",
+              download: []
+            },
+            {
+              title: "Aula 5",
+              text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 2)",
+              youtube: "https://www.youtube.com/watch?v=CRkjFriVfrI",
               download: []
             }
           ]
