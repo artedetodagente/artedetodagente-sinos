@@ -309,6 +309,18 @@ export default {
               text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 2)",
               youtube: "https://www.youtube.com/watch?v=CRkjFriVfrI",
               download: []
+            },
+            {
+              title: "Aula 6",
+              text: "Elementos musicais e a prática do Oboé",
+              youtube: "https://www.youtube.com/watch?v=F1KaOkeQdCw",
+              download: []
+            },
+            {
+              title: "Aula 7",
+              text: "Postura corporal e formas de empunhadura do Oboé",
+              youtube: "https://www.youtube.com/watch?v=J2WD6Jw6YaY",
+              download: []
             }
           ]
         },
@@ -420,6 +432,24 @@ export default {
               title: "Aula 4",
               text: "Articulação Legato",
               youtube: "https://www.youtube.com/watch?v=6KF3jaVSw8Y",
+              download: []
+            },
+            {
+              title: "Aula 5",
+              text: "Introdução ao Rulo",
+              youtube: "https://www.youtube.com/watch?v=Fi-aFo5ivkA",
+              download: []
+            },
+            {
+              title: "Aula 6",
+              text: "Tipos de Rulo",
+              youtube: "https://www.youtube.com/watch?v=A-spRdM9YaU",
+              download: []
+            },
+            {
+              title: "Aula 7",
+              text: "Articulações Staccato e Marcato",
+              youtube: "https://www.youtube.com/watch?v=kE7xs7SEBpo",
               download: []
             }
           ]
