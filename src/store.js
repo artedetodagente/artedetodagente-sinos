@@ -42,10 +42,10 @@ export default {
           ]
         },
         {
-          id: 'postura-do-arco',
-          title: 'Postura do Arco',
+          id: 'postura-do-arco-violino',
+          title: 'Postura do Arco para Violino',
           image: '/img/temp-10.jpg',
-          text: 'Aulas com Carla Rincón (violino e viola), Ronildo Alves (Violoncelo) e Voila Marques (Contrabaixo).',
+          text: 'Aulas com Carla Rincón.',
           classes: [
             {
               title: "Aula 1",
@@ -71,6 +71,20 @@ export default {
               youtube: "https://www.youtube.com/watch?v=ehr7ltQQlXo",
               download: []
             }
+          ]
+        },
+        {
+          id: 'postura-do-arco-violoncelo',
+          title: 'Postura do Arco para Violoncelo',
+          image: '/img/temp-7.jpg',
+          text: 'Aulas com Ronildo Alves.',
+          classes: [
+            {
+              title: "Aula 1",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=TtP67gLQxaQ",
+              download: []
+            },
           ]
         },
         {
@@ -481,6 +495,12 @@ export default {
               text: "Regente e compositor: o Mestre de Capela",
               youtube: "https://www.youtube.com/watch?v=IGgnKKVyctU",
               download: []
+            },
+            {
+              title: "Aula 3",
+              text: "A regência a partir do teclado e a regência dupla",
+              youtube: "https://www.youtube.com/watch?v=pypNek_BAHg",
+              download: []
             }
           ]
         },
@@ -495,6 +515,12 @@ export default {
               title: "Aula 1",
               text: "O estudo da partitura é o começo de tudo, inclusive da sua autoridade",
               youtube: "https://www.youtube.com/watch?v=H8B1GxeBFXw",
+              download: []
+            },
+            {
+              title: "Aula 2",
+              text: "Quais ferramentas usar?",
+              youtube: "https://www.youtube.com/watch?v=fabdvVacHlw",
               download: []
             }
           ]
