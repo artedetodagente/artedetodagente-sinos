@@ -38,6 +38,12 @@ export default {
               text: "",
               youtube: "https://www.youtube.com/watch?v=z32GEUfdjXI",
               download: []
+            },
+            {
+              title: "Aula 4",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=2AtlIOOOBIo",
+              download: []
             }
           ]
         },
@@ -69,6 +75,12 @@ export default {
               title: "Aula 4",
               text: "",
               youtube: "https://www.youtube.com/watch?v=ehr7ltQQlXo",
+              download: []
+            },
+            {
+              title: "Aula 5",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=v_9I76tETcc",
               download: []
             }
           ]
@@ -147,6 +159,12 @@ export default {
               title: "Aula 4",
               text: "",
               youtube: "https://www.youtube.com/watch?v=G-Bg00jquXU",
+              download: []
+            },
+            {
+              title: "Aula 5",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=ODhU0w0E_Zw",
               download: []
             }
           ]
