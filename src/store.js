@@ -97,6 +97,12 @@ export default {
               youtube: "https://www.youtube.com/watch?v=TtP67gLQxaQ",
               download: []
             },
+            {
+              title: "Aula 2",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=ZdJQ1HOTP-E",
+              download: []
+            },
           ]
         },
         {
@@ -127,6 +133,12 @@ export default {
               title: "Aula 4",
               text: "",
               youtube: "https://www.youtube.com/watch?v=VytCGUa2sb8",
+              download: []
+            },
+            {
+              title: "Aula 5",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=juGlG3rYQXk",
               download: []
             }
           ]
@@ -198,11 +210,17 @@ export default {
               text: "",
               youtube: "https://www.youtube.com/watch?v=x3vDH6M92ZA",
               download: []
+            },
+            {
+              title: "Aula 5",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=vDVYO9bzEUg",
+              download: []
             }
           ]
         },
         {
-          id: 'sensino-coletivo',
+          id: 'ensino-coletivo',
           title: 'Ensino Coletivo',
           image: '/img/temp-10.jpg',
           text: 'Aulas com Susan Hagar.',
@@ -217,6 +235,12 @@ export default {
               title: "Aula 2",
               text: "",
               youtube: "https://www.youtube.com/watch?v=7wSwqBssSq8",
+              download: []
+            },
+            {
+              title: "Aula 3",
+              text: "",
+              youtube: "https://www.youtube.com/watch?v=Tocwih0NQmU",
               download: []
             }
           ]
