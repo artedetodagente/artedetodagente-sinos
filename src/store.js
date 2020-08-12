@@ -258,7 +258,7 @@ export default {
           id: 'contrabaixo',
           title: 'Contrabaixo',
           image: '/img/temp-7.jpg',
-          text: 'Aulas com Eder Kinappe.',
+          text: 'Aulas com Eder Kinappe e Fausto Borém.',
           classes: [
             {
               title: "Aula 1",
@@ -276,6 +276,30 @@ export default {
               title: "Aula 3",
               text: "Fundamentos do arco: ponto de contato, peso e velocidade",
               youtube: "https://www.youtube.com/watch?v=r6It7jywd2I",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "Os Sons no Contrabaixo com o Arco (parte 1)",
+              youtube: "https://www.youtube.com/watch?v=yCKhMKkRW3Q",
+              download: []
+            },
+            {
+              title: "Aula 5",
+              text: "Os Sons no Contrabaixo com o Arco (parte 2)",
+              youtube: "https://www.youtube.com/watch?v=_8MliF3mYoI",
+              download: []
+            },
+            {
+              title: "Aula 6",
+              text: "Os Sons no Contrabaixo com o pizzicato & outros “bichos”",
+              youtube: "https://www.youtube.com/watch?v=jqicLCptX4o",
+              download: []
+            },
+            {
+              title: "Aula 6",
+              text: "Técnica de mão esquerda",
+              youtube: "https://www.youtube.com/watch?v=8ew6ZMLJ2lc",
               download: []
             }
           ]
@@ -376,6 +400,12 @@ export default {
               title: "Aula 7",
               text: "Postura corporal e formas de empunhadura do Oboé",
               youtube: "https://www.youtube.com/watch?v=J2WD6Jw6YaY",
+              download: []
+            },
+            {
+              title: "Aula 8",
+              text: "Fisiologia da respiração aplicada ao oboé e a preparação do corpo para o estudo e performance",
+              youtube: "https://www.youtube.com/watch?v=2B5eIyAdbZY",
               download: []
             }
           ]
