@@ -407,6 +407,18 @@ export default {
               text: "Fisiologia da respiração aplicada ao oboé e a preparação do corpo para o estudo e performance",
               youtube: "https://www.youtube.com/watch?v=2B5eIyAdbZY",
               download: []
+            },
+            {
+              title: "Aula 9",
+              text: "Embocadura do oboé",
+              youtube: "https://www.youtube.com/watch?v=FXm7xA7WIpU",
+              download: []
+            },
+            {
+              title: "Aula 10",
+              text: "Fundamentos da emissão sonora no oboé: processos de geração da vibração",
+              youtube: "https://www.youtube.com/watch?v=FEHoco6wMlQ",
+              download: []
             }
           ]
         },
@@ -537,6 +549,24 @@ export default {
               text: "Articulações Staccato e Marcato",
               youtube: "https://www.youtube.com/watch?v=kE7xs7SEBpo",
               download: []
+            },
+            {
+              title: "Aula 8",
+              text: "Baquetas de Tímpanos",
+              youtube: "https://www.youtube.com/watch?v=UfYH1O7_iwY",
+              download: []
+            },
+            {
+              title: "Aula 9",
+              text: "Fraseado",
+              youtube: "https://www.youtube.com/watch?v=JSMJW7-zYow",
+              download: []
+            },
+            {
+              title: "Aula 10",
+              text: "Trabalho de Timpanista em uma Orquestra Sinfônica",
+              youtube: "https://www.youtube.com/watch?v=OryMzb_O0WI",
+              download: []
             }
           ]
         }
@@ -572,6 +602,12 @@ export default {
               title: "Aula 3",
               text: "A regência a partir do teclado e a regência dupla",
               youtube: "https://www.youtube.com/watch?v=pypNek_BAHg",
+              download: []
+            },
+            {
+              title: "Aula 4",
+              text: "O fim do baixo contínuo: o compositor e o regente se separam",
+              youtube: "https://www.youtube.com/watch?v=GV1yHqtHANs",
               download: []
             }
           ]
