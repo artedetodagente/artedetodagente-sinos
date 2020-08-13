@@ -78,23 +78,25 @@
           @apply block;
         }
       }
-      .desc {
-        @apply bg-white px-4 py-2 mb-2 text-sm;
-        width: 240px;
-        @screen md {
-          @apply text-base;
+
+      .home-curso-cat {
+        @apply flex mb-2 uppercase;
+        .desc {
+          @apply bg-white px-4 py-2 text-sm;
+          @screen md {
+            @apply text-base;
+          }
         }
-      }
-      .acessar {
-        a {
-          @apply px-4 py-2 mr-2 block;
-          background-color: var(--red);
-          color: white;
-          text-align: right;
-          width: 240px;
-          &:hover {
-            background-color: white;
-            color: var(--red);
+        .acessar {
+          a {
+            @apply px-4 py-2 inline-block;
+            background-color: var(--red);
+            color: white;
+            text-align: right;
+            &:hover {
+              background-color: white;
+              color: var(--red);
+            }
           }
         }
       }

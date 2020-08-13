@@ -14,132 +14,149 @@ export default {
       color: '#8bc73b',
       text: 'O Curso de Capacitação Pedagógica para o Ensino dos Instrumentos de Cordas é direcionado para professores e monitores de projetos sociais de todo o país. Ele é composto por 16 módulos de vídeo oficinas, a cargo de uma equipe de 16 professores e que abordam temas como postura, afinação e musicalidade, aplicadas à prática de violino, viola, violoncelo e contrabaixo.',
       fulltext: 'O Curso de Capacitação Pedagógica para o Ensino dos Instrumentos de Cordas é direcionado para professores e monitores de projetos sociais de todo o país. Ele é composto por 16 módulos de vídeo oficinas, a cargo de uma equipe de 16 professores e que abordam temas como postura, afinação e musicalidade, aplicadas à prática de violino, viola, violoncelo e contrabaixo.',
-      modules: [
+      categorias: [
         {
           id: 'afinacao',
           title: 'Afinação',
           image: '/img/temp-11.jpg',
-          text: 'Aulas com Luciana Arraes.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Notas de ressonância",
-              youtube: "https://www.youtube.com/watch?v=P0fVPrcOsq4",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Mudança de posição",
-              youtube: "https://www.youtube.com/watch?v=g2yGe_Wnx6o",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=z32GEUfdjXI",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=2AtlIOOOBIo",
-              download: []
+              id: 'afinacao',
+              title: 'Afinação',
+              professor: 'Luciana Arraes',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Notas de ressonância",
+                  youtube: "https://www.youtube.com/watch?v=P0fVPrcOsq4",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Mudança de posição",
+                  youtube: "https://www.youtube.com/watch?v=g2yGe_Wnx6o",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=z32GEUfdjXI",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=2AtlIOOOBIo",
+                  download: []
+                }
+              ]
             }
           ]
         },
         {
-          id: 'postura-do-arco-violino',
-          title: 'Postura do Arco para Violino',
+          id: 'postura-do-arco',
+          title: 'Postura do Arco',
           image: '/img/temp-10.jpg',
-          text: 'Aulas com Carla Rincón.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=cdZgeJ53xKk",
-              download: []
+              id: 'violino',
+              title: 'Violino',
+              professor: 'Carla Rincón',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=cdZgeJ53xKk",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Espelho como corretor de postura, braço direito e mão",
+                  youtube: "https://www.youtube.com/watch?v=ZCuy0g00EI0",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "O início correto da utilização do arco no violino e na viola",
+                  youtube: "https://www.youtube.com/watch?v=Ry-SV0Xw3Cg",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=ehr7ltQQlXo",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=v_9I76tETcc",
+                  download: []
+                }
+              ]
             },
             {
-              title: "Aula 2",
-              text: "Espelho como corretor de postura, braço direito e mão",
-              youtube: "https://www.youtube.com/watch?v=ZCuy0g00EI0",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "O início correto da utilização do arco no violino e na viola",
-              youtube: "https://www.youtube.com/watch?v=Ry-SV0Xw3Cg",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=ehr7ltQQlXo",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=v_9I76tETcc",
-              download: []
+              id: 'violoncelo',
+              title: 'Violoncelo',
+              professor: 'Ronildo Alves',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=TtP67gLQxaQ",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=ZdJQ1HOTP-E",
+                  download: []
+                },
+              ]
             }
-          ]
-        },
-        {
-          id: 'postura-do-arco-violoncelo',
-          title: 'Postura do Arco para Violoncelo',
-          image: '/img/temp-7.jpg',
-          text: 'Aulas com Ronildo Alves.',
-          classes: [
-            {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=TtP67gLQxaQ",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=ZdJQ1HOTP-E",
-              download: []
-            },
           ]
         },
         {
           id: 'postura-no-instrumento',
           title: 'Postura no Instrumento',
           image: '/img/temp-7.jpg',
-          text: 'Aulas com Simone dos Santos (Violino e Viola) e Rodrigo Fávaro (Contrabaixo).',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=n8j7ubkXy2s",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=c3K_yOB-kPU",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=w1N7Oc039XM",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=VytCGUa2sb8",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=juGlG3rYQXk",
-              download: []
+              id: 'violino-viola',
+              title: 'Violino e Viola',
+              professor: 'Simone dos Santos',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=n8j7ubkXy2s",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=c3K_yOB-kPU",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=w1N7Oc039XM",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=VytCGUa2sb8",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=juGlG3rYQXk",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -147,37 +164,43 @@ export default {
           id: 'sonoridade',
           title: 'Sonoridade',
           image: '/img/temp-8.jpg',
-          text: 'Aulas com Alexandre Razera (Viola) e Jed Barahal (Violoncelo).',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=-JPaHlzXwdw",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Definição de boa sonoridade/infinito",
-              youtube: "https://www.youtube.com/watch?v=F3ZQv7ew2Tk",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "Exercícios e métodos",
-              youtube: "https://www.youtube.com/watch?v=T7ul-QHx4J8",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=G-Bg00jquXU",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=ODhU0w0E_Zw",
-              download: []
+              id: 'sonoridade',
+              title: 'Sonoridade',
+              professor: 'Alexandre Razera',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=-JPaHlzXwdw",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Definição de boa sonoridade/infinito",
+                  youtube: "https://www.youtube.com/watch?v=F3ZQv7ew2Tk",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "Exercícios e métodos",
+                  youtube: "https://www.youtube.com/watch?v=T7ul-QHx4J8",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=G-Bg00jquXU",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=ODhU0w0E_Zw",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -185,37 +208,43 @@ export default {
           id: 'musicalidade',
           title: 'Musicalidade',
           image: '/img/temp-2.jpg',
-          text: 'Aulas com Gabriela Queiroz.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=Qmqd6RxJ0QQ",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=BAnOY9OM9LM",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=JZngDeBzfJk",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=x3vDH6M92ZA",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=vDVYO9bzEUg",
-              download: []
+              id: 'musicalidade',
+              title: 'Musicalidade',
+              professor: 'Gabriela Queiroz',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=Qmqd6RxJ0QQ",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=BAnOY9OM9LM",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=JZngDeBzfJk",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=x3vDH6M92ZA",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=vDVYO9bzEUg",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -223,25 +252,31 @@ export default {
           id: 'ensino-coletivo',
           title: 'Ensino Coletivo',
           image: '/img/temp-10.jpg',
-          text: 'Aulas com Susan Hagar.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=-LG_D7UXdTc",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=7wSwqBssSq8",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=Tocwih0NQmU",
-              download: []
+              id: 'ensino-coletivo',
+              title: 'Ensino Coletivo',
+              professor: 'Susan Hagar.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=-LG_D7UXdTc",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=7wSwqBssSq8",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=Tocwih0NQmU",
+                  download: []
+                }
+              ]
             }
           ]
         }
@@ -253,54 +288,60 @@ export default {
       color: '#3568fb',
       text: 'Aqui estão reunidos cursos de capacitação para alunos de orquestras e bandas de projetos sociais de todo o Brasil. Estão incluídos, ainda, temas como música de câmara, teoria musical, história da música e reparo e manutenção de instrumentos de sopro e de cordas.',
       fulltext: 'Aqui estão reunidos cursos de capacitação para alunos de orquestras e bandas de projetos sociais de todo o Brasil. Ao todo, 40 professores distribuem-se entre 22 cursos livres, compostos, cada um, por 20 vídeos, com duração de oito a dez minutos, destinados a diversos instrumentos dos grupos de cordas, metais, madeiras e percussão. Estão incluídos, ainda, temas como música de câmara, teoria musical, história da música e reparo e manutenção de instrumentos de sopro e de cordas.',
-      modules: [
+      categorias: [
         {
           id: 'contrabaixo',
           title: 'Contrabaixo',
           image: '/img/temp-7.jpg',
-          text: 'Aulas com Eder Kinappe e Fausto Borém.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Postura corporal",
-              youtube: "https://www.youtube.com/watch?v=hbaiNNKke9E",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Produção do som",
-              youtube: "https://www.youtube.com/watch?v=FJ2t96SRNMg",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "Fundamentos do arco: ponto de contato, peso e velocidade",
-              youtube: "https://www.youtube.com/watch?v=r6It7jywd2I",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "Os Sons no Contrabaixo com o Arco (parte 1)",
-              youtube: "https://www.youtube.com/watch?v=yCKhMKkRW3Q",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "Os Sons no Contrabaixo com o Arco (parte 2)",
-              youtube: "https://www.youtube.com/watch?v=_8MliF3mYoI",
-              download: []
-            },
-            {
-              title: "Aula 6",
-              text: "Os Sons no Contrabaixo com o pizzicato & outros “bichos”",
-              youtube: "https://www.youtube.com/watch?v=jqicLCptX4o",
-              download: []
-            },
-            {
-              title: "Aula 6",
-              text: "Técnica de mão esquerda",
-              youtube: "https://www.youtube.com/watch?v=8ew6ZMLJ2lc",
-              download: []
+              id: 'contrabaixo',
+              title: 'Contrabaixo',
+              professor: 'Eder Kinappe e Fausto Borém.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Postura corporal",
+                  youtube: "https://www.youtube.com/watch?v=hbaiNNKke9E",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Produção do som",
+                  youtube: "https://www.youtube.com/watch?v=FJ2t96SRNMg",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "Fundamentos do arco: ponto de contato, peso e velocidade",
+                  youtube: "https://www.youtube.com/watch?v=r6It7jywd2I",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "Os Sons no Contrabaixo com o Arco (parte 1)",
+                  youtube: "https://www.youtube.com/watch?v=yCKhMKkRW3Q",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "Os Sons no Contrabaixo com o Arco (parte 2)",
+                  youtube: "https://www.youtube.com/watch?v=_8MliF3mYoI",
+                  download: []
+                },
+                {
+                  title: "Aula 6",
+                  text: "Os Sons no Contrabaixo com o pizzicato & outros “bichos”",
+                  youtube: "https://www.youtube.com/watch?v=jqicLCptX4o",
+                  download: []
+                },
+                {
+                  title: "Aula 6",
+                  text: "Técnica de mão esquerda",
+                  youtube: "https://www.youtube.com/watch?v=8ew6ZMLJ2lc",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -308,49 +349,55 @@ export default {
           id: 'flauta',
           title: 'Flauta',
           image: '/img/temp-9.jpg',
-          text: 'Aulas com Celso Woltzenlogel.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Respiração (parte 1)",
-              youtube: "https://www.youtube.com/watch?v=R2iVh1d_0tE",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Respiração (parte 2)",
-              youtube: "https://www.youtube.com/watch?v=RqyARI42IP4",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "Princípios básicos da emissão do som",
-              youtube: "https://www.youtube.com/watch?v=S4pmpDgVAfw",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "Emissão do som na flauta",
-              youtube: "https://www.youtube.com/watch?v=Vw7IPbKsSZY",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "Primeiros estudos",
-              youtube: "https://www.youtube.com/watch?v=fRFOvf_sCs4",
-              download: []
-            },
-            {
-              title: "Aula 6",
-              text: "Programação de estudos: articulações e vibrato",
-              youtube: "https://www.youtube.com/watch?v=7LgyUcPI-v8",
-              download: []
-            },
-            {
-              title: "Aula 7",
-              text: "Estudo sobre o ritmo sincopado",
-              youtube: "https://www.youtube.com/watch?v=KcekcV8tElc",
-              download: []
+              id: 'flauta',
+              title: 'Flauta',
+              professor: 'Celso Woltzenlogel.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Respiração (parte 1)",
+                  youtube: "https://www.youtube.com/watch?v=R2iVh1d_0tE",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Respiração (parte 2)",
+                  youtube: "https://www.youtube.com/watch?v=RqyARI42IP4",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "Princípios básicos da emissão do som",
+                  youtube: "https://www.youtube.com/watch?v=S4pmpDgVAfw",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "Emissão do som na flauta",
+                  youtube: "https://www.youtube.com/watch?v=Vw7IPbKsSZY",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "Primeiros estudos",
+                  youtube: "https://www.youtube.com/watch?v=fRFOvf_sCs4",
+                  download: []
+                },
+                {
+                  title: "Aula 6",
+                  text: "Programação de estudos: articulações e vibrato",
+                  youtube: "https://www.youtube.com/watch?v=7LgyUcPI-v8",
+                  download: []
+                },
+                {
+                  title: "Aula 7",
+                  text: "Estudo sobre o ritmo sincopado",
+                  youtube: "https://www.youtube.com/watch?v=KcekcV8tElc",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -358,67 +405,73 @@ export default {
           id: 'oboe',
           title: 'Oboé',
           image: '/img/galeria/oboe-1.jpg',
-          text: 'Aulas com Moisés Pena e Ravi Shankar.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "História e desenvolvimento do oboé",
-              youtube: "https://www.youtube.com/watch?v=wa8j-0Vmpak",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "A importância do uso de ferramentas tecnológicas no estudo do Oboé",
-              youtube: "https://www.youtube.com/watch?v=5JPWGFmjk6E",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "Escolha do instrumento e equipamento",
-              youtube: "https://www.youtube.com/watch?v=c8YcB4ZPBUU",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 1)",
-              youtube: "https://www.youtube.com/watch?v=XECP3DH7cig",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 2)",
-              youtube: "https://www.youtube.com/watch?v=CRkjFriVfrI",
-              download: []
-            },
-            {
-              title: "Aula 6",
-              text: "Elementos musicais e a prática do Oboé",
-              youtube: "https://www.youtube.com/watch?v=F1KaOkeQdCw",
-              download: []
-            },
-            {
-              title: "Aula 7",
-              text: "Postura corporal e formas de empunhadura do Oboé",
-              youtube: "https://www.youtube.com/watch?v=J2WD6Jw6YaY",
-              download: []
-            },
-            {
-              title: "Aula 8",
-              text: "Fisiologia da respiração aplicada ao oboé e a preparação do corpo para o estudo e performance",
-              youtube: "https://www.youtube.com/watch?v=2B5eIyAdbZY",
-              download: []
-            },
-            {
-              title: "Aula 9",
-              text: "Embocadura do oboé",
-              youtube: "https://www.youtube.com/watch?v=FXm7xA7WIpU",
-              download: []
-            },
-            {
-              title: "Aula 10",
-              text: "Fundamentos da emissão sonora no oboé: processos de geração da vibração",
-              youtube: "https://www.youtube.com/watch?v=FEHoco6wMlQ",
-              download: []
+              id: 'oboe',
+              title: 'Oboé',
+              professor: 'Moisés Pena e Ravi Shankar.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "História e desenvolvimento do oboé",
+                  youtube: "https://www.youtube.com/watch?v=wa8j-0Vmpak",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "A importância do uso de ferramentas tecnológicas no estudo do Oboé",
+                  youtube: "https://www.youtube.com/watch?v=5JPWGFmjk6E",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "Escolha do instrumento e equipamento",
+                  youtube: "https://www.youtube.com/watch?v=c8YcB4ZPBUU",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 1)",
+                  youtube: "https://www.youtube.com/watch?v=XECP3DH7cig",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "Limpeza, manutenção e cuidados básicos com o oboé (parte 2)",
+                  youtube: "https://www.youtube.com/watch?v=CRkjFriVfrI",
+                  download: []
+                },
+                {
+                  title: "Aula 6",
+                  text: "Elementos musicais e a prática do Oboé",
+                  youtube: "https://www.youtube.com/watch?v=F1KaOkeQdCw",
+                  download: []
+                },
+                {
+                  title: "Aula 7",
+                  text: "Postura corporal e formas de empunhadura do Oboé",
+                  youtube: "https://www.youtube.com/watch?v=J2WD6Jw6YaY",
+                  download: []
+                },
+                {
+                  title: "Aula 8",
+                  text: "Fisiologia da respiração aplicada ao oboé e a preparação do corpo para o estudo e performance",
+                  youtube: "https://www.youtube.com/watch?v=2B5eIyAdbZY",
+                  download: []
+                },
+                {
+                  title: "Aula 9",
+                  text: "Embocadura do oboé",
+                  youtube: "https://www.youtube.com/watch?v=FXm7xA7WIpU",
+                  download: []
+                },
+                {
+                  title: "Aula 10",
+                  text: "Fundamentos da emissão sonora no oboé: processos de geração da vibração",
+                  youtube: "https://www.youtube.com/watch?v=FEHoco6wMlQ",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -426,19 +479,25 @@ export default {
           id: 'requinta',
           title: 'Requinta',
           image: '/img/temp-6.jpg',
-          text: 'Aulas com Márcio Costa.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=Cq-bSTA0LHo",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Manutenção e cuidados básicos",
-              youtube: "https://www.youtube.com/watch?v=U0nsrAcCKrs",
-              download: []
+              id: 'requinta',
+              title: 'Requinta',
+              professor: 'Márcio Costa',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=Cq-bSTA0LHo",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Manutenção e cuidados básicos",
+                  youtube: "https://www.youtube.com/watch?v=U0nsrAcCKrs",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -446,25 +505,31 @@ export default {
           id: 'viola',
           title: 'Viola',
           image: '/img/temp-11.jpg',
-          text: 'Aulas com Daniel Prazeres e Marco Catto.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Um breve histórico do desenvolvimento da viola",
-              youtube: "https://www.youtube.com/watch?v=um58t12s_zY",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Postura corporal e formas de sustentação da viola",
-              youtube: "https://www.youtube.com/watch?v=lmQxquyx0C8",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "Fundamentos da emissão sonora no instrumento: sustentação e técnica de arco",
-              youtube: "https://www.youtube.com/watch?v=gUvtSoVGRvE",
-              download: []
+              id: 'requinta',
+              title: 'Requinta',
+              professor: 'Daniel Prazeres e Marco Catto',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Um breve histórico do desenvolvimento da viola",
+                  youtube: "https://www.youtube.com/watch?v=um58t12s_zY",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Postura corporal e formas de sustentação da viola",
+                  youtube: "https://www.youtube.com/watch?v=lmQxquyx0C8",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "Fundamentos da emissão sonora no instrumento: sustentação e técnica de arco",
+                  youtube: "https://www.youtube.com/watch?v=gUvtSoVGRvE",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -472,13 +537,19 @@ export default {
           id: 'violino',
           title: 'Violino',
           image: '/img/temp-8.jpg',
-          text: 'Aulas com Marco Damm.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Uma breve história do violino",
-              youtube: "https://www.youtube.com/watch?v=Ss271n4JdIk",
-              download: []
+              id: 'violino',
+              title: 'Violino',
+              professor: 'Marco Damm.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Uma breve história do violino",
+                  youtube: "https://www.youtube.com/watch?v=Ss271n4JdIk",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -486,19 +557,25 @@ export default {
           id: 'violoncelo',
           title: 'Violoncelo',
           image: '/img/temp-7.jpg',
-          text: 'Aulas com Dora Utermohl e Hugo Pilger.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Conhecendo o violoncelo",
-              youtube: "https://www.youtube.com/watch?v=ORZhBiI16zU",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Postura corporal e posicionamento do violoncelo",
-              youtube: "https://www.youtube.com/watch?v=FOeAoD5hAVg",
-              download: []
+              id: 'violoncelo',
+              title: 'Violoncelo',
+              professor: 'Dora Utermohl e Hugo Pilger.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Conhecendo o violoncelo",
+                  youtube: "https://www.youtube.com/watch?v=ORZhBiI16zU",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Postura corporal e posicionamento do violoncelo",
+                  youtube: "https://www.youtube.com/watch?v=FOeAoD5hAVg",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -506,67 +583,73 @@ export default {
           id: 'timpanos',
           title: 'Tímpanos',
           image: '/img/galeria/timpanos-1.jpg',
-          text: 'Aulas com Pedro Sá.',
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Afinação",
-              youtube: "https://www.youtube.com/watch?v=-C_jfCMjdUg",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Toque Simples, Introdução",
-              youtube: "https://www.youtube.com/watch?v=86yNilZH5eA",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "Exercícios de Toque Simples",
-              youtube: "https://www.youtube.com/watch?v=JF5EHO39Hao",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "Articulação Legato",
-              youtube: "https://www.youtube.com/watch?v=6KF3jaVSw8Y",
-              download: []
-            },
-            {
-              title: "Aula 5",
-              text: "Introdução ao Rulo",
-              youtube: "https://www.youtube.com/watch?v=Fi-aFo5ivkA",
-              download: []
-            },
-            {
-              title: "Aula 6",
-              text: "Tipos de Rulo",
-              youtube: "https://www.youtube.com/watch?v=A-spRdM9YaU",
-              download: []
-            },
-            {
-              title: "Aula 7",
-              text: "Articulações Staccato e Marcato",
-              youtube: "https://www.youtube.com/watch?v=kE7xs7SEBpo",
-              download: []
-            },
-            {
-              title: "Aula 8",
-              text: "Baquetas de Tímpanos",
-              youtube: "https://www.youtube.com/watch?v=UfYH1O7_iwY",
-              download: []
-            },
-            {
-              title: "Aula 9",
-              text: "Fraseado",
-              youtube: "https://www.youtube.com/watch?v=JSMJW7-zYow",
-              download: []
-            },
-            {
-              title: "Aula 10",
-              text: "Trabalho de Timpanista em uma Orquestra Sinfônica",
-              youtube: "https://www.youtube.com/watch?v=OryMzb_O0WI",
-              download: []
+              id: 'timpanos',
+              title: 'Tímpanos',
+              professor: 'Pedro Sá.',
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Afinação",
+                  youtube: "https://www.youtube.com/watch?v=-C_jfCMjdUg",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Toque Simples, Introdução",
+                  youtube: "https://www.youtube.com/watch?v=86yNilZH5eA",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "Exercícios de Toque Simples",
+                  youtube: "https://www.youtube.com/watch?v=JF5EHO39Hao",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "Articulação Legato",
+                  youtube: "https://www.youtube.com/watch?v=6KF3jaVSw8Y",
+                  download: []
+                },
+                {
+                  title: "Aula 5",
+                  text: "Introdução ao Rulo",
+                  youtube: "https://www.youtube.com/watch?v=Fi-aFo5ivkA",
+                  download: []
+                },
+                {
+                  title: "Aula 6",
+                  text: "Tipos de Rulo",
+                  youtube: "https://www.youtube.com/watch?v=A-spRdM9YaU",
+                  download: []
+                },
+                {
+                  title: "Aula 7",
+                  text: "Articulações Staccato e Marcato",
+                  youtube: "https://www.youtube.com/watch?v=kE7xs7SEBpo",
+                  download: []
+                },
+                {
+                  title: "Aula 8",
+                  text: "Baquetas de Tímpanos",
+                  youtube: "https://www.youtube.com/watch?v=UfYH1O7_iwY",
+                  download: []
+                },
+                {
+                  title: "Aula 9",
+                  text: "Fraseado",
+                  youtube: "https://www.youtube.com/watch?v=JSMJW7-zYow",
+                  download: []
+                },
+                {
+                  title: "Aula 10",
+                  text: "Trabalho de Timpanista em uma Orquestra Sinfônica",
+                  youtube: "https://www.youtube.com/watch?v=OryMzb_O0WI",
+                  download: []
+                }
+              ]
             }
           ]
         }
@@ -578,37 +661,43 @@ export default {
       color: '#ffa92e',
       text: 'A Academia é dirigida a jovens regentes das orquestras de projetos sociais, com a disponibilização de conteúdo didático e professores. O conteúdo inclui vídeo oficinas sobre temas introdutórios da regência, a partir de obras inéditas, encomendadas a compositores de todo o país.',
       fulltext: 'A Academia é dirigida a jovens regentes das orquestras de projetos sociais, com a disponibilização de conteúdo didático e professores. O conteúdo inclui vídeo oficinas sobre temas introdutórios da regência, a partir de obras inéditas, encomendadas a compositores de todo o país. Ao todo, são 24 vídeos, de seis professores diferentes e 30 compositores envolvidos com o projeto.',
-      modules: [
+      categorias: [
         {
           id: 'historia-da-regencia',
           title: 'História da Regência',
           image: '/img/galeria/regencia-1.jpg',
-          text: "Aulas com André Cardoso.",
-          fulltext: "O curso de História da Regência aborda como se desenvolveu ao longo dos séculos a atividade de direção de conjuntos vocais e instrumentais e como foi formatada a técnica gestual para a transmissão do conteúdo musical de uma partitura. Em seis videoaulas serão conhecidos os recursos empregados para a direção de grupos musicais em diferentes contextos e épocas.",
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "Os primórdios da direção de conjuntos musicais",
-              youtube: "https://www.youtube.com/watch?v=sbVaUm67YCI",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Regente e compositor: o Mestre de Capela",
-              youtube: "https://www.youtube.com/watch?v=IGgnKKVyctU",
-              download: []
-            },
-            {
-              title: "Aula 3",
-              text: "A regência a partir do teclado e a regência dupla",
-              youtube: "https://www.youtube.com/watch?v=pypNek_BAHg",
-              download: []
-            },
-            {
-              title: "Aula 4",
-              text: "O fim do baixo contínuo: o compositor e o regente se separam",
-              youtube: "https://www.youtube.com/watch?v=GV1yHqtHANs",
-              download: []
+              id: 'historia-da-regencia',
+              title: 'História da Regência',
+              professor: 'André Cardoso',
+              fulltext: "O curso de História da Regência aborda como se desenvolveu ao longo dos séculos a atividade de direção de conjuntos vocais e instrumentais e como foi formatada a técnica gestual para a transmissão do conteúdo musical de uma partitura. Em seis videoaulas serão conhecidos os recursos empregados para a direção de grupos musicais em diferentes contextos e épocas.",
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "Os primórdios da direção de conjuntos musicais",
+                  youtube: "https://www.youtube.com/watch?v=sbVaUm67YCI",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Regente e compositor: o Mestre de Capela",
+                  youtube: "https://www.youtube.com/watch?v=IGgnKKVyctU",
+                  download: []
+                },
+                {
+                  title: "Aula 3",
+                  text: "A regência a partir do teclado e a regência dupla",
+                  youtube: "https://www.youtube.com/watch?v=pypNek_BAHg",
+                  download: []
+                },
+                {
+                  title: "Aula 4",
+                  text: "O fim do baixo contínuo: o compositor e o regente se separam",
+                  youtube: "https://www.youtube.com/watch?v=GV1yHqtHANs",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -616,20 +705,26 @@ export default {
           id: 'estudo-da-partitura',
           title: 'O Estudo da Partitura',
           image: '/img/galeria/partitura-1.jpg',
-          text: "Aulas com Thiago Santos.",
-          fulltext: "",
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "O estudo da partitura é o começo de tudo, inclusive da sua autoridade",
-              youtube: "https://www.youtube.com/watch?v=H8B1GxeBFXw",
-              download: []
-            },
-            {
-              title: "Aula 2",
-              text: "Quais ferramentas usar?",
-              youtube: "https://www.youtube.com/watch?v=fabdvVacHlw",
-              download: []
+              id: 'estudo-da-partitura',
+              title: 'O Estudo da Partitura',
+              professor: 'Thiago Santos.',
+              fulltext: "",
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "O estudo da partitura é o começo de tudo, inclusive da sua autoridade",
+                  youtube: "https://www.youtube.com/watch?v=H8B1GxeBFXw",
+                  download: []
+                },
+                {
+                  title: "Aula 2",
+                  text: "Quais ferramentas usar?",
+                  youtube: "https://www.youtube.com/watch?v=fabdvVacHlw",
+                  download: []
+                }
+              ]
             }
           ]
         },
@@ -637,14 +732,20 @@ export default {
           id: 'organizacao-e-planejamento',
           title: 'Organização e Planejamento',
           image: '/img/galeria/orquestra-2.jpg',
-          text: "Aulas com Tobias Volkmann.",
-          fulltext: "",
-          classes: [
+          cursos: [
             {
-              title: "Aula 1",
-              text: "",
-              youtube: "https://www.youtube.com/watch?v=43VH5Ymyv0w",
-              download: []
+              id: 'historia-da-regencia',
+              title: 'História da Regência',
+              professor: 'Tobias Volkmann.',
+              fulltext: "",
+              classes: [
+                {
+                  title: "Aula 1",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=43VH5Ymyv0w",
+                  download: []
+                }
+              ]
             }
           ]
         }

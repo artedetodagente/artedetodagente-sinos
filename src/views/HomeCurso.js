@@ -5,14 +5,14 @@ import { HashLink as Link } from 'react-router-hash-link'
 function HomeCurso(props) {
 
   const {data} = props
-  const {modules} = data
+  const {categorias} = data
 
   const [dropIsDown,setDrop] = useState(false)
   const [selected,setSelected] = useState(0)
   const [slideTo, setSlideTo] = useState(null)
 
-  const len = modules.length
-  const current = modules[selected]
+  const len = categorias.length
+  const current = categorias[selected]
   const next = (selected + 1) % len
   const prev = (selected - 1 + len) % len
 
@@ -43,7 +43,7 @@ function HomeCurso(props) {
           onSlideChange={onSlide}
           onSwiper={bindSwiper}
         >
-          {modules.map((m,i)=>{
+          {categorias.map((m,i)=>{
             return (
               <SwiperSlide key={`${data.id}-slide-${i}`}>
                 <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${m.image})`}}/>
@@ -51,8 +51,8 @@ function HomeCurso(props) {
             )
           })}
         </Swiper>
-        <div className="swiper-nav prev" style={{display: hasnav}} onClick={dropSelect(prev)}>&laquo; {modules[prev].title}</div>
-        <div className="swiper-nav next" style={{display: hasnav}} onClick={dropSelect(next)}>{modules[next].title} &raquo;</div>
+        <div className="swiper-nav prev" style={{display: hasnav}} onClick={dropSelect(prev)}>&laquo; {categorias[prev].title}</div>
+        <div className="swiper-nav next" style={{display: hasnav}} onClick={dropSelect(next)}>{categorias[next].title} &raquo;</div>
       </div>
 
       <div className="curso-info">
@@ -70,16 +70,22 @@ function HomeCurso(props) {
             </div>
             <div className="options-viewport">
               <div className="options">
-              {modules.map((m,i)=>{
+              {categorias.map((m,i)=>{
                 return <li key={`${data.id}-drop-${i}`} onClick={dropSelect(i)}>{m.title}</li>
               })}
               </div>
             </div>
           </div>
-          <div className="desc">{current.text}</div>
-          <div className="acessar">
-            <Link to={`/cursos/${data.id}/${current.id}`}>Acessar &raquo;</Link>
-          </div>
+          {current.cursos.map((curso,i)=>{
+            return(
+              <div className="home-curso-cat">
+                <div className="desc">{curso.title}</div>
+                <div className="acessar">
+                  <Link to={`/cursos/${data.id}/${current.id}/${curso.id}`}>{curso.professor} &raquo;</Link>
+                </div>
+              </div>
+            )
+          })}
         </div>
 
       </div>
