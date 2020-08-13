@@ -729,6 +729,25 @@ export default {
   },
   posts: [
     {
+      id: 'lives-aniversario-escola',
+      date: '2020-08-13',
+      title: 'Lives comemoram aniversário da Escola de Música da UFRJ',
+      image : "/img/noticias/lives-aniversario.jpg",
+      text: 'Para comemorar os seus 172 de história, a Escola de Música da UFRJ – responsável pela curadoria do Sinos – está promovendo uma série de seis lives, transmitidas por seu canal no Youtube (www.youtube.com/user/concertosufrj) e, também, pelo site da instituição. Serão três concertos e três debates, com duração de 90 minutos cada, no ar entre os dias 10 e 15 de agosto. Confira mais detalhes sobre a programação na página da escola (www.musica.ufrj.br).',
+      fulltext: `
+      <strong>O arco da maneira certa</strong>
+
+      Para comemorar os seus 172 de história, a Escola de Música da UFRJ (EM) está promovendo uma série de seis lives, transmitidas por seu canal no Youtube (www.youtube.com/user/concertosufrj) e pelo site da própria instituição. Serão três concertos e três debates, com duração de 90 minutos cada, no ar entre os dias 10 e 15 de agosto. Confira mais detalhes sobre a programação na página da escola (www.musica.ufrj.br). Fundada em 1848 e funcionando ininterruptamente desde então, a Escola é a mais antiga instituição do gênero no país e, tradicionalmente, comemora seu aniversário com uma série de concertos e recitais. Este ano, devido às medidas de distanciamento social para o combate ao novo coronavírus, essas atividades acontecem no meio virtual. A EM é a responsável pela curadoria do Sistema Nacional de Orquestras Sociais – Sinos.
+
+      <strong>As lives</strong>
+
+      Os concertos programados para a comemoração estão marcados por efemérides musicais, com destaques para os 250 anos de nascimento de Ludwig van Beethoven, os 170 anos de nascimento de Leopoldo Miguez, o centenário de falecimento de  Alberto Nepomuceno (100 anos falecimento) e os 70 anos de nascimento de Ernani Aguiar. Os três brasileiros, aliás, têm suas carreiras ligadas à Escola de Música: Miguez comandou a instituição de 1890 a 1902, Nepomuceno em dois períodos, 1902-1903 e 1906-1916, e Ernani Aguiar é atualmente professor de Regência e titular da Orquestra Sinfônica da UFRJ (OSUFRJ).
+
+      Terça-feira (11), com mediação de Ana Paula da Matta (UFRJ) e João Vidal (PPGM/UFRJ), Midori Maeshiro (UFRJ) e Valéria Matos (UFRJ), a live apresenta a obra para canto e piano de Alberto Nepomuceno (1864-1920). Quinta-feira (13), Maria José Chevitarese (UFRJ) coordena concerto virtual que discute a produção de Ernani Aguiar. Participação confirmada do compositor e de Yahn Wagner (UFRJ), Liduíno Pitombeira (UFRJ) e Leonardo David (Diretor Artístico Camerata Sesi, Vitória). Por fim, no sábado (15), tendo Andrea Adour (UFRJ) como mediadora, obras de Ludwig van Beethoven (1770-1827) e Leopoldo Miguez (1850-1902). Suelen Dias (Chefe da Biblioteca Alberto Nepomuceno da UFRJ), Flávio Augusto (Pianista acompanhador da EM), Verushka Mainhardt (UFRJ) e Fábio Adour (UFRJ) são os convidados. 
+
+      `
+    },
+    {
       id: 'para-acertar-o-arco',
       date: '2020-07-24',
       title: 'Para acertar o arco',
