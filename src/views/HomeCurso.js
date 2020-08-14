@@ -81,7 +81,7 @@ function HomeCurso(props) {
               <div className="home-curso-cat">
                 <div className="desc">{curso.title}</div>
                 <div className="acessar">
-                  <Link to={`/cursos/${data.id}/${current.id}/${curso.id}`}>{curso.professor} &raquo;</Link>
+                  <Link to={`/cursos/${data.id}/${current.id}/${curso.id}`}>Acessar &raquo;</Link>
                 </div>
               </div>
             )

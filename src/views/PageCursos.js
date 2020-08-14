@@ -62,7 +62,7 @@ function Category(props) {
         {cat.cursos.map((curso,i) => {
           return (
             <Link key={i} className="curso-select" to={`/cursos/${id}/${cat.id}/${curso.id}`}>
-              {curso.title} com {curso.professor}
+              {curso.title}
             </Link>
           )
         })}
@@ -89,7 +89,7 @@ function Curso(props) {
         &nbsp;&raquo;&nbsp;
         <Link to={`/cursos/${cursos.id}/${cat.id}`}>{cat.title}</Link>
         &nbsp;&raquo;&nbsp;
-        {curso.professor}
+        {curso.title}
       </div>
       <p>{curso.fulltext}</p>
       <p>{curso.text}</p>
@@ -97,6 +97,7 @@ function Curso(props) {
       <div className="aulas-panel">
         <div className="aulas-view">
           <AulaView aula={curso.classes[aula]} />
+          <AulaInfo aula={curso.classes[aula]} />
         </div>
         <div className="aulas-select">
           {curso.classes.map((aula,i)=> <AulaSelect key={i} aula={aula} click={() => aulaSelect(i)} />)}
@@ -121,11 +122,30 @@ function AulaSelect(props) {
 function AulaView(props) {
   const {aula} = props
   return (
-    <div>
+    <div className="aulas-view-video">
       <YouEmbed url={aula.youtube} />
-      <p>&nbsp;</p>
-      <p className="title-1">{aula.title}</p>
-      <p>{aula.text}</p>
+    </div>
+  )
+}
+
+function AulaInfo(props) {
+  const {aula} = props
+  const professor = R.find(R.propEq('id', aula.professor), store.professores)
+  return (
+    <div className="aulas-view-info">
+      <h3 className="title-box">{aula.title}</h3>
+      {aula.text &&
+        <>
+          <p>{aula.text}</p>
+          <p>&nbsp;</p>
+        </>
+      }
+      {professor &&
+        <>
+          <h3 className="title-box">{professor.nome}</h3>
+          {professor.bio}
+        </>
+      }
     </div>
   )
 }

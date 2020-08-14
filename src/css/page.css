@@ -103,6 +103,27 @@
     }
     .aulas-view {
       @apply mb-10;
+
+      .aulas-view-video {
+        @apply mb-2;
+      }
+      .aulas-view-info {
+        @apply text-sm;
+        .title-box {
+          @apply bg-black text-white px-2 py-1 mb-4 text-xl;
+        }
+      }
+      @screen lg {
+        & {
+          @apply flex;
+        }
+        .aulas-view-video {
+          @apply w-8/12;
+        }
+        .aulas-view-info {
+          @apply w-4/12 pl-4;
+        }
+      }
     }
   }
 }
