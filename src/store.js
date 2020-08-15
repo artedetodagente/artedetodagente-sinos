@@ -928,6 +928,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=43VH5Ymyv0w",
                   download: [],
                   professor: 'tobias-volkmann'
+                },
+                {
+                  title: "Aula 2",
+                  text: "Pessoas: o material humano",
+                  youtube: "https://www.youtube.com/watch?v=59_dxrzKdAQ",
+                  download: [],
+                  professor: 'tobias-volkmann'
                 }
               ]
             }
