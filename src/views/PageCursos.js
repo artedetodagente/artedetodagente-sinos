@@ -66,6 +66,8 @@ function Category(props) {
             </Link>
           )
         })}
+        <p>&nbsp;</p>
+        <p>{cursos.fulltext}</p>
       </Route>
       <Route path={`${path}/:cursoid`}>
         <Curso id={id} cursos={cursos} cat={cat} />
