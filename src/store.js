@@ -490,7 +490,7 @@ export default {
                   professor: 'fausto-borem'
                 },
                 {
-                  title: "Aula 6",
+                  title: "Aula 7",
                   text: "Técnica de mão esquerda",
                   youtube: "https://www.youtube.com/watch?v=8ew6ZMLJ2lc",
                   download: [],
