@@ -14,7 +14,7 @@ function Home() {
       {store.cursos.map((data,i) =>{
         return <HomeCurso id={data.id} key={`home-curso-${data.id}`} data={data} />
       })}
-      <HomeOrquestras id="eorquestras" />
+      {/* <HomeOrquestras id="eorquestras" /> */}
       <Footer />
     </div>
   );
