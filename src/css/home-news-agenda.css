@@ -9,12 +9,17 @@
       @apply flex-row;
     }
     .col {
-      @apply h-full;
-      @screen md {
-        @apply w-1/2;
+      @apply h-full relative;
+      
+      .section-header {
+        @apply -mt-8;
+        z-index: 10;
       }
       &.agenda {
         @apply bg-white;
+        @screen md {
+          @apply w-5/12;
+        }
         .center-in {
           @apply w-8/12;
         }
@@ -46,7 +51,9 @@
         
         /* @apply p-10; */
 
-        
+        @screen md {
+          @apply w-7/12;
+        }
 
         @screen md{
           /* @apply p-0 px-10; */

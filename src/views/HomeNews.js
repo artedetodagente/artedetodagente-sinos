@@ -26,11 +26,11 @@ function HomeNews() {
 
   return (
     <section id="noticias" className="home-news full-section">
-      <div className="section-header">
-        <div className="title">Nossa Programação</div>
-      </div>
       <div className="cols">
         <div className="col agenda center-out">
+          <div className="section-header">
+            <div className="title">Nossa Programação</div>
+          </div>
           <div className="center-in">
             {agenda.posts.map((evento,i) => {
               const date = fdate(evento.date)
@@ -50,6 +50,9 @@ function HomeNews() {
           </div>
         </div>
         <div className="col noticias center-out--off">
+          <div className="section-header">
+            <div className="title">Notícias</div>
+          </div>
           <Swiper
             loop={true}
             onSwiper={bindSwiper}
