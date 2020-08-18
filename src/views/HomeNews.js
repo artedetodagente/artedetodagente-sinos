@@ -65,33 +65,35 @@ function HomeNews() {
           <div className="section-header">
             <div className="title">Notícias</div>
           </div>
-          <Swiper
-            loop={true}
-            onSwiper={bindSwiper}
-          >
-            {latestPosts.map((noticia,i)=>{
-              const date = fdate(noticia.date)
-              const foto = noticia.pic
-              return(
-                <SwiperSlide key={`${noticia.id}-slide-${i}`}>
-                  <article
-                    className="noticia"
-                    style={{background: bgcover(`https://admin.sinos.art.br${foto.url}`) }}
-                  >
-                    <div className="content-wrapper">
-                      <div className="content">
-                        <h3>{noticia.title}</h3>
-                        <p>{noticia.call}</p>
-                        <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
+          {noticias.length &&
+            <Swiper
+              loop={true}
+              onSwiper={bindSwiper}
+            >
+              {latestPosts.map((noticia,i)=>{
+                const date = fdate(noticia.date)
+                const foto = noticia.pic
+                return(
+                  <SwiperSlide key={`${noticia.id}-slide-${i}`}>
+                    <article
+                      className="noticia"
+                      style={{background: bgcover(`https://admin.sinos.art.br${foto.url}`) }}
+                    >
+                      <div className="content-wrapper">
+                        <div className="content">
+                          <h3>{noticia.title}</h3>
+                          <p>{noticia.call}</p>
+                          <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
+                        </div>
+                        <div><Link className="leiamais" to={`/noticias/${noticia.id}`}>Leia mais</Link></div>
                       </div>
-                      <div><Link className="leiamais" to={`/noticias/${noticia.id}`}>Leia mais</Link></div>
-                    </div>
-                    
-                  </article>
-                </SwiperSlide>
-              )
-            })}
-          </Swiper>
+                      
+                    </article>
+                  </SwiperSlide>
+                )
+              })}
+            </Swiper>
+          }
         </div>
       </div>
     </section>
