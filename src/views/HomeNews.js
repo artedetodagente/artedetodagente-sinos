@@ -6,13 +6,23 @@ import { HashLink as Link } from 'react-router-hash-link'
 
 import {fdate} from '../util'
 import store from '../store'
+import api from '../services/api'
 
 function HomeNews() {
 
-  const {agenda, posts} = store
-  const latestPosts = R.slice(0, 3, posts)
+  const {agenda} = store
 
   const [slideNext, setSlideNext] = useState(null)
+  const [noticias, setNoticias] = useState([])
+
+  useEffect(()=>{
+    async function fetchData(){
+      const response = await api.get('/noticias')
+      setNoticias(response.data)
+    }
+    fetchData()
+
+  },[])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,8 +31,10 @@ function HomeNews() {
     return () => clearInterval(interval)
   }, [slideNext])
 
+  const latestPosts = R.slice(0, 3, noticias)
   const bindSwiper = (swiper) => setSlideNext(() => () => swiper.slideNext())
   const bgcover = (url) => `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${url}) no-repeat 50% 50%`
+  
 
   return (
     <section id="noticias" className="home-news full-section">
@@ -57,21 +69,22 @@ function HomeNews() {
             loop={true}
             onSwiper={bindSwiper}
           >
-            {latestPosts.map((post,i)=>{
-              const date = fdate(post.date)
+            {latestPosts.map((noticia,i)=>{
+              const date = fdate(noticia.date)
+              const foto = noticia.pic
               return(
-                <SwiperSlide key={`${post.id}-slide-${i}`}>
+                <SwiperSlide key={`${noticia.id}-slide-${i}`}>
                   <article
                     className="noticia"
-                    style={{background: bgcover(post.image) }}
+                    style={{background: bgcover(`https://admin.sinos.art.br${foto.url}`) }}
                   >
                     <div className="content-wrapper">
                       <div className="content">
-                        <h3>{post.title}</h3>
-                        <p>{post.text}</p>
+                        <h3>{noticia.title}</h3>
+                        <p>{noticia.call}</p>
                         <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
                       </div>
-                      <div><Link className="leiamais" to={`/noticias/${post.id}`}>Leia mais</Link></div>
+                      <div><Link className="leiamais" to={`/noticias/${noticia.id}`}>Leia mais</Link></div>
                     </div>
                     
                   </article>

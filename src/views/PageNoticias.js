@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
+
 import * as R from 'ramda'
+import api from '../services/api'
+
 import {
   Switch,
   Route,
@@ -16,10 +20,18 @@ import PageDefault from './PageDefault'
 
 function PageNoticias() {
 
-  const {posts} = store
-  // const programa = R.find(R.propEq('id', id), store.cursos)
-
   let { path } = useRouteMatch()
+
+  const [ noticias, setNoticias ] = useState([])
+
+  useEffect(()=>{
+    async function fetchData(){
+      const response = await api.get('/noticias')
+
+      setNoticias(response.data.reverse())
+    }
+    fetchData()
+  },[])
 
   return (
     <PageDefault title="Notícias">
@@ -30,15 +42,17 @@ function PageNoticias() {
             <div class="title-1">Notícias</div>
             <p>&nbsp;</p>
             <div className="posts-feed">
-            {posts.map((post,i) => {
-                const date = fdate(post.date)
+            {noticias.map((noticia,i) => {
+                const date = fdate(noticia.date)
+                console.log(date)
+                const foto = noticia.pic
                 return (
                   <article className="post">
-                    <Link className="post-image" to={`/noticias/${post.id}`}>
-                      <img alt={post.title} src={post.image || '/img/noticias/default.jpg'} />
+                    <Link className="post-image" to={`/noticias/${noticia.id}`}>
+                      <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} />
                     </Link>
-                    <Link className="post-title" to={`/noticias/${post.id}`}>{post.title}</Link>
-                    <p className="post-text">{post.text}</p>
+                    <Link className="post-title" to={`/noticias/${noticia.id}`}>{noticia.title}</Link>
+                    <p className="post-text">{noticia.call}</p>
                     <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
                   </article>
                 )
@@ -60,17 +74,28 @@ function PageNoticias() {
 function Noticia(props) {
 
   const {postid} = useParams()
-  const {posts} = store
-  const post = R.find(R.propEq('id', postid), posts)
-  const date = fdate(post.date)
-  
+  const [noticia, setNoticia] = useState([])
+  const [date, setDate] = useState([])
+
+  useEffect(()=>{
+    async function fetchData(){
+      const response = await api.get(`/noticias/${postid}`)
+      setDate(fdate(response.data.date))
+      setNoticia(response.data)
+    }
+    fetchData()
+  },[])
+  const foto = noticia.pic
+
   return (
     <>
-      <div class="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {post.title}</div>
-      {post.image ? <img alt={post.title} src={post.image} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
-      {parse(post.fulltext.split("\n").join("<br/>"))}
+      <div class="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {noticia.title}</div>
+      {foto ? <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
+      <ReactMarkdown
+      source={noticia.description}
+      />
       <p>&nbsp;</p>
-      <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
+      {<p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>}
     </>
   )
 }
