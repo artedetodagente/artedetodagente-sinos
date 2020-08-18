@@ -226,6 +226,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=v_9I76tETcc",
                   download: [],
                   professor: 'carla-rincon'
+                },
+                {
+                  title: "Aula 6",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=Z1AG_C1jbHw",
+                  download: [],
+                  professor: 'carla-rincon'
                 }
               ]
             },
@@ -246,7 +253,14 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=ZdJQ1HOTP-E",
                   download: [],
                   professor: 'ronildo-alves'
-                },
+                },,
+                {
+                  title: "Aula 3",
+                  text: "Exercícios de fortalecimento e flexibilização",
+                  youtube: "https://www.youtube.com/watch?v=6jdouHIQbkY",
+                  download: [],
+                  professor: 'ronildo-alves'
+                }
               ]
             }
           ]
@@ -294,6 +308,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=juGlG3rYQXk",
                   download: [],
                   professor: 'simone-dos-santos'
+                },
+                {
+                  title: "Aula 6",
+                  text: "Exercícios para iniciantes",
+                  youtube: "https://www.youtube.com/watch?v=WUHYwAqQhYk",
+                  download: [],
+                  professor: 'simone-dos-santos'
                 }
               ]
             }
@@ -330,16 +351,23 @@ export default {
                   professor: 'alexandre-razera'
                 },
                 {
-                  title: "Aula 4",
+                  title: "Aula 4 - parte I",
                   text: "",
                   youtube: "https://www.youtube.com/watch?v=G-Bg00jquXU",
                   download: [],
                   professor: 'alexandre-razera'
                 },
                 {
-                  title: "Aula 5",
+                  title: "Aula 4 - parte II",
                   text: "",
                   youtube: "https://www.youtube.com/watch?v=ODhU0w0E_Zw",
+                  download: [],
+                  professor: 'alexandre-razera'
+                },
+                {
+                  title: "Aula 5",
+                  text: "O som em diversas partes do arco (talão, meio e ponta e como desenvolve-los)",
+                  youtube: "https://www.youtube.com/watch?v=xpcYss_Z07A",
                   download: [],
                   professor: 'alexandre-razera'
                 }
@@ -390,6 +418,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=vDVYO9bzEUg",
                   download: [],
                   professor: 'gabriela-queiroz'
+                },
+                {
+                  title: "Aula 6",
+                  text: "Utilização da masterclasses para aprimorar a musicalidade do grupo de alunos",
+                  youtube: "https://www.youtube.com/watch?v=4HeqvqmXk4E",
+                  download: [],
+                  professor: 'gabriela-queiroz'
                 }
               ]
             }
@@ -422,6 +457,13 @@ export default {
                   title: "Aula 3",
                   text: "",
                   youtube: "https://www.youtube.com/watch?v=Tocwih0NQmU",
+                  download: [],
+                  professor: 'susan-hagar'
+                },
+                {
+                  title: "Aula 4",
+                  text: "Planejamento da Aula",
+                  youtube: "https://www.youtube.com/watch?v=AEPLdItRTbc",
                   download: [],
                   professor: 'susan-hagar'
                 }
