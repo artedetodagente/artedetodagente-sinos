@@ -682,6 +682,41 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=FEHoco6wMlQ",
                   download: [],
                   professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 11",
+                  text: "Estudo dos fundamentos técnicos: aquecimento, sonoridade e afinação",
+                  youtube: "https://www.youtube.com/watch?v=tUo7zrEoR1s",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 12",
+                  text: "Fundamentos técnicos: articulação, intervalos, escalas e arpejos",
+                  youtube: "https://www.youtube.com/watch?v=m52jmN5DCOk",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 13",
+                  text: "Aprimoramento do dedilhado no oboé",
+                  youtube: "https://www.youtube.com/watch?v=u6N7EqutDHw",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 14",
+                  text: "Rotina de estudos",
+                  youtube: "https://www.youtube.com/watch?v=LIgMrpx2wqc",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 15",
+                  text: "Abordagens de estudo do repertório e a prática de conjunto em diferentes formações instrumentais",
+                  youtube: "https://www.youtube.com/watch?v=K4JqFtVVhqk",
+                  download: [],
+                  professor: 'ravi-shankar'
                 }
               ]
             }
