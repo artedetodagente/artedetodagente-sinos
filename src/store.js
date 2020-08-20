@@ -253,7 +253,7 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=ZdJQ1HOTP-E",
                   download: [],
                   professor: 'ronildo-alves'
-                },,
+                },
                 {
                   title: "Aula 3",
                   text: "Exercícios de fortalecimento e flexibilização",
@@ -1129,8 +1129,8 @@ export default {
       Funarte – Assessoria de Comunicação: ascomfunarte@funarte.gov.br
       
       Releases
-      - Funarte de Toda Gente
-      - Sinos 
+      - <a rel="noopener noreferrer" target="_blank" href="/downloads/release-funarte.pdf">Funarte de Toda Gente</a>
+      - <a rel="noopener noreferrer" target="_blank" href="/downloads/release-sinos.pdf">Sinos</a>
       `
     },
     eorquestras: {
