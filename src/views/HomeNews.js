@@ -27,7 +27,7 @@ function HomeNews() {
   useEffect(() => {
     const interval = setInterval(() => {
       slideNext && slideNext()
-    }, 4000);
+    }, 8000);
     return () => clearInterval(interval)
   }, [slideNext])
 
