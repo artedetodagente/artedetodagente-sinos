@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import store from '../store'
 import HomeLanding from './HomeLanding'
 import HomeNews from './HomeNews'
 import HomeCurso from './HomeCurso'
-import HomeOrquestras from './HomeOrquestras'
+// import HomeOrquestras from './HomeOrquestras'
 import Footer from './Footer'
 
 import api from '../services/api'

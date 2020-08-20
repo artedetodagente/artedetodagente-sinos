@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import * as R from 'ramda'
+
 import {
   Switch,
   Route,
@@ -8,7 +8,6 @@ import {
 } from "react-router-dom"
 import { HashLink as Link } from 'react-router-hash-link'
 
-import store from '../store'
 import PageDefault from './PageDefault'
 import YouThumb from './YouThumb'
 import YouEmbed from './YouEmbed'
@@ -29,11 +28,9 @@ function PageCursos() {
       setCategorias(response.data.categorias)
     }
     fetchData()
-  },[])
+  },[id])
 
   const {path} = useRouteMatch()
-
-  const cursos = categorias.map(cat => { return cat.cursos })
 
   return (
     <PageDefault title={projeto.title}>
@@ -73,7 +70,7 @@ function Category(props) {
       setCursos(response.data.cursos)
     }
     fetchData()
-  },[])
+  },[catid])
 
   return (
     <>
@@ -120,7 +117,7 @@ function Curso(props) {
       setAula(response.data.aulas[0])
     }
     fetchData()
-  },[])
+  },[cursoid])
 
   return (
     <>
