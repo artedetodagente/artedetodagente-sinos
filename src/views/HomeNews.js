@@ -26,7 +26,7 @@ function HomeNews() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      slideNext()
+      slideNext && slideNext()
     }, 4000);
     return () => clearInterval(interval)
   }, [slideNext])

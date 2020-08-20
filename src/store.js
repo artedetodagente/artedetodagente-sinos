@@ -717,6 +717,48 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=K4JqFtVVhqk",
                   download: [],
                   professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 16",
+                  text: "Preparação física e psicológica para o estudo e performance musical",
+                  youtube: "https://www.youtube.com/watch?v=cYJ6LduUS0Q",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 17",
+                  text: "Estratégias de desenvolvimento da leitura à primeira vista, estilo e expressividade",
+                  youtube: "https://www.youtube.com/watch?v=9RcSS9GmhxI",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 18",
+                  text: "Articulação e fraseologia musical: o papel da respiração e da língua",
+                  youtube: "https://www.youtube.com/watch?v=0tz2rSQbRHE",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 19",
+                  text: "Literatura do oboé: repertório e principais métodos",
+                  youtube: "https://www.youtube.com/watch?v=J-RSpXerWu0",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 20",
+                  text: "A relevância dos estudos melódicos e estilísticos no desenvolvimento interpretativo",
+                  youtube: "https://www.youtube.com/watch?v=5dXuIQwGRvM",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 21",
+                  text: "A importância da escuta na formação da concepção musical e interpretativa",
+                  youtube: "https://www.youtube.com/watch?v=fuK8NR-risY",
+                  download: [],
+                  professor: 'ravi-shankar'
                 }
               ]
             }
