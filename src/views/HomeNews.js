@@ -14,11 +14,14 @@ function HomeNews() {
 
   const [slideNext, setSlideNext] = useState(null)
   const [noticias, setNoticias] = useState([])
+  const [schedules, setSchedules] = useState([])
 
   useEffect(()=>{
     async function fetchData(){
       const response = await api.get('/noticias')
-      setNoticias(response.data)
+      setNoticias(response.data.reverse())
+      const res = await api.get('/schedules')
+      setSchedules(res.data)
     }
     fetchData()
 
@@ -35,6 +38,7 @@ function HomeNews() {
   const bindSwiper = (swiper) => setSlideNext(() => () => swiper.slideNext())
   const bgcover = (url) => `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${url}) no-repeat 50% 50%`
   
+  console.log(schedules)
 
   return (
     <section id="noticias" className="home-news full-section">
@@ -44,7 +48,7 @@ function HomeNews() {
             <div className="title">Nossa Programação</div>
           </div>
           <div className="center-in">
-            {agenda.posts.map((evento,i) => {
+            {schedules.map((evento,i) => {
               const date = fdate(evento.date)
               return (
                 <div className="agenda-item" key={`agenda-${i}`}>
@@ -76,7 +80,7 @@ function HomeNews() {
                 <SwiperSlide key={`${noticia.id}-slide-${i}`}>
                   <article
                     className="noticia"
-                    style={{background: bgcover(`https://admin.sinos.art.br${foto.url}`) }}
+                    style={{background: bgcover(`http://localhost:1337${foto.url}`) }}
                   >
                     <div className="content-wrapper">
                       <div className="content">
