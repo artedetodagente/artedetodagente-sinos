@@ -48,7 +48,7 @@ function HomeCurso(props) {
           {categorias.map((m,i)=>{
             return (
               <SwiperSlide key={`${data.id}-slide-${i}`}>
-                <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(http://localhost:1337${m.image.url})`}}/>
+                <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br${m.image.url})`}}/>
               </SwiperSlide>
             )
           })}
