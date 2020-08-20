@@ -92,8 +92,9 @@ function Noticia(props) {
       <div class="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {noticia.title}</div>
       {foto ? <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
       <ReactMarkdown
-      source={noticia.description}
+        source={noticia.description}
       />
+      {console.log(noticia.description)}
       <p>&nbsp;</p>
       {<p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>}
     </>
