@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
+import api from '../services/api'
 
 function HomeCurso(props) {
 
-  const {data} = props
+  const {data, id} = props
+
   const {categorias} = data
 
   const [dropIsDown,setDrop] = useState(false)
@@ -46,7 +48,7 @@ function HomeCurso(props) {
           {categorias.map((m,i)=>{
             return (
               <SwiperSlide key={`${data.id}-slide-${i}`}>
-                <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${m.image})`}}/>
+                <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br${m.image.url})`}}/>
               </SwiperSlide>
             )
           })}
@@ -59,7 +61,7 @@ function HomeCurso(props) {
 
         <div className="col col-1">
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
-          <div className="text">{data.text}</div>
+          <div className="text">{data.intro}</div>
         </div>
 
         <div className="col col-2">
