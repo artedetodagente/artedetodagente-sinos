@@ -1,7 +1,6 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
-import api from '../services/api'
 
 function HomeCurso(props) {
 
@@ -36,7 +35,7 @@ function HomeCurso(props) {
 
   return (
 
-    <section id={data.id} className="home-curso full-section">
+    <section id={data.id} className={`home-curso full-section curso-${id}`}>
 
       <div className="curso-swiper">
         <Swiper
@@ -80,7 +79,7 @@ function HomeCurso(props) {
           </div>
           {current.cursos.map((curso,i)=>{
             return(
-              <div className="home-curso-cat">
+              <div className="home-curso-cat" key={`home-curso-cat-${i}`}>
                 <div className="desc">{curso.title}</div>
                 <div className="acessar">
                   <Link to={`/cursos/${data.id}/${current.id}/${curso.id}`}>Acessar &raquo;</Link>

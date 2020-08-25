@@ -88,20 +88,3 @@ strong {
     }
   }
 }
-
-.menu-dropdown {
-  .menu-toggle {
-    @apply px-2 py-1;
-    background-color: black;
-    display: inline-block;
-    cursor: pointer;
-  }
-  .menu-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s;
-    &.is-open {
-      max-height: 100vh;
-    }
-  }
-}

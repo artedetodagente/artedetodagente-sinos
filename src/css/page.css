@@ -4,43 +4,41 @@
 
 .single-page {
 
-  @apply flex flex-col mt-16;
+  @apply flex flex-col;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
   background-size: cover;
 
-  .mobile-menu {
-    @apply mt-8;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-  
-  .desktop-menu {
-    display: none;
-  }
-
-  @screen lg {
-    @apply flex-row;
-    .mobile-menu {
-      display: none;
-    }
-    .desktop-menu {
-      display: block;
-    }
-  }
-
   .header {
-    @apply flex flex-col ml-16 -mt-8;
+    @apply flex pt-8 content-center;
     position: sticky;
-    top: 2em;
+    top: 0;
     min-width: 240px;
-    @screen lg {
-      @apply ml-20 mx-8 -mt-8 mb-8 mr-0;
-    }
+    z-index: 10;
+    background: var(--red);
     .title {
-      @apply px-2 py-1 mb-2 text-4xl bg-black text-white leading-tight;
+      @apply px-2 py-3 text-2xl bg-black text-white w-full leading-tight truncate;
       text-transform: uppercase;
+      @screen md {
+        @apply text-4xl py-1;
+      }
+    }
+    .menu-dropdown {
+      position: relative;
+      .menu-toggle {
+        @apply px-2 py-1;
+        background-color: black;
+        cursor: pointer;
+      }
+      .menu-content {
+        position: absolute;
+        max-height: 0;
+        overflow: hidden;
+        width: 360px;
+        transition: max-height 0.25s;
+        &.is-open {
+          max-height: 300px;
+        }
+      }
     }
   }
 

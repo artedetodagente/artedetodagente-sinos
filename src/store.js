@@ -226,6 +226,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=v_9I76tETcc",
                   download: [],
                   professor: 'carla-rincon'
+                },
+                {
+                  title: "Aula 6",
+                  text: "",
+                  youtube: "https://www.youtube.com/watch?v=Z1AG_C1jbHw",
+                  download: [],
+                  professor: 'carla-rincon'
                 }
               ]
             },
@@ -247,6 +254,13 @@ export default {
                   download: [],
                   professor: 'ronildo-alves'
                 },
+                {
+                  title: "Aula 3",
+                  text: "Exercícios de fortalecimento e flexibilização",
+                  youtube: "https://www.youtube.com/watch?v=6jdouHIQbkY",
+                  download: [],
+                  professor: 'ronildo-alves'
+                }
               ]
             }
           ]
@@ -294,6 +308,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=juGlG3rYQXk",
                   download: [],
                   professor: 'simone-dos-santos'
+                },
+                {
+                  title: "Aula 6",
+                  text: "Exercícios para iniciantes",
+                  youtube: "https://www.youtube.com/watch?v=WUHYwAqQhYk",
+                  download: [],
+                  professor: 'simone-dos-santos'
                 }
               ]
             }
@@ -330,16 +351,23 @@ export default {
                   professor: 'alexandre-razera'
                 },
                 {
-                  title: "Aula 4",
+                  title: "Aula 4 - parte I",
                   text: "",
                   youtube: "https://www.youtube.com/watch?v=G-Bg00jquXU",
                   download: [],
                   professor: 'alexandre-razera'
                 },
                 {
-                  title: "Aula 5",
+                  title: "Aula 4 - parte II",
                   text: "",
                   youtube: "https://www.youtube.com/watch?v=ODhU0w0E_Zw",
+                  download: [],
+                  professor: 'alexandre-razera'
+                },
+                {
+                  title: "Aula 5",
+                  text: "O som em diversas partes do arco (talão, meio e ponta e como desenvolve-los)",
+                  youtube: "https://www.youtube.com/watch?v=xpcYss_Z07A",
                   download: [],
                   professor: 'alexandre-razera'
                 }
@@ -390,6 +418,13 @@ export default {
                   youtube: "https://www.youtube.com/watch?v=vDVYO9bzEUg",
                   download: [],
                   professor: 'gabriela-queiroz'
+                },
+                {
+                  title: "Aula 6",
+                  text: "Utilização da masterclasses para aprimorar a musicalidade do grupo de alunos",
+                  youtube: "https://www.youtube.com/watch?v=4HeqvqmXk4E",
+                  download: [],
+                  professor: 'gabriela-queiroz'
                 }
               ]
             }
@@ -422,6 +457,13 @@ export default {
                   title: "Aula 3",
                   text: "",
                   youtube: "https://www.youtube.com/watch?v=Tocwih0NQmU",
+                  download: [],
+                  professor: 'susan-hagar'
+                },
+                {
+                  title: "Aula 4",
+                  text: "Planejamento da Aula",
+                  youtube: "https://www.youtube.com/watch?v=AEPLdItRTbc",
                   download: [],
                   professor: 'susan-hagar'
                 }
@@ -638,6 +680,83 @@ export default {
                   title: "Aula 10",
                   text: "Fundamentos da emissão sonora no oboé: processos de geração da vibração",
                   youtube: "https://www.youtube.com/watch?v=FEHoco6wMlQ",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 11",
+                  text: "Estudo dos fundamentos técnicos: aquecimento, sonoridade e afinação",
+                  youtube: "https://www.youtube.com/watch?v=tUo7zrEoR1s",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 12",
+                  text: "Fundamentos técnicos: articulação, intervalos, escalas e arpejos",
+                  youtube: "https://www.youtube.com/watch?v=m52jmN5DCOk",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 13",
+                  text: "Aprimoramento do dedilhado no oboé",
+                  youtube: "https://www.youtube.com/watch?v=u6N7EqutDHw",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 14",
+                  text: "Rotina de estudos",
+                  youtube: "https://www.youtube.com/watch?v=LIgMrpx2wqc",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 15",
+                  text: "Abordagens de estudo do repertório e a prática de conjunto em diferentes formações instrumentais",
+                  youtube: "https://www.youtube.com/watch?v=K4JqFtVVhqk",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 16",
+                  text: "Preparação física e psicológica para o estudo e performance musical",
+                  youtube: "https://www.youtube.com/watch?v=cYJ6LduUS0Q",
+                  download: [],
+                  professor: 'ravi-shankar'
+                },
+                {
+                  title: "Aula 17",
+                  text: "Estratégias de desenvolvimento da leitura à primeira vista, estilo e expressividade",
+                  youtube: "https://www.youtube.com/watch?v=9RcSS9GmhxI",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 18",
+                  text: "Articulação e fraseologia musical: o papel da respiração e da língua",
+                  youtube: "https://www.youtube.com/watch?v=0tz2rSQbRHE",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 19",
+                  text: "Literatura do oboé: repertório e principais métodos",
+                  youtube: "https://www.youtube.com/watch?v=J-RSpXerWu0",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 20",
+                  text: "A relevância dos estudos melódicos e estilísticos no desenvolvimento interpretativo",
+                  youtube: "https://www.youtube.com/watch?v=5dXuIQwGRvM",
+                  download: [],
+                  professor: 'moises-pena'
+                },
+                {
+                  title: "Aula 21",
+                  text: "A importância da escuta na formação da concepção musical e interpretativa",
+                  youtube: "https://www.youtube.com/watch?v=fuK8NR-risY",
                   download: [],
                   professor: 'ravi-shankar'
                 }
@@ -1010,8 +1129,8 @@ export default {
       Funarte – Assessoria de Comunicação: ascomfunarte@funarte.gov.br
       
       Releases
-      - Funarte de Toda Gente
-      - Sinos 
+      - <a rel="noopener noreferrer" target="_blank" href="/downloads/release-funarte.pdf">Funarte de Toda Gente</a>
+      - <a rel="noopener noreferrer" target="_blank" href="/downloads/release-sinos.pdf">Sinos</a>
       `
     },
     eorquestras: {

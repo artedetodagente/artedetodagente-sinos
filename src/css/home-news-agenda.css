@@ -14,6 +14,15 @@
       .section-header {
         @apply -mt-8;
         z-index: 10;
+        .title {
+          @apply mb-0;
+        }
+        .projetos-box {
+          @apply flex;
+          .projetos-box-title {
+            @apply py-1 px-2 uppercase text-xs;
+          }
+        }
       }
       &.agenda {
         @apply bg-white;

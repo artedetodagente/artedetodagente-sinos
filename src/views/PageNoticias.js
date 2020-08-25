@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 
-import * as R from 'ramda'
+
 import api from '../services/api'
 
 import {
@@ -11,9 +11,6 @@ import {
   useRouteMatch
 } from "react-router-dom"
 import { HashLink as Link } from 'react-router-hash-link'
-import parse from 'html-react-parser'
-
-import store from '../store'
 import {fdate} from '../util'
 
 import PageDefault from './PageDefault'
@@ -47,7 +44,7 @@ function PageNoticias() {
                 console.log(date)
                 const foto = noticia.pic
                 return (
-                  <article className="post">
+                  <article className="post" key={`noticia-${i}`}>
                     <Link className="post-image" to={`/noticias/${noticia.id}`}>
                       <img alt={noticia.title} src={`http://localhost:1337${foto.url}`} />
                     </Link>
@@ -84,7 +81,7 @@ function Noticia(props) {
       setNoticia(response.data)
     }
     fetchData()
-  },[])
+  },[postid])
   const foto = noticia.pic
 
   return (
@@ -94,7 +91,6 @@ function Noticia(props) {
       <ReactMarkdown
         source={noticia.description}
       />
-      {console.log(noticia.description)}
       <p>&nbsp;</p>
       {<p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>}
     </>
