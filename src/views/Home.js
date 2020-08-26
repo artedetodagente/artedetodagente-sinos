@@ -14,13 +14,11 @@ function Home() {
   useEffect(()=>{
     async function fetchData(){
       const response = await api.get('/projetos')
-      const posts = await api.get('/blog-posts')
       setProjetos(response.data)
-      setPosts(posts.data)
     }
     fetchData()
   },[])
-  
+
   return (
     <div className="Home">
       <HomeLanding />

@@ -17,7 +17,7 @@ function HomeNews() {
     async function fetchData(){
       const noticias = await api.get('/noticias')
       setNoticias(noticias.data.reverse())
-      const schedules = await api.get('/schedules?_limit=5')
+      const schedules = await api.get('/events?_limit=5')
       setSchedules(schedules.data)
     }
     fetchData()
