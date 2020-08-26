@@ -17,6 +17,7 @@ function HomeNews() {
     async function fetchData(){
       const noticias = await api.get('/noticias')
       setNoticias(noticias.data.reverse())
+
       const schedules = await api.get('/events?_limit=5')
       setSchedules(schedules.data)
     }
@@ -63,6 +64,9 @@ function HomeNews() {
                 </div>
               )
             })}
+            <div className="btn-container">
+              <Link className="btn-red" to="/programacao">Ver programação completa</Link>
+            </div>
           </div>
         </div>
         <div className="col noticias center-out--off">
@@ -82,12 +86,12 @@ function HomeNews() {
                   <SwiperSlide key={`${noticia.id}-slide-${i}`}>
                     <article
                       className="noticia"
-                      style={{background: bgcover(`http://localhost:1337${foto.url}`), backgroundSize: `cover` }}
+                      style={{background: bgcover(`https://sinos.art.br${foto.url}`), backgroundSize: `cover` }}
                     >
                       <div className="content-wrapper">
                         <div className="content">
                           <h3>{noticia.title}</h3>
-                          <p>{noticia.call}</p>
+                          <p className="post-call">{noticia.call}</p>
                           <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
                         </div>
                         <div><Link className="leiamais" to={`/noticias/${noticia.id}`}>Leia mais</Link></div>

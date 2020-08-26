@@ -8,7 +8,7 @@ import {
 } from "react-router-dom"
 import { HashLink as Link } from 'react-router-hash-link'
 
-import PageDefault from './PageDefault'
+import Page from './Page'
 import YouThumb from './YouThumb'
 import YouEmbed from './YouEmbed'
 
@@ -33,7 +33,7 @@ function PageCursos() {
   const {path} = useRouteMatch()
 
   return (
-    <PageDefault title={projeto.title}>
+    <Page title={projeto.title}>
       <div className="page-view curso-view">
         <Switch>
           <Route exact path={path}>
@@ -50,7 +50,7 @@ function PageCursos() {
           </Route>
         </Switch>
       </div>
-    </PageDefault>
+    </Page>
   );
 }
 
@@ -77,7 +77,9 @@ function Category(props) {
     <Switch>
       <Route exact path={path}>
         <div className="title-1">
-          <Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo; {cat.title}</div>
+          <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
+          <span>{cat.title}</span>
+        </div>
         <p>&nbsp;</p>
         <p>Selecione um curso</p>
         {cursos.map((curso,i) => {
@@ -122,11 +124,9 @@ function Curso(props) {
   return (
     <>
       <div className="title-1">
-        <Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link>
-        &nbsp;&raquo;&nbsp;
-        <Link to={`/cursos/${projeto.id}/${cat.id}`}>{cat.title}</Link>
-        &nbsp;&raquo;&nbsp;
-        {curso.title}
+        <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/cursos/${projeto.id}/${cat.id}`}>{cat.title}</Link> &raquo;&nbsp;</span>
+        <span>{curso.title}</span>
       </div>
       <div className="aulas-panel">
         <div className="aulas-view">

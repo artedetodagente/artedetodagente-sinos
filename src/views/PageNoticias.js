@@ -13,7 +13,7 @@ import {
 import { HashLink as Link } from 'react-router-hash-link'
 import {fdate} from '../util'
 
-import PageDefault from './PageDefault'
+import Page from './Page'
 
 function PageNoticias() {
 
@@ -31,8 +31,8 @@ function PageNoticias() {
   },[])
 
   return (
-    <PageDefault title="Notícias">
-      <div class="page-view posts-view">
+    <Page title="Notícias">
+      <div className="page-view posts-view">
         <Switch>
 
           <Route exact path={path}>
@@ -46,7 +46,7 @@ function PageNoticias() {
                 return (
                   <article className="post" key={`noticia-${i}`}>
                     <Link className="post-image" to={`/noticias/${noticia.id}`}>
-                      <img alt={noticia.title} src={`http://localhost:1337${foto.url}`} />
+                      <img alt={noticia.title} src={`https://sinos.art.br${foto.url}`} />
                     </Link>
                     <Link className="post-title" to={`/noticias/${noticia.id}`}>{noticia.title}</Link>
                     <p className="post-text">{noticia.call}</p>
@@ -64,7 +64,7 @@ function PageNoticias() {
 
         </Switch>
       </div>
-    </PageDefault>
+    </Page>
   );
 }
 
@@ -87,7 +87,7 @@ function Noticia(props) {
   return (
     <>
       <div class="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {noticia.title}</div>
-      {foto ? <img alt={noticia.title} src={`http://localhost:1337${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
+      {foto ? <img alt={noticia.title} src={`https://sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
       <ReactMarkdown
         source={noticia.description}
       />

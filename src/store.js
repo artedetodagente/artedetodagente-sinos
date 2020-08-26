@@ -1071,7 +1071,7 @@ export default {
     projeto: {
       title: "O Projeto",
       text: "Sinos",
-      fulltext: `<strong>SISTEMA NACIONAL DE ORQUESTRAS SOCIAIS – SINOS</strong>
+      fulltext: `<h3>SISTEMA NACIONAL DE ORQUESTRAS SOCIAIS – SINOS</h3>
 
       Capacitação e apoio para músicos, regentes e professores 
       
@@ -1110,7 +1110,7 @@ export default {
       title: "Parceiros",
       text: "",
       fulltext:`
-      <strong>QUER SER NOSSO PARCEIRO?</strong>
+      <h3>QUER SER NOSSO PARCEIRO?</h3>
 
       Que tal ter sua marca fazendo parte do SINOS - Sistema Nacional de Orquestras Sociais do Brasil?
 
@@ -1122,7 +1122,7 @@ export default {
     imprensa: {
       title: 'Imprensa',
       text:"",
-      fulltext: `<strong>Contatos</strong>
+      fulltext: `<h3>Contatos</h3>
 
       Assessoria de imprensa:
       Projetos UFRJ – Funarte: imprensa@musica.ufrj.br

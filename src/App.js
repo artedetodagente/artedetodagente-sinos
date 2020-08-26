@@ -7,7 +7,8 @@ import {
 import Home from './views/Home'
 import PageCursos from './views/PageCursos'
 import PageNoticias from './views/PageNoticias'
-import Page from './views/Page'
+import PageDefault from './views/PageDefault'
+import PageAgenda from './views/PageAgenda'
 import ScrollToTop from './util/ScrollToTop'
 
 function App() {
@@ -21,8 +22,11 @@ function App() {
         <Route path="/noticias">
           <PageNoticias />
         </Route>
+        <Route path="/programacao">
+          <PageAgenda />
+        </Route>
         <Route exact path="/:id">
-          <Page />
+          <PageDefault />
         </Route>
         <Route exact path="/">
           <Home />
