@@ -77,7 +77,7 @@ function Category(props) {
     <Switch>
       <Route exact path={path}>
         <div className="title-1">
-          <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;</span>
+          <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
           <span>{cat.title}</span>
         </div>
         <p>&nbsp;</p>
@@ -124,8 +124,8 @@ function Curso(props) {
   return (
     <>
       <div className="title-1">
-        <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;</span>
-        <span><Link to={`/cursos/${projeto.id}/${cat.id}`}>{cat.title}</Link> &raquo;</span>
+        <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/cursos/${projeto.id}/${cat.id}`}>{cat.title}</Link> &raquo;&nbsp;</span>
         <span>{curso.title}</span>
       </div>
       <div className="aulas-panel">
