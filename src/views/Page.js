@@ -1,22 +1,25 @@
 import React from 'react'
-import {useParams} from "react-router-dom"
-import parse from 'html-react-parser'
-
-import store from '../store'
-import PageDefault from './PageDefault'
+import MenuDropdown from './MenuDropdown'
+import Footer from './Footer'
 
 
 function Page(props) {
 
-  const {id} = useParams()
-  const {pages} = store
-
-  const content = pages[id] || pages[404]
-
   return (
-    <PageDefault title={content.title}>
-      {parse(content.fulltext.split("\n").join("<br/>"))}
-    </PageDefault>
+    <>
+      <section id={props.id} className="single-page">
+        <div className="header">
+          <MenuDropdown home={true}/>
+          <div className="title">{props.title}</div>
+        </div>
+        <div className="content-viewport">
+          <div className="content">
+            {props.children}
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 }
 

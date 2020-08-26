@@ -17,7 +17,7 @@ function HomeNews() {
     async function fetchData(){
       const noticias = await api.get('/noticias')
       setNoticias(noticias.data.reverse())
-      const schedules = await api.get('/schedules?_limit=5')
+      const schedules = await api.get('/schedules?_limit=4')
       setSchedules(schedules.data)
     }
     fetchData()
@@ -63,6 +63,9 @@ function HomeNews() {
                 </div>
               )
             })}
+            <div className="btn-container">
+              <Link className="btn-red" to="/programacao">Ver programação completa</Link>
+            </div>
           </div>
         </div>
         <div className="col noticias center-out--off">
@@ -86,7 +89,7 @@ function HomeNews() {
                       <div className="content-wrapper">
                         <div className="content">
                           <h3>{noticia.title}</h3>
-                          <p>{noticia.call}</p>
+                          <p className="post-call">{noticia.call}</p>
                           <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
                         </div>
                         <div><Link className="leiamais" to={`/noticias/${noticia.id}`}>Leia mais</Link></div>

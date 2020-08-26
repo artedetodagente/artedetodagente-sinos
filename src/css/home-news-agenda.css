@@ -25,53 +25,38 @@
         }
       }
       &.agenda {
-        @apply bg-white;
+        @apply bg-white py-32;
+        
         @screen md {
-          @apply w-5/12;
+          @apply w-1/2;
         }
-        .center-in {
-          @apply w-8/12;
+
+        @screen lg {
+          @apply w-5/12 py-0;
+          .center-in {
+            @apply w-8/12;
+          }
         }
-        .agenda-item {
-          @apply flex mb-4;
-          .agenda-date {
-            @apply px-3 w-3/12 text-center border-r border-gray-400;
-            h3 {
-              @apply text-5xl leading-none;
-            }
-            p {
-              @apply text-base;
-              color: var(--red);
-            }
-          }
-          .agenda-content {
-            @apply px-3 w-9/12;
-            h3 {
-              @apply text-sm mb-1;
-              color: #666;
-            }
-            p {
-              @apply text-base leading-none;
-            }
-          }
+        
+        .btn-container {
+          @apply text-center mt-8;
         }
       }
       &.noticias {
-        
-        /* @apply p-10; */
 
         @screen md {
-          @apply w-7/12;
+          @apply w-1/2;
         }
 
-        @screen md{
-          /* @apply p-0 px-10; */
+        @screen lg {
+          @apply w-7/12;
         }
 
         .swiper-container,
         .swiper-wrapper,
         .swiper-slide {
           @apply h-full;
+          min-height: 70vh;
         }
 
         .noticia {
@@ -79,11 +64,13 @@
           background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50%;
           background-size: cover;
           color: white;
+          min-height: 70vh;
           .content-wrapper {
             @apply h-full flex flex-col justify-end;
+            min-height: 70vh;
           }
           .content {
-            @apply p-4 mb-2;
+            @apply p-4 mb-4;
             background-color: rgba(0,0,0,.5);
             h3 {
               @apply text-xl mb-1 uppercase;
@@ -91,12 +78,18 @@
             p {
               @apply text-base mb-1;
             }
+            .post-call {
+              @apply hidden;
+              @screen lg {
+                @apply block;
+              }
+            }
             .post-date {
               @apply text-xs;
             }
           }
           .leiamais {
-            @apply p-2;
+            @apply p-2 uppercase;
             background-color: var(--red);
             &:hover {
               background-color: white;
@@ -105,6 +98,31 @@
           }
         }
       }
+    }
+  }
+}
+
+
+.agenda-item {
+  @apply flex mb-4;
+  .agenda-date {
+    @apply px-3 w-3/12 text-center border-r border-gray-400;
+    h3 {
+      @apply text-5xl leading-none mb-1;
+    }
+    p {
+      @apply text-base mb-0;
+      color: var(--red);
+    }
+  }
+  .agenda-content {
+    @apply px-3 w-9/12;
+    h3 {
+      @apply text-sm mb-1;
+      color: #666;
+    }
+    p {
+      @apply text-base leading-none;
     }
   }
 }

@@ -13,7 +13,7 @@ import {
 import { HashLink as Link } from 'react-router-hash-link'
 import {fdate} from '../util'
 
-import PageDefault from './PageDefault'
+import Page from './Page'
 
 function PageNoticias() {
 
@@ -31,8 +31,8 @@ function PageNoticias() {
   },[])
 
   return (
-    <PageDefault title="Notícias">
-      <div class="page-view posts-view">
+    <Page title="Notícias">
+      <div className="page-view posts-view">
         <Switch>
 
           <Route exact path={path}>
@@ -64,7 +64,7 @@ function PageNoticias() {
 
         </Switch>
       </div>
-    </PageDefault>
+    </Page>
   );
 }
 
