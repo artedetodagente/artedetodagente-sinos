@@ -1,4 +1,3 @@
-import * as R from 'ramda'
 import React, {useState, useEffect} from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
