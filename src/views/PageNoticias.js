@@ -87,7 +87,7 @@ function Noticia(props) {
   return (
     <>
       <div class="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {noticia.title}</div>
-      {foto ? <img alt={noticia.title} src={`https://sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
+      {foto ? <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
       <ReactMarkdown
         source={noticia.description}
       />
