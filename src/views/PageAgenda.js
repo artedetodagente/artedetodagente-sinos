@@ -36,7 +36,7 @@ function PageAgenda() {
       setEvents(response.data[0]?.events ?? [])
     }
     fetchData()
-  },[months,current_month])
+  },[current_month])
 
   function nextMonth() {
     if(nextEnabled) setCurrentMonth(schedules[index+1])
