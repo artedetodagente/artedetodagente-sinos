@@ -14,15 +14,12 @@ import {
 import {fdate} from '../util'
 
 import Page from './Page'
-import { set } from 'ramda'
 
 function PageAgenda() {
 
-  const data = new Date()
   const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-  const [month, setMonth] = useState(data.getMonth())
-
+  const month = new Date().getMonth()
   const [current_month, setCurrentMonth] = useState(months[month])
 
   let { path } = useRouteMatch()
