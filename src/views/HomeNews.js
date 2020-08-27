@@ -15,10 +15,10 @@ function HomeNews() {
 
   useEffect(()=>{
     async function fetchData(){
-      const noticias = await api.get('/noticias')
-      setNoticias(noticias.data.reverse())
-      const schedules = await api.get('/events?_limit=4')
-      setSchedules(schedules.data)
+      const noticias = await api.get('/noticias?_sort=date:DESC&_limit=3')
+      setNoticias(noticias.data)
+      const schedules = await api.get('/events?_sort=date:DESC&_limit=4')
+      setSchedules(schedules.data.reverse())
     }
     fetchData()
 
@@ -31,7 +31,6 @@ function HomeNews() {
     return () => clearInterval(interval)
   }, [slideNext])
 
-  const latestPosts = R.slice(0, 3, noticias)
   const bindSwiper = (swiper) => setSlideNext(() => () => swiper.slideNext())
   const bgcover = (url) => `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${url}) no-repeat 50% 50%`
 
@@ -77,7 +76,7 @@ function HomeNews() {
               loop={true}
               onSwiper={bindSwiper}
             >
-              {latestPosts.map((noticia,i)=>{
+              {noticias.map((noticia,i)=>{
                 const date = fdate(noticia.date)
                 const foto = noticia.pic
                 return(
