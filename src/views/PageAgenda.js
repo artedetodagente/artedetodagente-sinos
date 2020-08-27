@@ -14,20 +14,43 @@ import {
 import {fdate} from '../util'
 
 import Page from './Page'
+import { set } from 'ramda'
 
 function PageAgenda() {
+
+  const data = new Date()
+  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+  const [month, setMonth] = useState(data.getMonth())
+
+  const [current_month, setCurrentMonth] = useState(months[month])
 
   let { path } = useRouteMatch()
 
   const [ schedules, setSchedules ] = useState([])
+  const [ events, setEvents] = useState([])
+  
+  useEffect(()=>{
+    async function fetchData(){
+      const response = await api.get(`/schedules?month=${current_month}`)
+      setEvents(response.data[0].events)
+    }
+    fetchData()
+  },[current_month])
 
   useEffect(()=>{
     async function fetchData(){
       const response = await api.get('/schedules')
-      setSchedules(response.data.reverse())
+      setSchedules(response.data)
     }
     fetchData()
   },[])
+
+  function changeMonth(){
+    const selectBox = document.getElementById("agenda")
+    const selectedValue = selectBox.options[selectBox.selectedIndex].value
+    setCurrentMonth(selectedValue)    
+  }
 
   return (
     <Page title="Programação">
@@ -36,9 +59,23 @@ function PageAgenda() {
 
           <Route exact path={path}>
             <div class="title-1">Programação</div>
+            <div className="button-group"
+              style={
+                {display: "flex"}
+              }
+            >
+            <select name="agendas" id="agenda" onChange={()=>changeMonth()}>
+                {schedules.map((schedule, i)=>{
+                    return <option value={schedule.month}>{schedule.month}</option>
+                  })
+                } 
+            </select>
+
+            </div>
             <p>&nbsp;</p>
             <div className="agenda-feed">
-            {schedules.map((evento,i) => {
+            
+            {events.map((evento,i) => {
               const date = fdate(evento.date)
               return (
                 <article>
