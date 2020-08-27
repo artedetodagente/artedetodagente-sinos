@@ -10,10 +10,10 @@ import {fdate} from '../util'
 import Page from './Page'
 import api from '../services/api'
 
+const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+
 function PageAgenda() {
-
-  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-
+  
   let { path } = useRouteMatch()
 
   const [current_month, setCurrentMonth] = useState()
