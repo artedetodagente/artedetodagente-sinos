@@ -5,6 +5,9 @@ const fdate = (d) => {
   return {day,month,year}
 }
 
+const tweet = (text, max) => text.length > max ? text.slice(0,max) + `...` : text
+
 export {
-  fdate
+  fdate,
+  tweet
 }

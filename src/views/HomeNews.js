@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
 
-import {fdate} from '../util'
+import {fdate,tweet} from '../util'
 import api from '../services/api'
 
 function HomeNews() {
@@ -16,8 +16,9 @@ function HomeNews() {
     async function fetchData(){
       const noticias = await api.get('/noticias?_sort=date:DESC&_limit=3')
       setNoticias(noticias.data)
-      const schedules = await api.get('/events?_sort=date:DESC&_limit=4')
-      setSchedules(schedules.data.reverse())
+      const today = new Date().toISOString()
+      const schedules = await api.get(`/events?_sort=date:ASC&_limit=4&_where[date_gte]=${today}`)
+      setSchedules(schedules.data)
     }
     fetchData()
 
@@ -56,7 +57,7 @@ function HomeNews() {
                   </div>
                   <div className="agenda-content">
                     <h3 style={{color: evento.projeto.color}}>{evento.time} | {evento.title}</h3>
-                    <p>{evento.text}</p>
+                    <p>{tweet(evento.text, 140)}</p>
                   </div>
                 </div>
               )
