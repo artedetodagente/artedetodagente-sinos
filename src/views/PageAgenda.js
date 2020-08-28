@@ -25,7 +25,8 @@ function PageAgenda() {
       const response = await api.get('/schedules?_sort=date:ASC')
       let schedules = response.data.map(item => new Date(item.date).getMonth())
       setSchedules(schedules)
-      setCurrentMonth(R.last(schedules))
+      const todayMonth = new Date().getMonth()
+      setCurrentMonth(schedules.indexOf(todayMonth) !== -1 ? todayMonth : R.last(schedules))
     }
     fetchData()
   },[])
