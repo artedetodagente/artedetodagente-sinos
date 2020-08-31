@@ -40,7 +40,7 @@ function PageCursos() {
             <div className="title-1">{projeto.title}</div>
             <p>&nbsp;</p>
             <p>Selecione uma categoria</p>
-            {categorias.map((cat,i) => <Link className="curso-select" to={`/cursos/${id}/${cat.id}`}>{cat.title}</Link>)}
+            {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.id}`}>{cat.title}</Link>)}
             <p>&nbsp;</p>
             <p>{projeto.description}</p>
           </Route>
@@ -121,6 +121,8 @@ function Curso(props) {
     fetchData()
   },[cursoid])
 
+  useEffect(()=>window.scrollTo(0, 0),[aula])
+
   return (
     <>
       <div className="title-1">
@@ -136,7 +138,7 @@ function Curso(props) {
           <AulaInfo aula={aula} professor_id={aula.professore}/>
         </div>
         <div className="aulas-select">
-          {aulas.map((aula,i)=> <div className="aula" onClick={()=> setAula(aula)} >
+          {aulas.map((aula,i)=> <div className="aula" key={i} onClick={()=> setAula(aula)} >
         <div className="box">
         <YouThumb url={aula.video_url} />
         <p>{aula.title}</p>
