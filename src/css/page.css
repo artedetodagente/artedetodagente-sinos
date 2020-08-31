@@ -28,6 +28,9 @@
         @apply px-2 py-1;
         background-color: black;
         cursor: pointer;
+        @screen md {
+          @apply pl-8;
+        }
       }
       .menu-content {
         position: absolute;
@@ -52,7 +55,7 @@
         @apply m-8 p-10;
       }
       @screen lg {
-        @apply p-16 m-10 mt-8;
+        @apply p-16 mt-8;
       }
     }
   }
