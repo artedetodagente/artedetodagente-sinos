@@ -56,7 +56,6 @@ function PageAgenda() {
       <div className="page-view agenda-view">
         <Switch>
           <Route exact path={path}>
-            <div className="title-1">Programação</div>
             <nav className="agenda-nav">
               <button
                 onClick={()=>prevMonth()}
