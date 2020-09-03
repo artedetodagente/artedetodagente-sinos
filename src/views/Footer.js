@@ -23,16 +23,19 @@ function Footer(props) {
           <h3>Institucional</h3>
           <nav>
             <li><Link to="/projeto">Projeto</Link></li>
+            <li><Link to="/noticias">Notícias</Link></li>
+            <li><Link to="/programacao">Programação</Link></li>
             <li><Link to="/parceiros">Parceiros</Link></li>
+            <li><Link to="/imprensa">Imprensa</Link></li>
           </nav>
         </div>
         <div className="footer-col">
           <h3>Linhas de Ação</h3>
           <nav>
-            <li><Link smooth to="/#pedagogiadascordas">Pedagogia das Cordas</Link></li>
-            <li><Link smooth to="/#projetoespiral">Projeto Espiral</Link></li>
-            <li><Link smooth to="/#academiaderegencia">Academia de Regência</Link></li>
-            <li><Link smooth to="/#eorquestras">E-Orquestras</Link></li>
+            <li><Link smooth to="/#1">Pedagogia das Cordas</Link></li>
+            <li><Link smooth to="/#2">Projeto Espiral</Link></li>
+            <li><Link smooth to="/#3">Academia de Regência</Link></li>
+            {/* <li><Link smooth to="/#eorquestras">E-Orquestras</Link></li> */}
           </nav>
         </div>
       </div>
