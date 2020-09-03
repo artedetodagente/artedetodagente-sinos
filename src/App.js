@@ -9,6 +9,7 @@ import PageCursos from './views/PageCursos'
 import PageNoticias from './views/PageNoticias'
 import PageDefault from './views/PageDefault'
 import PageAgenda from './views/PageAgenda'
+import PageImprensa from './views/PageImprensa'
 import ScrollToTop from './util/ScrollToTop'
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/programacao">
           <PageAgenda />
+        </Route>
+        <Route path="/imprensa">
+          <PageImprensa />
         </Route>
         <Route exact path="/:id">
           <PageDefault />
