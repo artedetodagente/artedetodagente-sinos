@@ -171,7 +171,7 @@ function Contatos() {
 
 // componente principal
 
-function PageAgenda() {
+function PageImprensa() {
 
   return (
     <Page title="Imprensa">
@@ -186,4 +186,4 @@ function PageAgenda() {
   );
 }
 
-export default PageAgenda;
+export default PageImprensa;
