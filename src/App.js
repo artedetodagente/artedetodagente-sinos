@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
+import Analytics from 'react-router-ga'
 import Home from './views/Home'
 import PageCursos from './views/PageCursos'
 import PageNoticias from './views/PageNoticias'
@@ -16,26 +17,28 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Switch>
-        <Route path="/cursos/:id">
-          <PageCursos />
-        </Route>
-        <Route path="/noticias">
-          <PageNoticias />
-        </Route>
-        <Route path="/programacao">
-          <PageAgenda />
-        </Route>
-        <Route path="/imprensa">
-          <PageImprensa />
-        </Route>
-        <Route exact path="/:id">
-          <PageDefault />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Analytics id="UA-177273565-1" debug>
+        <Switch>
+          <Route path="/cursos/:id">
+            <PageCursos />
+          </Route>
+          <Route path="/noticias">
+            <PageNoticias />
+          </Route>
+          <Route path="/programacao">
+            <PageAgenda />
+          </Route>
+          <Route path="/imprensa">
+            <PageImprensa />
+          </Route>
+          <Route exact path="/:id">
+            <PageDefault />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Analytics>
     </Router>
   )
 }
