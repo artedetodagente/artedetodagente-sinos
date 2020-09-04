@@ -18,7 +18,8 @@ function HomeNews() {
       setNoticias(noticias.data)
       const today = new Date().toISOString()
       const schedules = await api.get(`/events?_sort=date:ASC&_limit=4&_where[date_gte]=${today}`)
-      setSchedules(schedules.data)
+      const schedulesLastest = await api.get(`/events?_sort=date:DESC&_limit=4`)
+      setSchedules(schedules.data.length < schedulesLastest.data.length ? schedulesLastest.data.reverse() : schedules.data)
     }
     fetchData()
 
@@ -57,7 +58,7 @@ function HomeNews() {
                   </div>
                   <div className="agenda-content">
                     <h3 style={{color: evento.projeto.color}}>{evento.time} | {evento.title}</h3>
-                    <p>{tweet(evento.text, 140)}</p>
+                    <p>{evento.text && tweet(evento.text, 140)}</p>
                   </div>
                 </div>
               )
