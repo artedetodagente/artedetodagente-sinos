@@ -135,7 +135,7 @@ function Curso(props) {
         <div className="aulas-view-video">
             <YouEmbed url={aula.video_url}/>
         </div>
-          <AulaInfo aula={aula} professor_id={aula.professore}/>
+          {aula.professore && <AulaInfo aula={aula} professor_id={aula.professore}/>}
         </div>
         <div className="aulas-select">
           {aulas.map((aula,i)=> <div className="aula" key={i} onClick={()=> setAula(aula)} >
@@ -152,6 +152,7 @@ function Curso(props) {
 }
 
 function AulaInfo(props) {
+
   const {aula, professor_id} = props
   const [professor, setProfessor] = useState([])
 
