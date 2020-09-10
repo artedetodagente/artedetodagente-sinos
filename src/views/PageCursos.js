@@ -73,7 +73,6 @@ function Category(props) {
   },[catid])
 
   return (
-    <>
     <Switch>
       <Route exact path={path}>
         <div className="title-1">
@@ -95,8 +94,7 @@ function Category(props) {
       <Route path={`${path}/:cursoid`}>
         <Curso id={id} projeto={projeto} cat={cat} />
       </Route>
-      </Switch>
-      </>
+    </Switch>
   )
 }
 
@@ -115,8 +113,10 @@ function Curso(props) {
     async function fetchData(){
       const response = await api.get(`/cursos/${cursoid}`)
       setCurso(response.data)
-      setAulas(response.data.aulas)
-      setAula(response.data.aulas[0])
+      const today = new Date().toISOString()
+      const responseAulas = await api.get(`/aulas?_where[curso]=${cursoid}&_where[date_lte]=${today}&_sort=date:ASC`)
+      setAulas(responseAulas.data)
+      setAula(responseAulas.data[0])
     }
     fetchData()
   },[cursoid])
@@ -132,53 +132,50 @@ function Curso(props) {
       </div>
       <div className="aulas-panel">
         <div className="aulas-view">
-        <div className="aulas-view-video">
-            <YouEmbed url={aula.video_url}/>
-        </div>
-          {aula.professore && <AulaInfo aula={aula} professor_id={aula.professore}/>}
+          <div className="aulas-view-video">
+              <YouEmbed url={aula.video_url}/>
+          </div>
+          <div className="aulas-view-info">
+            <InfoBox title={aula.title || `carregando...`} text={aula.description} />
+            <p>&nbsp;</p>
+            {aula.professore &&
+              <InfoBox title={aula.professore.name} text={aula.professore.bio} />
+            }
+          </div>
         </div>
         <div className="aulas-select">
-          {aulas.map((aula,i)=> <div className="aula" key={i} onClick={()=> setAula(aula)} >
-        <div className="box">
-        <YouThumb url={aula.video_url} />
-        <p>{aula.title}</p>
-      </div>
-    </div>
-    )}
+          {aulas.map((aula,i)=>
+            <AulaBox
+              key={i}
+              onClick={() => setAula(aula)}
+              title={aula.title}
+              video={aula.video_url}
+            />
+          )}
         </div>
-  </div>
+      </div>
     </>
   )
 }
 
-function AulaInfo(props) {
-
-  const {aula, professor_id} = props
-  const [professor, setProfessor] = useState([])
-
-  useEffect(()=>{
-    async function fetchData(){
-      const response = await api.get(`/professores/${professor_id}`)
-      setProfessor(response.data)
-    }
-    fetchData()
-  },[professor_id])
-
+function InfoBox(props) {
+  const {title,text} = props
   return (
-    <div className="aulas-view-info">
-      <h3 className="title-box">{aula.title}</h3>
-      {aula.description &&
-        <>
-          <p>{aula.description}</p>
-          <p>&nbsp;</p>
-        </>
-      }
-      {professor &&
-        <>
-          <h3 className="title-box">{professor.name}</h3>
-          {professor.bio}
-        </>
-      }
+    <>
+      <h3 className="title-box">{title}</h3>
+      <p>{text}</p>
+    </>
+  )
+}
+
+function AulaBox(props){
+  const {onClick,video,title} = props
+  return(
+    <div className="aula" onClick={onClick} >
+      <div className="box">
+        <YouThumb url={video} />
+        <p>{title}</p>
+      </div>
     </div>
   )
 }
