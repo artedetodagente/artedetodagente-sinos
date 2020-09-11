@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from "react-router-dom"
 import parse from 'html-react-parser'
+import md from '../util/parsemd'
 
 import Page from './Page'
 
@@ -28,12 +29,10 @@ function PageDefault(props) {
   return (
     <Page title={page.page_title}>
       <div className="page-view default-view">
-      {parse(text.split("\n").join("<br/>"))}
-      {
-        content.map(component=>{
-          return <DynamicPage data={component}/>
-        })
-      }
+        {parse(md(text))}
+      </div>
+      <div className="page-zones">
+        {content.map( component => <DynamicPage data={component}/>)}
       </div>
     </Page>
   );

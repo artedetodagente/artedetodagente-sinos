@@ -1,15 +1,15 @@
 import React from 'react'
 
-import Block from './Block'
-import Cover from './Cover'
-import YouEmbed from './YouEmbed'
+import Block from './dynamic/Block'
+import Cover from './dynamic/Cover'
+import Embed from './dynamic/Embed'
 
 const DynamicPage = (props) => {
 
     const blocks = {
         'pages.block': Block,
         'pages.cover': Cover,
-        'pages.embed': YouEmbed
+        'pages.embed': Embed
     }
 
     const type = props.data["__component"]
