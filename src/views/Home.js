@@ -23,7 +23,7 @@ function Home() {
       <HomeLanding />
       <HomeNews />
       {projetos.map((data,i) =>{
-        return <HomeCurso id={data.id} key={`home-curso-${data.id}`} data={data}/>
+        return <HomeCurso id={data.slug} key={`home-curso-${data.id}`} data={data}/>
       })}
       {/* <HomeOrquestras id="eorquestras" /> */}
       <Footer />

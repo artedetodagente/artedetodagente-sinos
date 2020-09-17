@@ -35,7 +35,7 @@ function HomeCurso(props) {
 
   return (
 
-    <section id={data.id} className={`home-curso full-section curso-${id}`}>
+    <section id={data.slug} className={`home-curso full-section curso-${id}`}>
 
       <div className="curso-swiper">
         <Swiper
@@ -82,7 +82,7 @@ function HomeCurso(props) {
               <div className="home-curso-cat" key={`home-curso-cat-${i}`}>
                 <div className="desc">{curso.title}</div>
                 <div className="acessar">
-                  <Link to={`/cursos/${data.id}/${current.id}/${curso.id}`}>Acessar &raquo;</Link>
+                  <Link to={`/cursos/${data.slug}/${current.slug}/${curso.slug}`}>Acessar &raquo;</Link>
                 </div>
               </div>
             )

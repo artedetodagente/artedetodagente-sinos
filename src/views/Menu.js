@@ -6,9 +6,9 @@ function Menu(props) {
     <>
       {props.home ? <li><Link to="/">Home</Link></li> : <></>}
       <li><Link to="/projeto">O Projeto</Link></li>
-      <li><Link smooth to="/#1">Pedagogia das Cordas</Link></li>
-      <li><Link smooth to="/#2">Projeto Espiral</Link></li>
-      <li><Link smooth to="/#3">Academia de Regência</Link></li>
+      <li><Link smooth to="/#Pedagogia-das-Cordas">Pedagogia das Cordas</Link></li>
+      <li><Link smooth to="/#Projeto-Espiral">Projeto Espiral</Link></li>
+      <li><Link smooth to="/#Academia-de-Regencia">Academia de Regência</Link></li>
       {/* <li><Link smooth to="/#eorquestras">E-Orquestras</Link></li> */}
       {/* <li><Link smooth to="/publicacoes">Publicações</Link></li> */}
       <li><Link smooth to="/noticias">Notícias</Link></li>

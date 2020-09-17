@@ -40,7 +40,7 @@ function PageCursos() {
             <div className="title-1">{projeto.title}</div>
             <p>&nbsp;</p>
             <p>Selecione uma categoria</p>
-            {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.id}`}>{cat.title}</Link>)}
+            {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.slug}`}>{cat.title}</Link>)}
             <p>&nbsp;</p>
             <p>{projeto.description}</p>
           </Route>
@@ -76,14 +76,14 @@ function Category(props) {
     <Switch>
       <Route exact path={path}>
         <div className="title-1">
-          <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
+          <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
           <span>{cat.title}</span>
         </div>
         <p>&nbsp;</p>
         <p>Selecione um curso</p>
         {cursos.map((curso,i) => {
           return (
-            <Link key={i} className="curso-select" to={`/cursos/${id}/${cat.id}/${curso.id}`}>
+            <Link key={i} className="curso-select" to={`/cursos/${id}/${cat.slug}/${curso.slug}`}>
               {curso.title}
             </Link>
           )
@@ -105,7 +105,6 @@ function Curso(props) {
   const [curso, setCurso] = useState([])
   const [aulas, setAulas] = useState([])
   const [aula, setAula] = useState([])
-  
 
   const {cursoid} = useParams()
 
@@ -114,20 +113,22 @@ function Curso(props) {
       const response = await api.get(`/cursos/${cursoid}`)
       setCurso(response.data)
       const today = new Date().toISOString()
-      const responseAulas = await api.get(`/aulas?_where[curso]=${cursoid}&_where[date_lte]=${today}&_sort=date:ASC`)
+      const responseAulas = await api.get(`/aulas?curso.slug=${cursoid}&_where[date_lte]=${today}&_sort=date:ASC`)
       setAulas(responseAulas.data)
       setAula(responseAulas.data[0])
     }
     fetchData()
   },[cursoid])
 
+  console.log(aulas)
+
   useEffect(()=>window.scrollTo(0, 0),[aula])
 
   return (
     <>
       <div className="title-1">
-        <span><Link to={`/cursos/${projeto.id}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
-        <span><Link to={`/cursos/${projeto.id}/${cat.id}`}>{cat.title}</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/cursos/${projeto.slug}/${cat.slug}`}>{cat.title}</Link> &raquo;&nbsp;</span>
         <span>{curso.title}</span>
       </div>
       <div className="aulas-panel">
