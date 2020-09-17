@@ -84,7 +84,7 @@ function HomeNews() {
                   <SwiperSlide key={`${noticia.id}-slide-${i}`}>
                     <article
                       className="noticia"
-                      style={{background: bgcover(`https://admin.sinos.art.br${foto.url}`), backgroundSize: `cover` }}
+                      style={{background: bgcover(`http://localhost:1337${foto.url}`), backgroundSize: `cover` }}
                     >
                       <div className="content-wrapper">
                         <div className="content">
