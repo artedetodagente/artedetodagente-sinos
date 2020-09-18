@@ -5,6 +5,7 @@ import { HashLink as Link } from 'react-router-hash-link'
 
 import {fdate,tweet} from '../util'
 import api from '../services/api'
+import slugify from 'slugify'
 
 function HomeNews() {
 
@@ -92,7 +93,7 @@ function HomeNews() {
                           <p className="post-call">{noticia.call}</p>
                           <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
                         </div>
-                        <div><Link className="leiamais" to={`/noticias/${noticia.id}`}>Leia mais</Link></div>
+                        <div><Link className="leiamais" to={`/noticias/${noticia.id}/${slugify(noticia.title)}`}>Leia mais</Link></div>
                       </div>
                       
                     </article>

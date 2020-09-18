@@ -13,6 +13,8 @@ import {
 import { HashLink as Link } from 'react-router-hash-link'
 import {fdate} from '../util'
 
+import slugify from 'slugify'
+
 import Page from './Page'
 
 function PageNoticias() {
@@ -44,10 +46,10 @@ function PageNoticias() {
                 const foto = noticia.pic
                 return (
                   <article className="post" key={`noticia-${i}`}>
-                    <Link className="post-image" to={`/noticias/${noticia.id}`}>
+                    <Link className="post-image" to={`/noticias/${noticia.id}/${slugify(noticia.title)}`}>
                       <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} />
                     </Link>
-                    <Link className="post-title" to={`/noticias/${noticia.id}`}>{noticia.title}</Link>
+                    <Link className="post-title" to={`/noticias/${noticia.id}/${slugify(noticia.title)}`}>{noticia.title}</Link>
                     <p className="post-text">{noticia.call}</p>
                     <p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>
                   </article>
