@@ -5,8 +5,6 @@ import AcademyPageAgenda from './AcademyPageAgenda'
 
 import api from '../services/api'
 
-import '../css/agendaAcademy.css'
-
 export default function AcademyAgenda(props){
 
     const {slug} = useParams()

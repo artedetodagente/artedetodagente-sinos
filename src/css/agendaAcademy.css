@@ -13,12 +13,8 @@
 }
 
 #form-box{
-    width: 95.3%;
     background-color: red;
-    position: relative;
     padding: 0.1em;
-    position: absolute;
-    top: 90vh;
     text-align: center;
 }
 
@@ -29,9 +25,11 @@
 }
 
 #page-avs .content{
+    @apply flex flex-col;
     padding: 0;
 }
 
 #page-avs .agenda-view{
+    @apply flex-grow;
     padding: 2em;
 }
