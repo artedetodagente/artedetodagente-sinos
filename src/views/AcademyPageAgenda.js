@@ -54,7 +54,7 @@ export default function AcademyPageAgenda({id}){
 
       
       for(const schedule of schedules){
-          if(schedule.month == month.month){
+          if(schedule.month === month.month){
             index = schedules.indexOf(schedule)
           }
       }

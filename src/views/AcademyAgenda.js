@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import {useParams, Link, useHistory} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 import Page from './Page'
 import AcademyPageAgenda from './AcademyPageAgenda'
 
@@ -13,8 +13,6 @@ export default function AcademyAgenda(props){
     const [projetos, setProjetos] = useState([])
 
     const [dropIsDown,setDrop] = useState(false)
-    const [selected,setSelected] = useState(0)
-    const [slideTo, setSlideTo] = useState(null)
 
     let history = useHistory()
 
@@ -28,16 +26,12 @@ export default function AcademyAgenda(props){
         fetchData()
     },[slug])
 
-    const onSlide = (e) => setSelected(e.realIndex)
-    const bindSwiper = (swiper) => setSlideTo(() => x => swiper.slideToLoop(x))
-
     // dropdown events
     const dropToggle = () => setDrop(!dropIsDown)
     const dropSelect = (i, project) => () => {
         if(dropIsDown){
             setDrop(false)
         }
-        setSlideTo(i)
         history.push(`/academyAgenda/${project.slug}`)
     }
 

@@ -28,7 +28,7 @@ function HomeCurso(props) {
       setDrop(false)
     }
     setSelected(i)
-    setSlideTo(i)
+    slideTo(i)
   }
 
   const hasnav = len > 1 ? 'block' : 'none';

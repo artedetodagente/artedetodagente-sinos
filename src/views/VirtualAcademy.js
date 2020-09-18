@@ -1,12 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
 
-import api from '../services/api'
-
 function VirtualAcademy(props) {
 
-  const {academy, projects, id} = props
+  const {academy, projects} = props
 
   const [dropIsDown,setDrop] = useState(false)
   const [selected,setSelected] = useState(0)
