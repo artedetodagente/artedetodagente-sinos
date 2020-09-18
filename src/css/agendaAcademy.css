@@ -1,0 +1,12 @@
+#box{
+    display: flex;
+    align-items: baseline;
+}
+
+#box h3{
+    background-color: black;
+    color: white;
+    padding: 0.62em 0.4em 0.4em 5em;
+    font-size: 1.7rem;
+    height: auto;
+}

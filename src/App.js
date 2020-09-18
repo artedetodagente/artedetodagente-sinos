@@ -12,6 +12,7 @@ import PageDefault from './views/PageDefault'
 import PageAgenda from './views/PageAgenda'
 import PageImprensa from './views/PageImprensa'
 import ScrollToTop from './util/ScrollToTop'
+import AcademyAgenda from './views/AcademyAgenda'
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route path="/cursos/:id">
             <PageCursos />
+          </Route>
+          <Route path="/academyAgenda/:slug">
+            <AcademyAgenda />
           </Route>
           <Route path="/noticias">
             <PageNoticias />
