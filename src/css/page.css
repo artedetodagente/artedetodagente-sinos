@@ -39,7 +39,7 @@
         width: 360px;
         transition: max-height 0.25s;
         &.is-open {
-          max-height: 300px;
+          max-height: 500px;
         }
       }
     }
