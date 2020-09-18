@@ -121,11 +121,13 @@ function Clippings() {
         return (
           <article key={i}>
             <div className="article-box">
+              {item.cover &&
               <div className="figure">
                 <a rel="noopener noreferrer" target="_blank" href={item.link}>
                   <img src={`https://admin.sinos.art.br${item.cover.formats.thumbnail.url}`} alt={item.title}/>
                 </a>
               </div>
+              }
               <div className="info" >
                 <a rel="noopener noreferrer" target="_blank" href={item.link}>
                   <strong>{item.title}</strong>
