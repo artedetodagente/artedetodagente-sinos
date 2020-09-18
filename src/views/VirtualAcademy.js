@@ -73,7 +73,7 @@ function VirtualAcademy(props) {
             <div className="options-viewport">
               <div className="options">
               {projects.map((m,i)=>{
-                return <li key={`${academy.id}-drop-${i}`} style={{color: 'white'}} onClick={dropSelect(i)}>{m.title}</li>
+                return <li key={`${academy.id}-drop-${i}`} style={{color: 'black'}} onClick={dropSelect(i)}>{m.title}</li>
               })}
               </div>
             </div>

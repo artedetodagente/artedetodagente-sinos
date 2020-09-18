@@ -68,9 +68,11 @@ export default function AcademyAgenda(props){
           </div>
           <AcademyPageAgenda/>
           <div id="form-box">
+              {projeto.form_link ? 
               <a href={projeto.form_link} target="__blank">
                     Clique aqui para fazer sua inscrição
               </a>
+            : null}
           </div>
         </Page>
     )
