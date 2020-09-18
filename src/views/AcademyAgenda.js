@@ -44,7 +44,7 @@ export default function AcademyAgenda(props){
     }
 
     return(
-        <Page title="Academia Virtual Sinos">
+        <Page title="Academia Virtual Sinos" id="page-avs">
             <div id="box">
                 <div id="box-title">
                     <h3>
@@ -56,7 +56,6 @@ export default function AcademyAgenda(props){
                         <div className="droptitle" style={{backgroundColor: dropIsDown ? '#BEBEBE' : `${projeto.color}`, color: 'white', padding: '16px'}}>{dropIsDown ? 'Selecione' : projeto.title}</div>
                         <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20" alt="" /></div>
                     </div>
-
                     <div className="options-viewport">
                         <div className="options">
                             {projetos.map((projeto,i)=>{
@@ -68,6 +67,11 @@ export default function AcademyAgenda(props){
                 </div>
           </div>
           <AcademyPageAgenda/>
+          <div id="form-box">
+              <a href={projeto.form_link} target="__blank">
+                    Clique aqui para fazer sua inscrição
+              </a>
+          </div>
         </Page>
     )
 }

@@ -105,7 +105,6 @@ export default function AcademyPageAgenda({id}){
             </div>
                 </Route>
             </Switch>
-        
         </div>
         </>
     )

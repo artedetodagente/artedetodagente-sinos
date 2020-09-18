@@ -6,7 +6,31 @@
 #box h3{
     background-color: black;
     color: white;
-    padding: 0.62em 0.4em 0.4em 5em;
-    font-size: 1.7rem;
+    padding: 0.23em 0.3em 0.23em 1.5em;
+    font-size: 2.2rem;
     height: auto;
+    text-transform: uppercase;
+}
+
+#form-box{
+    width: 100%;
+    background-color: red;
+    position: relative;
+    padding: 0.1em;
+    text-align: center;
+    top: 0.2vh;
+}
+
+#form-box a{
+    color: white;
+    font-size: 2.7em;
+    text-transform: uppercase;
+}
+
+#page-avs .content{
+    padding: 0;
+}
+
+#page-avs .agenda-view{
+    padding: 2em;
 }
