@@ -25,9 +25,9 @@ function PageNoticias() {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await api.get('/noticias')
-
-      setNoticias(response.data.reverse())
+      const today = new Date().toISOString()
+      const response = await api.get(`/noticias?_sort=date:DESC&_where[date_lte]=${today}`)
+      setNoticias(response.data)
     }
     fetchData()
   },[])

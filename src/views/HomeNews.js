@@ -15,9 +15,9 @@ function HomeNews() {
 
   useEffect(()=>{
     async function fetchData(){
-      const noticias = await api.get('/noticias?_sort=date:DESC&_limit=3')
-      setNoticias(noticias.data)
       const today = new Date().toISOString()
+      const noticias = await api.get(`/noticias?_sort=date:DESC&_limit=3&_where[date_lte]=${today}`)
+      setNoticias(noticias.data)
       const schedules = await api.get(`/events?_sort=date:ASC&_limit=4&_where[date_gte]=${today}`)
       const schedulesLastest = await api.get(`/events?_sort=date:DESC&_limit=4`)
       setSchedules(schedules.data.length < schedulesLastest.data.length ? schedulesLastest.data.reverse() : schedules.data)
