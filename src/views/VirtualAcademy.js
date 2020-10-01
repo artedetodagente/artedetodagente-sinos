@@ -6,12 +6,10 @@ function VirtualAcademy(props) {
 
   const {academy, projects} = props
 
-  const [dropIsDown,setDrop] = useState(false)
   const [selected,setSelected] = useState(0)
   const [slideTo, setSlideTo] = useState(null)
 
   const len = projects.length
-  const current = projects[selected]
   const next = (selected + 1) % len
   const prev = (selected - 1 + len) % len
 
@@ -19,21 +17,10 @@ function VirtualAcademy(props) {
   const onSlide = (e) => setSelected(e.realIndex)
   const bindSwiper = (swiper) => setSlideTo(() => x => swiper.slideToLoop(x))
 
-  // dropdown events
-  const dropToggle = () => setDrop(!dropIsDown)
-  const dropSelect = (i) => () => {
-    if(dropIsDown){
-      setDrop(false)
-    }
-    setSelected(i)
-    slideTo(i)
-  }
-
   const hasnav = len > 1 ? 'block' : 'none';
 
   return (
 
-    
     <section id={academy.slug} className={`home-curso full-section curso-Academia-virtual-Sinos`}>
 
       <div className="curso-swiper">
@@ -51,8 +38,8 @@ function VirtualAcademy(props) {
             )
           })}
         </Swiper>
-        <div className="swiper-nav prev" style={{display: hasnav}} onClick={dropSelect(prev)}>&laquo; {projects[prev].title}</div>
-        <div className="swiper-nav next" style={{display: hasnav}} onClick={dropSelect(next)}>{projects[next].title} &raquo;</div>
+        <div className="swiper-nav prev" style={{display: hasnav}} onClick={() => slideTo(prev)}>&laquo; {projects[prev].title}</div>
+        <div className="swiper-nav next" style={{display: hasnav}} onClick={() => slideTo(next)}>{projects[next].title} &raquo;</div>
       </div>
 
       <div className="curso-info">
@@ -63,18 +50,8 @@ function VirtualAcademy(props) {
         </div>
 
         <div className="col col-2">
-          <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
-            <div className="selected" onClick={dropToggle}>
-              <div className="droptitle">{dropIsDown ? 'Selecione' : current.title}</div>
-              <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20" alt="" /></div>
-            </div>
-            <div className="options-viewport">
-              <div className="options">
-              {projects.map((m,i)=>{
-                return <li key={`${academy.id}-drop-${i}`} style={{color: 'black'}} onClick={dropSelect(i)}>{m.title}</li>
-              })}
-              </div>
-            </div>
+          <div className={`title white`}>
+            Selecione o projeto
           </div>
           {projects.map((project,i)=>{
             return(
