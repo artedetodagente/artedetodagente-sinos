@@ -11,9 +11,9 @@ import PageNoticias from './views/PageNoticias'
 import PageDefault from './views/PageDefault'
 import PageAgenda from './views/PageAgenda'
 import PageImprensa from './views/PageImprensa'
+import PageAVS from './views/PageAVS'
 import PageSandbox from './views/PageSandbox'
 import ScrollToTop from './util/ScrollToTop'
-import AcademyAgenda from './views/AcademyAgenda'
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             <PageCursos />
           </Route>
           <Route path="/academyAgenda/:slug">
-            <AcademyAgenda />
+            <PageAVS />
           </Route>
           <Route path="/noticias">
             <PageNoticias />

@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
 import Page from './Page'
-import AcademyPageAgenda from './AcademyPageAgenda'
+import PageAVSAgenda from './PageAVSAgenda'
 import {DropDown} from '../components/Dropdown'
 import * as R from 'ramda'
 import api from '../services/api'
@@ -16,7 +16,7 @@ export default function AcademyAgenda(props){
   useEffect(()=>{
     const fetchData = async () => {
       const responseProjetos = await api.get('/projetos')
-      setProjetos(responseProjetos.data.slice(0,2))
+      setProjetos(R.filter(arr => arr.avs_schedules.length, responseProjetos.data))
     }
     fetchData()
   },[])
@@ -47,7 +47,7 @@ export default function AcademyAgenda(props){
         />
         }
       </div>
-      <AcademyPageAgenda/>
+      <PageAVSAgenda/>
     </Page>
   )
 }

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import HomeLanding from './HomeLanding'
 import HomeNews from './HomeNews'
 import HomeCurso from './HomeCurso'
+import HomeAVS from './HomeAVS'
 // import HomeOrquestras from './HomeOrquestras'
 import Footer from './Footer'
-import VirtualAcademy from '../views/VirtualAcademy'
 
 import api from '../services/api'
 
@@ -31,7 +31,7 @@ function Home() {
       })}
       {/* <HomeOrquestras id="eorquestras" /> */}
       {academies.map((data, i) => {
-        return <VirtualAcademy academy={data} key={data.id} projects={data.projetos}/>
+        return <HomeAVS academy={data} key={data.id} projects={data.projetos}/>
       })  
       }
       <Footer />

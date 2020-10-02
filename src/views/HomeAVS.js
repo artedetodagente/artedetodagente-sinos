@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
 
-function VirtualAcademy(props) {
+function HomeAVS(props) {
 
   const {academy, projects} = props
 
@@ -71,4 +71,4 @@ function VirtualAcademy(props) {
   )
 }
 
-export default VirtualAcademy
+export default HomeAVS

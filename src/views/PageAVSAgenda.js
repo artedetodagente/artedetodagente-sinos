@@ -13,7 +13,7 @@ import parse from 'html-react-parser'
 
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
 
-export default function AcademyPageAgenda(){
+export default function PageAVSAgenda(){
 
   const {slug} = useParams()
   const {path} = useRouteMatch()
