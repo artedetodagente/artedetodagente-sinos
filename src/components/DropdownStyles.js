@@ -17,6 +17,7 @@ const LabelStyled = styled.div`
   ${tw`p-2 text-2xl flex leading-none`}
   background: ${props => props.background || "#f9f9f9"};
   color: ${props => props.color || "#000"};
+  transition: all 0.3s;
   .label {
     flex-grow: 1;
   }
@@ -37,11 +38,11 @@ export const Label = ({title,placeholder,isDown,onClick,color,background}) => {
       background={!isDown ? background : undefined}
     >
       <div className="label">
-        {isDown ? placeholder : title}
+        {isDown ? placeholder : (title || placeholder)}
       </div>
       <div className="icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="20" height="20">
-          <g fill={color || '#000'}>
+          <g fill={!isDown && color ? color : '#000'}>
             <polygon points="199.404,63.993 171.12,35.709 99.702,107.127 28.284,35.709 0,63.993 99.702,163.695"/>
           </g>
         </svg>
