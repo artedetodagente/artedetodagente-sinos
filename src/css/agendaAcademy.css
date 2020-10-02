@@ -1,15 +1,18 @@
 #box{
-    display: flex;
-    align-items: baseline;
+  @apply m-4;
+  display: flex;
+  align-items: baseline;
 }
 
 #box h3{
+    @apply p-2 text-2xl flex leading-none;
     background-color: black;
     color: white;
-    padding: 0.23em 0.3em 0.23em 1.5em;
-    font-size: 2.2rem;
     height: auto;
     text-transform: uppercase;
+    @screen md {
+      @apply text-4xl;
+    }
 }
 
 #form-box{

@@ -54,9 +54,9 @@ export default function AcademyPageAgenda({id}){
 
       
       for(const schedule of schedules){
-          if(schedule.month === month.month){
-            index = schedules.indexOf(schedule)
-          }
+        if(schedule.month === month.month){
+          index = schedules.indexOf(schedule)
+        }
       }
 
       const prevEnabled = index > 0
@@ -100,7 +100,7 @@ export default function AcademyPageAgenda({id}){
                             </div>
                             <div className="agenda-content">
                               <h3 style={{color: projeto.color}}>{evento.time} | {evento.title}</h3>
-                              <p>{parse(evento.description)}</p>
+                              <div>{parse(evento.description)}</div>
                             </div>
                           </div>
                         </article>

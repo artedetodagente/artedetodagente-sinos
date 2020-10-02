@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Container, Label, Select, Option} from './DropdownStyles'
 
 const Mock = {
@@ -17,7 +17,13 @@ export const DropDown = (props) => {
   const placeholder = props.placeholder || Mock.placeholder
 
   const [dropIsDown,setDrop] = useState(false)
-  const [selected,setSelected] = useState(0)
+  const [selected,setSelected] = useState(props.selected || 0)
+
+  // if prop.selected is redefined
+  // (after loading data)
+  useEffect(()=>{
+    setSelected(props.selected || 0)
+  },[props.selected])
 
   const dropToggle = () => setDrop(!dropIsDown)
   const dropSelect = (i) => () => {
@@ -31,12 +37,12 @@ export const DropDown = (props) => {
   return (
     <Container>
       <Label
-        title={options[selected].title}
+        title={options[selected]?.title}
         placeholder={placeholder}
         isDown={dropIsDown}
         onClick={dropToggle}
-        color={options[selected].color}
-        background={options[selected].background}
+        color={options[selected]?.color}
+        background={options[selected]?.background}
       />
       <Select numChildren={options.length} isDown={dropIsDown}>
         {options.map((item,index)=>
@@ -48,3 +54,6 @@ export const DropDown = (props) => {
     </Container>
   )
 }
+
+
+export default DropDown

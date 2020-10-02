@@ -2,7 +2,8 @@ import React, {useState,useEffect} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
 import Page from './Page'
 import AcademyPageAgenda from './AcademyPageAgenda'
-
+import {DropDown} from '../components/Dropdown'
+import * as R from 'ramda'
 import api from '../services/api'
 
 export default function AcademyAgenda(props){
@@ -11,8 +12,6 @@ export default function AcademyAgenda(props){
 
     const [projeto, setProjeto] = useState([])
     const [projetos, setProjetos] = useState([])
-
-    const [dropIsDown,setDrop] = useState(false)
 
     let history = useHistory()
 
@@ -26,41 +25,34 @@ export default function AcademyAgenda(props){
         fetchData()
     },[slug])
 
-    // dropdown events
-    const dropToggle = () => setDrop(!dropIsDown)
-    const dropSelect = (i, project) => () => {
-        if(dropIsDown){
-            setDrop(false)
-        }
-        history.push(`/academyAgenda/${project.slug}`)
+    
+    function dropSelect (project) {
+      history.push(`/academyAgenda/${project.slug}`)
     }
+
+    // console.log([`slug`,R.findIndex(R.propEq('slug', slug),projetos)])
 
     return(
         <Page title="Academia Virtual Sinos" id="page-avs">
-            <div id="box">
-                <div id="box-title">
-                    <h3>
-                        Programação
-                    </h3>
-                </div>
-                <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
-                    <div className="selected" onClick={dropToggle}>
-                        <div className="droptitle" style={{backgroundColor: dropIsDown ? '#BEBEBE' : `${projeto.color}`, color: 'white', padding: '16px'}}>{dropIsDown ? 'Selecione' : projeto.title}</div>
-                        <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20" alt="" /></div>
-                    </div>
-                    <div className="options-viewport">
-                        <div className="options">
-                            {projetos.map((projeto,i)=>{
-                                return <li key={`${projeto.id}-drop-${i}`} onClick={dropSelect(i, projeto)} style={{backgroundColor: `${projeto.color}`}}>{projeto.title}</li>
-                            })}
-                        </div>
-                    </div>
-            
-                </div>
+          <div id="box">
+            <div id="box-title">
+              <h3>
+                Programação
+              </h3>
+            </div>
+            {projetos &&
+            <DropDown
+              selected={R.findIndex(R.propEq('slug', slug),projetos)}
+              onSelect={(i)=>dropSelect(projetos[i])}
+              options={projetos.map((proj,i) => {
+                return {title: proj.title, background: proj.color, color: '#fff'}
+              })}
+            />
+            }
           </div>
           <AcademyPageAgenda/>
           <div id="form-box">
-              {projeto.form_link ? 
+            {projeto.form_link ? 
               <a href={projeto.form_link} target="__blank">
                     Clique aqui para fazer sua inscrição
               </a>
