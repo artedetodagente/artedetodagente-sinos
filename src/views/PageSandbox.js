@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Page from './Page'
 
 import {DropDown} from '../components/Dropdown'
+import {Code} from '../components/CommonStyles'
 
-const DropDownSource = `
-<DropDown
+const DropDownSource =
+`<DropDown
   onSelect={(i)=>setTimeout(()=>alert(\`selected \${i}\`,800))}
   options={[
     {title: 'option 1'},
@@ -12,8 +13,7 @@ const DropDownSource = `
     {title: 'option 3 green', color: '#000', background: '#0f0'},
     {title: 'option 4 blue ', color: '#fff', background: '#00f'},
   ]}
-/> 
-`
+/>`
 
 
 function PageDefault(props) {
@@ -38,9 +38,9 @@ function PageDefault(props) {
           ]}
         />
 
-        <pre style={{padding: '20px', background: '#f9f9f9', fontSize: '75%', marginBottom: '2em'}}>
+        <Code>
           {DropDownSource}
-        </pre>
+        </Code>
 
       </div>
     </Page>

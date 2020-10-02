@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
@@ -31,7 +31,11 @@ const LabelStyled = styled.div`
 export const Label = ({title,placeholder,isDown,onClick,color,background}) => {
   
   return(
-    <LabelStyled onClick={onClick} color={!isDown&&color} background={!isDown&&background}>
+    <LabelStyled
+      onClick={onClick}
+      color={!isDown ? color : undefined}
+      background={!isDown ? background : undefined}
+    >
       <div className="label">
         {isDown ? placeholder : title}
       </div>

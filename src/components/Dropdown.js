@@ -3,8 +3,10 @@ import {Container, Label, Select, Option} from './DropdownStyles'
 
 const Mock = {
   options: [
-    {title: `option 1`},
-    {title: `option 2`, color: `#fff`, background: `#f00`}
+    {title: 'option 1 red  ', color: '#fff', background: '#f00'},
+    {title: 'option 2 green', color: '#000', background: '#0f0'},
+    {title: 'option 3 blue ', color: '#fff', background: '#00f'},
+    {title: 'option 4 default '}
   ],
   placeholder: `Selecione`
 }
