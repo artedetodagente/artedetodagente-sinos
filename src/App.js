@@ -11,6 +11,7 @@ import PageNoticias from './views/PageNoticias'
 import PageDefault from './views/PageDefault'
 import PageAgenda from './views/PageAgenda'
 import PageImprensa from './views/PageImprensa'
+import PageSandbox from './views/PageSandbox'
 import ScrollToTop from './util/ScrollToTop'
 import AcademyAgenda from './views/AcademyAgenda'
 
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/imprensa">
             <PageImprensa />
+          </Route>
+          <Route path="/sandbox">
+            <PageSandbox />
           </Route>
           <Route exact path="/:id">
             <PageDefault />
