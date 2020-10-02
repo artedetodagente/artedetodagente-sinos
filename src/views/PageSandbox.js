@@ -24,7 +24,7 @@ function PageDefault(props) {
 
         <h3 className="title-box">Styled components</h3>
 
-        <p>Alguns componente reutilizáveis</p>
+        <p>Alguns componentes reutilizáveis</p>
 
         <p>&nbsp;</p>
 
