@@ -58,7 +58,7 @@ function HomeAVS(props) {
               <div className="home-curso-cat" key={`home-curso-cat-${i}`}>
                 <div className="desc">{project.title}</div>
                 <div className="acessar">
-                  <Link to={`/academyAgenda/${project.slug}/`}>Acessar &raquo;</Link>
+                  <Link to={`/academia-virtual/${project.slug}/`}>Acessar &raquo;</Link>
                 </div>
               </div>
             )

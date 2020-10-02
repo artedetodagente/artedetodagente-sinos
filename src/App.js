@@ -24,7 +24,7 @@ function App() {
           <Route path="/cursos/:id">
             <PageCursos />
           </Route>
-          <Route path="/academyAgenda/:slug">
+          <Route path="/academia-virtual/:slug">
             <PageAVS />
           </Route>
           <Route path="/noticias">

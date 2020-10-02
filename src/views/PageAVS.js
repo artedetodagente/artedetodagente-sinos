@@ -21,7 +21,7 @@ export default function AcademyAgenda(props){
     fetchData()
   },[])
 
-  const onSelect = (i) => history.push(`/academyAgenda/${projetos[i].slug}`)
+  const onSelect = (i) => history.push(`/academia-virtual/${projetos[i].slug}`)
   const selected = R.findIndex(R.propEq('slug', slug), projetos)
   const options = projetos.map((proj,i) => {
     return {
