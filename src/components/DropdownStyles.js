@@ -6,11 +6,6 @@ export const Container = styled.div`
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
-  &.isdown {
-    .selected {
-      color: #999;
-    }
-  }
 `
 
 const LabelStyled = styled.div`
