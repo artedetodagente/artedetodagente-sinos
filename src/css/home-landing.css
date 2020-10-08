@@ -2,16 +2,38 @@
 
 .home-landing {
   background-color: black;
-  .content {
-    @apply m-8;
-    position: relative;
-    z-index: 1;
-    width: 240px;
-    @screen md{
-      @apply ml-20 mt-20;
+  /* @screen md {
+    height: 85vh;
+  } */
+  .cols{
+    @apply flex flex-col;
+    @screen md {
+      @apply flex-row;
     }
-    .logo {
-      @apply px-4 py-3 bg-white mb-4;
+    .main {
+      @apply m-8;
+      position: relative;
+      z-index: 1;
+      width: 240px;
+      @screen md{
+        @apply ml-20 mt-20;
+      }
+      .logo {
+        @apply px-4 py-3 bg-white mb-4;
+      }
+    }
+    .content {
+      @apply flex-shrink text-white m-8 relative z-10 flex flex-col justify-center;
+      @screen md{
+        @apply w-1/2;
+        margin: 0 auto;
+      }
+      h1 {
+        @apply mb-4 text-2xl uppercase;
+      }
+      p {
+        @apply mb-4 text-lg;
+      }
     }
   }
 }
