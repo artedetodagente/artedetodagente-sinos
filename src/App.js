@@ -14,6 +14,8 @@ import PageImprensa from './views/PageImprensa'
 import PageAVS from './views/PageAVS'
 import PageSandbox from './views/PageSandbox'
 import ScrollToTop from './util/ScrollToTop'
+import PageRepertorio from './views/PageRepertorio'
+import PageObras from './views/PageObras'
 
 function App() {
   return (
@@ -26,6 +28,12 @@ function App() {
           </Route>
           <Route path="/academia-virtual/:slug">
             <PageAVS />
+          </Route>
+          <Route exact path="/repertorio-sinos">
+            <PageRepertorio />
+          </Route>
+          <Route path="/repertorio-sinos/obras">
+            <PageObras />
           </Route>
           <Route path="/noticias">
             <PageNoticias />
