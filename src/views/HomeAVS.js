@@ -46,7 +46,7 @@ function HomeAVS(props) {
 
         <div className="col col-1">
           <div className="title" style={{backgroundColor: academy.color}}>{academy.title}</div>
-          <div className="text">{academy.description}</div>
+          <div className="content">{academy.description}</div>
         </div>
 
         <div className="col col-2">
