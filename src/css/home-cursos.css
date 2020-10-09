@@ -61,6 +61,9 @@
 
     .col-1 {
       width: 380px;
+      @screen lg {
+        width: 480px;
+      }
     }
 
     .col {
@@ -78,7 +81,7 @@
       .content {
         @apply bg-white p-4 mb-2 mr-2 hidden;
         @screen md {
-          @apply block;
+          @apply block text-lg;
         }
         .text {
           @apply mb-4;

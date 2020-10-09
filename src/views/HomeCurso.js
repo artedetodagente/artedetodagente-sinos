@@ -7,7 +7,7 @@ import {RedLink} from '../components/Buttons'
 const placeholder = {
   'Pedagogia-das-Cordas': 'selecione uma categoria',
   'Projeto-Espiral': 'selecione um instrumento',
-  'Academia-de-Regencia': 'selecione uma categoria'
+  'Academia-de-Regencia': 'selecione um tema'
 }
 
 function HomeCurso(props) {
