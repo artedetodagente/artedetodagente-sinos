@@ -17,12 +17,12 @@ export const DropDown = (props) => {
   const placeholder = props.placeholder || Mock.placeholder
 
   const [dropIsDown,setDrop] = useState(false)
-  const [selected,setSelected] = useState(props.selected || 0)
+  const [selected,setSelected] = useState(props.selected)
 
   // if prop.selected is redefined
   // (after loading data)
   useEffect(()=>{
-    setSelected(props.selected || 0)
+    setSelected(props.selected)
   },[props.selected])
 
   const dropToggle = () => setDrop(!dropIsDown)

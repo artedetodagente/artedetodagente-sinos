@@ -73,14 +73,15 @@
   }
   p {
     @apply mb-2;
-  }
-  a {
-    color: var(--red);
-    &:hover {
-      color: black;
-      text-decoration: underline;
+    a {
+      color: var(--red);
+      &:hover {
+        color: black;
+        text-decoration: underline;
+      }
     }
   }
+  
 }
 
 .default-view {

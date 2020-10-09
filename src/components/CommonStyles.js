@@ -8,3 +8,6 @@ export const Code = styled.pre`
   font-size: 12px;
   overflow: auto;
 `
+export const Section = styled.section`
+  ${tw`mb-8`}
+`
