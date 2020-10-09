@@ -1,6 +1,14 @@
 import React, {useState} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { HashLink as Link } from 'react-router-hash-link'
+import {DropDown} from '../components/Dropdown'
+import {RedLink} from '../components/Buttons'
+
+const placeholder = {
+  'Pedagogia-das-Cordas': 'selecione uma categoria',
+  'Projeto-Espiral': 'selecione um instrumento',
+  'Academia-de-Regencia': 'selecione uma categoria'
+}
 
 function HomeCurso(props) {
 
@@ -8,8 +16,7 @@ function HomeCurso(props) {
 
   const {categorias} = data
 
-  const [dropIsDown,setDrop] = useState(false)
-  const [selected,setSelected] = useState(0)
+  const [selected,setSelected] = useState(null)
   const [slideTo, setSlideTo] = useState(null)
 
   const len = categorias.length
@@ -17,18 +24,16 @@ function HomeCurso(props) {
   const next = (selected + 1) % len
   const prev = (selected - 1 + len) % len
 
-  // swiper events
-  const onSlide = (e) => setSelected(e.realIndex)
-  const bindSwiper = (swiper) => setSlideTo(() => x => swiper.slideToLoop(x))
-
-  // dropdown events
-  const dropToggle = () => setDrop(!dropIsDown)
-  const dropSelect = (i) => () => {
-    if(dropIsDown){
-      setDrop(false)
-    }
+  const selectCurso = (i) => {
     setSelected(i)
     slideTo(i)
+  }
+
+  // swiper events
+  const onSlide = (e) => selected !== null && setSelected(e.realIndex)
+  const bindSwiper = (swiper) => {
+    setSlideTo(() => x => swiper.slideToLoop(x))
+    setTimeout(()=>swiper.slideToLoop(Math.random()*len),1000)
   }
 
   const hasnav = len > 1 ? 'block' : 'none';
@@ -52,32 +57,29 @@ function HomeCurso(props) {
             )
           })}
         </Swiper>
-        <div className="swiper-nav prev" style={{display: hasnav}} onClick={dropSelect(prev)}>&laquo; {categorias[prev].title}</div>
-        <div className="swiper-nav next" style={{display: hasnav}} onClick={dropSelect(next)}>{categorias[next].title} &raquo;</div>
+        <div className="swiper-nav prev" style={{display: hasnav}} onClick={()=>selectCurso(prev)}>&laquo; {categorias[prev].title}</div>
+        <div className="swiper-nav next" style={{display: hasnav}} onClick={()=>selectCurso(next)}>{categorias[next].title} &raquo;</div>
       </div>
 
       <div className="curso-info">
 
         <div className="col col-1">
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
-          <div className="text">{data.intro}</div>
+          <div className="content">
+            <div className="text">{data.intro}</div>
+            <RedLink to={`/cursos/${data.slug}`}>Saiba mais</RedLink>
+          </div>
         </div>
 
         <div className="col col-2">
-          <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
-            <div className="selected" onClick={dropToggle}>
-              <div className="droptitle">{dropIsDown ? 'Selecione' : current.title}</div>
-              <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20" alt="" /></div>
-            </div>
-            <div className="options-viewport">
-              <div className="options">
-              {categorias.map((m,i)=>{
-                return <li key={`${data.id}-drop-${i}`} onClick={dropSelect(i)}>{m.title}</li>
-              })}
-              </div>
-            </div>
-          </div>
-          {current.cursos.map((curso,i)=>{
+          <DropDown
+            placeholder={placeholder[data.slug] || 'selecione uma categoria'}
+            selected={selected}
+            options={categorias.map((m,i)=>m)}
+            onSelect={(i)=>selectCurso(i)}
+          />
+          
+          {selected !== null && current.cursos.map((curso,i)=>{
             return(
               <div className="home-curso-cat" key={`home-curso-cat-${i}`}>
                 <div className="desc">{curso.title}</div>

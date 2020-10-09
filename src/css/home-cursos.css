@@ -75,10 +75,13 @@
           @apply bg-white text-black;
         }
       }
-      .text {
-        @apply bg-white px-4 py-2 mb-2 mr-2 hidden;
+      .content {
+        @apply bg-white p-4 mb-2 mr-2 hidden;
         @screen md {
           @apply block;
+        }
+        .text {
+          @apply mb-4;
         }
       }
 
