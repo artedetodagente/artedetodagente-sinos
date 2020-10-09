@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { HashLink as Link } from 'react-router-hash-link'
 import {DropDown} from '../components/Dropdown'
-import {RedLink} from '../components/Buttons'
+import {RedLink,AccessLink} from '../components/CommonStyles'
 
 const placeholder = {
   'Pedagogia-das-Cordas': 'selecione uma categoria',
@@ -39,9 +38,7 @@ function HomeCurso(props) {
   const hasnav = len > 1 ? 'block' : 'none';
 
   return (
-
     <section id={data.slug} className={`home-curso full-section curso-${id}`}>
-
       <div className="curso-swiper">
         <Swiper
           spaceBetween={50}
@@ -60,9 +57,7 @@ function HomeCurso(props) {
         <div className="swiper-nav prev" style={{display: hasnav}} onClick={()=>selectCurso(prev)}>&laquo; {categorias[prev].title}</div>
         <div className="swiper-nav next" style={{display: hasnav}} onClick={()=>selectCurso(next)}>{categorias[next].title} &raquo;</div>
       </div>
-
       <div className="curso-info">
-
         <div className="col col-1">
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
           <div className="content">
@@ -70,7 +65,6 @@ function HomeCurso(props) {
             <RedLink to={`/cursos/${data.slug}`}>Saiba mais</RedLink>
           </div>
         </div>
-
         <div className="col col-2">
           <DropDown
             placeholder={placeholder[data.slug] || 'selecione uma categoria'}
@@ -78,21 +72,17 @@ function HomeCurso(props) {
             options={categorias.map((m,i)=>m)}
             onSelect={(i)=>selectCurso(i)}
           />
-          
           {selected !== null && current.cursos.map((curso,i)=>{
             return(
-              <div className="home-curso-cat" key={`home-curso-cat-${i}`}>
-                <div className="desc">{curso.title}</div>
-                <div className="acessar">
-                  <Link to={`/cursos/${data.slug}/${current.slug}/${curso.slug}`}>Acessar &raquo;</Link>
-                </div>
-              </div>
+              <AccessLink
+                key={`curso-${i}`}
+                url={`/cursos/${data.slug}/${current.slug}/${curso.slug}`}
+                title={curso.title}
+              />
             )
           })}
         </div>
-
       </div>
-      
     </section>
   )
 }

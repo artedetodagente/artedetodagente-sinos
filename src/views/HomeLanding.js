@@ -2,7 +2,7 @@ import React from 'react'
 import store from '../store'
 import Menu from './Menu'
 
-import {RedLink} from '../components/Buttons'
+import {RedLink} from '../components/CommonStyles'
 
 function HomeLanding() {
 
