@@ -12,6 +12,9 @@ import Page from './Page'
 import YouThumb from './YouThumb'
 import YouEmbed from './YouEmbed'
 
+import {DropDown} from '../components/Dropdown'
+import {AccessLink,DesktopFlexCol} from '../components/CommonStyles'
+
 import api from '../services/api'
 
 function PageCursos() {
@@ -36,22 +39,81 @@ function PageCursos() {
     <Page title={projeto.title}>
       <div className="page-view curso-view">
         <Switch>
+
           <Route exact path={path}>
-            <div className="title-1">{projeto.title}</div>
-            <p>&nbsp;</p>
-            <p>Selecione uma categoria</p>
-            {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.slug}`}>{cat.title}</Link>)}
-            <p>&nbsp;</p>
-            <p>{projeto.description}</p>
+            <Projeto id={id} projeto={projeto} categorias={categorias} />
           </Route>
 
           <Route path={`${path}/:catid`}>
             <Category id={id} projeto={projeto} />
           </Route>
+
         </Switch>
       </div>
     </Page>
   );
+}
+
+function Projeto({id,projeto,categorias}) {
+  
+  const placeholder = {
+    'Pedagogia-das-Cordas': 'selecione uma categoria',
+    'Projeto-Espiral': 'selecione um instrumento',
+    'Academia-de-Regencia': 'selecione um tema'
+  }
+
+  const [categoria, setCategoria] = useState(null)
+  const [professor, setProfessor] = useState(null)
+
+  const selectCategoria = (i) => {
+    setProfessor(null)
+    setCategoria(i)
+  }
+
+  const selectProfessor = (i) => {
+    setProfessor(i)
+    setCategoria(null)
+  }
+
+  return (
+    <>
+      <div className="title-1">
+        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+        <span>{projeto.title}</span>
+      </div>
+      <p>&nbsp;</p>
+      <DesktopFlexCol>
+        <DropDown
+          black
+          selected={categoria}
+          placeholder={placeholder[projeto.slug] || 'selecione uma categoria'}
+          options={categorias.map((cat,i) => cat)}
+          onSelect={(i)=>selectCategoria(i)}
+        />
+        <div>&nbsp;</div>
+        {/* <DropDown
+          black
+          selected={professor}
+          placeholder="selecione um professor"
+          onSelect={(i)=>selectProfessor(i)}
+        /> */}
+      </DesktopFlexCol>
+      <p>&nbsp;</p>
+      {categoria !== null && categorias[categoria].cursos.map((curso,i)=>{
+        return(
+          <AccessLink
+            key={`curso-${i}`}
+            title={curso.title}
+            url={`/cursos/${id}/${categorias[categoria].slug}/${curso.slug}`}
+          />
+        )
+      })}
+      {/* <p>Selecione uma categoria</p> */}
+      {/* {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.slug}`}>{cat.title}</Link>)} */}
+      <p>&nbsp;</p>
+      <p>{projeto.description}</p>
+    </>
+  )
 }
 
 function Category(props) {
@@ -76,6 +138,7 @@ function Category(props) {
     <Switch>
       <Route exact path={path}>
         <div className="title-1">
+          <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
           <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
           <span>{cat.title}</span>
         </div>
@@ -127,8 +190,9 @@ function Curso(props) {
   return (
     <>
       <div className="title-1">
+        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
         <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
-        <span><Link to={`/cursos/${projeto.slug}/${cat.slug}`}>{cat.title}</Link> &raquo;&nbsp;</span>
+        {/* <span><Link to={`/cursos/${projeto.slug}/${cat.slug}`}>{cat.title}</Link> &raquo;&nbsp;</span> */}
         <span>{curso.title}</span>
       </div>
       <div className="aulas-panel">
@@ -159,8 +223,7 @@ function Curso(props) {
   )
 }
 
-function InfoBox(props) {
-  const {title,text} = props
+function InfoBox({title,text}) {
   return (
     <>
       <h3 className="title-box">{title}</h3>

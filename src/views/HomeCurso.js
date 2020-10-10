@@ -3,12 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import {DropDown} from '../components/Dropdown'
 import {RedLink,AccessLink} from '../components/CommonStyles'
 
-const placeholder = {
-  'Pedagogia-das-Cordas': 'selecione uma categoria',
-  'Projeto-Espiral': 'selecione um instrumento',
-  'Academia-de-Regencia': 'selecione um tema'
-}
-
 function HomeCurso(props) {
 
   const {data, id} = props
@@ -22,6 +16,12 @@ function HomeCurso(props) {
   const current = categorias[selected]
   const next = (selected + 1) % len
   const prev = (selected - 1 + len) % len
+
+  const placeholder = {
+    'Pedagogia-das-Cordas': 'selecione uma categoria',
+    'Projeto-Espiral': 'selecione um instrumento',
+    'Academia-de-Regencia': 'selecione um tema'
+  }
 
   const selectCurso = (i) => {
     setSelected(i)

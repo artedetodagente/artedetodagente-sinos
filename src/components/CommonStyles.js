@@ -44,6 +44,10 @@ export const AccessLink = function({title,url}) {
   )
 }
 
+export const DesktopFlexCol = styled.div`
+  ${tw`flex flex-col md:flex-row`}
+`
+
 // SANDBOX
 
 export const Code = styled.pre`
