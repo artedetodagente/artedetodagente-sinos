@@ -38,7 +38,10 @@ function PageNoticias() {
         <Switch>
 
           <Route exact path={path}>
-            <div className="title-1">Notícias</div>
+            <div className="title-1">
+              <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+              <span>Notícias</span>
+            </div>
             <p>&nbsp;</p>
             <div className="posts-feed">
             {noticias.map((noticia,i) => {
@@ -87,7 +90,11 @@ function Noticia(props) {
 
   return (
     <>
-      <div className="title-1"><Link to={`/noticias`}>Notícias</Link> &raquo; {noticia.title}</div>
+      <div className="title-1">
+        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/noticias`}>Notícias</Link> &raquo;&nbsp;</span>
+        <span>{noticia.title}</span>
+      </div>
       {foto ? <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
       <ReactMarkdown
         source={noticia.description}
