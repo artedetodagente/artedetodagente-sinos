@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import {
   Switch,
+  Redirect,
   Route,
   useParams,
   useRouteMatch
@@ -63,17 +64,17 @@ function Projeto({id,projeto,categorias}) {
   }
 
   const [categoria, setCategoria] = useState(null)
-  const [professor, setProfessor] = useState(null)
+  // const [professor, setProfessor] = useState(null)
 
   const selectCategoria = (i) => {
-    setProfessor(null)
+    // setProfessor(null)
     setCategoria(i)
   }
 
-  const selectProfessor = (i) => {
-    setProfessor(i)
-    setCategoria(null)
-  }
+  // const selectProfessor = (i) => {
+  //   setProfessor(i)
+  //   setCategoria(null)
+  // }
 
   return (
     <>
@@ -116,54 +117,23 @@ function Projeto({id,projeto,categorias}) {
   )
 }
 
-function Category(props) {
+function Category({id, projeto}) {
 
   const {path} = useRouteMatch()
-
-  const {id, projeto} = props
-  const {catid} = useParams()
-  const [cat, setCat] = useState([])
-  const [cursos, setCursos] = useState([])
-
-  useEffect(()=>{
-    async function fetchData(){
-      const response = await api.get(`/categorias/${catid}`)
-      setCat(response.data)
-      setCursos(response.data.cursos)
-    }
-    fetchData()
-  },[catid])
 
   return (
     <Switch>
       <Route exact path={path}>
-        <div className="title-1">
-          <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
-          <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
-          <span>{cat.title}</span>
-        </div>
-        <p>&nbsp;</p>
-        <p>Selecione um curso</p>
-        {cursos.map((curso,i) => {
-          return (
-            <Link key={i} className="curso-select" to={`/cursos/${id}/${cat.slug}/${curso.slug}`}>
-              {curso.title}
-            </Link>
-          )
-        })}
-        <p>&nbsp;</p>
-        <p>{projeto.description}</p>
+        <Redirect to={`/cursos/${id}`} />
       </Route>
       <Route path={`${path}/:cursoid`}>
-        <Curso id={id} projeto={projeto} cat={cat} />
+        <Curso projeto={projeto} />
       </Route>
     </Switch>
   )
 }
 
-function Curso(props) {
-
-  const {projeto,cat} = props
+function Curso({projeto}) {
   
   const [curso, setCurso] = useState([])
   const [aulas, setAulas] = useState([])
