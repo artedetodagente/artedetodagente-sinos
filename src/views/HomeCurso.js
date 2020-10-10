@@ -76,7 +76,7 @@ function HomeCurso(props) {
             return(
               <AccessLink
                 key={`curso-${i}`}
-                url={`/cursos/${data.slug}/${current.slug}/${curso.slug}`}
+                url={`/cursos/${data.slug}/${curso.slug}`}
                 title={curso.title}
               />
             )
