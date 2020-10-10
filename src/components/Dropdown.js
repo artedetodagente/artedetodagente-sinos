@@ -43,10 +43,15 @@ export const DropDown = (props) => {
         onClick={dropToggle}
         color={options[selected]?.color}
         background={options[selected]?.background}
+        black={props.black}
       />
       <Select numChildren={options.length} isDown={dropIsDown}>
         {options.map((item,index)=>
-          <Option key={index} onClick={dropSelect(index)}>
+          <Option
+            key={index}
+            onClick={dropSelect(index)}
+            black={props.black}
+          >
             {item.title}
           </Option>
         )}
