@@ -35,7 +35,7 @@ export const DropDown = (props) => {
   }
 
   return (
-    <Container>
+    <Container width={props.width}>
       <Label
         title={options[selected]?.title}
         placeholder={placeholder}

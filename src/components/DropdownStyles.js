@@ -6,6 +6,9 @@ export const Container = styled.div`
   text-transform: uppercase;
   position: relative;
   cursor: pointer;
+  @media (min-width: 768px) {
+    width: ${props=>props.width || `auto`};
+  }
 `
 
 const LabelStyled = styled.div`
