@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import * as R from 'ramda'
 
 import {
   Switch,
@@ -25,9 +26,9 @@ function PageCursos() {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await api.get(`/projetos/${id}`)
-      setProjeto(response.data)
-      setCategorias(response.data.categorias)
+      const response = await api.get(`/projetos?slug=${id}`)
+      setProjeto(response.data[0])
+      setCategorias(response.data[0].categorias)
     }
     fetchData()
   },[id])
@@ -66,17 +67,41 @@ function PageCursosMain({id,projeto,categorias}) {
   }
 
   const [categoria, setCategoria] = useState(null)
-  // const [professor, setProfessor] = useState(null)
+  const [professor, setProfessor] = useState(null)
+
+  const [filter, setFilter] = useState(null)
+
+  const [cursos, setCursos] = useState([])
+  const [professores, setProfessores] = useState([])
+
+  useEffect(()=>{
+    const reducedCursos = R.reduce((acc,cat)=>{
+      cat.cursos.map(curso=>acc.push(curso))
+      return acc
+    },[],categorias)
+    const reducedProfessores = R.sortBy(R.prop('name'),R.reduce((acc,curso)=>{
+      curso.professores.map(prof=>acc.push(prof))
+      return acc
+    },[],reducedCursos))
+    setCursos(reducedCursos)
+    setProfessores(reducedProfessores)
+    console.log('reducedCursos',reducedCursos)
+    console.log('reducedProfessores',reducedProfessores)
+  },[categorias])
 
   const selectCategoria = (i) => {
-    // setProfessor(null)
+    setProfessor(null)
     setCategoria(i)
+    setFilter(['categoria',categorias[i].id])
   }
 
-  // const selectProfessor = (i) => {
-  //   setProfessor(i)
-  //   setCategoria(null)
-  // }
+  const selectProfessor = (i) => {
+    setProfessor(i)
+    setCategoria(null)
+    setFilter(['id',professores[i].curso])
+  }
+
+  useEffect(()=>window.scrollTo(0, 0),[filter])
 
   return (
     <>
@@ -92,17 +117,20 @@ function PageCursosMain({id,projeto,categorias}) {
           placeholder={placeholder[projeto.slug] || 'selecione uma categoria'}
           options={categorias.map((cat,i) => cat)}
           onSelect={(i)=>selectCategoria(i)}
+          width="50%"
         />
         <div>&nbsp;</div>
-        {/* <DropDown
+        <DropDown
           black
           selected={professor}
           placeholder="selecione um professor"
+          options={professores.map((prof,i) => ({title: prof.name}))}
           onSelect={(i)=>selectProfessor(i)}
-        /> */}
+          width="50%"
+        />
       </DesktopFlexCol>
       <p>&nbsp;</p>
-      {categoria !== null && categorias[categoria].cursos.map((curso,i)=>{
+      {filter !== null && R.filter(R.propEq(filter[0],filter[1]),cursos).map((curso,i)=>{
         return(
           <AccessLink
             key={`curso-${i}`}
