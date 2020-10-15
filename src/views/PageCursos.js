@@ -66,13 +66,12 @@ function PageCursosMain({id,projeto,categorias}) {
     'Academia-de-Regencia': 'selecione um tema'
   }
 
-  const [categoria, setCategoria] = useState(null)
-  const [professor, setProfessor] = useState(null)
-
-  const [filter, setFilter] = useState(null)
-
   const [cursos, setCursos] = useState([])
   const [professores, setProfessores] = useState([])
+
+  const [filter, setFilter] = useState(null)
+  const [categoria, setCategoria] = useState(null)
+  const [professor, setProfessor] = useState(null)
 
   useEffect(()=>{
     const reducedCursos = R.reduce((acc,cat)=>{
