@@ -118,7 +118,6 @@ function PageCursosMain({id,projeto,categorias}) {
           onSelect={(i)=>selectCategoria(i)}
           width="50%"
         />
-        <div>&nbsp;</div>
         <DropDown
           black
           selected={professor}
