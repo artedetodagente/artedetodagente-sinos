@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useHistory } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import {DropDown} from '../components/Dropdown'
 import {RedLink,AccessLink} from '../components/CommonStyles'
@@ -7,9 +8,11 @@ import * as R from 'ramda'
 
 function HomeCurso(props) {
 
+  const history = useHistory()
+
   const {data, id} = props
 
-  const categorias = R.sortBy(R.prop('order'),data.categorias)
+  const categorias = R.sortBy(R.prop('order'), data.categorias)
 
   const [selected,setSelected] = useState(null)
   const [slideTo, setSlideTo] = useState(null)
@@ -28,6 +31,12 @@ function HomeCurso(props) {
   const selectCurso = (i) => {
     setSelected(i)
     slideTo(i)
+  }
+
+  const selectCursoFromDropdown = (i) => {
+    return categorias[i].cursos.length === 1
+      ? history.push(`/cursos/${data.slug}/${categorias[i].cursos[0].slug}`)
+      : selectCurso(i)
   }
 
   // swiper events
@@ -72,7 +81,7 @@ function HomeCurso(props) {
             placeholder={placeholder[data.slug] || 'selecione uma categoria'}
             selected={selected}
             options={categorias.map((m,i)=>m)}
-            onSelect={(i)=>selectCurso(i)}
+            onSelect={(i)=>selectCursoFromDropdown(i)}
           />
           {selected !== null && current.cursos.map((curso,i)=>{
             return(
