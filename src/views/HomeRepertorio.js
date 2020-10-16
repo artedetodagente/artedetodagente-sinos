@@ -13,7 +13,7 @@ export default function HomeRepertorio({ repertorio, url }){
 
     useEffect(()=>{
         async function fetchData(){
-            const response = await api.get('repertorio-obras')
+            const response = await api.get('/repertorio-obras')
             setObras(response.data)
         }
         fetchData()
@@ -45,7 +45,7 @@ export default function HomeRepertorio({ repertorio, url }){
                         {repertorioObras.map((obra,i)=>{
                             return <CardObra obra={obra} key={i} autor={obra.repertorio_autor} />
                         })}
-                    <BiggerButton> <span>ACESSAR TODAS AS OBRAS</span> <IoIosArrowForward/></BiggerButton>
+                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS</Link><IoIosArrowForward/></BiggerButton>
                 </div>
             </div>
     </section>

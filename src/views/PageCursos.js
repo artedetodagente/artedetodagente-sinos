@@ -120,8 +120,6 @@ function Curso(props) {
     fetchData()
   },[cursoid])
 
-  console.log(aulas)
-
   useEffect(()=>window.scrollTo(0, 0),[aula])
 
   return (
