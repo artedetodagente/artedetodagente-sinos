@@ -28,7 +28,7 @@ function PageCursos() {
     async function fetchData(){
       const response = await api.get(`/projetos?slug=${id}`)
       setProjeto(response.data[0])
-      setCategorias(response.data[0].categorias)
+      setCategorias( R.sortBy(R.prop('order'),response.data[0].categorias))
     }
     fetchData()
   },[id])

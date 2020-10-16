@@ -3,11 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import {DropDown} from '../components/Dropdown'
 import {RedLink,AccessLink} from '../components/CommonStyles'
 
+import * as R from 'ramda'
+
 function HomeCurso(props) {
 
   const {data, id} = props
 
-  const {categorias} = data
+  const categorias = R.sortBy(R.prop('order'),data.categorias)
 
   const [selected,setSelected] = useState(null)
   const [slideTo, setSlideTo] = useState(null)
