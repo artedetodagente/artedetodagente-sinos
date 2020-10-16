@@ -43,7 +43,7 @@ export default function HomeRepertorio({ repertorio, url }){
                         OBRAS PRESENTES
                     </div>
                         {repertorioObras.map((obra,i)=>{
-                            return <CardObra obra={obra} key={i} autor={obra.repertorio_autor} />
+                            return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`} ><CardObra obra={obra} autor={obra.repertorio_autor} /></Link>
                         })}
                     <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS</Link><IoIosArrowForward/></BiggerButton>
                 </div>

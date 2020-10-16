@@ -138,7 +138,7 @@ function Obra({ path }){
                       <p className="repertorio-inner">
                         {autor.mini_bio}
                       </p>
-                      <a rel="noopener noreferrer" style={buttonStyle} href={`/professor/`} target="_blank">Saiba mais</a>
+                      <a rel="noopener noreferrer" style={buttonStyle} href={`/professor/`} target="_blank">LEIA MAIS</a>
                   </div>
                   <div>
                     <p className="repertorio-title">
