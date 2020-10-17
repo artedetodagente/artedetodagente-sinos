@@ -1,5 +1,5 @@
 import React from 'react'
-import YouEmbed from '../YouEmbed'
+import YouEmbed from '../../components/YouEmbed'
 
 export default function Embed({data}){
     return(

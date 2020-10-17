@@ -1,6 +1,6 @@
 .repertorio-container{
     display: flex;
-    height: 100%;
+    height: auto;
 }
 
 .player{
@@ -11,6 +11,16 @@
 .links {
     margin-bottom: 2vh;
     font-size: 1.5rem;
+}
+
+.pdf{
+    width: 100%;
+}
+
+.react-pdf__Page__canvas{
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
 }
 
 .obra-buttons{
@@ -70,7 +80,7 @@
     background-color: white;
     width: 75%;
     margin-left: 1rem;
-    height: 100%;
+    height: auto;
     text-align: center;
     display: inline-block;
 }

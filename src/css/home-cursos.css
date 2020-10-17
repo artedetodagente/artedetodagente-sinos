@@ -61,6 +61,9 @@
 
     .col-1 {
       width: 380px;
+      @screen lg {
+        width: 480px;
+      }
     }
 
     .col {
@@ -75,10 +78,13 @@
           @apply bg-white text-black;
         }
       }
-      .text {
-        @apply bg-white px-4 py-2 mb-2 mr-2 hidden;
+      .content {
+        @apply bg-white p-4 mb-2 mr-2 hidden;
         @screen md {
-          @apply block;
+          @apply block text-lg;
+        }
+        .text {
+          @apply mb-4;
         }
       }
 
@@ -103,56 +109,6 @@
           }
         }
       }
-    }
-  }
-}
-
-.dropdown {
- 
-  text-transform: uppercase;
-  position: relative;
-  cursor: pointer;
-
-  .selected {
-    @apply bg-white p-2 text-2xl flex leading-none;
-    .droptitle {
-      @apply flex-grow;
-    }
-    .dropicon {
-      @apply ml-3 mr-2 self-center;
-    }
-    @screen md {
-      @apply text-4xl;
-    }
-  }
-
-  .options-viewport {
-    position: relative;
-  }
-
-  .options {
-    @apply mb-2 text-2xl;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s;
-    @screen md {
-      @apply text-4xl;
-    }
-    li {
-      @apply bg-white m-0 pl-2 pr-4;
-      list-style-type: none;
-      &:hover {
-        background-color: #eee;
-      }
-    }
-  }
-
-  &.isdown {
-    .selected {
-      color: #999;
-    }
-    .options {
-      max-height: 100vh;
     }
   }
 }

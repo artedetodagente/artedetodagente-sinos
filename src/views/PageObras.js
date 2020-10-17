@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Page from '../views/Page'
 import CardObra from '../components/CardObra'
 
-import Viewer from '@phuocng/react-pdf-viewer';
 import ReactPlayer from 'react-player'
+
+import { BiArrowFromRight, BiArrowFromLeft } from 'react-icons/bi'
 
 import { Document, Page as Pager} from 'react-pdf/dist/umd/entry.webpack';
 
-import { ObrasContainer, ObraContainer, Title } from '../components/ObraStyles'
+import { ObrasContainer } from '../components/ObraStyles'
 
 import {
     useRouteMatch,
@@ -47,9 +48,11 @@ export default function PageObras(){
         <Switch>
             <Page title='Repertório Sinos' className="obra-content">
                 <Route exact path={path}>
+                  <div className="links">
                     <Link to='/'>HOME >></Link>
                     <Link to='/repertorio-sinos'> REPERTÓRIO SINOS >> </Link>
                     <Link to={path}> OBRAS </Link>
+                  </div>
                     <ObrasContainer>
                         {
                             obras.map((obra, i)=>{
@@ -116,6 +119,7 @@ function Obra({ path }){
           <div className="links">
             <Link to='/'>HOME >></Link>
             <Link to='/repertorio-sinos'> REPERTÓRIO SINOS >> </Link>
+            <Link to={'/repertorio-sinos/obras'}> OBRAS >></Link>
             <Link to={`${path}/${obra_slug}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
           </div>
             <div className="repertorio-container">
@@ -138,7 +142,7 @@ function Obra({ path }){
                       <p className="repertorio-inner">
                         {autor.mini_bio}
                       </p>
-                      <a rel="noopener noreferrer" style={buttonStyle} href={`/professor/`} target="_blank">LEIA MAIS</a>
+                      <Link to={`/repertorio-sinos/autor/${autor.id}`} style={buttonStyle}>LEIA MAIS</Link>
                   </div>
                   <div>
                     <p className="repertorio-title">
@@ -171,10 +175,10 @@ function Obra({ path }){
                   {
                   professorObras.map((obra, i)=>{
                     return (
-                      <>
-                        <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`}>{obra.title}</Link>
+                      <span key={i}>
+                        <Link to={`/repertorio-sinos/obras/${obra.slug}`}>{obra.title}</Link>
                         <br/>
-                      </>
+                      </span>
                     )
                   })
                   }
@@ -186,17 +190,20 @@ function Obra({ path }){
           <div className="partituras-container">
             
               <Document
+                className="pdf"
+                error="Aguarde um momento, carregando PDF..."
+                loading="Carregando PDF..."
                 file={`https://admin.sinos.art.br${partitura.url}`}
                 onLoadSuccess={onDocumentLoadSuccess}
               >
               <Pager pageNumber={pageNumber} />
+              <div className="obra-buttons">
+                <button onClick={()=>previousPage()}><BiArrowFromRight/></button>
+                  <p>Página {pageNumber} de {numPages}</p>
+                <button onClick={()=>nextPage()}><BiArrowFromLeft/></button>            
+              </div>
               </Document>
 
-              <div className="obra-buttons">
-                <button onClick={()=>previousPage()}>Voltar</button>
-                  <p>Página {pageNumber} de {numPages}</p>
-                <button onClick={()=>nextPage()}>Próxima</button>            
-              </div>
         </div>
       </div>
     </div>

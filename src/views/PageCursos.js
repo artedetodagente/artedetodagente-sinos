@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import * as R from 'ramda'
 
 import {
   Switch,
@@ -8,11 +9,13 @@ import {
 } from "react-router-dom"
 import { HashLink as Link } from 'react-router-hash-link'
 
-import Page from './Page'
-import YouThumb from './YouThumb'
-import YouEmbed from './YouEmbed'
-
 import api from '../services/api'
+import { DropDown } from '../components/Dropdown'
+import { AccessLink, DesktopFlexCol } from '../components/CommonStyles'
+
+import Page from './Page'
+import PageCursosDetalhe from './PageCursosDetalhe'
+import PageCursosProfessor from './PageCursosProfessor'
 
 function PageCursos() {
 
@@ -23,9 +26,9 @@ function PageCursos() {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await api.get(`/projetos/${id}`)
-      setProjeto(response.data)
-      setCategorias(response.data.categorias)
+      const response = await api.get(`/projetos?slug=${id}`)
+      setProjeto(response.data[0])
+      setCategorias(R.sortBy(R.prop('order'), response.data[0].categorias))
     }
     fetchData()
   },[id])
@@ -36,146 +39,110 @@ function PageCursos() {
     <Page title={projeto.title}>
       <div className="page-view curso-view">
         <Switch>
+
           <Route exact path={path}>
-            <div className="title-1">{projeto.title}</div>
-            <p>&nbsp;</p>
-            <p>Selecione uma categoria</p>
-            {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.slug}`}>{cat.title}</Link>)}
-            <p>&nbsp;</p>
-            <p>{projeto.description}</p>
+            <PageCursosMain id={id} projeto={projeto} categorias={categorias} />
           </Route>
 
-          <Route path={`${path}/:catid`}>
-            <Category id={id} projeto={projeto} />
+          <Route path={`${path}/bio/:profid`}>
+            <PageCursosProfessor id={id} projeto={projeto} />
           </Route>
+
+          <Route path={`${path}/:cursoid`}>
+            <PageCursosDetalhe id={id} projeto={projeto} />
+          </Route>
+
         </Switch>
       </div>
     </Page>
   );
 }
 
-function Category(props) {
-
-  const {path} = useRouteMatch()
-
-  const {id, projeto} = props
-  const {catid} = useParams()
-  const [cat, setCat] = useState([])
-  const [cursos, setCursos] = useState([])
-
-  useEffect(()=>{
-    async function fetchData(){
-      const response = await api.get(`/categorias/${catid}`)
-      setCat(response.data)
-      setCursos(response.data.cursos)
-    }
-    fetchData()
-  },[catid])
-
-  return (
-    <Switch>
-      <Route exact path={path}>
-        <div className="title-1">
-          <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
-          <span>{cat.title}</span>
-        </div>
-        <p>&nbsp;</p>
-        <p>Selecione um curso</p>
-        {cursos.map((curso,i) => {
-          return (
-            <Link key={i} className="curso-select" to={`/cursos/${id}/${cat.slug}/${curso.slug}`}>
-              {curso.title}
-            </Link>
-          )
-        })}
-        <p>&nbsp;</p>
-        <p>{projeto.description}</p>
-      </Route>
-      <Route path={`${path}/:cursoid`}>
-        <Curso id={id} projeto={projeto} cat={cat} />
-      </Route>
-    </Switch>
-  )
-}
-
-function Curso(props) {
-
-  const {projeto,cat} = props
+function PageCursosMain({id,projeto,categorias}) {
   
-  const [curso, setCurso] = useState([])
-  const [aulas, setAulas] = useState([])
-  const [aula, setAula] = useState([])
+  const placeholder = {
+    'Pedagogia-das-Cordas': 'selecione uma categoria',
+    'Projeto-Espiral': 'selecione um instrumento',
+    'Academia-de-Regencia': 'selecione um tema'
+  }
 
-  const {cursoid} = useParams()
+  const [cursos, setCursos] = useState([])
+  const [professores, setProfessores] = useState([])
+
+  const [filter, setFilter] = useState(null)
+  const [categoria, setCategoria] = useState(null)
+  const [professor, setProfessor] = useState(null)
 
   useEffect(()=>{
-    async function fetchData(){
-      const response = await api.get(`/cursos/${cursoid}`)
-      setCurso(response.data)
-      const today = new Date().toISOString()
-      const responseAulas = await api.get(`/aulas?curso.slug=${cursoid}&_where[date_lte]=${today}&_sort=date:ASC`)
-      setAulas(responseAulas.data)
-      setAula(responseAulas.data[0])
-    }
-    fetchData()
-  },[cursoid])
 
-  useEffect(()=>window.scrollTo(0, 0),[aula])
+    const reducedCursos = R.reduce((acc,cat)=>{
+      cat.cursos.map(curso=>acc.push(curso))
+      return acc
+    },[],categorias)
+    const reducedProfessores = R.sortBy(R.prop('name'),R.reduce((acc,curso)=>{
+      curso.professores.map(prof=>acc.push(prof))
+      return acc
+    },[],reducedCursos))
+    setCursos(reducedCursos)
+    setProfessores(reducedProfessores)
+    console.log('reducedCursos',reducedCursos)
+    console.log('reducedProfessores',reducedProfessores)
+  },[categorias])
+
+  const selectCategoria = (i) => {
+    setProfessor(null)
+    setCategoria(i)
+    setFilter(['categoria',categorias[i].id])
+  }
+
+  const selectProfessor = (i) => {
+    setProfessor(i)
+    setCategoria(null)
+    setFilter(['id',professores[i].curso])
+  }
+
+  useEffect(()=>window.scrollTo(0, 0),[filter])
 
   return (
     <>
       <div className="title-1">
-        <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link> &raquo;&nbsp;</span>
-        <span><Link to={`/cursos/${projeto.slug}/${cat.slug}`}>{cat.title}</Link> &raquo;&nbsp;</span>
-        <span>{curso.title}</span>
+        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+        <span>{projeto.title}</span>
       </div>
-      <div className="aulas-panel">
-        <div className="aulas-view">
-          <div className="aulas-view-video">
-              <YouEmbed url={aula.video_url}/>
-          </div>
-          <div className="aulas-view-info">
-            <InfoBox title={aula.title || `carregando...`} text={aula.description} />
-            <p>&nbsp;</p>
-            {aula.professore &&
-              <InfoBox title={aula.professore.name} text={aula.professore.bio} />
-            }
-          </div>
-        </div>
-        <div className="aulas-select">
-          {aulas.map((aula,i)=>
-            <AulaBox
-              key={i}
-              onClick={() => setAula(aula)}
-              title={aula.title}
-              video={aula.video_url}
-            />
-          )}
-        </div>
-      </div>
+      <p>&nbsp;</p>
+      <DesktopFlexCol>
+        <DropDown
+          black
+          selected={categoria}
+          placeholder={placeholder[projeto.slug] || 'selecione uma categoria'}
+          options={categorias.map((cat,i) => cat)}
+          onSelect={(i)=>selectCategoria(i)}
+          width="50%"
+        />
+        <DropDown
+          black
+          selected={professor}
+          placeholder="selecione um professor"
+          options={professores.map((prof,i) => ({title: prof.name}))}
+          onSelect={(i)=>selectProfessor(i)}
+          width="50%"
+        />
+      </DesktopFlexCol>
+      <p>&nbsp;</p>
+      {filter !== null && R.filter(R.propEq(filter[0],filter[1]),cursos).map((curso,i)=>{
+        return(
+          <AccessLink
+            key={`curso-${i}`}
+            title={curso.title}
+            url={`/cursos/${id}/${curso.slug}`}
+          />
+        )
+      })}
+      {/* <p>Selecione uma categoria</p> */}
+      {/* {categorias.map((cat,i) => <Link className="curso-select" key={i} to={`/cursos/${id}/${cat.slug}`}>{cat.title}</Link>)} */}
+      <p>&nbsp;</p>
+      <p>{projeto.description}</p>
     </>
-  )
-}
-
-function InfoBox(props) {
-  const {title,text} = props
-  return (
-    <>
-      <h3 className="title-box">{title}</h3>
-      <p>{text}</p>
-    </>
-  )
-}
-
-function AulaBox(props){
-  const {onClick,video,title} = props
-  return(
-    <div className="aula" onClick={onClick} >
-      <div className="box">
-        <YouThumb url={video} />
-        <p>{title}</p>
-      </div>
-    </div>
   )
 }
 

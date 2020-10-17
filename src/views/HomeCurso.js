@@ -1,15 +1,20 @@
 import React, {useState} from 'react'
+import { useHistory } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { HashLink as Link } from 'react-router-hash-link'
+import {DropDown} from '../components/Dropdown'
+import {RedLink,AccessLink} from '../components/CommonStyles'
+
+import * as R from 'ramda'
 
 function HomeCurso(props) {
 
+  const history = useHistory()
+
   const {data, id} = props
 
-  const {categorias} = data
+  const categorias = R.sortBy(R.prop('order'), data.categorias)
 
-  const [dropIsDown,setDrop] = useState(false)
-  const [selected,setSelected] = useState(0)
+  const [selected,setSelected] = useState(null)
   const [slideTo, setSlideTo] = useState(null)
 
   const len = categorias.length
@@ -17,26 +22,34 @@ function HomeCurso(props) {
   const next = (selected + 1) % len
   const prev = (selected - 1 + len) % len
 
-  // swiper events
-  const onSlide = (e) => setSelected(e.realIndex)
-  const bindSwiper = (swiper) => setSlideTo(() => x => swiper.slideToLoop(x))
+  const placeholder = {
+    'Pedagogia-das-Cordas': 'selecione uma categoria',
+    'Projeto-Espiral': 'selecione um instrumento',
+    'Academia-de-Regencia': 'selecione um tema'
+  }
 
-  // dropdown events
-  const dropToggle = () => setDrop(!dropIsDown)
-  const dropSelect = (i) => () => {
-    if(dropIsDown){
-      setDrop(false)
-    }
+  const selectCurso = (i) => {
     setSelected(i)
     slideTo(i)
+  }
+
+  const selectCursoFromDropdown = (i) => {
+    return categorias[i].cursos.length === 1
+      ? history.push(`/cursos/${data.slug}/${categorias[i].cursos[0].slug}`)
+      : selectCurso(i)
+  }
+
+  // swiper events
+  const onSlide = (e) => selected !== null && setSelected(e.realIndex)
+  const bindSwiper = (swiper) => {
+    setSlideTo(() => x => swiper.slideToLoop(x))
+    setTimeout(()=>swiper.slideToLoop(Math.random()*len),1000)
   }
 
   const hasnav = len > 1 ? 'block' : 'none';
 
   return (
-
     <section id={data.slug} className={`home-curso full-section curso-${id}`}>
-
       <div className="curso-swiper">
         <Swiper
           spaceBetween={50}
@@ -52,45 +65,35 @@ function HomeCurso(props) {
             )
           })}
         </Swiper>
-        <div className="swiper-nav prev" style={{display: hasnav}} onClick={dropSelect(prev)}>&laquo; {categorias[prev].title}</div>
-        <div className="swiper-nav next" style={{display: hasnav}} onClick={dropSelect(next)}>{categorias[next].title} &raquo;</div>
+        <div className="swiper-nav prev" style={{display: hasnav}} onClick={()=>selectCurso(prev)}>&laquo; {categorias[prev].title}</div>
+        <div className="swiper-nav next" style={{display: hasnav}} onClick={()=>selectCurso(next)}>{categorias[next].title} &raquo;</div>
       </div>
-
       <div className="curso-info">
-
         <div className="col col-1">
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
-          <div className="text">{data.intro}</div>
-        </div>
-
-        <div className="col col-2">
-          <div className={`dropdown ${dropIsDown ? 'isdown' : ''}`}>
-            <div className="selected" onClick={dropToggle}>
-              <div className="droptitle">{dropIsDown ? 'Selecione' : current.title}</div>
-              <div className="dropicon"><img src="/img/icons/arrow-down.svg" width="20" alt="" /></div>
-            </div>
-            <div className="options-viewport">
-              <div className="options">
-              {categorias.map((m,i)=>{
-                return <li key={`${data.id}-drop-${i}`} onClick={dropSelect(i)}>{m.title}</li>
-              })}
-              </div>
-            </div>
+          <div className="content">
+            <div className="text">{data.intro}</div>
+            <RedLink to={`/cursos/${data.slug}`}>Saiba mais</RedLink>
           </div>
-          {current.cursos.map((curso,i)=>{
+        </div>
+        <div className="col col-2">
+          <DropDown
+            placeholder={placeholder[data.slug] || 'selecione uma categoria'}
+            selected={selected}
+            options={categorias.map((m,i)=>m)}
+            onSelect={(i)=>selectCursoFromDropdown(i)}
+          />
+          {selected !== null && current.cursos.map((curso,i)=>{
             return(
-              <div className="home-curso-cat" key={`home-curso-cat-${i}`}>
-                <div className="desc">{curso.title}</div>
-                <div className="acessar">
-                  <Link to={`/cursos/${data.slug}/${current.slug}/${curso.slug}`}>Acessar &raquo;</Link>
-                </div>
-              </div>
+              <AccessLink
+                key={`curso-${i}`}
+                url={`/cursos/${data.slug}/${curso.slug}`}
+                title={curso.title}
+              />
             )
           })}
         </div>
-
       </div>
-      
     </section>
   )
 }

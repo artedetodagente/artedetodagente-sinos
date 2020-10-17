@@ -16,6 +16,7 @@ import PageSandbox from './views/PageSandbox'
 import ScrollToTop from './util/ScrollToTop'
 import PageRepertorio from './views/PageRepertorio'
 import PageObras from './views/PageObras'
+import PageAutor from './views/PageAutor'
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path="/repertorio-sinos">
             <PageRepertorio />
+          </Route>
+          <Route exact path="/repertorio-sinos/autor/:id">
+            <PageAutor />
           </Route>
           <Route path="/repertorio-sinos/obras">
             <PageObras />

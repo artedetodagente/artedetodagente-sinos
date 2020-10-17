@@ -17,12 +17,12 @@ export const DropDown = (props) => {
   const placeholder = props.placeholder || Mock.placeholder
 
   const [dropIsDown,setDrop] = useState(false)
-  const [selected,setSelected] = useState(props.selected || 0)
+  const [selected,setSelected] = useState(props.selected)
 
   // if prop.selected is redefined
   // (after loading data)
   useEffect(()=>{
-    setSelected(props.selected || 0)
+    setSelected(props.selected)
   },[props.selected])
 
   const dropToggle = () => setDrop(!dropIsDown)
@@ -35,7 +35,7 @@ export const DropDown = (props) => {
   }
 
   return (
-    <Container>
+    <Container width={props.width}>
       <Label
         title={options[selected]?.title}
         placeholder={placeholder}
@@ -43,10 +43,15 @@ export const DropDown = (props) => {
         onClick={dropToggle}
         color={options[selected]?.color}
         background={options[selected]?.background}
+        black={props.black}
       />
       <Select numChildren={options.length} isDown={dropIsDown}>
         {options.map((item,index)=>
-          <Option key={index} onClick={dropSelect(index)}>
+          <Option
+            key={index}
+            onClick={dropSelect(index)}
+            black={props.black}
+          >
             {item.title}
           </Option>
         )}
