@@ -2,16 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
-const TitleBox = styled.h1`
-  ${tw`p-4 bg-black text-white uppercase text-2xl`}
-`
+import {
+  DynamicBlock,
+  TitleBox
+} from './Dynamic.Styles'
 
 const BlockSlider = styled.div`
   ${tw`p-4 flex flex-wrap justify-center`}
   .dynamic-block-slider-item {
     ${tw`m-4`}
     a {
-      @apply block;
+      ${tw`block flex items-center h-full`}
       img {
         max-height: 128px;
         max-width: 256px;
@@ -23,7 +24,7 @@ const BlockSlider = styled.div`
 
 export default function Block({data}){
     return(
-      <div className="dynamic-block">
+      <DynamicBlock>
         <TitleBox>{data.title}</TitleBox>
         <BlockSlider>
           {data.Slider && data.Slider.map((slide,i)=>{
@@ -43,6 +44,6 @@ export default function Block({data}){
             )
           })}
         </BlockSlider>
-      </div>
+      </DynamicBlock>
     )
 }
