@@ -32,7 +32,7 @@ function PageDefault(props) {
         {parse(md(text))}
       </div>
       <div className="page-zones">
-        {content.map( component => <DynamicPage data={component}/>)}
+        {content.map((component,i) => <DynamicPage key={i} data={component}/>)}
       </div>
     </Page>
   );
