@@ -23,7 +23,7 @@ export default function HomeRepertorio({ repertorio, url }){
 
     return (
         <>
-        <section id={repertorio.id} className={`home-curso full-section curso-${repertorio.id}`}>
+        <section id={repertorio.title} className={`home-curso full-section curso-${repertorio.id}`}>
 
             <div className="curso-swiper">
                 <SwiperSlide key={`${repertorio.id}-slide-${1}`}>
