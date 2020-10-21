@@ -7,17 +7,13 @@ import { BiggerButton } from '../components/HomeRepertorioStyles'
 
 import {RedLink} from '../components/CommonStyles'
 
-import { IoIosArrowForward } from 'react-icons/io'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export default function HomeRepertorio({ repertorio, url }){
 
     const [repertorioObras, setObras] = useState([])
 
-
-    
-
     useEffect(()=>{
-        
         
         async function fetchData(){
 
@@ -67,9 +63,9 @@ export default function HomeRepertorio({ repertorio, url }){
                         OBRAS PRESENTES
                     </div>
                         {repertorioObras.map((obra,i)=>{
-                            return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`} ><CardObra obra={obra} autor={obra.repertorio_autor} /></Link>
+                            return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`} ><CardObra obra={obra} autors={obra.repertorio_autors} /></Link>
                         })}
-                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS</Link><IoIosArrowForward/></BiggerButton>
+                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS</Link><ArrowForwardIosIcon/></BiggerButton>
                 </div>
             </div>
     </section>

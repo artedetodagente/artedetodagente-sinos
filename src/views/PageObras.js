@@ -4,11 +4,15 @@ import Page from '../views/Page'
 
 import CardObra from '../components/CardObra'
 import ReactPlayer from 'react-player'
-import { BiArrowFromRight, BiArrowFromLeft } from 'react-icons/bi'
 import { Document, Page as Pager} from 'react-pdf/dist/umd/entry.webpack';
 import { ObrasContainer } from '../components/ObraStyles'
 import { DropDown } from '../components/Dropdown'
 import { DesktopFlexCol } from '../components/CommonStyles'
+
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
+
+import SimpleAccordion from '../components/Accordion'
 
 import {
     useRouteMatch,
@@ -22,12 +26,6 @@ import { HashLink as Link } from 'react-router-hash-link'
 import api from '../services/api'
 import '../css/repertorio.css'
 
-const buttonStyle={
-  fontSize: '0.8em',
-  textDecoration: 'none',
-  marginLeft: '1vh',
-  color: 'red'
-}
 
 export default function PageObras(){
 
@@ -65,9 +63,9 @@ export default function PageObras(){
       setCompositor(i)
       setDificuldade(null)
       setInstrumento(null)
-      const filteredObras = await api.get(`/repertorio-obras?repertorio_autor.nome=${compositores[i].nome}`)
-      if(filteredObras){
-        setObras(filteredObras.data.reverse())
+      const compositor = compositores[i]
+      if(compositor){
+        setObras(compositor.repertorio_obras)
       }
     }
 
@@ -81,13 +79,13 @@ export default function PageObras(){
       }
     }
 
-    const selectInstrumento = async (i) => {
+    const selectInstrumento = (i) => {
       setInstrumento(i)
       setDificuldade(null)
       setCompositor(null)
       const {repertorio_obras} = instrumentos[i]
       if(repertorio_obras){
-        setObras(repertorio_obras.reverse())
+        setObras(repertorio_obras)
       }
     }
     
@@ -129,13 +127,14 @@ export default function PageObras(){
                     <ObrasContainer>
                         {
                             obras.map((obra, i)=>{
+                              
                                 return (
                                     <Link to={`/repertorio-sinos/obras/${obra.slug}`} key={i}>
-                                        <CardObra obra={obra} autor={obra.repertorio_autor} />
+                                        <CardObra obra={obra} autors={obra.repertorio_autors}/>
                                     </Link>
                                     )
                         })
-                        }
+                      }
                     </ObrasContainer>
                 </Route>
 
@@ -154,21 +153,20 @@ function Obra({ path }){
     const [obra, setObra] = useState([])
     const [partitura, setPartitura] = useState([])
     const [instrumentos, setInstrumentos] = useState([])
-    const [professorObras, setProfessorObras] = useState([])
 
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
 
-    const [autor, setAutor] = useState([])
+    const [autores, setAutores] = useState([])
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get(`/repertorio-obras/${obra_slug}`)
             setObra(response.data)
             setPartitura(response.data.Partitura)
-            setAutor(response.data.repertorio_autor)
+            setAutores(response.data.repertorio_autors)
             setInstrumentos(response.data.repertorio_instrumentos)
-            setProfessorObras(response.data.repertorio_autor.repertorio_obras)
+            
         };
         fetchData()
     },[obra_slug])
@@ -208,15 +206,16 @@ function Obra({ path }){
                       controls={true} 
                       loop={true} 
                     />
-                    <div>
-                      <p className="repertorio-title">
-                        {autor.nome}
-                      </p>
-                      <p className="repertorio-inner">
-                        {autor.mini_bio}
-                      </p>
-                      <Link to={`/repertorio-sinos/autor/${autor.id}`} style={buttonStyle}>LEIA MAIS</Link>
+                      
                   </div>
+                  <div>
+                      <p className="repertorio-title">AUTORES DA OBRA</p>
+                      { autores.map((autor, i)=>{
+                          return <SimpleAccordion key={i} nome={autor.nome} mini_bio={autor.mini_bio} autor_id={autor.id}/>
+                      })
+                        
+                      }
+                    </div>
                   <div>
                     <p className="repertorio-title">
                       Instrumentação
@@ -239,28 +238,8 @@ function Obra({ path }){
                 <p className="repertorio-title">
                   Tempo: {obra.minutagem}
                 </p>
-              
-            <div>
-              <p className="repertorio-title" style={{backgroundColor: 'lightgreen'}}>
-                Mais obras deste autor
-              </p>
-              <p className="repertorio-inner">
-                  {
-                  professorObras.map((obra, i)=>{
-                    return (
-                      <span key={i}>
-                        <Link to={`/repertorio-sinos/obras/${obra.slug}`}>{obra.title}</Link>
-                        <br/>
-                      </span>
-                    )
-                  })
-                  }
-                </p>
-              </div>
-  
             </div>
-          </div>
-          <div className="partituras-container">
+            <div className="partituras-container">
             
               <Document
                 className="pdf"
@@ -271,14 +250,13 @@ function Obra({ path }){
               >
               <Pager pageNumber={pageNumber} />
               <div className="obra-buttons">
-                <button onClick={()=>previousPage()}><BiArrowFromRight/></button>
+                <button onClick={()=>previousPage()}><ArrowLeftIcon/></button>
                   <p>Página {pageNumber} de {numPages}</p>
-                <button onClick={()=>nextPage()}><BiArrowFromLeft/></button>            
+                <button onClick={()=>nextPage()}><ArrowRightIcon/></button>            
               </div>
               </Document>
-
         </div>
+          </div>
       </div>
-    </div>
     )
 }

@@ -101,9 +101,7 @@
     .repertorio-container {
         flex-direction: column;
     }
-    .repertorio-video-container {
-        height: 100vh;
-    }
+    
     .left-container {
         width: 100%;
     }
