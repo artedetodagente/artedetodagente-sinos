@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import {
-    useRouteMatch,
     useParams
   } from "react-router-dom"
 
@@ -19,8 +18,6 @@ export default function Autor(props){
 
     const {id} = useParams()
 
-    const {path} = useRouteMatch()
-
     const [autor, setAutor] = useState([])
     const [image, setImage] = useState([])
 
@@ -28,7 +25,7 @@ export default function Autor(props){
         async function fetchData() {
             const response = await api.get(`/repertorio-autors/${id}`)
             setAutor(response.data)
-            setImage(response.data.image)
+            setImage(response.data.image.formats.small || response.data.image)
         }
         fetchData()
     },[id])
@@ -44,7 +41,7 @@ export default function Autor(props){
             <div className="repertorio-container">
                 <div className="left-container">
                     <div className="image-container">
-                    <img src={`https://admin.sinos.art.br${image.url}`}/>
+                    <img src={`https://admin.sinos.art.br${image.url}`} alt={`${image.name}`}/>
                     </div>
                 </div>
                 <div className="partituras-container" style={{textAlign: 'left'}}>

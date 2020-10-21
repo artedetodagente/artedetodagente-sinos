@@ -13,13 +13,35 @@ export default function HomeRepertorio({ repertorio, url }){
 
     const [repertorioObras, setObras] = useState([])
 
+
+    
+
     useEffect(()=>{
+        
+        
         async function fetchData(){
-            const response = await api.get('/repertorio-obras')
+
+            const count = await api.get('/repertorio-obras/count')
+
+            let array = []
+
+            for(let i = 0; i <= count.data; i++){
+                const number = Math.floor(Math.random() * count.data) + 1
+                array.push(number)
+            }
+
+            array.filter(uniqueFilter)
+            const response = await api.get(`/repertorio-obras?id_in=${array[0]}&id_in=${array[1]}&id_in=${array[2]}`)
             setObras(response.data)
         }
         fetchData()
     },[])
+
+
+
+    function uniqueFilter(value, index, self) {
+        return self.indexOf(value) === index
+    }
 
     return (
         <>

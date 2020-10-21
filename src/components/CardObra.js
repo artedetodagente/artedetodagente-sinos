@@ -15,7 +15,7 @@ export default function CardObra({ obra, autor }) {
             <SmallBox>
                 INSTRUMENTAÇÃO: 
                 {
-                    obra.Instrumentos.map((instrumento,i) => <span key={i} style={{marginLeft: '0.5vh'}}>{instrumento.title};</span>)
+                    obra.repertorio_instrumentos.map((instrumento,i) => <span key={i} style={{marginLeft: '0.5vh'}}>{instrumento.title};</span>)
                 }
             </SmallBox>
             <Content>

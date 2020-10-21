@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
 import Page from '../views/Page'
+
 import CardObra from '../components/CardObra'
-
 import ReactPlayer from 'react-player'
-
 import { BiArrowFromRight, BiArrowFromLeft } from 'react-icons/bi'
-
 import { Document, Page as Pager} from 'react-pdf/dist/umd/entry.webpack';
-
 import { ObrasContainer } from '../components/ObraStyles'
+import { DropDown } from '../components/Dropdown'
+import { DesktopFlexCol } from '../components/CommonStyles'
 
 import {
     useRouteMatch,
@@ -34,16 +33,64 @@ export default function PageObras(){
 
     const [obras, setObras] = useState([])
 
+    const [compositores, setCompositores] = useState([])
+    const [compositor, setCompositor] = useState(null)
+
+    const [dificuldades, setDificuldades] = useState([])
+    const [dificuldade, setDificuldade] = useState(null)
+
+    const [instrumentos, setInstrumentos] = useState([])
+    const [instrumento, setInstrumento] = useState(null)
+
     const {path} = useRouteMatch()
+
+    function uniqueFilter(value, index, self) {
+      return self.indexOf(value) === index
+    }
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get('/repertorio-obras')
-            setObras(response.data)
+            const responseCompositor = await api.get('/repertorio-autors')
+            const responseInstrumentos = await api.get('/repertorio-instrumentos')
+            setDificuldades(response.data.map(obra=>obra.dificuldade).filter(uniqueFilter))
+            setInstrumentos(responseInstrumentos.data)
+            setObras(response.data.reverse())
+            setCompositores(responseCompositor.data)
         }
         fetchData()
     },[])
 
+    const selectCompositor = async (i) => {
+      setCompositor(i)
+      setDificuldade(null)
+      setInstrumento(null)
+      const filteredObras = await api.get(`/repertorio-obras?repertorio_autor.nome=${compositores[i].nome}`)
+      if(filteredObras){
+        setObras(filteredObras.data.reverse())
+      }
+    }
+
+    const selectDificuldade = async (i) => {
+      setDificuldade(i)
+      setCompositor(null)
+      setInstrumento(null)
+      const filteredObras = await api.get(`/repertorio-obras?dificuldade_gte=${dificuldades[i]}`)
+      if(filteredObras){
+        setObras(filteredObras.data.reverse())
+      }
+    }
+
+    const selectInstrumento = async (i) => {
+      setInstrumento(i)
+      setDificuldade(null)
+      setCompositor(null)
+      const {repertorio_obras} = instrumentos[i]
+      if(repertorio_obras){
+        setObras(repertorio_obras.reverse())
+      }
+    }
+    
     return (
         <Switch>
             <Page title='Repertório Sinos' className="obra-content">
@@ -53,6 +100,32 @@ export default function PageObras(){
                     <Link to='/repertorio-sinos'> REPERTÓRIO SINOS >> </Link>
                     <Link to={path}> OBRAS </Link>
                   </div>
+                  <DesktopFlexCol>
+                  <DropDown
+                      black
+                      selected={compositor}
+                      placeholder={'COMPOSITOR'}
+                      options={compositores.map((cat,i) => cat)}
+                      onSelect={(i)=>selectCompositor(i)}
+                      width="30%"
+                  />
+                  <DropDown
+                      black
+                      selected={dificuldade}
+                      placeholder={'NÍVEL TÉCNICO'}
+                      options={dificuldades.map((cat,i) => cat)}
+                      onSelect={(i)=>selectDificuldade(i)}
+                      width="30%"
+                  />
+                  <DropDown
+                      black
+                      selected={instrumento}
+                      placeholder={'INSTRUMENTO'}
+                      options={instrumentos.map((cat,i) => cat )}
+                      onSelect={(i)=>selectInstrumento(i)}
+                      width="30%"
+                  />
+                  </DesktopFlexCol>
                     <ObrasContainer>
                         {
                             obras.map((obra, i)=>{
@@ -94,7 +167,7 @@ function Obra({ path }){
             setObra(response.data)
             setPartitura(response.data.Partitura)
             setAutor(response.data.repertorio_autor)
-            setInstrumentos(response.data.Instrumentos)
+            setInstrumentos(response.data.repertorio_instrumentos)
             setProfessorObras(response.data.repertorio_autor.repertorio_obras)
         };
         fetchData()

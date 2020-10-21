@@ -37,7 +37,7 @@ export const DropDown = (props) => {
   return (
     <Container width={props.width}>
       <Label
-        title={options[selected]?.title}
+        title={options[selected]?.title || options[selected]?.nome || options[selected]}
         placeholder={placeholder}
         isDown={dropIsDown}
         onClick={dropToggle}
@@ -52,7 +52,7 @@ export const DropDown = (props) => {
             onClick={dropSelect(index)}
             black={props.black}
           >
-            {item.title}
+            {item.title || item.nome || item}
           </Option>
         )}
       </Select>

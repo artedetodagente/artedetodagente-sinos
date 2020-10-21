@@ -85,8 +85,6 @@ function PageCursosMain({id,projeto,categorias}) {
     },[],reducedCursos))
     setCursos(reducedCursos)
     setProfessores(reducedProfessores)
-    console.log('reducedCursos',reducedCursos)
-    console.log('reducedProfessores',reducedProfessores)
   },[categorias])
 
   const selectCategoria = (i) => {
