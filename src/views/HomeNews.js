@@ -54,11 +54,11 @@ function HomeNews() {
               return (
                 <div className="agenda-item" key={`agenda-${i}`}>
                   <div className="agenda-date">
-                    <h3 style={{color: evento.projeto.color}}>{date.day}</h3>
+                    <h3 style={{color: evento?.projeto?.color || "#ccc"}}>{date.day}</h3>
                     <p>{date.month}</p>
                   </div>
                   <div className="agenda-content">
-                    <h3 style={{color: evento.projeto.color}}>{evento.time} | {evento.title}</h3>
+                    <h3 style={{color: evento?.projeto?.color || "#ccc"}}>{evento.time} | {evento.title}</h3>
                     <p>{evento.text && tweet(evento.text, 140)}</p>
                   </div>
                 </div>
