@@ -51,7 +51,7 @@ export default function HomeRepertorio({ repertorio, url }){
 
             <div className="curso-info">
                 <div className="col col-1">
-                    <div className="title" style={{backgroundColor: repertorio.color}}>{repertorio.title}</div>
+                    <div className="title" style={{backgroundColor: repertorio.color}}>CONCERTOS SINOS</div>
                     <div className="content">
                         <div className="text">{repertorio.intro}</div>
                         <RedLink to={`/repertorio-sinos`}>Saiba mais</RedLink>
@@ -60,12 +60,12 @@ export default function HomeRepertorio({ repertorio, url }){
 
                 <div className="col col-2">
                     <div className={`title white`}>
-                        OBRAS PRESENTES
+                        CONCERTOS PRESENTES
                     </div>
                         {repertorioObras.map((obra,i)=>{
                             return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`} ><CardObra obra={obra} autors={obra.repertorio_autors} /></Link>
                         })}
-                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS</Link><ArrowForwardIosIcon/></BiggerButton>
+                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODOS OS CONCERTOS </Link><ArrowForwardIosIcon/></BiggerButton>
                 </div>
             </div>
     </section>

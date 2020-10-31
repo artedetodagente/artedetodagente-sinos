@@ -1,3 +1,11 @@
+.aula-box {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    margin-top: 5vh;
+}
+
+
 .repertorio-container{
     display: flex;
     height: auto;

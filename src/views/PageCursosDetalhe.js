@@ -6,6 +6,7 @@ import slugify from 'slugify'
 import api from '../services/api'
 import YouThumb from '../components/YouThumb'
 import YouEmbed from '../components/YouEmbed'
+import AulaBox from '../components/AulaBox'
 
 export default function PageCursosDetalhe({projeto}) {
   
@@ -26,8 +27,6 @@ export default function PageCursosDetalhe({projeto}) {
     }
     fetchData()
   },[cursoid])
-
-  console.log(curso)
 
   useEffect(()=>window.scrollTo(0, 0),[aula])
 
@@ -79,18 +78,6 @@ function InfoBox({title,children}) {
     <div style={{marginBottom: '2rem'}}>
       <h3 className="title-box">{title}</h3>
       {children}
-    </div>
-  )
-}
-
-function AulaBox(props){
-  const {onClick,video,title} = props
-  return(
-    <div className="aula" onClick={onClick} >
-      <div className="box">
-        <YouThumb url={video} />
-        <p>{title}</p>
-      </div>
     </div>
   )
 }

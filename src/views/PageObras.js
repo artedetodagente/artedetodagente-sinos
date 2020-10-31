@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react'
 import Page from '../views/Page'
 
 import CardObra from '../components/CardObra'
-import ReactPlayer from 'react-player'
-import { Document, Page as Pager} from 'react-pdf/dist/umd/entry.webpack';
+
 import { ObrasContainer } from '../components/ObraStyles'
 import { DropDown } from '../components/Dropdown'
 import { DesktopFlexCol } from '../components/CommonStyles'
 
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-
 import SimpleAccordion from '../components/Accordion'
+
+import YouEmbed from '../components/YouEmbed'
+
+import AulaBox from '../components/AulaBox'
 
 import {
     useRouteMatch,
@@ -34,25 +34,12 @@ export default function PageObras(){
     const [compositores, setCompositores] = useState([])
     const [compositor, setCompositor] = useState(null)
 
-    const [dificuldades, setDificuldades] = useState([])
-    const [dificuldade, setDificuldade] = useState(null)
-
-    const [instrumentos, setInstrumentos] = useState([])
-    const [instrumento, setInstrumento] = useState(null)
-
     const {path} = useRouteMatch()
-
-    function uniqueFilter(value, index, self) {
-      return self.indexOf(value) === index
-    }
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get('/repertorio-obras')
             const responseCompositor = await api.get('/repertorio-autors')
-            const responseInstrumentos = await api.get('/repertorio-instrumentos')
-            setDificuldades(response.data.map(obra=>obra.dificuldade).filter(uniqueFilter))
-            setInstrumentos(responseInstrumentos.data)
             setObras(response.data.reverse())
             setCompositores(responseCompositor.data)
         }
@@ -61,42 +48,19 @@ export default function PageObras(){
 
     const selectCompositor = async (i) => {
       setCompositor(i)
-      setDificuldade(null)
-      setInstrumento(null)
       const compositor = compositores[i]
       if(compositor){
         setObras(compositor.repertorio_obras)
       }
     }
-
-    const selectDificuldade = async (i) => {
-      setDificuldade(i)
-      setCompositor(null)
-      setInstrumento(null)
-      const filteredObras = await api.get(`/repertorio-obras?dificuldade_gte=${dificuldades[i]}`)
-      if(filteredObras){
-        setObras(filteredObras.data.reverse())
-      }
-    }
-
-    const selectInstrumento = (i) => {
-      setInstrumento(i)
-      setDificuldade(null)
-      setCompositor(null)
-      const {repertorio_obras} = instrumentos[i]
-      if(repertorio_obras){
-        setObras(repertorio_obras)
-      }
-    }
     
     return (
         <Switch>
-            <Page title='Repertório Sinos' className="obra-content">
+            <Page title='Concertos Sinos' className="obra-content">
                 <Route exact path={path}>
                   <div className="links">
                     <Link to='/'>HOME >></Link>
-                    <Link to='/repertorio-sinos'> REPERTÓRIO SINOS >> </Link>
-                    <Link to={path}> OBRAS </Link>
+                    <Link to='/repertorio-sinos/obras'> CONCERTOS SINOS >> </Link>
                   </div>
                   <DesktopFlexCol>
                   <DropDown
@@ -107,22 +71,6 @@ export default function PageObras(){
                       onSelect={(i)=>selectCompositor(i)}
                       width="30%"
                   />
-                  <DropDown
-                      black
-                      selected={dificuldade}
-                      placeholder={'NÍVEL TÉCNICO'}
-                      options={dificuldades.map((cat,i) => cat)}
-                      onSelect={(i)=>selectDificuldade(i)}
-                      width="30%"
-                  />
-                  <DropDown
-                      black
-                      selected={instrumento}
-                      placeholder={'INSTRUMENTO'}
-                      options={instrumentos.map((cat,i) => cat )}
-                      onSelect={(i)=>selectInstrumento(i)}
-                      width="30%"
-                  />
                   </DesktopFlexCol>
                     <ObrasContainer>
                         {
@@ -130,7 +78,7 @@ export default function PageObras(){
                               
                                 return (
                                     <Link to={`/repertorio-sinos/obras/${obra.slug}`} key={i}>
-                                        <CardObra obra={obra} autors={obra.repertorio_autors}/>
+                                        <CardObra obra={obra}/>
                                     </Link>
                                     )
                         })
@@ -146,116 +94,80 @@ export default function PageObras(){
     )
 }
 
+const buttonStyle={
+  fontSize: '1em',
+  textDecoration: 'none',
+  marginTop: '1vh',
+  color: 'red'
+}
+
 function Obra({ path }){
 
     const {obra_slug} = useParams()
 
     const [obra, setObra] = useState([])
-    const [partitura, setPartitura] = useState([])
-    const [instrumentos, setInstrumentos] = useState([])
-
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
+    const [videos, setVideos] = useState([])
 
     const [autores, setAutores] = useState([])
+
+    const [aula, setAula] = useState([])
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get(`/repertorio-obras/${obra_slug}`)
+            setAula(response.data.videos[0])
             setObra(response.data)
-            setPartitura(response.data.Partitura)
             setAutores(response.data.repertorio_autors)
-            setInstrumentos(response.data.repertorio_instrumentos)
-            
+            setVideos(response.data.videos)
         };
         fetchData()
     },[obra_slug])
-
-    function onDocumentLoadSuccess({ numPages }) {
-      setNumPages(numPages);
-    }
-    
-    function nextPage(){
-      if(pageNumber === numPages) return;
-      setPageNumber(pageNumber + 1)
-    }
-
-    function previousPage(){
-      if(pageNumber <= 1) return;
-      setPageNumber(pageNumber - 1)
-    }
 
     return (
         <div>
           <div className="links">
             <Link to='/'>HOME >></Link>
-            <Link to='/repertorio-sinos'> REPERTÓRIO SINOS >> </Link>
-            <Link to={'/repertorio-sinos/obras'}> OBRAS >></Link>
+            <Link to='/repertorio-sinos/obras'> CONCERTOS >> </Link>
             <Link to={`${path}/${obra_slug}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
           </div>
-            <div className="repertorio-container">
+            <div className="repertorio-container" >
                 <div className="left-container">
                   <div className="repertorio-video-container">
-                    <p className="acompanhe">
-                      Acompanhe a partitura:
+                    <p className="repertorio-title">
+                      {obra.concerto_nome}
                     </p>
-                    <ReactPlayer 
-                      className="player"
-                      url={obra.video_url} 
-                      light={true} 
-                      controls={true} 
-                      loop={true} 
-                    />
-                      
+                    <p className="repertorio-inner">
+                      {obra.intro}<br/>
+                      <Link to={`/repertorio-sinos/concerto-obra/${obra.slug}`} style={buttonStyle}>LEIA MAIS</Link>
+                    </p>
+                     
                   </div>
                   <div>
-                      <p className="repertorio-title">AUTORES DA OBRA</p>
+                      <p className="repertorio-title">Autor(es)</p>
                       { autores.map((autor, i)=>{
                           return <SimpleAccordion key={i} nome={autor.nome} mini_bio={autor.mini_bio} autor_id={autor.id}/>
                       })
                         
                       }
                     </div>
-                  <div>
-                    <p className="repertorio-title">
-                      Instrumentação
-                    </p>
-                    <p className="instrumentos-inner">
-                        {
-                          instrumentos.map((instrumento, i)=>{
-                            return (
-                              <li key={i} className="instrumentos" > {instrumento.title}</li>
-                            )
-                          })
-                        }
-                    </p>
-                </div>
-
-                <p className="repertorio-title">
-                  Nível técnico: {obra.dificuldade}
-                </p>
-
-                <p className="repertorio-title">
-                  Tempo: {obra.minutagem}
-                </p>
             </div>
             <div className="partituras-container">
-            
-              <Document
-                className="pdf"
-                error="Aguarde um momento, carregando PDF..."
-                loading="Carregando PDF..."
-                file={`https://admin.sinos.art.br${partitura.url}`}
-                onLoadSuccess={onDocumentLoadSuccess}
-              >
-              <Pager pageNumber={pageNumber} />
-              <div className="obra-buttons">
-                <button onClick={()=>previousPage()}><ArrowLeftIcon/></button>
-                  <p>Página {pageNumber} de {numPages}</p>
-                <button onClick={()=>nextPage()}><ArrowRightIcon/></button>            
-              </div>
-              </Document>
-        </div>
+              <div className="aulas-view">
+                <div className="aulas-view-video">
+                    <YouEmbed url={aula.url}/>
+               </div>
+               </div>
+                <div className="aulas-select aula-box">
+                  {videos.map((aula,i)=>
+                      <AulaBox
+                        key={i}
+                        onClick={() => setAula(aula)}
+                        title={`Concerto ${i+1}`}
+                        video={videos[i].url}
+                      />
+                  )}
+                </div>       
+            </div>
           </div>
       </div>
     )

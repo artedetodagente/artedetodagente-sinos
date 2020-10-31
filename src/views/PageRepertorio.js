@@ -31,7 +31,7 @@ function PageRepertorio({ id }){
         <Page title={repertorio.title}>
             <div className="links">
                 <Link to='/'>HOME >></Link>
-                <Link to={path}> REPERTÓRIO SINOS >> </Link>
+                <Link to={path}> CONCERTOS SINOS >> </Link>
             </div>
             <div style={{marginTop: '4vh'}}>
                 <ReactMarkdown source={repertorio.description} />

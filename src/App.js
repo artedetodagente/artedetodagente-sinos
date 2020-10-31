@@ -17,6 +17,7 @@ import ScrollToTop from './util/ScrollToTop'
 import PageRepertorio from './views/PageRepertorio'
 import PageObras from './views/PageObras'
 import PageAutor from './views/PageAutor'
+import PageConcerto from './views/PageConcerto'
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/repertorio-sinos/autor/:id">
             <PageAutor />
+          </Route>
+          <Route exact path="/repertorio-sinos/concerto-obra/:id">
+            <PageConcerto />
           </Route>
           <Route path="/repertorio-sinos/obras">
             <PageObras />
