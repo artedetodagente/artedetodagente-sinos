@@ -1,13 +1,13 @@
 import React from 'react'
 import { P, SmallBox, Container, Span, Content } from './CardObraStyles'
 
-export default function CardObra({ obra, autors }) {
+export default function CardObra({ obra }) {
 
     return (
         <>
         <Container>
             <P primary>
-                CONCERTO: N{`${obra.id}º`}
+                CONCERTO: {`${obra.id}º`}
             </P>
             <P>
                 {obra.title}

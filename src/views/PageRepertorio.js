@@ -28,7 +28,7 @@ function PageRepertorio({ id }){
     },[])
 
     return(
-        <Page title={repertorio.title}>
+        <Page title='Concertos Sinos'>
             <div className="links">
                 <Link to='/'>HOME >></Link>
                 <Link to={path}> CONCERTOS SINOS >> </Link>

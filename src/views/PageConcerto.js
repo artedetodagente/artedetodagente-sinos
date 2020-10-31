@@ -39,7 +39,7 @@ export default function Autor(props){
                 <Link to={`/repertorio-sinos/concerto-obra/${obra.id}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
             </div>
             <div className="repertorio-container" style={{display: 'block'}, {textAlign: 'center'}}>
-                <div className="partituras-container">
+                <div className="partituras-container" style={{width: '100%'}}>
                     <p><strong>{obra.concerto_nome}</strong></p><br/>
                     <ReactMarkdown source={obra.text}/>
                 </div>

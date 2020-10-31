@@ -40,7 +40,7 @@ export default function PageObras(){
         async function fetchData(){
             const response = await api.get('/repertorio-obras')
             const responseCompositor = await api.get('/repertorio-autors')
-            setObras(response.data.reverse())
+            setObras(response.data)
             setCompositores(responseCompositor.data)
         }
         fetchData()
@@ -74,7 +74,7 @@ export default function PageObras(){
                   </DesktopFlexCol>
                     <ObrasContainer>
                         {
-                            obras.map((obra, i)=>{
+                            obras.slice(0,2).map((obra, i)=>{
                               
                                 return (
                                     <Link to={`/repertorio-sinos/obras/${obra.slug}`} key={i}>
