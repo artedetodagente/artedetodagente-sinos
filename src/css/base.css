@@ -41,12 +41,13 @@ strong {
 
 .full-section {
   position: relative;
-  min-height: 640px;
+  min-height: 80vh;
   overflow: hidden;
   height: auto;
 
   @screen md {
     height: 1px;
+    min-height: 640px;
     @apply h-full;
   }
 }
