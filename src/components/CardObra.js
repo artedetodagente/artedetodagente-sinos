@@ -1,5 +1,5 @@
 import React from 'react'
-import { P, SmallBox, Container, Span, Content } from './CardObraStyles'
+import { P, Container } from './CardObraStyles'
 
 export default function CardObra({ obra }) {
 

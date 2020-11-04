@@ -4,7 +4,6 @@ import { HashLink as Link } from 'react-router-hash-link'
 import slugify from 'slugify'
 
 import api from '../services/api'
-import YouThumb from '../components/YouThumb'
 import YouEmbed from '../components/YouEmbed'
 import AulaBox from '../components/AulaBox'
 
