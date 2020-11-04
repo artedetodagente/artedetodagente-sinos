@@ -34,8 +34,8 @@ export default function Autor(props){
         
         <Page title="Concertos Sinos">
             <div className="links">
-                <Link to='/'>HOME >></Link>
-                <Link to='/repertorio-sinos/obras'> CONCERTOS SINOS >> </Link>
+                <Link to='/'>HOME &raquo;&nbsp;</Link>
+                <Link to='/repertorio-sinos/obras'> CONCERTOS SINOS &raquo;&nbsp;</Link>
                 <Link to={`/repertorio-sinos/concerto-obra/${obra.id}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
             </div>
             <div className="repertorio-container" style={{display: 'block', textAlign: 'center'}}>

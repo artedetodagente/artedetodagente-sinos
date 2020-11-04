@@ -59,8 +59,8 @@ export default function PageObras(){
             <Page title='Concertos Sinos' className="obra-content">
                 <Route exact path={path}>
                   <div className="links">
-                    <Link to='/'>HOME >></Link>
-                    <Link to='/repertorio-sinos/obras'> CONCERTOS SINOS >> </Link>
+                    <Link to='/'>HOME &raquo;&nbsp;</Link>
+                    <Link to='/repertorio-sinos/obras'> CONCERTOS SINOS &raquo;&nbsp;</Link>
                   </div>
                   <DesktopFlexCol>
                   <DropDown
@@ -126,8 +126,8 @@ function Obra({ path }){
     return (
         <div>
           <div className="links">
-            <Link to='/'>HOME >></Link>
-            <Link to='/repertorio-sinos/obras'> CONCERTOS >> </Link>
+            <Link to='/'>HOME &raquo;&nbsp;</Link>
+            <Link to='/repertorio-sinos/obras'> CONCERTOS &raquo;&nbsp;</Link>
             <Link to={`${path}/${obra_slug}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
           </div>
             <div className="repertorio-container" >
