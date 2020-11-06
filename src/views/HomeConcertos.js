@@ -61,7 +61,7 @@ export default function ConcertosSinos({ concertoSinos, url }){
                     <div className={`title white`}>
                         CONCERTOS PRESENTES
                     </div>
-                        {concertos.slice(0,2).map((concerto,i)=>{
+                        {concertos.slice(0,3).map((concerto,i)=>{
                             return <Link key={i} to={`/concertos-sinos/concertos/${concerto.slug}`} ><CardConcerto concerto={concerto} /></Link>
                         })}
                     <BiggerButton> <Link to="/concertos-sinos/concertos">ACESSAR TODOS OS CONCERTOS </Link><ArrowForwardIosIcon/></BiggerButton>
