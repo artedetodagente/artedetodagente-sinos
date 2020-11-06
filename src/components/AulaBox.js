@@ -8,7 +8,7 @@ export default function AulaBox(props){
       <div className="aula" onClick={onClick} >
         <div className="box" style={{textAlign: 'left'}}>
           <YouThumb url={video} />
-          <p style={{backgroundColor: 'gainsboro'}, {padding: '2px'}}>{title}</p>
+          <p style={{backgroundColor: 'gainsboro', padding: '2px'}}>{title}</p>
         </div>
       </div>
     )

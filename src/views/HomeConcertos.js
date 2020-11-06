@@ -54,7 +54,6 @@ export default function ConcertosSinos({ concertoSinos, url }){
                     <div className="title" style={{backgroundColor: '#255378'}}>CONCERTOS SINOS</div>
                     <div className="content">
                         <div className="text">{concertoSinos.intro}</div>
-                        <RedLink to={`/concertos-sinos`}>Saiba mais</RedLink>
                 </div>
                 </div>
 

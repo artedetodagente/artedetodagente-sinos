@@ -36,9 +36,9 @@ export default function HomeRepertorio({ repertorio, url }){
 
 
 
-    function uniqueFilter(value, index, self) {
-        return self.indexOf(value) === index
-    }
+    // function uniqueFilter(value, index, self) {
+    //     return self.indexOf(value) === index
+    // }
 
     return (
         <section id='Repertorio-Sinos' className={`home-curso full-section curso-${repertorio.id}`}>
