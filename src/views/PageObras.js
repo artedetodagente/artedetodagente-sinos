@@ -68,14 +68,14 @@ export default function PageObras(){
                     <Link to='/repertorio-sinos/obras'> REPERTÓRIO SINOS >> </Link>
                   </div>
                   <DesktopFlexCol>
-                  <DropDown
+                  {/*<DropDown
                       black
                       selected={compositor}
                       placeholder={'COMPOSITOR'}
                       options={compositores.map((cat,i) => cat)}
                       onSelect={(i)=>selectCompositor(i)}
                       width="30%"
-                  />
+                  />*/}
                   </DesktopFlexCol>
                     <ObrasContainer>
                         {
