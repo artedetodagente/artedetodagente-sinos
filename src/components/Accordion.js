@@ -41,7 +41,7 @@ export default function SimpleAccordion({ nome, mini_bio, autor_id }) {
         <AccordionDetails>
           <Typography>
             {mini_bio}<br/>
-            <Link to={`/repertorio-sinos/autor/${autor_id}`} style={buttonStyle}>LEIA MAIS</Link>
+            <Link to={`/autor/${autor_id}`} style={buttonStyle}>LEIA MAIS</Link>
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -10,9 +10,14 @@ import { DesktopFlexCol } from '../components/CommonStyles'
 
 import SimpleAccordion from '../components/Accordion'
 
-import YouEmbed from '../components/YouEmbed'
+import ReactPlayer from 'react-player'
 
-import AulaBox from '../components/AulaBox'
+import { Document, Page as Pager} from 'react-pdf/dist/umd/entry.webpack';
+
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons'
+
+// Import the styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
 
 import {
     useRouteMatch,
@@ -40,7 +45,7 @@ export default function PageObras(){
         async function fetchData(){
             const response = await api.get('/repertorio-obras')
             const responseCompositor = await api.get('/repertorio-autors')
-            setObras(response.data)
+            setObras(response.data.reverse())
             setCompositores(responseCompositor.data)
         }
         fetchData()
@@ -56,11 +61,11 @@ export default function PageObras(){
     
     return (
         <Switch>
-            <Page title='Concertos Sinos' className="obra-content">
+            <Page title='Repertório Sinos' className="obra-content">
                 <Route exact path={path}>
                   <div className="links">
                     <Link to='/'>HOME >></Link>
-                    <Link to='/repertorio-sinos/obras'> CONCERTOS SINOS >> </Link>
+                    <Link to='/repertorio-sinos/obras'> REPERTÓRIO SINOS >> </Link>
                   </div>
                   <DesktopFlexCol>
                   <DropDown
@@ -74,11 +79,11 @@ export default function PageObras(){
                   </DesktopFlexCol>
                     <ObrasContainer>
                         {
-                            obras.slice(0,2).map((obra, i)=>{
+                            obras.map((obra, i)=>{
                               
                                 return (
                                     <Link to={`/repertorio-sinos/obras/${obra.slug}`} key={i}>
-                                        <CardObra obra={obra}/>
+                                        <CardObra obra={obra} autors={obra.repertorio_autors} instrumentos={obra.repertorio_instrumentos}/>
                                     </Link>
                                     )
                         })
@@ -104,21 +109,35 @@ const buttonStyle={
 function Obra({ path }){
 
     const {obra_slug} = useParams()
-
     const [obra, setObra] = useState([])
-    const [videos, setVideos] = useState([])
-
     const [autores, setAutores] = useState([])
+    const [instrumentos, setInstrumentos] = useState([])
+    const [partitura, setPartitura] = useState([])
+    const [pageNumber, setPageNumber] = useState(1);
+    const [numPages, setNumPages] = useState(null);
 
-    const [aula, setAula] = useState([])
+    function onDocumentLoadSuccess({ numPages }) {
+      setNumPages(numPages);
+    }
+  
+    function nextPage(){
+      if(pageNumber === numPages) return;
+        setPageNumber(pageNumber + 1)
+    }
+
+  function previousPage(){
+    if(pageNumber <= 1) return;
+    setPageNumber(pageNumber - 1)
+  }
+
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get(`/repertorio-obras/${obra_slug}`)
-            setAula(response.data.videos[0])
             setObra(response.data)
             setAutores(response.data.repertorio_autors)
-            setVideos(response.data.videos)
+            setInstrumentos(response.data.repertorio_instrumentos)
+            setPartitura(response.data.partitura.url)
         };
         fetchData()
     },[obra_slug])
@@ -127,46 +146,67 @@ function Obra({ path }){
         <div>
           <div className="links">
             <Link to='/'>HOME >></Link>
-            <Link to='/repertorio-sinos/obras'> CONCERTOS >> </Link>
+            <Link to='/repertorio-sinos/obras'> OBRAS >> </Link>
             <Link to={`${path}/${obra_slug}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
           </div>
             <div className="repertorio-container" >
                 <div className="left-container">
                   <div className="repertorio-video-container">
                     <p className="repertorio-title">
-                      {obra.concerto_nome}
-                    </p>
-                    <p className="repertorio-inner">
-                      {obra.intro}<br/>
-                      <Link to={`/repertorio-sinos/concerto-obra/${obra.slug}`} style={buttonStyle}>LEIA MAIS</Link>
-                    </p>
-                     
+                      <strong>Acompanhe a partitura:</strong>
+                    </p>    
+                    <div className="video-container">
+                      <ReactPlayer
+                      url={obra.video_url}
+                      controls={true}
+                      width="100%"
+                      height="100%"
+                      light={true}
+                      />  
+                    </div>             
                   </div>
                   <div>
-                      <p className="repertorio-title">Autor(es)</p>
+                      <p className="repertorio-title"><strong>Autor(es)</strong></p>
                       { autores.map((autor, i)=>{
                           return <SimpleAccordion key={i} nome={autor.nome} mini_bio={autor.mini_bio} autor_id={autor.id}/>
                       })
                         
                       }
-                    </div>
+                </div>
+                
+                <div>
+                  <p className="repertorio-title"><strong>Instrumentação</strong></p>
+                  <div className="instrumentos-inner">
+                    
+                    {instrumentos.map((instrumento, i) => {
+                      return <span key={i} className="instrumentos">{instrumento.title}</span>
+                    })}
+                  
+                  </div>
+                </div>
+                <div>
+                    <p className="repertorio-title"><strong>Nivel técnico: {obra.dificuldade}</strong></p>
+                </div>
+                <div>
+                    <p className="repertorio-title"><strong>Tempo: {obra.minutagem}</strong></p>
+                </div>
             </div>
             <div className="partituras-container">
-              <div className="aulas-view">
-                <div className="aulas-view-video">
-                    <YouEmbed url={aula.url}/>
-               </div>
-               </div>
-                <div className="aulas-select aula-box">
-                  {videos.map((aula,i)=>
-                      <AulaBox
-                        key={i}
-                        onClick={() => setAula(aula)}
-                        title={`Concerto ${i+1}`}
-                        video={videos[i].url}
-                      />
-                  )}
-                </div>       
+              <Document
+                      className="pdf"
+                      error="Aguarde um momento, carregando PDF..."
+                      loading="Carregando PDF..."
+                      file={`https://admin.sinos.art.br${partitura}`}
+                      onLoadSuccess={onDocumentLoadSuccess}
+                    >
+                    <Pager pageNumber={pageNumber} />
+                    <div className="obra-buttons">
+                      <button onClick={()=>previousPage()}><ArrowBackIos/></button>
+                        <p>Página {pageNumber} de {numPages}</p>
+                      <button onClick={()=>nextPage()}><ArrowForwardIos/></button>            
+                    </div>
+                    </Document>
+                  
             </div>
           </div>
       </div>

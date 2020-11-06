@@ -4,6 +4,7 @@ import HomeNews from './HomeNews'
 import HomeCurso from './HomeCurso'
 import HomeAVS from './HomeAVS'
 import RepertorioSinos from './HomeRepertorio'
+import ConcertosSinos from './HomeConcertos'
 // import HomeOrquestras from './HomeOrquestras'
 import Footer from './Footer'
 
@@ -13,7 +14,9 @@ function Home() {
   const [projetos, setProjetos] = useState([])
   const [academies, setAcademy] = useState([])
   const [repertorio, setRepertorio] = useState([])
+  const [concerto, setConcerto] = useState([])
   const [coverUrl, setRepertorioCover] = useState('')
+  const [concertosCover, setConcertosCover] = useState('')
 
   useEffect(()=>{
     async function fetchData(){
@@ -24,6 +27,9 @@ function Home() {
       const repertorioResponse = await api.get('/repertorio-sinos');
       setRepertorio(repertorioResponse.data);
       setRepertorioCover(repertorioResponse.data.cover.url)
+      const concertoResponse = await api.get('/concertos-sinos');
+      setConcerto(concertoResponse.data[0])
+      setConcertosCover(concertoResponse.data[0].cover.url)
     }
     fetchData();
   },[])
@@ -41,6 +47,7 @@ function Home() {
       })  
       }
       <RepertorioSinos repertorio={repertorio} url={coverUrl}/>
+      <ConcertosSinos concertoSinos={concerto} url={concertosCover}/>
       <Footer />
     </div>
   );

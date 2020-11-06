@@ -18,6 +18,7 @@ import PageRepertorio from './views/PageRepertorio'
 import PageObras from './views/PageObras'
 import PageAutor from './views/PageAutor'
 import PageConcerto from './views/PageConcerto'
+import PageConcertos from './views/PageConcertos'
 
 function App() {
   return (
@@ -34,11 +35,14 @@ function App() {
           <Route exact path="/repertorio-sinos">
             <PageRepertorio />
           </Route>
-          <Route exact path="/repertorio-sinos/autor/:id">
+          <Route exact path="/autor/:id">
             <PageAutor />
           </Route>
-          <Route exact path="/repertorio-sinos/concerto-obra/:id">
+          <Route exact path="/concertos-sinos/concerto/:concerto_slug">
             <PageConcerto />
+          </Route>
+          <Route path="/concertos-sinos/concertos">
+            <PageConcertos />
           </Route>
           <Route path="/repertorio-sinos/obras">
             <PageObras />
