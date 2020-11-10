@@ -128,7 +128,7 @@ function Obra({ path }){
       }
     }
 
-    console.log(instrumentacao)
+    console.log(partitura)
     return (
         <div>
           <div className="links">
@@ -184,7 +184,7 @@ function Obra({ path }){
                     className="pdf"
                     error="Aguarde um momento, carregando PDF..."
                     loading="Carregando PDF..."
-                    file={`https://admin.sinos.art.br${partitura}`}
+                    file={`https://admin.sinos.art.br${partitura.url}`}
                     onLoadSuccess={onDocumentLoadSuccess}
                     >
                     <Pager pageNumber={pageNumber} />
