@@ -5,8 +5,8 @@
 .single-page {
 
   @apply flex flex-col;
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
-  background-size: cover;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
+  background-size: cover; */
 
   .header {
     @apply flex pt-8 content-center;
@@ -52,10 +52,10 @@
       @apply p-6 bg-white w-full;
       min-height: 80vh;
       @screen md {
-        @apply m-8 p-10;
+        @apply p-10;
       }
       @screen lg {
-        @apply p-16 mt-8;
+        @apply p-16;
       }
     }
   }
@@ -183,14 +183,25 @@
 
     .post-title {
       @apply mb-2 leading-tight block;
+      @apply text-2xl;
+      @screen md {
+        @apply text-3xl;
+      }
     }
 
     .post-text {
-      @apply text-sm;
+      @apply text-base;
+      @screen md {
+        @apply text-lg;
+      }
     }
 
     .post-date {
       @apply text-xs;
+      @screen md {
+        @apply text-sm;
+      }
+      color: #999;
     }
 
   }
