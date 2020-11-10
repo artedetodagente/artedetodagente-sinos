@@ -29,11 +29,12 @@ function PageDefault(props) {
   return (
     <Page title={page.page_title}>
       <div className="page-view default-view">
-        {parse(md(text))}
+          {parse(md(text))}
+          <div className="page-zones">
+            {content.map((component,i) => <DynamicPage key={i} data={component}/>)}
+          </div>
       </div>
-      <div className="page-zones">
-        {content.map((component,i) => <DynamicPage key={i} data={component}/>)}
-      </div>
+      
     </Page>
   );
 }
