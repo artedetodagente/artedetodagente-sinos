@@ -6,8 +6,6 @@ import {
     useParams
   } from "react-router-dom"
 
-import '../css/repertorio.css'
-
 import {RedLink} from '../components/CommonStyles'
 
 import api from '../services/api'

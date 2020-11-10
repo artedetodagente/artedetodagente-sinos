@@ -28,7 +28,6 @@ import {
 import { HashLink as Link } from 'react-router-hash-link'
 
 import api from '../services/api'
-import '../css/repertorio.css'
 
 
 export default function PageObras(){

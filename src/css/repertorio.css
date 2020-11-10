@@ -43,13 +43,18 @@
     margin-left: 1vw;
 }
 
+.instrumentos-inner {
+  @apply flex flex-wrap my-2 text-base;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: .2em; */
+}
+
 .instrumentos {
-    list-style: none;
-    background-color: red;
-    margin-left: 1vh;
-    color: white;
-    text-transform: uppercase;
-    margin-top: 1vh;
+  @apply m-1 px-2 py-1 leading-tight;
+  background-color: red;
+  text-transform: uppercase;
+  color: white;
 }
 
 .instrumentos:hover {
@@ -88,13 +93,6 @@
     font-size: 1.1rem;
 }
 
-.instrumentos-inner {
-    font-size: .9rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: .2em;
-}
-
 .repertorio-video-container{
     background-color:white;
     width: 100%;
@@ -109,11 +107,10 @@
 }
 
 .repertorio-title{
+    @apply text-xl p-2 pl-4;
     background-color: gainsboro;
     margin-top: 1rem;
     margin-bottom: 0 !important;
-    padding: 0.3em;
-    font-size: 0.9rem;
 }
 
 .repertorio-inner{
