@@ -37,8 +37,8 @@ function Footer(props) {
             <li><Link smooth to="/#2">Projeto Espiral</Link></li>
             <li><Link smooth to="/#3">Academia de Regência</Link></li>
             <li><Link smooth to="/#Academia-Virtual-Sinos">Academia Virtual</Link></li>
-            <li><Link smooth to="/#Repertorio-Sinos">Repertório Sinos</Link></li>
             <li><Link smooth to="/#Concertos-Sinos">Concertos Sinos</Link></li>
+            <li><Link smooth to="/#Repertorio-Sinos">Repertório Sinos</Link></li>
           </nav>
         </div>
       </div>

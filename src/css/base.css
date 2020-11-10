@@ -79,7 +79,7 @@ strong {
   @apply p-5;
   li {
     list-style-type: none;
-    margin: 0 0 0.25em;
+    margin: 0;
     padding: 0;
     text-transform: uppercase;
     a {
