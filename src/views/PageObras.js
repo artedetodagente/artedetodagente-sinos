@@ -5,7 +5,6 @@ import Page from '../views/Page'
 import CardObra from '../components/CardObra'
 
 import { ObrasContainer } from '../components/ObraStyles'
-import { DropDown } from '../components/Dropdown'
 import { DesktopFlexCol } from '../components/CommonStyles'
 
 import SimpleAccordion from '../components/Accordion'
@@ -36,28 +35,15 @@ export default function PageObras(){
 
     const [obras, setObras] = useState([])
 
-    const [compositores, setCompositores] = useState([])
-    const [compositor, setCompositor] = useState(null)
-
     const {path} = useRouteMatch()
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get('/repertorio-obras')
-            const responseCompositor = await api.get('/repertorio-autors')
             setObras(response.data.reverse())
-            setCompositores(responseCompositor.data)
         }
         fetchData()
     },[])
-
-    const selectCompositor = async (i) => {
-      setCompositor(i)
-      const compositor = compositores[i]
-      if(compositor){
-        setObras(compositor.repertorio_obras)
-      }
-    }
     
     return (
         <Switch>
@@ -83,7 +69,7 @@ export default function PageObras(){
                               
                                 return (
                                     <Link to={`/repertorio-sinos/obras/${obra.slug}`} key={i}>
-                                        <CardObra obra={obra} autors={obra.repertorio_autors} instrumentos={obra.repertorio_instrumentos}/>
+                                        <CardObra obra={obra} autors={obra.repertorio_autors} instrumentos={obra.Instrumentacao}/>
                                     </Link>
                                     )
                         })
@@ -99,22 +85,17 @@ export default function PageObras(){
     )
 }
 
-const buttonStyle={
-  fontSize: '1em',
-  textDecoration: 'none',
-  marginTop: '1vh',
-  color: 'red'
-}
 
 function Obra({ path }){
 
     const {obra_slug} = useParams()
     const [obra, setObra] = useState([])
     const [autores, setAutores] = useState([])
-    const [instrumentos, setInstrumentos] = useState([])
     const [partitura, setPartitura] = useState([])
     const [pageNumber, setPageNumber] = useState(1);
     const [numPages, setNumPages] = useState(null);
+    const [instrumentacao, setInstrumentacao] = useState([]);
+    const [geral, setGeral] = useState('')
 
     function onDocumentLoadSuccess({ numPages }) {
       setNumPages(numPages);
@@ -136,11 +117,21 @@ function Obra({ path }){
             const response = await api.get(`/repertorio-obras/${obra_slug}`)
             setObra(response.data)
             setAutores(response.data.repertorio_autors)
-            setInstrumentos(response.data.repertorio_instrumentos)
-            setPartitura(response.data.partitura.url)
+            setPartitura(response.data.geral.url)
+            setGeral(response.data.geral.url)
+            setInstrumentacao(response.data.Instrumentacao)
         };
         fetchData()
     },[obra_slug])
+
+    const handleGeral = () => {
+      if(partitura === geral) return;
+      setPartitura(geral)
+    }
+    
+    const handlePartitura = (data, e) => {
+      setPartitura(data)
+    }
 
     return (
         <div>
@@ -177,11 +168,12 @@ function Obra({ path }){
                 <div>
                   <p className="repertorio-title"><strong>Instrumentação</strong></p>
                   <div className="instrumentos-inner">
-                    
-                    {instrumentos.map((instrumento, i) => {
-                      return <span key={i} className="instrumentos">{instrumento.title}</span>
+                    <>
+                    <span className="instrumentos" onClick={()=> handleGeral()}>Geral</span>
+                    {instrumentacao.map((instrumento, i) => {
+                      return <span key={i} className="instrumentos" onClick={(e)=> handlePartitura(instrumento.partitura.url, e)} >{instrumento.title}</span>
                     })}
-                  
+                    </>
                   </div>
                 </div>
                 <div>

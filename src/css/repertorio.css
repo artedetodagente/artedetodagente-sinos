@@ -52,6 +52,18 @@
     margin-top: 1vh;
 }
 
+.instrumentos:hover {
+    cursor: pointer;
+}
+
+.instrumentos:focus {
+    background-color: black;
+}
+
+.selected {
+    background-color: black;
+}
+
 .autor-concertos, .autor-obras  {
     margin-bottom: 5vh;
 }

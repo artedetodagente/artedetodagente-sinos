@@ -8,7 +8,7 @@ export default function CardObra({ obra, autors, instrumentos }) {
             <P primary>
                 {
                     autors.map((autor, i) => {
-                        return <span> {autor.nome};</span>
+                        return <span key={i}> {autor.nome};</span>
                     })
                 }
             </P>

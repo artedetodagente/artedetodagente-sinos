@@ -5,7 +5,6 @@ import Page from '../views/Page'
 import CardConcerto from '../components/CardConcerto'
 
 import { ObrasContainer } from '../components/ObraStyles'
-import { DropDown } from '../components/Dropdown'
 import { DesktopFlexCol } from '../components/CommonStyles'
 
 import SimpleAccordion from '../components/Accordion'
@@ -31,17 +30,12 @@ export default function PageConcertos(){
 
     const [concertos, setConcertos] = useState([])
 
-    const [compositores, setCompositores] = useState([])
-    const [compositor, setCompositor] = useState(null)
-
     const {path} = useRouteMatch()
 
     useEffect(()=>{
         async function fetchData(){
             const response = await api.get('/concertos')
-            const responseCompositor = await api.get('/repertorio-autors')
             setConcertos(response.data.reverse())
-            setCompositores(responseCompositor.data)
         }
         fetchData()
     },[])
