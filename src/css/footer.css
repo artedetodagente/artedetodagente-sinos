@@ -36,12 +36,10 @@
   }
 
   .footer-2{
-    @apply flex flex-col-reverse p-8 justify-center items-center text-sm;
+    @apply flex flex-col-reverse px-8 justify-center items-center text-sm;
     background-color: #000;
     color: #fff;
-    .col {
-      @apply my-4;
-    }
+    .col {}
     @screen md {
       @apply flex-row;
       .col.copyright {
