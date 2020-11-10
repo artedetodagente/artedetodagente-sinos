@@ -107,7 +107,6 @@ function PageCursosMain({id,projeto,categorias}) {
         <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span>{projeto.title}</span>
       </div>
-      <p>&nbsp;</p>
       <DesktopFlexCol>
         <DropDown
           black

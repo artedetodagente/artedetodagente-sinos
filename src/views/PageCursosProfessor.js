@@ -42,8 +42,6 @@ export default function PageCursosProfessor({id, projeto}) {
         <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link></span>
       </div>
 
-      <p>&nbsp;</p>
-
       {professor &&
         <ProfileContainer>
           <div className="profile-main">

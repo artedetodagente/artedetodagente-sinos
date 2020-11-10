@@ -27,12 +27,15 @@ export default function Noticia(props) {
       <div className="title-1">
         <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span><Link to={`/noticias`}>Notícias</Link> &raquo;&nbsp;</span>
-        <span>{noticia.title}</span>
+        <span style={{display: 'none'}}>&nbsp;</span>
       </div>
-      {foto ? <img alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} width="50%" style={{float:'right', margin: '40px 0 40px 40px'}} /> : null}
-      <ReactMarkdown source={noticia.description} />
-      <p>&nbsp;</p>
-      {<p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>}
+      <div className="posts-view-single">
+        <h2 className="post-title">{noticia.title}</h2>
+        {foto ? <img className="post-cover" alt={noticia.title} src={`https://admin.sinos.art.br${foto.url}`} width="50%" /> : null}
+        <ReactMarkdown source={noticia.description} />
+        <p>&nbsp;</p>
+        {<p className="post-date">Publicado em {date.day} de {date.month} de {date.year}</p>}
+      </div>
     </>
   )
 }

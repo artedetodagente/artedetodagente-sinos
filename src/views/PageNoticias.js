@@ -47,7 +47,7 @@ function PageNoticiasMain ({noticias}) {
         <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span>Notícias</span>
       </div>
-      <p>&nbsp;</p>
+      
       <div className="posts-feed">
         {noticias.map((noticia,i) => {
           const date = fdate(noticia.date)

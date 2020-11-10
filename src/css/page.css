@@ -52,10 +52,7 @@
       @apply p-6 bg-white w-full;
       min-height: 80vh;
       @screen md {
-        @apply p-10;
-      }
-      @screen lg {
-        @apply p-16;
+        @apply px-10 p-8;
       }
     }
   }
@@ -63,13 +60,10 @@
 
 .page-view {
   .title-1, h3 {
-    @apply text-2xl mb-4;
+    @apply text-2xl mb-8;
     span {
-      @apply block;
+      @apply inline-block;
       color: #d4433b;
-      @screen md {
-        @apply inline-block;
-      }
       &:last-child {
         display: block;
         font-weight: 500;
@@ -78,7 +72,7 @@
     }
   }
   p {
-    @apply mb-2;
+    @apply mb-2 text-lg;
     a {
       color: var(--red);
       &:hover {
@@ -210,6 +204,26 @@
       color: #999;
     }
 
+  }
+
+  .posts-view-single {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+    
+    .post-title {
+      @apply text-4xl mb-8;
+    }
+    .post-cover {
+      margin-bottom: 40px;
+      width: 100%;
+      height: auto;
+      @screen md {
+        width: 50%;
+        float: right;
+        margin: 0 0 40px 40px;
+      }
+    }
   }
 
 }
