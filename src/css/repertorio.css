@@ -89,9 +89,10 @@
 }
 
 .instrumentos-inner {
-    font-size: 0.9rem;
-    display: flex;
-    padding: 0.2em;
+    font-size: .9rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: .2em;
 }
 
 .repertorio-video-container{
