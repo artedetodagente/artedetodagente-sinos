@@ -95,7 +95,6 @@ function Obra({ path }){
     const [pageNumber, setPageNumber] = useState(1);
     const [numPages, setNumPages] = useState(null);
     const [instrumentacao, setInstrumentacao] = useState([]);
-    const [geral, setGeral] = useState('')
 
     function onDocumentLoadSuccess({ numPages }) {
       setNumPages(numPages);
@@ -117,22 +116,19 @@ function Obra({ path }){
             const response = await api.get(`/repertorio-obras/${obra_slug}`)
             setObra(response.data)
             setAutores(response.data.repertorio_autors)
-            setPartitura(response.data.geral.url)
-            setGeral(response.data.geral.url)
+            setPartitura(response.data.Instrumentacao[0].partitura)
             setInstrumentacao(response.data.Instrumentacao)
         };
         fetchData()
     },[obra_slug])
-
-    const handleGeral = () => {
-      if(partitura === geral) return;
-      setPartitura(geral)
-    }
     
     const handlePartitura = (data, e) => {
-      setPartitura(data)
+      if(data != null) {
+        setPartitura(data)
+      }
     }
 
+    console.log(instrumentacao)
     return (
         <div>
           <div className="links">
@@ -169,9 +165,8 @@ function Obra({ path }){
                   <p className="repertorio-title"><strong>Instrumentação</strong></p>
                   <div className="instrumentos-inner">
                     <>
-                    <span className="instrumentos" onClick={()=> handleGeral()}>Geral</span>
                     {instrumentacao.map((instrumento, i) => {
-                      return <span key={i} className="instrumentos" onClick={(e)=> handlePartitura(instrumento.partitura.url, e)} >{instrumento.title}</span>
+                      return <span key={i} className="instrumentos" onClick={(e)=> handlePartitura(instrumento.partitura, e)} >{instrumento.title}</span>
                     })}
                     </>
                   </div>
@@ -184,12 +179,13 @@ function Obra({ path }){
                 </div>
             </div>
             <div className="partituras-container">
-              <Document
-                      className="pdf"
-                      error="Aguarde um momento, carregando PDF..."
-                      loading="Carregando PDF..."
-                      file={`https://admin.sinos.art.br${partitura}`}
-                      onLoadSuccess={onDocumentLoadSuccess}
+              { partitura ? 
+                <Document
+                    className="pdf"
+                    error="Aguarde um momento, carregando PDF..."
+                    loading="Carregando PDF..."
+                    file={`https://admin.sinos.art.br${partitura}`}
+                    onLoadSuccess={onDocumentLoadSuccess}
                     >
                     <Pager pageNumber={pageNumber} />
                     <div className="obra-buttons">
@@ -198,6 +194,7 @@ function Obra({ path }){
                       <button onClick={()=>nextPage()}><ArrowForwardIos/></button>            
                     </div>
                     </Document>
+              : "Não há PDF"}
                   
             </div>
           </div>
