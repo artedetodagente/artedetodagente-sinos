@@ -13,6 +13,9 @@
   
       @screen md {
         @apply ml-10;
+        nav {
+          column-count: 2;
+        }
       }
   
       h3 {

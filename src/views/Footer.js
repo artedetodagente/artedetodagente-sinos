@@ -22,11 +22,12 @@ function Footer(props) {
         <div className="footer-col">
           <h3>Institucional</h3>
           <nav>
+            <li><Link to="/programacao">Programação</Link></li>
             <li><Link to="/projeto">Projeto</Link></li>
             <li><Link to="/noticias">Notícias</Link></li>
-            <li><Link to="/programacao">Programação</Link></li>
             <li><Link to="/parceiros">Parceiros</Link></li>
             <li><Link to="/imprensa">Imprensa</Link></li>
+            <li>&nbsp;</li>
           </nav>
         </div>
         <div className="footer-col">
@@ -35,7 +36,9 @@ function Footer(props) {
             <li><Link smooth to="/#1">Pedagogia das Cordas</Link></li>
             <li><Link smooth to="/#2">Projeto Espiral</Link></li>
             <li><Link smooth to="/#3">Academia de Regência</Link></li>
-            {/* <li><Link smooth to="/#eorquestras">E-Orquestras</Link></li> */}
+            <li><Link smooth to="/#Academia-Virtual-Sinos">Academia Virtual</Link></li>
+            <li><Link smooth to="/#Repertorio-Sinos">Repertório Sinos</Link></li>
+            <li><Link smooth to="/#Concertos-Sinos">Concertos Sinos</Link></li>
           </nav>
         </div>
       </div>
