@@ -25,7 +25,7 @@ export default function Noticia(props) {
   return (
     <>
       <div className="title-1">
-        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span><Link to={`/noticias`}>Notícias</Link> &raquo;&nbsp;</span>
         <span>{noticia.title}</span>
       </div>

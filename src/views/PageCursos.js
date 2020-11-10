@@ -104,7 +104,7 @@ function PageCursosMain({id,projeto,categorias}) {
   return (
     <>
       <div className="title-1">
-        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span>{projeto.title}</span>
       </div>
       <p>&nbsp;</p>

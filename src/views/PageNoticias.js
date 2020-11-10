@@ -44,7 +44,7 @@ function PageNoticiasMain ({noticias}) {
   return(
     <>
       <div className="title-1">
-        <span><Link to={`/`}>SINOS</Link> &raquo;&nbsp;</span>
+        <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span>Notícias</span>
       </div>
       <p>&nbsp;</p>

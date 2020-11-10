@@ -66,8 +66,14 @@
     @apply text-2xl mb-4;
     span {
       @apply block;
+      color: #d4433b;
       @screen md {
         @apply inline-block;
+      }
+      &:last-child {
+        display: block;
+        font-weight: 500;
+        color: #000;
       }
     }
   }
