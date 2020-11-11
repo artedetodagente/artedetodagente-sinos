@@ -48,9 +48,10 @@ export default function PageObras(){
         <Switch>
             <Page title='Repertório Sinos' className="obra-content">
                 <Route exact path={path}>
-                  <div className="links">
-                    <Link to='/'>HOME >></Link>
-                    <Link to='/repertorio-sinos/obras'> REPERTÓRIO SINOS >> </Link>
+                  <div className="breadcrumbs">
+                    <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
+                    <span><Link to={`/repertorio-sinos`}>Repertório Sinos</Link> &raquo;&nbsp;</span>
+                    <span>Obras</span>
                   </div>
                   <DesktopFlexCol>
                   {/*<DropDown
@@ -130,10 +131,11 @@ function Obra({ path }){
     console.log(partitura)
     return (
         <div>
-          <div className="links">
-            <Link to='/'>HOME >></Link>
-            <Link to='/repertorio-sinos/obras'> OBRAS >> </Link>
-            <Link to={`${path}/${obra_slug}`} style={{textTransform: 'uppercase'}}> {obra.title} </Link>
+          <div className="breadcrumbs">
+            <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
+            <span><Link to={`/repertorio-sinos`}>Repertório Sinos</Link> &raquo;&nbsp;</span>
+            <span><Link to={`/repertorio-sinos/obras`}>Obras</Link> &raquo;&nbsp;</span>
+            <span>{obra.title}</span>
           </div>
             <div className="repertorio-container" >
                 <div className="left-container">

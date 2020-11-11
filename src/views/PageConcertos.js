@@ -43,22 +43,21 @@ export default function PageConcertos(){
         <Switch>
             <Page title='Concertos Sinos' className="obra-content">
                 <Route exact path={path}>
-                  <div className="links">
-                    <Link to='/'>HOME >></Link>
-                    <Link to='/concertos-sinos/concertos'> CONCERTOS SINOS >> </Link>
+                  <div className="breadcrumbs">
+                    <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
+                    <span>Concertos Sinos</span>
                   </div>
                   <DesktopFlexCol>
 
                   </DesktopFlexCol>
                     <ObrasContainer>
-                        {
-                            concertos.map((concerto, i)=>{
-                              
-                                return (
-                                    <Link to={`/concertos-sinos/concertos/${concerto.slug}`} key={i}>
-                                        <CardConcerto concerto={concerto}/>
-                                    </Link>
-                                    )
+                      {
+                        concertos.map((concerto, i)=>{
+                          return (
+                            <Link to={`/concertos-sinos/${concerto.slug}`} key={i}>
+                              <CardConcerto concerto={concerto}/>
+                            </Link>
+                          )
                         })
                       }
                     </ObrasContainer>
@@ -103,48 +102,47 @@ function Concerto({ path }){
 
     return (
         <div>
-          <div className="links">
-            <Link to='/'>HOME >></Link>
-            <Link to='/concertos-sinos/concertos'> CONCERTOS >> </Link>
-            <Link to={`${path}/${concerto_slug}`} style={{textTransform: 'uppercase'}}> {concerto.title} </Link>
+          <div className="breadcrumbs">
+            <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
+            <span><Link to={`/concertos-sinos`}>Concertos Sinos</Link> &raquo;&nbsp;</span>
+            <span>{concerto.title}</span>
           </div>
-            <div className="repertorio-container" >
-                <div className="left-container">
-                  <div className="repertorio-video-container">
-                    <p className="repertorio-title">
-                      {concerto.concerto_name}
-                    </p>
-                    <p className="repertorio-inner">
-                      {concerto.intro}<br/>
-                      <Link to={`/concertos-sinos/concerto/${concerto.slug}`} style={buttonStyle}>LEIA MAIS</Link>
-                    </p>
-                     
-                  </div>
-                  <div>
-                      <p className="repertorio-title">Autor(es)</p>
-                      { autores.map((autor, i)=>{
-                          return <SimpleAccordion key={i} nome={autor.nome} mini_bio={autor.mini_bio} autor_id={autor.id}/>
-                      })
-                        
-                      }
-                    </div>
+          <div className="repertorio-container" >
+            <div className="left-container">
+              <div className="repertorio-video-container">
+                <p className="repertorio-title">
+                  {concerto.concerto_name}
+                </p>
+                <p className="repertorio-inner">
+                  {concerto.intro}<br/>
+                  <Link to={`/concertos-sinos/concerto/${concerto.slug}`} style={buttonStyle}>LEIA MAIS</Link>
+                </p>
+              </div>
+              <div>
+                <p className="repertorio-title">Autor(es)</p>
+                {
+                  autores.map((autor, i)=>{
+                    return <SimpleAccordion key={i} nome={autor.nome} mini_bio={autor.mini_bio} autor_id={autor.id}/>
+                  })
+                }
+              </div>
             </div>
             <div className="partituras-container">
               <div className="aulas-view">
                 <div className="aulas-view-video">
-                    <YouEmbed url={aula.url}/>
-               </div>
-               </div>
-                <div className="aulas-select aula-box">
-                  {obras.map((aula,i)=>
-                      <AulaBox
-                        key={i}
-                        onClick={() => setAula(aula)}
-                        title={`Concerto ${i+1}`}
-                        video={obras[i].url}
-                      />
-                  )}
-                </div>       
+                  <YouEmbed url={aula.url}/>
+                </div>
+              </div>
+              <div className="aulas-select aula-box">
+                {obras.map((aula,i)=>
+                    <AulaBox
+                      key={i}
+                      onClick={() => setAula(aula)}
+                      title={`Concerto ${i+1}`}
+                      video={obras[i].url}
+                    />
+                )}
+              </div>       
             </div>
           </div>
       </div>

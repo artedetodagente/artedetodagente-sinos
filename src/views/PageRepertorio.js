@@ -29,9 +29,9 @@ function PageRepertorio({ id }){
 
     return(
         <Page title='Concertos Sinos'>
-            <div className="links">
-                <Link to='/'>HOME >></Link>
-                <Link to={path}> REPERTÓRIO SINOS >> </Link>
+            <div className="breadcrumbs">
+              <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
+              <span>Repertório Sinos</span>
             </div>
             <div style={{marginTop: '4vh'}}>
                 <ReactMarkdown source={repertorio.description} />

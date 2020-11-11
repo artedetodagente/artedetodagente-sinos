@@ -90,6 +90,18 @@ strong {
   }
 }
 
+.breadcrumbs {
+  @apply text-2xl mb-8;
+  span {
+    @apply inline-block;
+    color: #d4433b;
+    &:last-child {
+      display: block;
+      font-weight: 500;
+      color: #000;
+    }
+  }
+}
 
 .btn-red {
   @apply no-underline text-white px-4 py-2 inline-block uppercase leading-none;

@@ -38,42 +38,35 @@ export default function Autor(props){
     return(
         
         <Page title="Repertório Sinos">
-            <div className="links">
-                <Link to='/'>HOME >></Link>
-                <Link to='/repertorio-sinos'> REPERTÓRIO SINOS >> </Link>
-                <Link to={`/repertorio-sinos/autor/${autor.id}`} style={{textTransform: 'uppercase'}}> {autor.nome} </Link>
+          <div className="breadcrumbs">
+            <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
+            {/* <span><Link to={`/repertorio-sinos`}>Repertório Sinos</Link> &raquo;&nbsp;</span> */}
+            <span>{autor.nome}</span>
+          </div>
+          <div className="repertorio-container">
+            <div className="left-container">
+              <div className="image-container">
+                <img src={`https://admin.sinos.art.br${image.url}`} alt={`${image.name}`}/>
+              </div>
+              <div style={{marginTop: '5vh'}}>
+                { concertos.length && 
+                  <div className="autor-concertos">
+                      <p><strong>Concertos deste autor</strong></p>
+                      <div>
+                        {concertos.map((concerto, i)=><Link key={i} to={`/concertos-sinos/${concerto.slug}`}>{concerto.title}</Link>)}
+                      </div>
+                  </div>
+                }
+                {obras.length &&
+                  <div className="autor-obras">
+                    <p><strong>Obras deste autor</strong></p>
+                    <div>
+                      {obras.map((obra, i)=><Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`}>{obra.title}</Link>)}
+                    </div>
+                  </div>
+                }
+                  </div>
             </div>
-            <div className="repertorio-container">
-                <div className="left-container">
-                    <div className="image-container">
-                        <img src={`https://admin.sinos.art.br${image.url}`} alt={`${image.name}`}/>
-                    </div>
-                    <div style={{marginTop: '5vh'}}>
-                        {concertos.length > 0 ? 
-                            <div className="autor-concertos">
-                                <p><strong>Concertos deste autor</strong></p>
-                                <div>
-                                    {
-                                        concertos.map((concerto, i)=>{
-                                            return <Link key={i} to={`/concertos-sinos/concertos/${concerto.slug}`}>{concerto.title}</Link>
-                                        })
-                                    }
-                                </div>
-                            </div>: null}
-
-                      {obras.length > 0 ? 
-                            <div className="autor-obras">
-                                <p><strong>Obras deste autor</strong></p>
-                                <div>
-                                    {
-                                        obras.map((obra, i)=>{
-                                            return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`}>{obra.title}</Link>
-                                        })
-                                    }
-                                </div>
-                            </div>: null }
-                    </div>
-                </div>
                 <div className="partituras-container" style={{textAlign: 'left'}}>
                     <ReactMarkdown source={autor.bio}/>
                 </div>
