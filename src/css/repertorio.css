@@ -37,10 +37,14 @@
 
 .obra-buttons{
     display: flex;
+    position: fixed;
+    top: 200px;
+    right: 10px;
+    background-color: #dcdcdc;
 }
 
-.obra-buttons button, .obra-buttons>p{
-    margin-left: 1vw;
+.obra-buttons>p, .obra-buttons button {
+  padding: 4px;
 }
 
 .instrumentos-inner {
