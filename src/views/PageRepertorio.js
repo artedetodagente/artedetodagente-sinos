@@ -1,44 +1,45 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
-import {
-  useRouteMatch,
-} from "react-router-dom"
+// import { useRouteMatch } from "react-router-dom";
 
-import { HashLink as Link } from 'react-router-hash-link'
+import { HashLink as Link } from "react-router-hash-link";
 
-import Page from './Page'
-import {RedLink} from '../components/CommonStyles'
+import Page from "./Page";
+import { RedLink } from "../components/CommonStyles";
 
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 
-import api from '../services/api'
+import api from "../services/api";
 
-function PageRepertorio({ id }){
+function PageRepertorio({ id }) {
+  // const {path} = useRouteMatch()
 
-    const {path} = useRouteMatch()
+  const [repertorio, setRepertorio] = useState([]);
 
-    const [repertorio, setRepertorio] = useState([])
+  useEffect(() => {
+    async function fetchData() {
+      const response = await api.get("/repertorio-sinos");
+      setRepertorio(response.data);
+    }
+    fetchData();
+  }, []);
 
-    useEffect(()=>{
-        async function fetchData(){
-            const response = await api.get('/repertorio-sinos')
-            setRepertorio(response.data)
-        }
-        fetchData()
-    },[])
-
-    return(
-        <Page title='Concertos Sinos'>
-            <div className="breadcrumbs">
-              <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
-              <span>Repertório Sinos</span>
-            </div>
-            <div style={{marginTop: '4vh'}}>
-                <ReactMarkdown source={repertorio.description} />
-            </div>
-            <RedLink to={`/repertorio-sinos/obras`} style={{marginTop: '2vh'}}>Saiba mais</RedLink>
-        </Page>
-    )
-};
+  return (
+    <Page title="Concertos Sinos">
+      <div className="breadcrumbs">
+        <span>
+          <Link to={`/`}>Home</Link> &raquo;&nbsp;
+        </span>
+        <span>Repertório Sinos</span>
+      </div>
+      <div style={{ marginTop: "4vh" }}>
+        <ReactMarkdown source={repertorio.description} />
+      </div>
+      <RedLink to={`/repertorio-sinos/obras`} style={{ marginTop: "2vh" }}>
+        Saiba mais
+      </RedLink>
+    </Page>
+  );
+}
 
 export default PageRepertorio;

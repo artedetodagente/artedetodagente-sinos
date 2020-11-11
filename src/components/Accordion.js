@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion({ nome, mini_bio, autor_id }) {
+export default function SimpleAccordion({ title, text, link }) {
   const classes = useStyles();
 
   return (
@@ -36,12 +36,12 @@ export default function SimpleAccordion({ nome, mini_bio, autor_id }) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>{nome}</Typography>
+          <Typography className={classes.heading}>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {mini_bio}<br/>
-            <Link to={`/autor/${autor_id}`} style={buttonStyle}>LEIA MAIS</Link>
+            {text}<br/>
+            <Link to={link} style={buttonStyle}>LEIA MAIS</Link>
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -23,6 +23,7 @@ import {
 import { HashLink as Link } from 'react-router-hash-link'
 
 import api from '../services/api'
+import slugify from 'slugify'
 
 
 export default function PageConcertos(){
@@ -122,7 +123,7 @@ function Concerto({ path }){
                 <p className="repertorio-title">Autor(es)</p>
                 {
                   autores.map((autor, i)=>{
-                    return <SimpleAccordion key={i} nome={autor.nome} mini_bio={autor.mini_bio} autor_id={autor.id}/>
+                    return <SimpleAccordion key={i} title={autor.nome} text={autor.mini_bio} link={`/concertos-sinos/autor/${autor.id}/${slugify(autor.nome)}`}/>
                   })
                 }
               </div>
