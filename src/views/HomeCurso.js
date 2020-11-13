@@ -43,7 +43,7 @@ function HomeCurso(props) {
   const onSlide = (e) => selected !== null && setSelected(e.realIndex)
   const bindSwiper = (swiper) => {
     setSlideTo(() => x => swiper.slideToLoop(x))
-    setTimeout(()=>swiper.slideToLoop(Math.random()*len),1000)
+    setTimeout(()=>swiper&&swiper.slideToLoop(Math.random()*len),1000)
   }
 
   const hasnav = len > 1 ? 'block' : 'none';

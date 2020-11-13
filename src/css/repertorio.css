@@ -33,11 +33,13 @@
 .obra-buttons{
     display: flex;
     position: fixed;
-    left: 500px;
+    top: 200px;
+    right: 10px;
+    background-color: #dcdcdc;
 }
 
-.obra-buttons button, .obra-buttons>p{
-    margin-left: 1vw;
+.obra-buttons>p, .obra-buttons button {
+  padding: 4px;
 }
 
 .instrumentos-inner {
@@ -140,7 +142,7 @@
     height: 100%;
 }
 
-@media(max-width: 768px){
+@media(max-width: 1069px){
     .repertorio-container {
         flex-direction: column;
     }

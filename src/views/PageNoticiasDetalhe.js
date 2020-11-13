@@ -24,7 +24,7 @@ export default function Noticia(props) {
 
   return (
     <>
-      <div className="title-1">
+      <div className="breadcrumbs">
         <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span><Link to={`/noticias`}>Notícias</Link> &raquo;&nbsp;</span>
         <span style={{display: 'none'}}>&nbsp;</span>

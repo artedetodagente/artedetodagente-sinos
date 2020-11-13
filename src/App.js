@@ -15,9 +15,8 @@ import PageAVS from './views/PageAVS'
 import PageSandbox from './views/PageSandbox'
 import ScrollToTop from './util/ScrollToTop'
 import PageRepertorio from './views/PageRepertorio'
-import PageObras from './views/PageObras'
+import PageRepertorioObras from './views/PageRepertorioObras'
 import PageAutor from './views/PageAutor'
-import PageConcerto from './views/PageConcerto'
 import PageConcertos from './views/PageConcertos'
 
 function App() {
@@ -32,20 +31,20 @@ function App() {
           <Route path="/academia-virtual/:slug">
             <PageAVS />
           </Route>
+          <Route path="/repertorio-sinos/autor/:id">
+            <PageAutor parent={['Repertório Sinos','/repertorio-sinos']} />
+          </Route>
+          <Route path="/concertos-sinos/autor/:id">
+            <PageAutor parent={['Concertos Sinos','/concertos-sinos']} />
+          </Route>
+          <Route path="/concertos-sinos">
+            <PageConcertos />
+          </Route>
           <Route exact path="/repertorio-sinos">
             <PageRepertorio />
           </Route>
-          <Route exact path="/autor/:id">
-            <PageAutor />
-          </Route>
-          <Route exact path="/concertos-sinos/concerto/:concerto_slug">
-            <PageConcerto />
-          </Route>
-          <Route path="/concertos-sinos/concertos">
-            <PageConcertos />
-          </Route>
           <Route path="/repertorio-sinos/obras">
-            <PageObras />
+            <PageRepertorioObras />
           </Route>
           <Route path="/noticias">
             <PageNoticias />

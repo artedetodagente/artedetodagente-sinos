@@ -37,7 +37,7 @@ export default function PageCursosProfessor({id, projeto}) {
 
   return (
     <>
-      <div className="title-1">
+      <div className="breadcrumbs">
         <span><Link to={`/`}>Home</Link> &raquo;&nbsp;</span>
         <span><Link to={`/cursos/${projeto.slug}`}>{projeto.title}</Link></span>
       </div>
