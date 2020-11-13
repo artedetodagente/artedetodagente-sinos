@@ -29,14 +29,11 @@
     width: 100%;
 }
 
-.react-pdf__Page__canvas{
-    margin: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-}
 
 .obra-buttons{
     display: flex;
+    position: fixed;
+    left: 500px;
 }
 
 .obra-buttons button, .obra-buttons>p{
