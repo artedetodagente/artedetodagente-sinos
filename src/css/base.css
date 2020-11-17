@@ -75,21 +75,6 @@ strong {
   }
 }
 
-.site-menu-1 {
-  @apply p-5;
-  li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    a {
-      &:hover {
-        color: #000;
-      }
-    }
-  }
-}
-
 .breadcrumbs {
   @apply text-2xl mb-8;
   span {
