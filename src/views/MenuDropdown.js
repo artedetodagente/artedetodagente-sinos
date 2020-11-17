@@ -13,7 +13,7 @@ function MenuDropdown(props) {
         <img src="/img/icons/menu.svg" style={{width:"32px", height: "45px"}} alt="menu" />
       </div>
       <div className={`menu-content ${open ? 'is-open' : '' }`}>
-        <div onClick={() => setOpen(false)}  className="site-menu-1 bg-r">
+        <div onClick={() => setOpen(false)}  className="site-menu bg-r">
           <Menu home={home}/>
         </div>
       </div>

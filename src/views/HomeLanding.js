@@ -25,7 +25,7 @@ function HomeLanding() {
       <div className="cols">
         <div className="main">
           <div className="logo"><img src="/img/sinos-logo.svg" alt="SINOS" /></div>
-          <div className="site-menu-1 bg-r">
+          <div className="site-menu bg-r">
             <Menu />
           </div>
         </div>

@@ -14,7 +14,7 @@
   }
 }
 
-.site-menu-1 {
+.site-menu {
   @apply p-6;
   li {
     list-style-type: none;
@@ -49,11 +49,6 @@
     &.is-open {
       max-height: 500px;
     }
-    @screen md {
-      .site-menu-1 {
-        @apply pr-10;
-      }
-    }
   }
 }
 
@@ -69,6 +64,13 @@
       @apply px-6 py-1;
       @screen md {
         @apply px-10 py-3;
+      }
+    }
+    .menu-content {
+      @screen md {
+        .site-menu {
+          @apply pr-10;
+        }
       }
     }
   }
