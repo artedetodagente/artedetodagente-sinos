@@ -9,8 +9,8 @@ function Page(props) {
     <>
       <section id={props.id} className="single-page">
         <div className="header">
-          <MenuDropdown home={true}/>
           <div className="title">{props.title}</div>
+          <MenuDropdown home={true}/>
         </div>
         <div className="content-viewport">
           <div className="content">

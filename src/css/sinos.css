@@ -3,6 +3,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "base";
+@import "header";
 @import "home-landing";
 @import "home-news-agenda";
 @import "home-cursos";

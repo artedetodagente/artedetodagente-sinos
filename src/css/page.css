@@ -8,43 +8,6 @@
   /* background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/img/temp-6.jpg) no-repeat 50% 50% fixed;
   background-size: cover; */
 
-  .header {
-    @apply flex pt-8 content-center;
-    position: sticky;
-    top: 0;
-    min-width: 240px;
-    z-index: 10;
-    background: var(--red);
-    .title {
-      @apply px-2 py-3 text-2xl bg-black text-white w-full leading-tight truncate;
-      text-transform: uppercase;
-      @screen md {
-        @apply text-4xl py-1;
-      }
-    }
-    .menu-dropdown {
-      position: relative;
-      .menu-toggle {
-        @apply px-2 py-1;
-        background-color: black;
-        cursor: pointer;
-        @screen md {
-          @apply pl-8;
-        }
-      }
-      .menu-content {
-        position: absolute;
-        max-height: 0;
-        overflow: hidden;
-        width: 360px;
-        transition: max-height 0.25s;
-        &.is-open {
-          max-height: 500px;
-        }
-      }
-    }
-  }
-
   .content-viewport {
     @apply flex justify-center w-full;
     
@@ -52,7 +15,7 @@
       @apply p-6 bg-white w-full;
       min-height: 80vh;
       @screen md {
-        @apply px-10 p-8;
+        @apply p-8 px-10;
       }
     }
   }
