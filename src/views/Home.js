@@ -6,11 +6,21 @@ import HomeAVS from './HomeAVS'
 import RepertorioSinos from './HomeRepertorio'
 import ConcertosSinos from './HomeConcertos'
 // import HomeOrquestras from './HomeOrquestras'
+import MenuDropdown from './MenuDropdown'
 import Footer from './Footer'
+
+import { useScrollYPosition } from 'react-use-scroll-position'
+import useWindowSize from '../util/useWindowSize'
 
 import api from '../services/api'
 
+
+
 function Home() {
+
+  const scrollY = useScrollYPosition()
+  const size = useWindowSize()
+
   const [projetos, setProjetos] = useState([])
   const [academies, setAcademy] = useState([])
   const [repertorio, setRepertorio] = useState([])
@@ -36,6 +46,9 @@ function Home() {
 
   return (
     <div className="Home">
+      {scrollY > size.height - 300 && 
+        <div className="home-menu"><MenuDropdown /></div>
+      }
       <HomeLanding />
       <HomeNews />
       {projetos.map((data,i) =>{

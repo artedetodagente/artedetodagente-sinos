@@ -32,12 +32,11 @@
 .menu-dropdown {
   position: relative;
   .menu-toggle {
-    @apply px-6 py-1;
-    @screen md {
-      @apply px-10 py-3;
-    }
+    @apply px-6 py-3;
+    box-sizing: content-box;
     background-color: black;
     cursor: pointer;
+    width: 32px;
   }
   .menu-content {
     position: absolute;
@@ -53,6 +52,23 @@
     @screen md {
       .site-menu-1 {
         @apply pr-10;
+      }
+    }
+  }
+}
+
+.home-menu {
+  position: fixed;
+  right: 0;
+  z-index: 9999;
+}
+
+.single-page {
+  .menu-dropdown {
+    .menu-toggle {
+      @apply px-6 py-1;
+      @screen md {
+        @apply px-10 py-3;
       }
     }
   }

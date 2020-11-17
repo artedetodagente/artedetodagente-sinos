@@ -20,6 +20,7 @@
     "react-router-ga": "^1.2.3",
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.4.1",
+    "react-use-scroll-position": "^2.0.0",
     "slugify": "^1.4.5",
     "styled-components": "^5.2.0",
     "swiper": "^6.0.2",
