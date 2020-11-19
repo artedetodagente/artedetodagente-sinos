@@ -8,6 +8,7 @@
     "@react-pdf-viewer/core": "2.1.0",
     "axios": "^0.19.2",
     "history": "^5.0.0",
+    "html-react-parser": "^0.14.1",
     "js-file-download": "^0.4.12",
     "pdfjs-dist": "2.5.207",
     "ramda": "^0.27.1",
