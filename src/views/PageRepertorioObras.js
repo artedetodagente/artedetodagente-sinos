@@ -101,14 +101,19 @@ function Obra({ path }) {
     setNumPages(numPages);
   }
 
+  function scrollToPartituras(){
+    var el = document.getElementById("partituras");
+    window.scrollTo({top: el.offsetTop - 150, behavior: 'smooth'});
+  }
+
   function nextPage() {
-    window.scrollTo( window.screen.width/2, window.screen.height/2 );
+    scrollToPartituras();
     if (pageNumber === numPages) return;
     setPageNumber(pageNumber + 1);
   }
 
   function previousPage() {
-    window.scrollTo( window.screen.width/2, window.screen.height/2 );
+    scrollToPartituras();
     if (pageNumber <= 1) return;
     setPageNumber(pageNumber - 1);
   }
@@ -223,8 +228,33 @@ function Obra({ path }) {
             </p>
           </div>
         </div>
-        <div className="partituras-container">
+        <div id="partituras" className="partituras-container">
           {partitura ? (
+            <>
+            <nav className="pdf-nav">
+              <div className="pdf-nav-block">
+                <div className="obra-buttons">
+                  <button onClick={() => previousPage()}>
+                    <ArrowBackIos />
+                  </button>
+                  <div>
+                    Página {pageNumber} de {numPages}
+                  </div>
+                  <button onClick={() => nextPage()}>
+                    <ArrowForwardIos />
+                  </button>
+                </div>
+                <a
+                  download
+                  className="download-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://admin.sinos.art.br${partitura.url}`}
+                >
+                  Download da partitura
+                </a>
+              </div>
+            </nav>
             <Document
               className="pdf"
               error="Aguarde um momento, carregando PDF..."
@@ -234,27 +264,8 @@ function Obra({ path }) {
               renderMode="svg"
             >
               <Pager pageNumber={pageNumber} scale={reSize()}/>
-              <div className="obra-buttons">
-                <button onClick={() => previousPage()}>
-                  <ArrowBackIos />
-                </button>
-                <p>
-                  Página {pageNumber} de {numPages}
-                </p>
-                <button onClick={() => nextPage()}>
-                  <ArrowForwardIos />
-                </button>
-              </div>
-              <a
-                download
-                className="download-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://admin.sinos.art.br${partitura.url}`}
-              >
-                Download da partitura
-              </a>
             </Document>
+          </>
           ) : (
             "Não há PDF"
           )}
