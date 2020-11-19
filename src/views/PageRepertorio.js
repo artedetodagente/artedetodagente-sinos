@@ -9,6 +9,8 @@ import { RedLink } from "../components/CommonStyles";
 
 import ReactMarkdown from "react-markdown";
 
+import ReactHtmlParser from 'react-html-parser';
+
 import api from "../services/api";
 
 function PageRepertorio({ id }) {
@@ -33,10 +35,10 @@ function PageRepertorio({ id }) {
         <span>Repertório Sinos</span>
       </div>
       <div style={{ marginTop: "4vh" }}>
-        <ReactMarkdown source={repertorio.description} />
+        {ReactHtmlParser(repertorio.description)}
       </div>
       <RedLink to={`/repertorio-sinos/obras`} style={{ marginTop: "2vh" }}>
-        Saiba mais
+        Conheça o Repertório Sinos
       </RedLink>
     </Page>
   );

@@ -63,9 +63,9 @@ export default function HomeRepertorio({ repertorio, url }){
                         OBRAS PRESENTES
                     </div>
                         {repertorioObras.slice(0,3).map((obra,i)=>{
-                            return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`} ><CardObra obra={obra} autors={obra.repertorio_autors} instrumentos={obra.Instrumentacao}/></Link>
+                            return <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`} ><CardObra obra={obra} autors={obra.repertorio_autors} instrumentos={obra.repertorio_instrumentos}/></Link>
                         })}
-                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS </Link><ArrowForwardIosIcon/></BiggerButton>
+                    <BiggerButton> <Link to="/repertorio-sinos/obras">ACESSAR TODAS AS OBRAS </Link><ArrowForwardIosIcon fontSize="small"/></BiggerButton>
                 </div>
             </div>
     </section>

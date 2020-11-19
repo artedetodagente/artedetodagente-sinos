@@ -5,6 +5,15 @@
     margin-top: 5vh;
 }
 
+.download-btn {
+    background-color: #d4423b !important;
+    text-transform: uppercase !important;
+    color: white !important;
+    width: 100% !important;
+    height: 400px !important;
+    padding: 2em !important;
+}
+
 .video-container {
     width: 100%;
     height: 30vh;
@@ -51,7 +60,7 @@
 
 .instrumentos {
   @apply m-1 px-2 py-1 leading-tight;
-  background-color: red;
+  background-color: #d4423b;
   text-transform: uppercase;
   color: white;
 }

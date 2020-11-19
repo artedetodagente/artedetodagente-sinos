@@ -9,7 +9,7 @@ const Button = styled.button`
 const BiggerButton = styled(Button)`
     margin-top: 1vh;
     width: 100%;
-    text-align: left;
+    text-align: center;
     display: flex;
     align-items: center;
 `

@@ -15,6 +15,8 @@ import ReactPlayer from "react-player";
 
 import { Document, Page as Pager } from "react-pdf/dist/umd/entry.webpack";
 
+import fileDownload from 'js-file-download';
+
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 
 // Import the styles
@@ -70,7 +72,7 @@ export default function PageRepertorioObras() {
                   <CardObra
                     obra={obra}
                     autors={obra.repertorio_autors}
-                    instrumentos={obra.Instrumentacao}
+                    instrumentos={obra.repertorio_instrumentos}
                   />
                 </Link>
               );
@@ -130,7 +132,52 @@ function Obra({ path }) {
     }
   };
 
-  console.log(size);
+  function download_file(fileURL, fileName) {
+    // for non-IE
+    if (!window.ActiveXObject) {
+        var save = document.createElement('a');
+        save.href = fileURL;
+        save.target = '_blank';
+        var filename = fileURL.substring(fileURL.lastIndexOf('/')+1);
+        save.download = fileName || filename;
+	       if ( navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
+				document.location = save.href; 
+// window event not working here
+			}else{
+		        var evt = new MouseEvent('click', {
+		            'view': window,
+		            'bubbles': true,
+		            'cancelable': false
+		        });
+		        save.dispatchEvent(evt);
+		        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+			}	
+    }
+
+    // for IE < 11
+    else if ( !! window.ActiveXObject && document.execCommand)     {
+        var _window = window.open(fileURL, '_blank');
+        _window.document.close();
+        _window.document.execCommand('SaveAs', true, fileName || fileURL)
+        _window.close();
+    }
+  }
+
+  const reSize = () => {
+    if(size.width > 1200) {
+      return 1.5
+    } else if (size.width < 1070 && size.width > 842) {
+      return 1.3
+    } else if (size.width < 842 && size.width > 646){
+      return 1.0
+    } else if (size.width < 646 && size.width > 534) {
+      return 0.8
+    } else if (size.width < 534 && size.width > 400) {
+      return 0.6
+    } else {
+      return 0.5
+    }
+  }
 
   return (
     <div>
@@ -219,7 +266,7 @@ function Obra({ path }) {
               onLoadSuccess={onDocumentLoadSuccess}
               renderMode="svg"
             >
-              <Pager pageNumber={pageNumber} scale={size.width < 687 ? 0.5 : 1.1}/>
+              <Pager pageNumber={pageNumber} scale={reSize()}/>
               <div className="obra-buttons">
                 <button onClick={() => previousPage()}>
                   <ArrowBackIos />
@@ -231,6 +278,7 @@ function Obra({ path }) {
                   <ArrowForwardIos />
                 </button>
               </div>
+              <a className="download-btn" href={`https://admin.sinos.art.br${partitura.url}`}  download target="_blank"> Download da partitura</a>
             </Document>
           ) : (
             "Não há PDF"
