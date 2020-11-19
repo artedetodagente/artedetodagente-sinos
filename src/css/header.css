@@ -6,10 +6,10 @@
   z-index: 10;
   background: var(--red);
   .title {
-    @apply bg-black px-6 py-3 text-2xl text-white w-full leading-tight truncate;
+    @apply bg-black py-3 text-2xl text-white w-full leading-tight truncate;
     text-transform: uppercase;
     @screen md {
-      @apply text-4xl px-10;
+      @apply text-4xl;
     }
   }
 }
@@ -41,13 +41,17 @@
   .menu-content {
     position: absolute;
     max-height: 0;
-    right: 0;
-    text-align: right;
     overflow: hidden;
     width: 250px;
     transition: max-height 0.25s;
     &.is-open {
       max-height: 500px;
+    }
+  }
+  &.align-right {
+    .menu-content {
+      right: 0;
+      text-align: right;
     }
   }
 }
@@ -69,7 +73,7 @@
     .menu-content {
       @screen md {
         .site-menu {
-          @apply pr-10;
+          @apply px-10;
         }
       }
     }

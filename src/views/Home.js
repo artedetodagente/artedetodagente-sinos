@@ -47,7 +47,7 @@ function Home() {
   return (
     <div className="Home">
       {scrollY > size.height - 300 && 
-        <div className="home-menu"><MenuDropdown /></div>
+        <div className="home-menu"><MenuDropdown align="right" /></div>
       }
       <HomeLanding />
       <HomeNews />

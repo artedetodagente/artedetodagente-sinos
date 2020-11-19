@@ -8,7 +8,7 @@ function MenuDropdown(props) {
   const [open,setOpen] = useState(false)
 
   return (
-    <div className="menu-dropdown">
+    <div className={`menu-dropdown ${`align-${props.align || 'left'}`}`}>
       <div className="menu-toggle" onClick={() => setOpen(!open)}>
         <img src="/img/icons/menu.svg" style={{width:"32px", height: "45px"}} alt="menu" />
       </div>
