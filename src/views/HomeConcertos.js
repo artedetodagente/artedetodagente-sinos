@@ -56,7 +56,7 @@ export default function ConcertosSinos({ concertoSinos, url }) {
           <BiggerButton>
             {" "}
             <Link to="/concertos-sinos">ACESSAR TODOS OS CONCERTOS </Link>
-            <ArrowForwardIosIcon />
+            <ArrowForwardIosIcon  fontSize="small" />
           </BiggerButton>
         </div>
       </div>

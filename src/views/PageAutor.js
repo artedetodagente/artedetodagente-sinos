@@ -61,9 +61,11 @@ export default function Autor(props) {
                 </p>
                 <div>
                   {concertos.map((concerto, i) => (
+                    <>
                     <Link key={i} to={`/concertos-sinos/${concerto.slug}`}>
-                      {concerto.title}
-                    </Link>
+                      {concerto.concerto_name}
+                    </Link><br/> 
+                    </>
                   ))}
                 </div>
               </div>
@@ -75,9 +77,11 @@ export default function Autor(props) {
                 </p>
                 <div>
                   {obras.map((obra, i) => (
+                    <>
                     <Link key={i} to={`/repertorio-sinos/obras/${obra.slug}`}>
                       {obra.title}
-                    </Link>
+                    </Link><br/>
+                    </>
                   ))}
                 </div>
               </div>
