@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-
-// import { useRouteMatch } from "react-router-dom";
-
 import { HashLink as Link } from "react-router-hash-link";
+import ReactHtmlParser from 'react-html-parser';
 
 import Page from "./Page";
 import { RedLink } from "../components/CommonStyles";
 
-import ReactMarkdown from "react-markdown";
-
-import ReactHtmlParser from 'react-html-parser';
-
 import api from "../services/api";
 
 function PageRepertorio({ id }) {
-  // const {path} = useRouteMatch()
 
   const [repertorio, setRepertorio] = useState([]);
 

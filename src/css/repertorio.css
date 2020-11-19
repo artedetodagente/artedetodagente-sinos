@@ -6,12 +6,13 @@
 }
 
 .download-btn {
-    background-color: #d4423b !important;
+    background-color: #989898 !important;
     text-transform: uppercase !important;
-    color: white !important;
-    width: 100% !important;
-    height: 400px !important;
-    padding: 2em !important;
+    width: 180px;
+    position-background: fixed;
+    position: fixed;
+    top: 235px;
+    right: 10px;
 }
 
 .video-container {
@@ -38,17 +39,17 @@
     width: 100%;
 }
 
-
-.obra-buttons{
+.obra-buttons {
     display: flex;
     position: fixed;
     top: 200px;
     right: 10px;
     background-color: #dcdcdc;
+    width: 180px;
 }
 
-.obra-buttons>p, .obra-buttons button {
-  padding: 4px;
+.obra-buttons p {
+    width: -webkit-fill-available;
 }
 
 .instrumentos-inner {
