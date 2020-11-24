@@ -18,6 +18,7 @@ import PageRepertorio from './views/PageRepertorio'
 import PageRepertorioObras from './views/PageRepertorioObras'
 import PageAutor from './views/PageAutor'
 import PageConcertos from './views/PageConcertos'
+import PageGaleria from './views/PageGaleria'
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route path="/imprensa">
             <PageImprensa />
+          </Route>
+          <Route path="/galeria">
+            <PageGaleria />
           </Route>
           <Route path="/sandbox">
             <PageSandbox />

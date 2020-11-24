@@ -16,7 +16,7 @@ function Menu(props) {
       {/* <li><Link smooth to="/publicacoes">Publicações</Link></li> */}
       <li><Link smooth to="/noticias">Notícias</Link></li>
       <li><Link smooth to="/programacao">Programação</Link></li>
-      {/* <li><Link smooth to="/galeria">Galeria</Link></li> */}
+      <li><Link smooth to="/galeria">Galeria</Link></li>
       <li><Link smooth to="/parceiros">Parceiros</Link></li>
       <li><Link smooth to="/imprensa">Imprensa</Link></li>
     </>
