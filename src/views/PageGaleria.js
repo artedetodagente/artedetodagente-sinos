@@ -5,8 +5,6 @@ import api from '../services/api'
 import Page from './Page'
 
 import CardPhoto from '../components/CardPhoto'
-import CardTestimony from '../components/CardTestimony'
-import CardVideo from '../components/CardVideo'
 
 function PageGaleria(props) {
 
@@ -30,15 +28,7 @@ function PageGaleria(props) {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {
-            midias.map((item,i) => (
-              !!item.video_url 
-                ? <CardVideo key={i} data={item} />
-                : item.depoimento
-                  ? <CardTestimony key={i} data={item} />
-                  : <CardPhoto key={i} data={item} />
-            ))
-          }
+          {midias.map((item,i) => <CardPhoto key={i} data={item} />)}
         </Masonry>
 
       </div>
