@@ -8,6 +8,7 @@ import ConcertosSinos from './HomeConcertos'
 // import HomeOrquestras from './HomeOrquestras'
 import MenuDropdown from './MenuDropdown'
 import Footer from './Footer'
+import HomeRevista from "./HomeRevista"
 
 import { useScrollYPosition } from 'react-use-scroll-position'
 import useWindowSize from '../util/useWindowSize'
@@ -61,6 +62,7 @@ function Home() {
       }
       <RepertorioSinos repertorio={repertorio} url={coverUrl}/>
       <ConcertosSinos concertoSinos={concerto} url={concertosCover}/>
+      <HomeRevista />
       <Footer />
     </div>
   );

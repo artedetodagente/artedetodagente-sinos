@@ -19,6 +19,7 @@ import PageRepertorioObras from './views/PageRepertorioObras'
 import PageAutor from './views/PageAutor'
 import PageConcertos from './views/PageConcertos'
 import PageGaleria from './views/PageGaleria'
+import PageRevista from './views/PageRevista'
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/academia-virtual/:slug">
             <PageAVS />
+          </Route>
+          <Route path="/revista-sinos/:id">
+            <PageRevista/>
           </Route>
           <Route path="/repertorio-sinos/autor/:id">
             <PageAutor parent={['Repertório Sinos','/repertorio-sinos']} />
