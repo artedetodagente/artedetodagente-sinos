@@ -91,7 +91,7 @@ export default function PageRevista({ path }) {
   
                     <div id="partituras" className="partituras-container">
                     
-                        <nav className="pdf-nav" style={{marginLeft: '10vh'}}>
+                        <nav className="pdf-nav" style={{marginLeft: '20vh'}}>
                             <div className="pdf-nav-block">
                                 <div className="obra-buttons">
                                     <button onClick={() => previousPage()}>

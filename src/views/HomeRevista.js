@@ -24,7 +24,7 @@ export default function HomeRevista({ concertoSinos, url }) {
           <div
             className="curso-slide"
             style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://www.escolademusicadonaldo.com.br/admin/img/fotos/150178334485violoncelo_t_c.jpg)`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br/uploads/5_musicalidadefotowaldamarques_4c4f1e7fbe.jpg)`,
             }}
           />
         </SwiperSlide>
@@ -41,7 +41,7 @@ export default function HomeRevista({ concertoSinos, url }) {
         </div>
 
         <div className="col col-2">
-          <div className={`title white`}>REVISTA SINOS</div>
+          <div className={`title white`}>PUBLICAÇÕES SINOS</div>
             <Link to="/revista-sinos/1">
                 <Container>
                     <P primary>
