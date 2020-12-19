@@ -33,9 +33,9 @@ function App() {
           <Route path="/academia-virtual/:slug">
             <PageAVS />
           </Route>
-          <Route path="/revista-sinos/:id">
+          {/*<Route path="/revista-sinos/:id">
             <PageRevista/>
-          </Route>
+          </Route>*/}
           <Route path="/repertorio-sinos/autor/:id">
             <PageAutor parent={['Repertório Sinos','/repertorio-sinos']} />
           </Route>
