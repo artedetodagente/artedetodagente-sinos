@@ -33,7 +33,7 @@ export default function HomeRevista({ concertoSinos, url }) {
       <div className="curso-info">
         <div className="col col-1">
           <div className="title" style={{ backgroundColor: "rgb(139, 199, 59)" }}>
-            REVISTA SINOS
+          PUBLICAÇÕES SINOS
           </div>
           <div className="content">
             <div className="text">As Publicações SINOS abrangem diferentes produtos. São cadernos pedagógicos, apostilas e livros que abordam conteúdos especificos para apoio às aulas de música. Já a Revista SINOS é o período que promove a discussão sobre temas relevantes ligados ao mundo das orquestras e da educação musical, além de ser o veiculo para a divulgação das atividades dos projetos socias.</div>

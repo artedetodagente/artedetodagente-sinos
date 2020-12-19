@@ -104,7 +104,7 @@ export default function PageRevista({ path }) {
                                         <ArrowForwardIos />
                                     </button>
                                 </div>
-                                <a
+                                {/*<a
                                     download
                                     className="download-btn"
                                     target="_blank"
@@ -112,7 +112,7 @@ export default function PageRevista({ path }) {
                                     href={`https://admin.sinos.art.br/uploads/Revista_Sinos_completo_17_12_20_f17de997d1.pdf`}
                                 >
                                 Download do PDF
-                                </a>
+                                </a>*/}
                             </div>
                         </nav>
                     <Document
