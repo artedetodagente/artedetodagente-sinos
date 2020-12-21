@@ -28,11 +28,29 @@ import api from "../services/api";
 export default function PageRevista({ path }) {
     
     const { id } = useParams();
-    const [partitura, setPartitura] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);
     const [numPages, setNumPages] = useState(2);
+    const [publicacao, setPublicacao] = useState({});
+    const [file, setFile] = useState({});
 
-    const fileUrl = `https://admin.sinos.art.br/uploads/Revista_Sinos_completo_REVISADO_Nova_estrutura_v4_para_site_3d2d3739c4.pdf`
+    const fetchData = async () => {
+      try {
+        const response = await api.get(`/publicacao-sinos/${id}`);
+        setPublicacao(response.data);
+        setFile(response.data.file);
+
+      } catch(error) {
+
+        return error;
+      }
+       
+    }
+
+    useEffect(()=>{
+      fetchData();
+    },[id])
+
+    const fileUrl = `https://admin.sinos.art.br${file.url}`
   
     const size = useWindowSize();
   
@@ -56,12 +74,7 @@ export default function PageRevista({ path }) {
       if (pageNumber <= 1) return;
       setPageNumber(pageNumber - 1);
     }
-  
-    const handlePartitura = (data, e) => {
-      if (data != null) {
-        setPartitura(data);
-      }
-    };
+
   
     const reSize = () => {
       if(size.width > 1200) {
@@ -78,7 +91,7 @@ export default function PageRevista({ path }) {
         return 0.5
       }
     }
-  
+
     return (
         <Page title="Revista Sinos">
             <div style={{marginLeft: '10vh'}}>
@@ -89,8 +102,9 @@ export default function PageRevista({ path }) {
                     <span>Revista Sinos</span>
                 
                 </div>
-                <div className="repertorio-container">
   
+                <div className="repertorio-container" style={{marginLeft: '10vh'}}>
+
                     <div id="partituras" className="partituras-container">
                     
                         <nav className="pdf-nav" style={{marginLeft: '20vh'}}>
@@ -117,8 +131,10 @@ export default function PageRevista({ path }) {
                                 </a>
                             </div>
                         </nav>
+                      
                     <Document
                         className="pdf"
+                        style={{marginLeft: '100vh'}}
                         error="Aguarde um momento, carregando PDF..."
                         loading="Carregando PDF..."
                         file={fileUrl}

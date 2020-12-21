@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
-import api from "../services/api";
 import CardConcerto from "../components/CardConcerto";
 import { BiggerButton } from "../components/HomeRepertorioStyles";
 import { P, Container } from '../components/CardObraStyles';
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import api from '../services/api'
 
-export default function HomeRevista({ concertoSinos, url }) {
-  const revista = {
-      id: 1,
-      title: "Revista Sinos",
-      date: "18/12/2020"
+export default function HomeRevista({ publicacoes, url }) {
+
+  const [revista, setRevista] = useState({});
+  const [cover, setCover] = useState({});
+
+  const fetchData = async () => {
+    try {
+      const response = await api.get('/revista-sinos');
+      
+      setRevista(response.data);
+      setCover(response.data.cover)
+      
+    } catch (error) {
+
+      return error;
+    }
   }
+
+  useEffect(()=> {
+    fetchData();
+  },[]);
 
   return (
     <section
@@ -24,7 +39,7 @@ export default function HomeRevista({ concertoSinos, url }) {
           <div
             className="curso-slide"
             style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br/uploads/5_musicalidadefotowaldamarques_4c4f1e7fbe.jpg)`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br${cover.url})`,
             }}
           />
         </SwiperSlide>
@@ -33,25 +48,33 @@ export default function HomeRevista({ concertoSinos, url }) {
       <div className="curso-info">
         <div className="col col-1">
           <div className="title" style={{ backgroundColor: "rgb(139, 199, 59)" }}>
-          PUBLICAÇÕES SINOS
+          {revista.title}
           </div>
           <div className="content">
-            <div className="text">As Publicações SINOS abrangem diferentes produtos. São cadernos pedagógicos, apostilas e livros que abordam conteúdos especificos para apoio às aulas de música. Já a Revista SINOS é o período que promove a discussão sobre temas relevantes ligados ao mundo das orquestras e da educação musical, além de ser o veiculo para a divulgação das atividades dos projetos socias.</div>
+            <div className="text">{revista.description}</div>
           </div>
         </div>
 
         <div className="col col-2">
           <div className={`title white`}>PUBLICAÇÕES SINOS</div>
-            <Link to="/revista-sinos/1">
-                <Container>
-                    <P primary>
-                      Revista Sinos 2020
-                    </P>
-                    <P>
-                      1ª Edição
-                    </P>
-                </Container>
-            </Link>
+          {publicacoes.length > 0 ? 
+            publicacoes.map((publicacao, i)=>{
+              return (
+                <Link to={`/revista-sinos/${publicacao.id}`} key={publicacao.id}>
+                  <Container>
+                      <P primary>
+                        {publicacao.title}
+                      </P>
+                      <P>
+                        {publicacao.edition}
+                      </P>
+                  </Container>
+                </Link>
+              )
+            }) : null  
+          }
+          
+            
           {/*<BiggerButton>
             {" "}
             <Link to="/concertos-sinos">ACESSAR TODOS OS CONCERTOS </Link>
