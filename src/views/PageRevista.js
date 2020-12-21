@@ -31,6 +31,8 @@ export default function PageRevista({ path }) {
     const [partitura, setPartitura] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);
     const [numPages, setNumPages] = useState(2);
+
+    const fileUrl = `https://admin.sinos.art.br/uploads/Revista_Sinos_completo_REVISADO_Nova_estrutura_v4_para_site_3d2d3739c4.pdf`
   
     const size = useWindowSize();
   
@@ -104,22 +106,22 @@ export default function PageRevista({ path }) {
                                         <ArrowForwardIos />
                                     </button>
                                 </div>
-                                {/*<a
+                                <a
                                     download
                                     className="download-btn"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    href={`https://admin.sinos.art.br/uploads/Revista_Sinos_completo_17_12_20_f17de997d1.pdf`}
+                                    href={fileUrl}
                                 >
                                 Download do PDF
-                                </a>*/}
+                                </a>
                             </div>
                         </nav>
                     <Document
                         className="pdf"
                         error="Aguarde um momento, carregando PDF..."
                         loading="Carregando PDF..."
-                        file={`https://admin.sinos.art.br/uploads/Revista_Sinos_completo_17_12_20_f17de997d1.pdf`}
+                        file={fileUrl}
                         onLoadSuccess={onDocumentLoadSuccess}
                         renderMode="svg"
                     >
