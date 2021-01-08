@@ -5,7 +5,7 @@ import HomeCurso from './HomeCurso'
 import HomeAVS from './HomeAVS'
 import RepertorioSinos from './HomeRepertorio'
 import ConcertosSinos from './HomeConcertos'
-// import HomeOrquestras from './HomeOrquestras'
+import HomeFimuca from './HomeFimuca'
 import MenuDropdown from './MenuDropdown'
 import Footer from './Footer'
 import HomeRevista from "./HomeRevista"
@@ -64,6 +64,7 @@ function Home() {
       <RepertorioSinos repertorio={repertorio} url={coverUrl}/>
       <ConcertosSinos concertoSinos={concerto} url={concertosCover}/>
       <HomeRevista publicacoes={publicacoes}/>
+      <HomeFimuca/>
       <Footer />
     </div>
   );

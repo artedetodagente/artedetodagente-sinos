@@ -20,6 +20,7 @@ import PageAutor from './views/PageAutor'
 import PageConcertos from './views/PageConcertos'
 import PageGaleria from './views/PageGaleria'
 import PageRevista from './views/PageRevista'
+import PageFimuca from './views/PageFimuca';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         <Switch>
           <Route path="/cursos/:id">
             <PageCursos />
+          </Route>
+          <Route path="/fimuca/:slug">
+            <PageFimuca />
           </Route>
           <Route path="/academia-virtual/:slug">
             <PageAVS />

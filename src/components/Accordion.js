@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion({ title, text, link }) {
+export default function SimpleAccordion({ title, text, link, fimuca }) {
   const classes = useStyles();
 
   return (
@@ -41,7 +41,7 @@ export default function SimpleAccordion({ title, text, link }) {
         <AccordionDetails>
           <Typography>
             {text}<br/>
-            <Link to={link} style={buttonStyle}>LEIA MAIS</Link>
+            {fimuca === true? null : <Link to={link} style={buttonStyle}>LEIA MAIS</Link> }
           </Typography>
         </AccordionDetails>
       </Accordion>
