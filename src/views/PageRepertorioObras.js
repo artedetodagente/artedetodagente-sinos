@@ -11,6 +11,10 @@ import { DesktopFlexCol } from "../components/CommonStyles";
 
 import SimpleAccordion from "../components/Accordion";
 
+import { DropDown } from '../components/Dropdown'
+
+import * as R from 'ramda'
+
 import ReactPlayer from "react-player";
 
 import { Document, Page as Pager } from "react-pdf/dist/umd/entry.webpack";
@@ -28,16 +32,78 @@ import api from "../services/api";
 
 export default function PageRepertorioObras() {
   const [obras, setObras] = useState([]);
+  const [compositores, setCompositores] = useState([]);
+  const [compositor, setCompositor] = useState('');
+  const [nivel, setNivel] = useState([]);
+  const [dificuldades, setDificuldades] = useState([]);
+  const [dificuldade, setDificuldade] = useState(null);
+  const [instrumentos, setInstrumentos] = useState([]);
+  const [instrumento, setInstrumento] = useState({});
+  const [repertorioObras, setRepertorioObras] = useState([]);
 
   const { path } = useRouteMatch();
 
   useEffect(() => {
     async function fetchData() {
+      const dificuldades = [];
+      const autores = []
       const response = await api.get("/repertorio-obras");
+      const responseCompositores = await api.get("/repertorio-autors");
+      const responseInstrumentos = await api.get("/repertorio-instrumentos");
+
+      for(const item of response.data) {
+        dificuldades.push(item.dificuldade);
+        item.repertorio_autors.map(autor => autores.push(autor.nome));
+      }
+      
+      const ordered = dificuldades.sort(function(a, b) {
+        return a - b;
+      });
+
+      setCompositores(uniq(autores));
+      setDificuldades(uniq(ordered));
+      setInstrumentos(responseInstrumentos.data);
+      setRepertorioObras(response.data.reverse());
       setObras(response.data.reverse());
     }
     fetchData();
   }, []);
+
+  function uniq(a) {
+    return Array.from(new Set(a));
+  }
+  
+  const selectCompositor = (i) => {
+    let new_obras = [];
+
+    for(const obra of repertorioObras) {
+      obra.repertorio_autors.map(autor => autor.nome == compositores[i] ? new_obras.push(obra) : null );
+    }
+
+    setCompositor(compositores[i].nome);
+    setInstrumento(null);
+    setDificuldade(null);
+    setObras(new_obras);
+  }
+
+  const selectInstrumento = async (i) => {
+    let new_obras = [];
+
+    for(const obra of repertorioObras) {
+      obra.repertorio_instrumentos.map(instrumento => instrumento.title == instrumentos[i].title ? new_obras.push(obra) : null );
+    }
+    
+    setInstrumento(instrumentos[i]);
+    setCompositor(null);
+    setInstrumento(null);
+    setObras(new_obras);
+  }
+
+  const selectDificuldade = async (i) => {
+    setDificuldade(dificuldades[i]);
+    const response = await api.get(`/repertorio-obras?dificuldade_gte=${dificuldades[i]}`);
+    setObras(response.data);
+  }
 
   return (
     <Switch>
@@ -54,14 +120,31 @@ export default function PageRepertorioObras() {
             <span>Obras</span>
           </div>
           <DesktopFlexCol>
-            {/*<DropDown
+            <DropDown
                       black
                       selected={compositor}
                       placeholder={'COMPOSITOR'}
                       options={compositores.map((cat,i) => cat)}
                       onSelect={(i)=>selectCompositor(i)}
                       width="30%"
-                  />*/}
+            />
+            
+            <DropDown
+                      black
+                      selected={dificuldade}
+                      placeholder={'NÍVEL TÉCNICO'}
+                      options={dificuldades.map((cat,i) => cat)}
+                      onSelect={(i)=>selectDificuldade(i)}
+                      width="30%"
+            />
+            <DropDown
+                      black
+                      selected={instrumento}
+                      placeholder={'INSTRUMENTOS'}
+                      options={instrumentos.map((cat,i) => cat)}
+                      onSelect={(i)=>selectInstrumento(i)}
+                      width="30%"
+            />
           </DesktopFlexCol>
           <ObrasContainer>
             {obras.map((obra, i) => {
