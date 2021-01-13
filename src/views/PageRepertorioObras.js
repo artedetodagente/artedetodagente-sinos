@@ -101,7 +101,7 @@ export default function PageRepertorioObras() {
 
   const selectDificuldade = async (i) => {
     setDificuldade(dificuldades[i]);
-    const response = await api.get(`/repertorio-obras?dificuldade_gte=${dificuldades[i]}`);
+    const response = await api.get(`/repertorio-obras?dificuldade_eq=${dificuldades[i]}`);
     setObras(response.data);
   }
 
