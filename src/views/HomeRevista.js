@@ -31,7 +31,7 @@ export default function HomeRevista({ publicacoes, url }) {
 
   return (
     <section
-      id="Concertos-Sinos"
+      id="Publicacoes-Sinos"
       className={`home-curso full-section curso-${1}`}
     >
       <div className="curso-swiper">
