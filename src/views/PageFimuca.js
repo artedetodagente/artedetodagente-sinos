@@ -61,7 +61,7 @@ export default function PageFimuca(){
                           return (
                             <Link to={`/fimuca/${slug}/${obra.slug}`} key={i}>
                               <P primary>{obra.title}</P>
-                              <P>{obra.fimuca_autor.nome}</P>
+                              <P>{obra.fimuca_autors.map(autor => autor.nome)};</P>
                             </Link>
                           )
                         })
@@ -91,7 +91,7 @@ function Obra({ path }){
     const [obra, setObra] = useState([])
     const [obras, setObras] = useState([])
 
-    const [autor, setAutor] = useState([])
+    const [autors, setAutors] = useState([])
 
     const [aula, setAula] = useState([])
 
@@ -101,7 +101,7 @@ function Obra({ path }){
             setAula(response.data.obras[0])
             setObra(response.data);
             setObras(response.data.obras);
-            setAutor(response.data.fimuca_autor)
+            setAutors(response.data.fimuca_autors)
         };
         fetchData()
     },[obra_slug])
@@ -124,8 +124,14 @@ function Obra({ path }){
                 </p>
               </div>
               <div>
-                <p className="repertorio-title">Autor</p>
-                   <SimpleAccordion title={autor.nome} text={autor.mini_bio} fimuca={true}/>
+                {autors.length > 0 ? autors.map((autor, i) => {
+                  return (
+                    <>
+                      <p className="repertorio-title">Autor(es)</p>
+                      <SimpleAccordion title={autor.nome} text={autor.mini_bio} fimuca={true}/>
+                    </>
+                  )
+                }) : null}
               </div>
             </div>
             <div className="partituras-container">
