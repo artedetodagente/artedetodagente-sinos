@@ -48,7 +48,7 @@ export default function HomeRevista({ publicacoes, url }) {
       <div className="curso-info">
         <div className="col col-1">
           <div className="title" style={{ backgroundColor: "rgb(139, 199, 59)" }}>
-          {revista.title}
+          REVISTA SINOS
           </div>
           <div className="content">
             <div className="text">{revista.description}</div>
@@ -56,7 +56,7 @@ export default function HomeRevista({ publicacoes, url }) {
         </div>
 
         <div className="col col-2">
-          <div className={`title white`}>REVISTA SINOS</div>
+          <div className={`title white`}>EDIÇÕES SINOS</div>
           {publicacoes.length > 0 ? 
             publicacoes.map((publicacao, i)=>{
               return (
