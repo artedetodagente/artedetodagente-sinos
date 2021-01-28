@@ -56,7 +56,7 @@ export default function HomeRevista({ publicacoes, url }) {
         </div>
 
         <div className="col col-2">
-          <div className={`title white`}>EDIÇÕES SINOS</div>
+          <div className={`title white`}>EDIÇÕES</div>
           {publicacoes.length > 0 ? 
             publicacoes.map((publicacao, i)=>{
               return (
