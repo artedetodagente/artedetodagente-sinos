@@ -1,55 +1,36 @@
 import React, { useState, useEffect } from 'react'
-import * as R from 'ramda'
 import {
   Switch,
   Route,
   useRouteMatch
 } from "react-router-dom"
 import {fdate} from '../util'
-
 import Page from './Page'
 import api from '../services/api'
 
-const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-
 function PageAgenda() {
-  
-  let { path } = useRouteMatch()
-
-  const [current_month, setCurrentMonth] = useState()
-  const [schedules, setSchedules] = useState([])
+  const { path } = useRouteMatch()
+  const date = new Date();
+  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+  const [current, setCurrent] = useState({ 
+    month: date.getMonth(), year: date.getFullYear() 
+  })
   const [events, setEvents] = useState([])
 
-  useEffect(()=>{
-    async function fetchData(){
-      const response = await api.get('/schedules?_sort=date:ASC')
-      let schedules = response.data.map(item => new Date(item.date).getMonth())
-      setSchedules(schedules)
-      const todayMonth = new Date().getMonth()
-      setCurrentMonth(schedules.indexOf(todayMonth) !== -1 ? todayMonth : R.last(schedules))
-    }
-    fetchData()
-  },[])
-
-  useEffect(()=>{
-    async function fetchData(){
-      const response = await api.get(`/schedules?month=${months[current_month]}`)
-      setEvents(response.data[0]?.events ?? [])
-    }
-    fetchData()
-  },[current_month])
+  useEffect(() => {
+    api.get(`/events?_sort=date:ASC&schedule.month=${months[current.month]}&date_gte=${current.year}-${`0${current.month + 1}`.slice(-2)}-01&date_lt=${current.year}-${`0${current.month + 2}`.slice(-2)}-01`)
+      .then(({ data }) => setEvents(data));
+  }, [current])
 
   function nextMonth() {
-    if(nextEnabled) setCurrentMonth(schedules[index+1])
+    if(current.month + 1 > 11) setCurrent({ month: 0, year: current.year + 1 });
+    else setCurrent({ ...current, month: current.month + 1 });
   }
 
   function prevMonth() {
-    if(prevEnabled) setCurrentMonth(schedules[index-1])
+    if(current.month - 1 < 0) setCurrent({ month: 11, year: current.year - 1 });
+    else setCurrent({ ...current, month: current.month - 1 });
   }
-
-  const index = schedules.indexOf(current_month)
-  const prevEnabled = index > 0
-  const nextEnabled = index < schedules.length - 1
 
   return (
     <Page title="Programação">
@@ -59,12 +40,12 @@ function PageAgenda() {
             <nav className="agenda-nav">
               <button
                 onClick={()=>prevMonth()}
-                style={{opacity: prevEnabled ? 1 : 0.5}}
+                style={{opacity: current.month - 1 < 0 ? 1 : 0.5}}
               >◀</button>
-              <span>{months[current_month] || `...`}</span>
+              <span>{months[current.month] || `...`}</span>
               <button
                 onClick={()=>nextMonth()}
-                style={{opacity: nextEnabled ? 1 : 0.5}}
+                style={{opacity: current.month + 1 > 11 ? 1 : 0.5}}
               >▶</button>
             </nav>
             <p>&nbsp;</p>
@@ -72,7 +53,7 @@ function PageAgenda() {
             {events.map((evento,i) => {
               const date = fdate(evento.date)
               return (
-                <article key={`agenda-${current_month}-${i}`}>
+                <article key={`agenda-${current.month}-${i}`}>
                   <div className="agenda-item">
                     <div className="agenda-date">
                       <h3 style={{color: evento.projeto.color}}>{date.day}</h3>
