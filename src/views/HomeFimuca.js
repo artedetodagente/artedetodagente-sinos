@@ -26,7 +26,7 @@ export default function HomeFimuca() {
   
   return (
     <section
-      id="Concertos-Sinos"
+      id="Fimuca-Sinos"
       className={`home-curso full-section curso-${fimuca.id}`}
     >
       <div className="curso-swiper">

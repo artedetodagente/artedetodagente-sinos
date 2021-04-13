@@ -12,8 +12,8 @@ function Menu(props) {
       <li><Link smooth to="/#Academia-Virtual-Sinos">Academia Virtual Sinos</Link></li>
       <li><Link smooth to="/#Concertos-Sinos">Concertos Sinos</Link></li>
       <li><Link smooth to="/#Repertorio-Sinos">Repertório Sinos</Link></li>
-      <li><Link smooth to="/#Publicacoes-Sinos">Publicações Sinos</Link></li>
-      {/* <li><Link smooth to="/publicacoes">Publicações</Link></li> */}
+      <li><Link smooth to="/#Revista-Sinos">Revista Sinos</Link></li>
+      <li><Link smooth to="/#Fimuca-Sinos">Fimuca 2020</Link></li>
       <li><Link smooth to="/noticias">Notícias</Link></li>
       <li><Link smooth to="/programacao">Programação</Link></li>
       <li><Link smooth to="/galeria">Galeria</Link></li>

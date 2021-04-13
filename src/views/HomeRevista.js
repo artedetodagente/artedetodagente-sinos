@@ -31,7 +31,7 @@ export default function HomeRevista({ publicacoes, url }) {
 
   return (
     <section
-      id="Publicacoes-Sinos"
+      id="Revista-Sinos"
       className={`home-curso full-section curso-${1}`}
     >
       <div className="curso-swiper">
@@ -48,7 +48,7 @@ export default function HomeRevista({ publicacoes, url }) {
       <div className="curso-info">
         <div className="col col-1">
           <div className="title" style={{ backgroundColor: "rgb(139, 199, 59)" }}>
-          {revista.title}
+          REVISTA SINOS
           </div>
           <div className="content">
             <div className="text">{revista.description}</div>
@@ -56,7 +56,7 @@ export default function HomeRevista({ publicacoes, url }) {
         </div>
 
         <div className="col col-2">
-          <div className={`title white`}>PUBLICAÇÕES SINOS</div>
+          <div className={`title white`}>EDIÇÕES</div>
           {publicacoes.length > 0 ? 
             publicacoes.map((publicacao, i)=>{
               return (

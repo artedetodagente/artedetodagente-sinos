@@ -64,7 +64,7 @@ function Home() {
       <RepertorioSinos repertorio={repertorio} url={coverUrl}/>
       <ConcertosSinos concertoSinos={concerto} url={concertosCover}/>
       <HomeRevista publicacoes={publicacoes}/>
-      {/*<HomeFimuca/>*/}
+      <HomeFimuca/>
       <Footer />
     </div>
   );
