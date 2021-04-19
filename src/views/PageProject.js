@@ -29,7 +29,7 @@ function PageProject(props) {
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 25 }}>
           <div style={{ marginRight: 15 }}>
             <Button
-              text="Projeto"
+              text="Sobre o Projeto"
               click={() => setId('projeto')}
             />
           </div>
