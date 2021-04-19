@@ -21,6 +21,7 @@ import PageConcertos from './views/PageConcertos'
 import PageGaleria from './views/PageGaleria'
 import PageRevista from './views/PageRevista'
 import PageFimuca from './views/PageFimuca';
+import PageProject from './views/PageProject'
 
 function App() {
   return (
@@ -69,6 +70,9 @@ function App() {
           </Route>
           <Route path="/sandbox">
             <PageSandbox />
+          </Route>
+          <Route exact path="/projeto">
+            <PageProject />
           </Route>
           <Route exact path="/:id">
             <PageDefault />
