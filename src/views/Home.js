@@ -14,6 +14,7 @@ import { useScrollYPosition } from 'react-use-scroll-position'
 import useWindowSize from '../util/useWindowSize'
 
 import api from '../services/api'
+import FormNewsletter from '../components/FormNewsletter'
 
 function Home() {
 
@@ -53,6 +54,7 @@ function Home() {
       }
       <HomeLanding />
       <HomeNews />
+      <FormNewsletter />
       {projetos.map((data,i) =>{
         return <HomeCurso id={data.slug} key={`home-curso-${data.id}`} data={data}/>
       })}
