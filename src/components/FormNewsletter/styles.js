@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  background-color: #fff;
+  background-color: #eee;
   display: flex;
   align-items: center;
   justify-content: center;
