@@ -47,6 +47,12 @@ function Home() {
     fetchData();
   },[])
 
+  async function sendEmail(e, data) {
+    e.preventDefault();
+    const res = await api.post('/email', data);
+    console.log(res);
+  }
+
   return (
     <div className="Home">
       {scrollY > size.height - 300 && 
@@ -54,7 +60,7 @@ function Home() {
       }
       <HomeLanding />
       <HomeNews />
-      <FormNewsletter />
+      <FormNewsletter submit={sendMail} />
       {projetos.map((data,i) =>{
         return <HomeCurso id={data.slug} key={`home-curso-${data.id}`} data={data}/>
       })}

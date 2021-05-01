@@ -11,7 +11,7 @@ function Footer(props) {
           <a href="https://instagram.com/sinos.art" rel="noopener noreferrer" target="_blank" title="Instagram">
             <img width="20" src="/img/icons/instagram.svg" alt="Instagram" />
           </a>
-          <a href="https://facebook.com/SNOS.art" rel="noopener noreferrer" target="_blank" title="Facebook">
+          <a href="https://www.facebook.com/search/top?q=SINOS" rel="noopener noreferrer" target="_blank" title="Facebook">
             <img width="20" src="/img/icons/facebook.svg" alt="Facebook" />
           </a>
           <a href="https://www.youtube.com/artedetodagente" rel="noopener noreferrer" target="_blank" title="Youtube">
