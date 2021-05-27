@@ -60,7 +60,7 @@ function Home() {
       }
       <HomeLanding />
       <HomeNews />
-      <FormNewsletter submit={sendMail} />
+      <FormNewsletter submit={sendEmail} />
       {projetos.map((data,i) =>{
         return <HomeCurso id={data.slug} key={`home-curso-${data.id}`} data={data}/>
       })}
