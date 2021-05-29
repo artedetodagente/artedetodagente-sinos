@@ -40,8 +40,18 @@ export default function PageRepertorioObras() {
   const [instrumentos, setInstrumentos] = useState([]);
   const [instrumento, setInstrumento] = useState({});
   const [repertorioObras, setRepertorioObras] = useState([]);
+  const [pais, setPais] = useState();
 
+  
   const { path } = useRouteMatch();
+
+  fetch('https://geolocation-db.com/json/').then(response => {
+    return response.json();
+  }).then((res) => {
+    setPais(res?.['country_code']);
+    console.log(pais);
+  }).catch(err => console.log('Erro detectando país do ip', err))
+
 
   useEffect(() => {
     async function fetchData() {
@@ -162,14 +172,14 @@ export default function PageRepertorioObras() {
         </Route>
 
         <Route path={`${path}/:obra_slug`}>
-          <Obra path={path} />
+          <Obra path={path} pais={pais} />
         </Route>
       </Page>
     </Switch>
   );
 }
 
-function Obra({ path }) {
+function Obra({ path, pais }) {
   const { obra_slug } = useParams();
   const [obra, setObra] = useState([]);
   const [autores, setAutores] = useState([]);
@@ -177,7 +187,7 @@ function Obra({ path }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [numPages, setNumPages] = useState(null);
   const [instrumentacao, setInstrumentacao] = useState([]);
-
+  
   const size = useWindowSize();
 
   function onDocumentLoadSuccess({ numPages }) {
@@ -327,15 +337,18 @@ function Obra({ path }) {
                     <ArrowForwardIos />
                   </button>
                 </div>
-                <a
-                  download
-                  className="download-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`https://admin.sinos.art.br${partitura.url}`}
-                >
-                  Download da partitura
-                </a>
+                {
+                  (pais === 'BR')?
+                  (<a
+                    download
+                    className="download-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://admin.sinos.art.br${partitura.url}`}
+                  >
+                    Download da partitura
+                  </a>) : ''
+                }
               </div>
             </nav>
             <Document
@@ -344,6 +357,7 @@ function Obra({ path }) {
               loading="Carregando PDF..."
               file={`https://admin.sinos.art.br${partitura.url}`}
               onLoadSuccess={onDocumentLoadSuccess}
+              onContextMenu={(e) => e.preventDefault()}
               renderMode="svg"
             >
               <Pager pageNumber={pageNumber} scale={reSize()}/>
