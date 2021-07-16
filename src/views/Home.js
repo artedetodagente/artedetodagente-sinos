@@ -15,6 +15,7 @@ import useWindowSize from '../util/useWindowSize'
 
 import api from '../services/api'
 import FormNewsletter from '../components/FormNewsletter'
+import HomeFunarte from './HomeFunarte'
 
 function Home() {
 
@@ -61,6 +62,7 @@ function Home() {
       <HomeLanding />
       <HomeNews />
       <FormNewsletter submit={sendEmail} />
+      <HomeFunarte />
       {projetos.map((data,i) =>{
         return <HomeCurso id={data.slug} key={`home-curso-${data.id}`} data={data}/>
       })}
