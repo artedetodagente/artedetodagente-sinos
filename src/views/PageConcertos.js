@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 
 import Page from '../views/Page'
 
-import CardConcerto from '../components/CardConcerto'
+//import CardConcerto from '../components/CardConcerto'
 
-import { ObrasContainer } from '../components/ObraStyles'
+//import { ObrasContainer } from '../components/ObraStyles'
 import { DesktopFlexCol } from '../components/CommonStyles'
 
 import SimpleAccordion from '../components/Accordion'
@@ -12,6 +12,8 @@ import SimpleAccordion from '../components/Accordion'
 import YouEmbed from '../components/YouEmbed'
 
 import AulaBox from '../components/AulaBox'
+
+import Temporada from '../components/Temporada'
 
 import {
     useRouteMatch,
@@ -29,13 +31,23 @@ import slugify from 'slugify'
 export default function PageConcertos(){
 
     const [concertos, setConcertos] = useState([])
+    const [temporadas, setTemporadas] = useState([])
 
     const {path} = useRouteMatch()
 
     useEffect(()=>{
         async function fetchData(){
-            const response = await api.get('/concertos')
-            setConcertos(response.data.reverse())
+            const response = await api.get('/concertos');
+            const setTemp = new Set();
+            let tempo;
+            response.data.forEach(ele => {
+              tempo = ele.concerto_name.match(/(Temporada) (.*)\)/)[2]; 
+              setTemp.add(tempo);
+              ele.temporada = tempo;
+            });
+            setTemporadas(Array.from(setTemp).reverse());
+            
+            setConcertos(response.data.reverse());
         }
         fetchData()
     },[])
@@ -51,17 +63,19 @@ export default function PageConcertos(){
                   <DesktopFlexCol>
 
                   </DesktopFlexCol>
-                    <ObrasContainer>
+                    
                       {
-                        concertos.map((concerto, i)=>{
-                          return (
-                            <Link to={`/concertos-sinos/${concerto.slug}`} key={i}>
-                              <CardConcerto concerto={concerto}/>
-                            </Link>
-                          )
+                        temporadas.map((temp, i) => {
+                          return(
+                           
+                            <Temporada
+                              temporada = {temp}
+                              concertos = {concertos.filter((concerto) => concerto.temporada === temp)}
+                            />
+                            )
                         })
                       }
-                    </ObrasContainer>
+                    
                 </Route>
 
                 <Route path={`${path}/:concerto_slug`}>

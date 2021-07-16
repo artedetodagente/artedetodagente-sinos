@@ -14,3 +14,9 @@
 @import "util-slideshow";
 @import "repertorio";
 @import "galeria";
+
+@media print {
+  .pdf {
+    display: none;
+  }
+}
