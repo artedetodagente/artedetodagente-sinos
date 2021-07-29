@@ -131,12 +131,12 @@ export default function PageRepertorioObras() {
           </div>
           <DesktopFlexCol>
             <DropDown
-                      black
-                      selected={compositor}
-                      placeholder={'COMPOSITOR'}
-                      options={compositores.map((cat,i) => cat)}
-                      onSelect={(i)=>selectCompositor(i)}
-                      width="30%"
+              black
+              selected={compositor}
+              placeholder={'COMPOSITOR'}
+              options={compositores.sort().map((cat,i) => cat)}
+              onSelect={(i)=>selectCompositor(i)}
+              width="30%"
             />
             
             <DropDown
