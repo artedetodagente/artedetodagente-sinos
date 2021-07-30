@@ -9,13 +9,35 @@ function HomeFunarte() {
           <div className="title">Academia Virtual Sinos - Festival Arte de Toda Gente</div>
           <div className="content">
             <div className="text">
-              Começa no próximo dia 21 de julho, com atividades que se estenderão pelos próximos meses, o Festival Arte de Toda Gente. O Evento vai reunir dezenas de professores, especialistas e artistas das mais diversas vertentes e origens geográficas em uma série de oficinas, mostras, encontros e apresentações, ao vivo e gravadas, transmitidas gratuitamente pela internet, promovendo capacitação, acessibilidade e difusão das diversas formas de arte produzidas no país. Pela primeira vez, em um só evento, estarão combinadas, de forma complementar, atividades promovidas pelos três projetos do programa Arte de Toda Gente: Bossa Criativa, Um Novo Olhar e Sistema Nacional de Orquestras Sociais – Sinos, lançados ao longo de 2020 pela parceria entre a Fundação Nacional de Artes – Funarte e a Universidade Federal do Rio de Janeiro – UFRJ, com curadoria de sua Escola de Música.
+              O Sistema Nacional de Orquestras Sociais participa do Festival Arte de Toda Gente com a Academia Virtual Sinos, que compreende hoje duas séries de oficinas ao vivo. A primeira delas oferece a alunos e integrantes de orquestras de projetos sociais aulas ao vivo de diversos instrumentos, ministradas por professores de uma das vertentes do Sinos, o Projeto Espiral. A segunda série tem como foco os professores e instrutores dessas orquestras sociais e está a cargo da equipe de outra frente do projeto Sinos, o Curso de Pedagogia das Cordas. A participação nessas atividades é gratuita, mas é necessário  inscrever-se previamente, pois o número de vagas é limitado. Conheça a programação completa das oficinas e faça a sua inscrição.
             </div>
-            <RedLink
-              target="_blank" 
-              to={{ pathname: "https://forms.gle/nc5XE1QakNGkViEY7" }}>
-                Inscreva-se
-            </RedLink>
+            <div className="grid grid-cols-2 gap-2">
+              <RedLink
+                target="_blank" 
+                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSfDIRn5IdWeZBtqR5Hg-4pTO9bRT51niH2KNYtVh2D3RRTpdg/viewform?usp=sf_link" }}>
+                  Projeto Espiral -  Agosto 1° Semana
+              </RedLink>
+              <RedLink
+                target="_blank" 
+                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSfZwcSWvdSAMNWTM_VWmVp-UoDawbfepwFSjsZuwIf5cOOhUg/viewform?usp=sf_link" }}>
+                  Projeto Espiral - Agosto 2° Semana
+              </RedLink>
+              <RedLink
+                target="_blank" 
+                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSfQE2mxzt4cn7xtAQzNkx3lkwaKqGGJDIEc4hJsGJnskGcVxg/viewform?usp=sf_link" }}>
+                  Projeto Espiral - Agosto 3° Semana
+              </RedLink>
+              <RedLink
+                target="_blank" 
+                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSdiuvrMzQlGDukg91PypTRrcn2d_yxp1bpqoPX2osms1kjTmQ/viewform?usp=sf_link" }}>
+                  Projeto Espiral - Agosto 4° Semana
+              </RedLink>
+              <RedLink
+                target="_blank" 
+                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLScQF5PQGgxehrJjbY_mLkzvkVLP6IAiYqFJzwJHc_VHsrT14g/viewform?usp=sf_link" }}>
+                  Pedagogia das Cordas
+              </RedLink>
+            </div>
           </div>
         </div>
       </div>
