@@ -33,14 +33,10 @@ import api from "../services/api";
 export default function PageRepertorioObras() {
   const [obras, setObras] = useState([]);
   const [compositores, setCompositores] = useState([]);
-  const [compositor, setCompositor] = useState('');
-  const [nivel, setNivel] = useState([]);
   const [dificuldades, setDificuldades] = useState([]);
-  const [dificuldade, setDificuldade] = useState(null);
-  const [instrumentos, setInstrumentos] = useState([]);
-  const [instrumento, setInstrumento] = useState({});
-  const [repertorioObras, setRepertorioObras] = useState([]);
+  const [repertorios, setRepertorios] = useState([]);
   const [pais, setPais] = useState();
+  const [search, setSearch] = useState({ dificuldade: null, repertorio: null, compositor: null });
 
   
   const { path } = useRouteMatch();
@@ -59,7 +55,7 @@ export default function PageRepertorioObras() {
       const autores = []
       const response = await api.get("/repertorio-obras");
       const responseCompositores = await api.get("/repertorio-autors");
-      const responseInstrumentos = await api.get("/repertorio-instrumentos");
+      const responseRepertorios = await api.get("/repertorios");
 
       for(const item of response.data) {
         dificuldades.push(item.dificuldade);
@@ -70,49 +66,26 @@ export default function PageRepertorioObras() {
         return a - b;
       });
 
-      setCompositores(uniq(autores));
       setDificuldades(uniq(ordered));
-      setInstrumentos(responseInstrumentos.data);
-      setRepertorioObras(response.data.reverse());
+      setCompositores(responseCompositores.data);
+      setRepertorios(responseRepertorios.data);
       setObras(response.data.reverse());
     }
     fetchData();
   }, []);
+  
+  useEffect(() => {
+    if (Object.values(search).some((item) => item)) {
+      const params = [];
+      if (search.dificuldade) params.push(`dificuldade_eq=${search.dificuldade}`);
+      if (search.repertorio) params.push(`repertorio.id=${search.repertorio.id}`);
+      if (search.compositor) params.push(`repertorio_autors.id=${search.compositor.id}`);
+      api.get(`/repertorio-obras?${params.join('&')}`).then((response) => setObras(response.data.reverse()));
+    }
+  }, [search])
 
   function uniq(a) {
     return Array.from(new Set(a));
-  }
-  
-  const selectCompositor = (i) => {
-    let new_obras = [];
-
-    for(const obra of repertorioObras) {
-      obra.repertorio_autors.map(autor => autor.nome == compositores[i] ? new_obras.push(obra) : null );
-    }
-
-    setCompositor(compositores[i].nome);
-    setInstrumento(null);
-    setDificuldade(null);
-    setObras(new_obras);
-  }
-
-  const selectInstrumento = async (i) => {
-    let new_obras = [];
-
-    for(const obra of repertorioObras) {
-      obra.repertorio_instrumentos.map(instrumento => instrumento.title == instrumentos[i].title ? new_obras.push(obra) : null );
-    }
-    
-    setInstrumento(instrumentos[i]);
-    setCompositor(null);
-    setInstrumento(null);
-    setObras(new_obras);
-  }
-
-  const selectDificuldade = async (i) => {
-    setDificuldade(dificuldades[i]);
-    const response = await api.get(`/repertorio-obras?dificuldade_eq=${dificuldades[i]}`);
-    setObras(response.data);
   }
 
   return (
@@ -132,28 +105,28 @@ export default function PageRepertorioObras() {
           <DesktopFlexCol>
             <DropDown
               black
-              selected={compositor}
+              selected={search.compositor && compositores.findIndex((item) => item.id === search.compositor.id)}
               placeholder={'COMPOSITOR'}
-              options={compositores.sort().map((cat,i) => cat)}
-              onSelect={(i)=>selectCompositor(i)}
+              options={compositores.sort((a, b) => a.nome.localeCompare(b.nome)).map((cat,i) => cat)}
+              onSelect={(i) => setSearch({ ...search, compositor: compositores[i] })}
               width="30%"
             />
             
             <DropDown
-                      black
-                      selected={dificuldade}
-                      placeholder={'NÍVEL TÉCNICO'}
-                      options={dificuldades.map((cat,i) => cat)}
-                      onSelect={(i)=>selectDificuldade(i)}
-                      width="30%"
+              black
+              selected={search.dificuldade && dificuldades.findIndex((item) => item.id === search.dificuldade.id)}
+              placeholder={'NÍVEL TÉCNICO'}
+              options={dificuldades.map((cat,i) => cat)}
+              onSelect={(i) => setSearch({ ...search, dificuldade: dificuldades[i] })}
+              width="30%"
             />
             <DropDown
-                      black
-                      selected={instrumento}
-                      placeholder={'INSTRUMENTOS'}
-                      options={instrumentos.map((cat,i) => cat)}
-                      onSelect={(i)=>selectInstrumento(i)}
-                      width="30%"
+              black
+              selected={search.repertorio && repertorios.findIndex((item) => item.id === search.repertorio.id)}
+              placeholder={'Repertório'.toUpperCase()}
+              options={repertorios.sort((a, b) => a.nome.localeCompare(b.nome)).map((cat,i) => cat)}
+              onSelect={(i) => setSearch({ ...search, repertorio: repertorios[i] })}
+              width="30%"
             />
           </DesktopFlexCol>
           <ObrasContainer>
