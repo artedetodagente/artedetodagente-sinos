@@ -6,7 +6,7 @@ function FormNewsletter({ submit }) {
 
   return (
     <Container>
-      <Title>Cadastre-se para receber notícias do Um Novo Olhar</Title>
+      <Title>Cadastre-se para receber notícias do SINOS</Title>
       <Form method="post">
         <input placeholder="Digite seu email aqui" type="email" name="email" />
         <button type="button" onClick={(e) => submit(e, form)}>Cadastrar</button>
