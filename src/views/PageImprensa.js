@@ -99,7 +99,7 @@ function Clippings() {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await api.get('/clippings?_sort=date:DESC')
+      const response = await api.get('/clippings?_sort=date:DESC&_limit=-1')
       setClippings(response.data)
     }
     fetchData()
@@ -115,7 +115,6 @@ function Clippings() {
   return (
     <div className="imprensa-block">
       <div className="block-title">Clippings</div>
-      
       <div className="block-content-grid">
       {clippings && clippings.slice(start,end).map((item,i)=>{
         return (
