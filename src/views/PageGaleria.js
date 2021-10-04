@@ -12,7 +12,7 @@ function PageGaleria(props) {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await api.get(`/galerias`)
+      const response = await api.get(`/galerias?_sort=created_at:desc`)
       setMidias(response.data)
       console.log(response.data)
     }
