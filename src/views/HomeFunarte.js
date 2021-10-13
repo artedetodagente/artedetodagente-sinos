@@ -3,39 +3,32 @@ import { RedLink } from '../components/CommonStyles'
 
 function HomeFunarte() {
   return (
-    <section id="funarte" className="home-curso full-section" style={{ backgroundImage: `url(${require('../assets/images/Funarte.jpg')})`, backgroundPosition: 'right top' }}>
+    <section id="funarte" className="home-curso full-section" style={{ backgroundImage: `url(${require('../assets/images/Pedagogia-das-cordas.jpg')})`, backgroundPosition: 'right top', height: 'auto', backgroundSize: 'cover' }}>
       <div className="curso-info">
         <div className="col col-1">
-          <div className="title">Academia Virtual Sinos - Festival Arte de Toda Gente</div>
+          <div className="title">
+            Pedagogia das cordas - Módulo I
+          </div>
           <div className="content">
             <div className="text">
-              O Sistema Nacional de Orquestras Sociais participa do Festival Arte de Toda Gente com a Academia Virtual Sinos, que compreende hoje duas séries de oficinas ao vivo. A primeira delas oferece a alunos e integrantes de orquestras de projetos sociais aulas ao vivo de diversos instrumentos, ministradas por professores de uma das vertentes do Sinos, o Projeto Espiral. A segunda série tem como foco os professores e instrutores dessas orquestras sociais e está a cargo da equipe de outra frente do projeto Sinos, o Curso de Pedagogia das Cordas. A participação nessas atividades é gratuita, mas é necessário  inscrever-se previamente, pois o número de vagas é limitado. Conheça a programação completa das oficinas e faça a sua inscrição.
+              <p>
+                Convidamos a todos para o primeiro, de uma série de seis cursos, sobre o ensino coletivo de instrumentos de cordas. Nomeamos esse primeiro Curso, Pedagogia das Cordas – Módulo I.
+              </p>
+              <p>
+                Será um curso de 30h, totalmente gratuito e com certificação. Serão ao todo 8 semanas de atividades. 
+              </p>
+              <p>
+                O curso será ofertado em um formato totalmente online, com encontros para esclarecimento de dúvidas e aprofundamentos em tempo real através do software de webconferências Zoom.
+              </p>
+              <p>
+                O conteúdo visa capacitar o docente para a prática do ensino coletivo de instrumentos de cordas. Serão apresentados seus principais pontos e desafios, bem como o papel do educador, a estrutura da aula coletiva e seu planejamento. O conteúdo também trabalhará questões fundamentais de técnica e postura através de olhares para o Violoncelo, Contrabaixo, Viola e Violino.
+              </p>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <RedLink
                 target="_blank" 
-                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSfDIRn5IdWeZBtqR5Hg-4pTO9bRT51niH2KNYtVh2D3RRTpdg/viewform?usp=sf_link" }}>
-                  Projeto Espiral -  Agosto 1° Semana
-              </RedLink>
-              <RedLink
-                target="_blank" 
-                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSfZwcSWvdSAMNWTM_VWmVp-UoDawbfepwFSjsZuwIf5cOOhUg/viewform?usp=sf_link" }}>
-                  Projeto Espiral - Agosto 2° Semana
-              </RedLink>
-              <RedLink
-                target="_blank" 
-                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSfQE2mxzt4cn7xtAQzNkx3lkwaKqGGJDIEc4hJsGJnskGcVxg/viewform?usp=sf_link" }}>
-                  Projeto Espiral - Agosto 3° Semana
-              </RedLink>
-              <RedLink
-                target="_blank" 
-                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLSdiuvrMzQlGDukg91PypTRrcn2d_yxp1bpqoPX2osms1kjTmQ/viewform?usp=sf_link" }}>
-                  Projeto Espiral - Agosto 4° Semana
-              </RedLink>
-              <RedLink
-                target="_blank" 
-                to={{ pathname: "https://docs.google.com/forms/d/e/1FAIpQLScQF5PQGgxehrJjbY_mLkzvkVLP6IAiYqFJzwJHc_VHsrT14g/viewform?usp=sf_link" }}>
-                  Pedagogia das Cordas
+                to={{ pathname: "https://forms.gle/i65aV1h7dTX2XLWV6" }}>
+                  Faça sua inscrição
               </RedLink>
             </div>
           </div>
