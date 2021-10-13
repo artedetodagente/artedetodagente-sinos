@@ -3,7 +3,7 @@ import { RedLink } from '../components/CommonStyles'
 
 function HomeFunarte() {
   return (
-    <section id="funarte" className="home-curso full-section" style={{ backgroundImage: `url(${require('../assets/images/Pedagogia-das-cordas.jpg')})`, backgroundPosition: 'right top', height: 'auto', backgroundSize: 'cover' }}>
+    <section id="funarte" className="home-curso full-section" style={{ backgroundImage: `url(${require('../assets/images/Pedagogia-das-cordas.jpg')})`, backgroundPosition: 'right', height: 'auto', backgroundSize: 'cover' }}>
       <div className="curso-info">
         <div className="col col-1">
           <div className="title">
