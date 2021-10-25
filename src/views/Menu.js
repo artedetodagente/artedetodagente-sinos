@@ -10,6 +10,7 @@ function Menu(props) {
       <li><Link smooth to="/#Projeto-Espiral">Projeto Espiral</Link></li>
       <li><Link smooth to="/#Academia-de-Regencia">Academia de Regência</Link></li>
       <li><Link smooth to="/#Academia-Virtual-Sinos">Academia Virtual Sinos</Link></li>
+      <li><Link smooth to="/#Academia-de-Opera">Academia do Ópera</Link></li>
       <li><Link smooth to="/#Concertos-Sinos">Concertos Sinos</Link></li>
       <li><Link smooth to="/#Repertorio-Sinos">Repertório Sinos</Link></li>
       <li><Link smooth to="/#Revista-Sinos">Revista Sinos</Link></li>
