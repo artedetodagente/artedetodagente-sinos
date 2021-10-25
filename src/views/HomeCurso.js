@@ -73,25 +73,43 @@ function HomeCurso(props) {
           <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
           <div className="content">
             <div className="text">{data.intro}</div>
-            <RedLink to={`/cursos/${data.slug}`}>Saiba mais</RedLink>
+            {
+              data.categorias
+                .map((item) => item.cursos)
+                .reduce((acc, cur) => [ ...acc, ...cur ], [])
+                .length > 1 
+              && <RedLink to={`/cursos/${data.slug}`}>Saiba mais</RedLink>
+            }
           </div>
         </div>
         <div className="col col-2">
-          <DropDown
-            placeholder={placeholder[data.slug] || 'selecione uma categoria'}
-            selected={selected}
-            options={categorias.map((m,i)=>m)}
-            onSelect={(i)=>selectCursoFromDropdown(i)}
-          />
-          {selected !== null && current.cursos.map((curso,i)=>{
-            return(
+          {
+            data.categorias.length > 1 ? (
+              <>
+                <DropDown
+                  placeholder={placeholder[data.slug] || 'selecione uma categoria'}
+                  selected={selected}
+                  options={categorias.map((m,i)=>m)}
+                  onSelect={(i)=>selectCursoFromDropdown(i)}
+                />
+                {selected !== null && current.cursos.map((curso,i)=>{
+                  return(
+                    <AccessLink
+                      key={`curso-${i}`}
+                      url={`/cursos/${data.slug}/${curso.slug}`}
+                      title={curso.title}
+                    />
+                  )
+                })}
+              </>
+            ) : data.categorias[0].cursos.map((curso,i)=> (
               <AccessLink
                 key={`curso-${i}`}
                 url={`/cursos/${data.slug}/${curso.slug}`}
                 title={curso.title}
               />
-            )
-          })}
+            ))
+          }
         </div>
       </div>
     </section>

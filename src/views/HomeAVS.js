@@ -24,7 +24,7 @@ function HomeAVS(props) {
     <section id={academy.slug} className={`home-curso full-section curso-Academia-virtual-Sinos`}>
 
       <div className="curso-swiper">
-      <Swiper
+        <Swiper
           spaceBetween={50}
           loop={true}
           onSlideChange={onSlide}
