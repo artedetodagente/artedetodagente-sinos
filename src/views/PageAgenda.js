@@ -4,6 +4,7 @@ import {
   Route,
   useRouteMatch
 } from "react-router-dom"
+import ReactMarkdown from 'react-markdown'
 import {fdate} from '../util'
 import Page from './Page'
 import api from '../services/api'
@@ -61,7 +62,7 @@ function PageAgenda() {
                     </div>
                     <div className="agenda-content">
                       <h3 style={{color: evento.projeto.color}}>{evento.time} | {evento.title}</h3>
-                      <p>{evento.text}</p>
+                      <ReactMarkdown children={evento.text} />
                     </div>
                   </div>
                 </article>
