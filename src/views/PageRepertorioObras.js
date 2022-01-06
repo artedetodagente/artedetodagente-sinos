@@ -38,7 +38,7 @@ export default function PageRepertorioObras() {
   const [pais, setPais] = useState();
   const [search, setSearch] = useState({ dificuldade: null, repertorio: null, compositor: null });
 
-  
+
   const { path } = useRouteMatch();
 
   fetch('https://geolocation-db.com/json/').then(response => {
@@ -54,15 +54,15 @@ export default function PageRepertorioObras() {
       const dificuldades = [];
       const autores = []
       const response = await api.get("/repertorio-obras");
-      const responseCompositores = await api.get("/repertorio-autors");
+      const responseCompositores = await api.get("/repertorio-autors?repertorio_obras_null=0");
       const responseRepertorios = await api.get("/repertorios");
 
-      for(const item of response.data) {
+      for (const item of response.data) {
         dificuldades.push(item.dificuldade);
         item.repertorio_autors.map(autor => autores.push(autor.nome));
       }
-      
-      const ordered = dificuldades.sort(function(a, b) {
+
+      const ordered = dificuldades.sort(function (a, b) {
         return a - b;
       });
 
@@ -73,7 +73,7 @@ export default function PageRepertorioObras() {
     }
     fetchData();
   }, []);
-  
+
   useEffect(() => {
     if (Object.values(search).some((item) => item)) {
       const params = [];
@@ -107,16 +107,16 @@ export default function PageRepertorioObras() {
               black
               selected={search.compositor && compositores.findIndex((item) => item.id === search.compositor.id)}
               placeholder={'COMPOSITOR'}
-              options={compositores.sort((a, b) => a.nome.localeCompare(b.nome)).map((cat,i) => cat)}
+              options={compositores.sort((a, b) => a.nome.localeCompare(b.nome)).map((cat, i) => cat)}
               onSelect={(i) => setSearch({ ...search, compositor: compositores[i] })}
               width="30%"
             />
-            
+
             <DropDown
               black
               selected={search.dificuldade && dificuldades.findIndex((item) => item.id === search.dificuldade.id)}
               placeholder={'NÍVEL TÉCNICO'}
-              options={dificuldades.map((cat,i) => cat)}
+              options={dificuldades.map((cat, i) => cat)}
               onSelect={(i) => setSearch({ ...search, dificuldade: dificuldades[i] })}
               width="30%"
             />
@@ -124,7 +124,7 @@ export default function PageRepertorioObras() {
               black
               selected={search.repertorio && repertorios.findIndex((item) => item.id === search.repertorio.id)}
               placeholder={'Repertório'.toUpperCase()}
-              options={repertorios.sort((a, b) => a.nome.localeCompare(b.nome)).map((cat,i) => cat)}
+              options={repertorios.sort((a, b) => a.nome.localeCompare(b.nome)).map((cat, i) => cat)}
               onSelect={(i) => setSearch({ ...search, repertorio: repertorios[i] })}
               width="30%"
             />
@@ -160,16 +160,16 @@ function Obra({ path, pais }) {
   const [pageNumber, setPageNumber] = useState(1);
   const [numPages, setNumPages] = useState(null);
   const [instrumentacao, setInstrumentacao] = useState([]);
-  
+
   const size = useWindowSize();
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
 
-  function scrollToPartituras(){
+  function scrollToPartituras() {
     var el = document.getElementById("partituras");
-    window.scrollTo({top: el.offsetTop - 150, behavior: 'smooth'});
+    window.scrollTo({ top: el.offsetTop - 150, behavior: 'smooth' });
   }
 
   function nextPage() {
@@ -202,11 +202,11 @@ function Obra({ path, pais }) {
   };
 
   const reSize = () => {
-    if(size.width > 1200) {
+    if (size.width > 1200) {
       return 1.5
     } else if (size.width < 1070 && size.width > 842) {
       return 1.3
-    } else if (size.width < 842 && size.width > 646){
+    } else if (size.width < 842 && size.width > 646) {
       return 1.0
     } else if (size.width < 646 && size.width > 534) {
       return 0.8
@@ -297,45 +297,45 @@ function Obra({ path, pais }) {
         <div id="partituras" className="partituras-container">
           {partitura ? (
             <>
-            <nav className="pdf-nav">
-              <div className="pdf-nav-block">
-                <div className="obra-buttons">
-                  <button onClick={() => previousPage()}>
-                    <ArrowBackIos />
-                  </button>
-                  <div>
-                    Página {pageNumber} de {numPages}
+              <nav className="pdf-nav">
+                <div className="pdf-nav-block">
+                  <div className="obra-buttons">
+                    <button onClick={() => previousPage()}>
+                      <ArrowBackIos />
+                    </button>
+                    <div>
+                      Página {pageNumber} de {numPages}
+                    </div>
+                    <button onClick={() => nextPage()}>
+                      <ArrowForwardIos />
+                    </button>
                   </div>
-                  <button onClick={() => nextPage()}>
-                    <ArrowForwardIos />
-                  </button>
+                  {
+                    (pais === 'BR') ?
+                      (<a
+                        download
+                        className="download-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={`https://admin.sinos.art.br${partitura.url}`}
+                      >
+                        Download da partitura
+                      </a>) : ''
+                  }
                 </div>
-                {
-                  (pais === 'BR')?
-                  (<a
-                    download
-                    className="download-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`https://admin.sinos.art.br${partitura.url}`}
-                  >
-                    Download da partitura
-                  </a>) : ''
-                }
-              </div>
-            </nav>
-            <Document
-              className="pdf"
-              error="Aguarde um momento, carregando PDF..."
-              loading="Carregando PDF..."
-              file={`https://admin.sinos.art.br${partitura.url}`}
-              onLoadSuccess={onDocumentLoadSuccess}
-              onContextMenu={(e) => e.preventDefault()}
-              renderMode="svg"
-            >
-              <Pager pageNumber={pageNumber} scale={reSize()}/>
-            </Document>
-          </>
+              </nav>
+              <Document
+                className="pdf"
+                error="Aguarde um momento, carregando PDF..."
+                loading="Carregando PDF..."
+                file={`https://admin.sinos.art.br${partitura.url}`}
+                onLoadSuccess={onDocumentLoadSuccess}
+                onContextMenu={(e) => e.preventDefault()}
+                renderMode="svg"
+              >
+                <Pager pageNumber={pageNumber} scale={reSize()} />
+              </Document>
+            </>
           ) : (
             "Não há PDF"
           )}
@@ -362,13 +362,13 @@ function useWindowSize() {
         height: window.innerHeight,
       });
     }
-    
+
     // Add event listener
     window.addEventListener("resize", handleResize);
-    
+
     // Call handler right away so state gets updated with initial window size
     handleResize();
-    
+
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
