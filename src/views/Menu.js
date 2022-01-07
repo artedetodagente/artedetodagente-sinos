@@ -13,13 +13,14 @@ function Menu(props) {
       <li><Link smooth to="/#Academia-de-Opera">Academia de Ópera</Link></li>
       <li><Link smooth to="/#Concertos-Sinos">Concertos Sinos</Link></li>
       <li><Link smooth to="/#Repertorio-Sinos">Repertório Sinos</Link></li>
+      <li><a href="https://caravana.sinos.art.br">Caravana Sinos</a></li>
       <li><Link smooth to="/#Revista-Sinos">Revista Sinos</Link></li>
       <li><Link smooth to="/#Fimuca-Sinos">Fimuca 2020</Link></li>
-      <li><Link smooth to="/noticias">Notícias</Link></li>
-      <li><Link smooth to="/programacao">Programação</Link></li>
-      <li><Link smooth to="/galeria">Galeria</Link></li>
-      <li><Link smooth to="/parceiros">Parceiros</Link></li>
-      <li><Link smooth to="/imprensa">Imprensa</Link></li>
+      <li><Link to="/noticias">Notícias</Link></li>
+      <li><Link to="/programacao">Programação</Link></li>
+      <li><Link to="/galeria">Galeria</Link></li>
+      <li><Link to="/parceiros">Parceiros</Link></li>
+      <li><Link to="/imprensa">Imprensa</Link></li>
     </>
   );
 }
