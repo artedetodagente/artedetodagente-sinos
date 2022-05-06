@@ -20,7 +20,7 @@ function PageRepertorio({ id }) {
   }, []);
 
   return (
-    <Page title="Concertos Sinos">
+    <Page title="Repertório Sinos">
       <div className="breadcrumbs">
         <span>
           <Link to={`/`}>Home</Link> &raquo;&nbsp;

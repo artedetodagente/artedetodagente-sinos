@@ -104,6 +104,7 @@ function Concerto({ path }) {
   const [autores, setAutores] = useState([])
 
   const [aula, setAula] = useState([])
+  const [more, setMore] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
@@ -130,8 +131,8 @@ function Concerto({ path }) {
               {concerto.concerto_name}
             </p>
             <p className="repertorio-inner">
-              {concerto.intro}<br />
-              <Link to={`/concertos-sinos/concerto/${concerto.slug}`} style={buttonStyle}>LEIA MAIS</Link>
+              {!more ? concerto.intro : concerto.text}<br />
+              <Link to={`/concertos-sinos/concerto/${concerto.slug}`} style={buttonStyle} onClick={() => setMore(!more)}>LEIA {!more ? 'MAIS' : 'MENOS'}</Link>
             </p>
           </div>
           <div>

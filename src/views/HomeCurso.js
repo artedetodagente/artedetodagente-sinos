@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react'
-import {DropDown} from '../components/Dropdown'
-import {RedLink,AccessLink} from '../components/CommonStyles'
+import { DropDown } from '../components/Dropdown'
+import { RedLink, AccessLink } from '../components/CommonStyles'
 
 import * as R from 'ramda'
 
@@ -10,11 +10,11 @@ function HomeCurso(props) {
 
   const history = useHistory()
 
-  const {data, id} = props
+  const { data, id } = props
 
   const categorias = R.sortBy(R.prop('order'), data.categorias)
 
-  const [selected,setSelected] = useState(null)
+  const [selected, setSelected] = useState(null)
   const [slideTo, setSlideTo] = useState(null)
 
   const len = categorias.length
@@ -43,7 +43,7 @@ function HomeCurso(props) {
   const onSlide = (e) => selected !== null && setSelected(e.realIndex)
   const bindSwiper = (swiper) => {
     setSlideTo(() => x => swiper.slideToLoop(x))
-    setTimeout(()=>swiper&&swiper.slideToLoop(Math.random()*len),1000)
+    setTimeout(() => swiper && swiper.slideToLoop(Math.random() * len), 1000)
   }
 
   const hasnav = len > 1 ? 'block' : 'none';
@@ -57,28 +57,28 @@ function HomeCurso(props) {
           onSlideChange={onSlide}
           onSwiper={bindSwiper}
         >
-          {categorias.map((m,i)=>{
+          {categorias.map((m, i) => {
             return (
               <SwiperSlide key={`${data.id}-slide-${i}`}>
-                <div className="curso-slide" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br${m.image.url})`}}/>
+                <div className="curso-slide" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(https://admin.sinos.art.br${m.image.url})` }} />
               </SwiperSlide>
             )
           })}
         </Swiper>
-        <div className="swiper-nav prev" style={{display: hasnav}} onClick={()=>selectCurso(prev)}>&laquo; {categorias[prev].title}</div>
-        <div className="swiper-nav next" style={{display: hasnav}} onClick={()=>selectCurso(next)}>{categorias[next].title} &raquo;</div>
+        <div className="swiper-nav prev" style={{ display: hasnav }} onClick={() => selectCurso(prev)}>&laquo; {categorias[prev].title}</div>
+        <div className="swiper-nav next" style={{ display: hasnav }} onClick={() => selectCurso(next)}>{categorias[next].title} &raquo;</div>
       </div>
       <div className="curso-info">
         <div className="col col-1">
-          <div className="title" style={{backgroundColor: data.color}}>{data.title}</div>
+          <div className="title" style={{ backgroundColor: data.color }}>{data.title}</div>
           <div className="content">
             <div className="text">{data.intro}</div>
             {
               data.categorias
                 .map((item) => item.cursos)
-                .reduce((acc, cur) => [ ...acc, ...cur ], [])
-                .length > 1 
-              && <RedLink to={`/cursos/${data.slug}`}>Saiba mais</RedLink>
+                .reduce((acc, cur) => [...acc, ...cur], [])
+                .length > 1
+              && <RedLink to={`/cursos/${data.slug}`}>Acessar</RedLink>
             }
           </div>
         </div>
@@ -89,11 +89,11 @@ function HomeCurso(props) {
                 <DropDown
                   placeholder={placeholder[data.slug] || 'selecione uma categoria'}
                   selected={selected}
-                  options={categorias.map((m,i)=>m)}
-                  onSelect={(i)=>selectCursoFromDropdown(i)}
+                  options={categorias.map((m, i) => m)}
+                  onSelect={(i) => selectCursoFromDropdown(i)}
                 />
-                {selected !== null && current.cursos.map((curso,i)=>{
-                  return(
+                {selected !== null && current.cursos.map((curso, i) => {
+                  return (
                     <AccessLink
                       key={`curso-${i}`}
                       url={`/cursos/${data.slug}/${curso.slug}`}
@@ -102,7 +102,7 @@ function HomeCurso(props) {
                   )
                 })}
               </>
-            ) : data.categorias[0].cursos.map((curso,i)=> (
+            ) : data.categorias[0].cursos.map((curso, i) => (
               <AccessLink
                 key={`curso-${i}`}
                 url={`/cursos/${data.slug}/${curso.slug}`}
